@@ -23,16 +23,14 @@ body{
     align-items: center;
     flex-direction: column;
 
-    padding: 20px;
+    padding: 10px;
 
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px;
     
     box-shadow: 5px 10px black;
 
     /*only takes 25% of the page size*/
-    max-width: 20%;
-    max-height: 10%;
+    max-width: 25%;
 
     border-radius: 25px;
     border: 5px solid black;
@@ -106,7 +104,7 @@ img{
 }
 
 .details,.vl,.bText,.content,#upArrow{
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
     opacity: 0;
     display: none;
 }
@@ -118,6 +116,10 @@ img{
 
 .transform-active{
     transform: rotate(180deg);
+}
+
+.transform-active-another{
+    transform: rotate(360deg);
 }
     
 

@@ -1,7 +1,7 @@
 var newDoc = document.getElementById('plus');
 
 $("#plus").click(function(){
-    $('.transform').toggleClass('transform-active');
+    $('.transform').toggleClass('transform-active-another');
 });
 
 var details = document.getElementsByClassName('details')[0];
@@ -32,25 +32,31 @@ function setOpacity(){
     newDoc.style.opacity = "1.0";
 }
 
-function resetMany(){
+function setDisplayTime(){
     details.style.display = 'none';
     vl.style.display = 'none';
     content.style.display = 'none';
     bText.style.display = 'none';
     upArrow.style.display = 'none';
     newDoc.style.display = 'flex';
+}
 
+function resetMany(){
     details.style.opacity = "0";
     vl.style.opacity = "0"; 
     bText.style.opacity = "0";
     content.style.opacity = "0";
     upArrow.style.opacity = "0";
+
+    setTimeout(function(){
+        setDisplayTime();
+    }, 800)
 }
 
 function reset(){
-    setTimeout(resetMany(),1000);
+    resetMany();
 }
 
 function triggerDisplay(){
-    setTimeout(displayMany(),3000);
+    displayMany();
 }

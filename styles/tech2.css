@@ -1,0 +1,39 @@
+.banner{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+}
+
+.bannerHeadText>h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 5em;
+
+    color: aquamarine;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    word-wrap:break-word;
+}
+
+.bannerVideo{
+    width: 100%;
+}
+
+/* .cardHolder */
+
+.eventType{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    width: 100%;
+}
+
+.cardHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
