@@ -8,7 +8,7 @@ body{
     width: 100%;
 }
 
-.btext{
+.bText{
     text-align: center;
     margin: 25px;
 }
@@ -110,3 +110,14 @@ img{
     opacity: 0;
     display: none;
 }
+
+/*for plus animation*/
+.transform { 
+    transition: all 0.8s;
+}
+
+.transform-active{
+    transform: rotate(180deg);
+}
+    
+
