@@ -6,6 +6,7 @@
 
 body{
     width: 100%;
+    height: auto;
 }
 
 .bText{
@@ -30,10 +31,17 @@ body{
     box-shadow: 5px 10px black;
 
     /*only takes 25% of the page size*/
-    max-width: 25%;
+    max-width: 50%;
 
     border-radius: 25px;
     border: 5px solid black;
+}
+
+@media only screen and (max-width: 700px) {
+    .card{
+      max-width: auto;
+      /* background-color: tomato; */
+    }
 }
 
 .content{
@@ -56,7 +64,7 @@ body{
 }
 
 .icon{
-    height: 50%;
+    height: 30%;
     display: flex;
     justify-content: center;
 }
@@ -121,5 +129,3 @@ img{
 .transform-active-another{
     transform: rotate(360deg);
 }
-    
-

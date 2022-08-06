@@ -1,16 +1,38 @@
-var newDoc = document.getElementById('plus');
-
-$("#plus").click(function(){
+$(".plus").click(function(){
     $('.transform').toggleClass('transform-active-another');
 });
 
-var details = document.getElementsByClassName('details')[0];
-var vl = document.getElementsByClassName('vl')[0];
-var bText = document.getElementsByClassName('bText')[0];
-var content = document.getElementsByClassName('content')[0];
-var upArrow = document.getElementById('upArrow');
+var myIndex = 0;
 
-function displayMany(){
+function reset(index){
+    myIndex = index;
+
+    resetMany(myIndex);
+}
+
+function triggerDisplay(index){
+    myIndex = index;
+
+    displayMany(myIndex);
+}
+
+// var newDoc = document.getElementsByClassName('plus')[0];
+// var details = document.getElementsByClassName('details')[0];
+// var vl = document.getElementsByClassName('vl')[0];
+// var bText = document.getElementsByClassName('bText')[0];
+// var content = document.getElementsByClassName('content')[0];
+// var upArrow = document.getElementsByClassName('upArrow')[0];
+
+function displayMany(myIndex){
+
+    var newDoc = document.getElementsByClassName('plus')[myIndex];
+    var details = document.getElementsByClassName('details')[myIndex];
+    var vl = document.getElementsByClassName('vl')[myIndex];
+    var bText = document.getElementsByClassName('bText')[myIndex];
+    var content = document.getElementsByClassName('content')[myIndex];
+    var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+
+
     details.style.display = 'flex';
     vl.style.display = 'flex';
     bText.style.display = 'block';
@@ -19,11 +41,20 @@ function displayMany(){
     newDoc.style.display = 'none';
     
     setTimeout(function(){
-        setOpacity();
+        setOpacity(myIndex);
     }, 800)
 }    
 
-function setOpacity(){
+function setOpacity(myIndex){
+
+    var newDoc = document.getElementsByClassName('plus')[myIndex];
+    var details = document.getElementsByClassName('details')[myIndex];
+    var vl = document.getElementsByClassName('vl')[myIndex];
+    var bText = document.getElementsByClassName('bText')[myIndex];
+    var content = document.getElementsByClassName('content')[myIndex];
+    var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+
+
     details.style.opacity = "1.0";
     vl.style.opacity = "1.0"; 
     content.style.opacity = "1.0";
@@ -32,7 +63,16 @@ function setOpacity(){
     newDoc.style.opacity = "1.0";
 }
 
-function setDisplayTime(){
+function setDisplayTime(myIndex){
+
+    var newDoc = document.getElementsByClassName('plus')[myIndex];
+    var details = document.getElementsByClassName('details')[myIndex];
+    var vl = document.getElementsByClassName('vl')[myIndex];
+    var bText = document.getElementsByClassName('bText')[myIndex];
+    var content = document.getElementsByClassName('content')[myIndex];
+    var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+
+
     details.style.display = 'none';
     vl.style.display = 'none';
     content.style.display = 'none';
@@ -41,7 +81,15 @@ function setDisplayTime(){
     newDoc.style.display = 'flex';
 }
 
-function resetMany(){
+function resetMany(myIndex){
+
+    var newDoc = document.getElementsByClassName('plus')[myIndex];
+    var details = document.getElementsByClassName('details')[myIndex];
+    var vl = document.getElementsByClassName('vl')[myIndex];
+    var bText = document.getElementsByClassName('bText')[myIndex];
+    var content = document.getElementsByClassName('content')[myIndex];
+    var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+
     details.style.opacity = "0";
     vl.style.opacity = "0"; 
     bText.style.opacity = "0";
@@ -49,14 +97,6 @@ function resetMany(){
     upArrow.style.opacity = "0";
 
     setTimeout(function(){
-        setDisplayTime();
+        setDisplayTime(myIndex);
     }, 800)
-}
-
-function reset(){
-    resetMany();
-}
-
-function triggerDisplay(){
-    displayMany();
 }
