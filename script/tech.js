@@ -100,3 +100,28 @@ function resetMany(myIndex){
         setDisplayTime(myIndex);
     }, 800)
 }
+
+
+var sympo = document.getElementsByClassName('sympo')[0];
+var tech = document.getElementsByClassName('tech')[0];
+var ntech = document.getElementsByClassName('ntech')[0];
+
+//This is for the banner text
+function sympoClick(){
+    sympo.style.display = 'flex';
+    tech.style.display = 'none';
+    ntech.style.display = 'none';
+}
+
+function techClick(){
+    sympo.style.display = 'none';
+    tech.style.display = 'flex';
+    ntech.style.display = 'none';
+}
+
+function ntechClick(){
+    sympo.style.display = 'none';
+    tech.style.display = 'none';
+    ntech.style.display = 'flex';
+}
+
