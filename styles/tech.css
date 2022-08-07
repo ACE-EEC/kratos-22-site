@@ -7,6 +7,8 @@
 body{
     width: 100%;
     height: auto;
+    /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
+    background: linear-gradient(#FF9A8B,#FF6A88,#FF99AC);
 }
 
 .bText{
@@ -31,7 +33,7 @@ body{
     box-shadow: 5px 10px black;
 
     /*only takes 25% of the page size*/
-    max-width: 50%;
+    max-width: auto;
 
     border-radius: 25px;
     border: 5px solid black;
@@ -69,7 +71,7 @@ body{
     justify-content: center;
 }
 
-img{
+.icon>img{
     max-width:50%;
     max-height:50%;
     object-fit: contain;
@@ -91,6 +93,7 @@ img{
 #plus,.eventName{
     margin: 30px;
     transition: all 0.8s ease;
+    cursor: pointer;
 }
 
 .details{

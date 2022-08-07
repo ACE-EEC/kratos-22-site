@@ -1,6 +1,7 @@
 .banner{
     box-sizing: border-box;
     width: 100%;
+    padding: 50px;
 }
 
 .bannerHeadText>h1{
@@ -17,8 +18,9 @@
 }
 
 .bannerVideo{
-    position: relative;
+    /* position: relative; */
     width: 100%;
+    border-radius: 10px;
 }
 
 /* .cardHolder */
@@ -51,8 +53,8 @@
     width: 100%;
     height: 20%;
 
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     
     padding: 30px;
 }
@@ -87,14 +89,60 @@
     font-weight: 700;
 }
 
-@media screen and (max-width: 700px) {
+/*mobile Large*/
+@media screen and (max-width: 500px) {
 
     .titleBlock>h1{
-        top: 14%;
+        top: 50%;
     }
 
     .sympo,.tech,.ntech{
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+    }
+
+    .banner{
+        padding: 10px;
     }
 }
 
+@media screen and (max-width: 375px){
+    
+    .titleBlock>h1{
+        top: 45%;
+    }
+
+    .sympo,.tech,.ntech{
+        font-size: 1.5rem;
+    }
+
+    .banner{
+        padding: 10px;
+    }
+
+}
+
+/*Header*/
+.head{
+    display: flex;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    padding: 50px;
+
+    width: 100%;    
+}
+
+.headLogo{
+    width: 100px; 
+    height: 100px; 
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.headLogo>img{
+    max-width: 100%;
+}
+
+.navbar{
+    display: flex;
+}
