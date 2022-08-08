@@ -106,6 +106,21 @@ var sympo = document.getElementsByClassName('sympo')[0];
 var tech = document.getElementsByClassName('tech')[0];
 var ntech = document.getElementsByClassName('ntech')[0];
 
+$("#link1").on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop:$('#techCardHolder').position().top},'slow');
+});
+
+$("#link2").on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop:$('#workshopCardHolder').position().top},'slow');
+});
+
+$("#link3").on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop:$('#ntechCardHolder').position().top},'slow');
+});
+
 //This is for the banner text
 function sympoClick(){
     // sympo.style.display = 'flex';
@@ -121,6 +136,9 @@ function techClick(){
     // tech.style.display = 'flex';
     // ntech.style.display = 'none';
 
+    //important Scroll Top
+    // document.documentElement.scrollTop = document.getElementById('techCardHolder').offsetTop;
+
     //cardholder display
     displaytech();
 }
@@ -129,6 +147,7 @@ function ntechClick(){
     // sympo.style.display = 'none';
     // tech.style.display = 'none';
     // ntech.style.display = 'flex';
+
 
     //cardholder display
     displayntech();
