@@ -144,5 +144,14 @@
 }
 
 .navbar{
-    display: flex;
+    width: auto;
+}
+
+
+#ntechCardHolder{
+    display: none;
+}
+
+#techCardHolder{
+    display: none;
 }

@@ -108,20 +108,51 @@ var ntech = document.getElementsByClassName('ntech')[0];
 
 //This is for the banner text
 function sympoClick(){
-    sympo.style.display = 'flex';
-    tech.style.display = 'none';
-    ntech.style.display = 'none';
+    // sympo.style.display = 'flex';
+    // tech.style.display = 'none';
+    // ntech.style.display = 'none';
+
+    //cardholder display
+    displayWorkshop();
 }
 
 function techClick(){
-    sympo.style.display = 'none';
-    tech.style.display = 'flex';
-    ntech.style.display = 'none';
+    // sympo.style.display = 'none';
+    // tech.style.display = 'flex';
+    // ntech.style.display = 'none';
+
+    //cardholder display
+    displaytech();
 }
 
 function ntechClick(){
-    sympo.style.display = 'none';
-    tech.style.display = 'none';
-    ntech.style.display = 'flex';
+    // sympo.style.display = 'none';
+    // tech.style.display = 'none';
+    // ntech.style.display = 'flex';
+
+    //cardholder display
+    displayntech();
 }
 
+//displaying card holder
+var techCardHolder = document.getElementById('techCardHolder');
+var ntechCardHolder = document.getElementById('ntechCardHolder');
+var workshopCardHolder = document.getElementById('workshopCardHolder');
+
+function displayWorkshop(){
+    workshopCardHolder.style.display = 'flex';
+    ntechCardHolder.style.display = 'none';
+    techCardHolder.style.display = 'none';
+}
+
+function displaytech(){
+    workshopCardHolder.style.display = 'none';
+    ntechCardHolder.style.display = 'none';
+    techCardHolder.style.display = 'flex';
+}
+
+function displayntech(){
+    workshopCardHolder.style.display = 'none';
+    ntechCardHolder.style.display = 'flex';
+    techCardHolder.style.display = 'none';
+}
