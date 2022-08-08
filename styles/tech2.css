@@ -52,11 +52,8 @@
 
     width: 100%;
     height: 20%;
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-    padding: 30px;
+        
+    padding: 20px;
 }
 
 .controlButtons>i{
@@ -121,37 +118,41 @@
 
 }
 
-/*Header*/
-.head{
-    display: flex;
-    justify-content: space-between;
-
-    box-sizing: border-box;
-    padding: 50px;
-
-    width: 100%;    
-}
-
-.headLogo{
-    width: 100px; 
-    height: 100px; 
-    overflow: hidden;
-    border-radius: 100%;
-}
-
-.headLogo>img{
-    max-width: 100%;
-}
-
-.navbar{
-    width: auto;
-}
-
-
 #ntechCardHolder{
     display: none;
 }
 
 #techCardHolder{
     display: none;
+}
+
+/*Block Quote*/
+.blockquote>p{
+    font-size: 3.5rem;
+}
+
+#link1,#link2,#link3,#link4{
+    font-size: larger;
+}
+
+
+@media screen and (max-width: 500px){
+
+    .navLogo{
+        height: 70px;
+        width: 70px;    
+    }
+
+    a{
+        margin: 20px;
+    }
+
+}
+
+@media screen and (min-width: 700px){
+
+    a{
+        margin: 50px;
+    }
+
 }

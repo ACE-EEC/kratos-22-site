@@ -19,7 +19,9 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
             <a class="navbar-brand" href="#">
-              <img class="m-5" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png" height="100">
+              <!-- <img class="navLogo m-5" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png" height="100" weight="100"> -->
+              <img class="navLogo" src="../images/lion-bg.png" height="100" weight="100"> 
+              <!--https://i.pinimg.com/736x/2a/03/1c/2a031c6f5d237707672e8c50a33461c5.jpg-->
             </a>
             <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
                 <span class="navbar-toggler-icon"></span>
@@ -29,19 +31,15 @@
                     <li class="nav-item lead"><a href="#" id="link1" onclick="techClick()" class="nav-link m-5 mb-0">TECHNICAL</a></li>
                     <li class="nav-item lead"><a href="#" id="link2" onclick="sympoClick()" class="nav-link m-5 mb-0">WORKSHOPS</a></li>
                     <li class="nav-item lead"><a href="#" id="link3" onclick="ntechClick()" class="nav-link m-5 mb-0">NON-TECHNICAL</a></li>
-                    <li class="nav-item lead"><a href="#" class="nav-link m-5 mb-0">CONTACT</a></li>                    
+                    <li class="nav-item lead"><a href="#" id="link4" class="nav-link m-5 mb-0">CONTACT</a></li>                    
                 </ul>
-                <div class="nav-item m-5 mb-0" id="buttons">
+                <div class="nav-item" id="buttons">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ" target="_blank">
-                        <div class="btn btn-dark">Register</div>
+                        <div class="m-3 mb-0 btn btn-lg btn-dark">Register</div>
                     </a>
                 </div>
             </div>
         </nav>
-        <!-- <div class="head">
-            <div class="headLogo"><img src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png"></div>
-            <div class="headLogo"><img src="https://static.vecteezy.com/system/resources/previews/000/260/878/original/geometric-low-polygon-style-lion-face-head-with-crown-triangular-illustration-vector.jpg"></div>
-        </div> -->
 
         <!-- <div class="titleBlock">
             <h1 class="sympo">K<br>R<br>A<br>T<br>O<br>S</h1>
@@ -63,6 +61,11 @@
 
         <!--This is Non Technical-->
         <div id="ntechCardHolder" class="cardHolder">
+
+            <blockquote class="m-5 w-100 blockquote text-center">
+                <p class="m-1"><strong>Non-Technical</strong></p>
+                <footer class="blockquote-footer">“Creativity is intelligence having fun.”<cite title="Source Title">– Albert Einstein</cite></footer>
+            </blockquote>
 
             <div class="card">
                 <div class="cardImage">
@@ -188,6 +191,11 @@
         <!--This is Technical-->
         <div id="techCardHolder" class="cardHolder">
 
+            <blockquote class="m-5 w-100 blockquote text-center">
+                <p class="m-2"><strong>Technical</strong></p>
+                <footer class="blockquote-footer">“It's not a faith in technology. It's faith in people.”<cite title="Source Title">– Steve Jobs</cite></footer>
+            </blockquote>
+
             <div class="card">
                 <div class="cardImage">
                     <h1 class="eventName">Coding Fifa</h1>
@@ -312,6 +320,11 @@
         <!--This is Technical-->
         <div id="workshopCardHolder" class="cardHolder">
 
+            <blockquote class="m-5 w-100 blockquote text-center">
+                <p class="m-2"><strong>Workshops</strong></p>
+                <footer class="blockquote-footer">“The only true wisdom is in knowing you know nothing.”<cite title="Source Title">– Socrates</cite></footer>
+            </blockquote>
+
             <div class="card">
                 <div class="cardImage">
                     <h1 class="eventName">AR Workshop</h1>
@@ -393,7 +406,28 @@
 
         </div>
 
+        <footer id="myFooter" class="mt-5 text-center text-lg-start" style="background-color: black;">
+            <div class="container d-flex justify-content-center py-5">
+              <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
+                <i class="fab fa-youtube"></i>
+              </button>
+              <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
+                <i class="fab fa-instagram"></i>
+              </button>
+              <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
+                <i class="fab fa-twitter"></i>
+              </button>
+            </div>
         
+            <!-- Copyright -->
+            <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2020 Copyright: Deexith Parandaman
+            </div>
+            <!-- Copyright -->
+        </footer>  
 
     </body>
 </html>

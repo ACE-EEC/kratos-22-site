@@ -121,6 +121,11 @@ $("#link3").on('click',function(e){
     $('html, body').animate({scrollTop:$('#ntechCardHolder').position().top},'slow');
 });
 
+$("#link4").on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop:$('#myFooter').position().top},'slow');
+});
+
 //This is for the banner text
 function sympoClick(){
     // sympo.style.display = 'flex';
