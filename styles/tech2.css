@@ -126,6 +126,10 @@
     display: none;
 }
 
+#workshopCardHolder{
+    display: none;
+}
+
 /*Block Quote*/
 .blockquote>p{
     font-size: 3.5rem;
@@ -155,4 +159,41 @@
         margin: 50px;
     }
 
+}
+
+.cardMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    margin: 30px;
+    
+    box-shadow: 5px 10px black;
+
+    /*only takes 25% of the page size*/
+    max-width: auto;
+
+    border-radius: 25px;
+    border: 5px solid black;
+}
+
+@media only screen and (max-width: 700px) {
+    .cardMain{
+      flex-wrap: wrap;
+      /* background-color: tomato; */
+    }
+}
+
+.mainIcon{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mainIcon>img{
+    max-width:100%;
+    max-height:100%;
+    object-fit: contain;
 }

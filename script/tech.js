@@ -162,21 +162,34 @@ function ntechClick(){
 var techCardHolder = document.getElementById('techCardHolder');
 var ntechCardHolder = document.getElementById('ntechCardHolder');
 var workshopCardHolder = document.getElementById('workshopCardHolder');
+var homePage = document.getElementById('mainPage');
 
 function displayWorkshop(){
     workshopCardHolder.style.display = 'flex';
     ntechCardHolder.style.display = 'none';
     techCardHolder.style.display = 'none';
+    homePage.style.display = 'none'
 }
 
 function displaytech(){
     workshopCardHolder.style.display = 'none';
     ntechCardHolder.style.display = 'none';
     techCardHolder.style.display = 'flex';
+    homePage.style.display = 'none'
 }
 
 function displayntech(){
     workshopCardHolder.style.display = 'none';
     ntechCardHolder.style.display = 'flex';
     techCardHolder.style.display = 'none';
+    homePage.style.display = 'none'
 }
+
+function homeClick(){
+    homePage.style.display = 'flex'
+    workshopCardHolder.style.display = 'none';
+    ntechCardHolder.style.display = 'none';
+    techCardHolder.style.display = 'none';
+}
+
+
