@@ -1,27 +1,27 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     font-family: monospace;
 }
 
-body{
+body {
     width: 100%;
     height: auto;
     /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
-    background: linear-gradient(#FF9A8B,#FF6A88,#FF99AC);
+    background: linear-gradient(#FF9A8B, #FF6A88, #FF99AC);
 }
 
-.bText{
+.bText {
     text-align: center;
     margin: 25px;
 }
 
-.vl{
+.vl {
     width: 100%;
     border-top: solid black 3px;
 }
 
-.card{
+.card {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -29,7 +29,7 @@ body{
     padding: 10px;
 
     margin: 20px;
-    
+
     box-shadow: 5px 10px black;
 
     /*only takes 25% of the page size*/
@@ -40,14 +40,14 @@ body{
 }
 
 @media only screen and (max-width: 700px) {
-    .card{
-      max-width: auto;
-      /* background-color: tomato; */
+    .card {
+        max-width: auto;
+        /* background-color: tomato; */
     }
 }
 
-.content{
-    text-align:center;
+.content {
+    text-align: center;
     word-wrap: break-word;
 
     font-size: large;
@@ -58,26 +58,26 @@ body{
     padding: 10px;
 }
 
-.cardImage{
+.cardImage {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
 }
 
-.icon{
+.icon {
     height: 30%;
     display: flex;
     justify-content: center;
 }
 
-.icon>img{
-    max-width:50%;
-    max-height:50%;
+.icon>img {
+    max-width: 50%;
+    max-height: 50%;
     object-fit: contain;
 }
 
-.tag{
+.tag {
     text-align: center;
     font-weight: 900;
     font-size: larger;
@@ -90,13 +90,14 @@ body{
     border-radius: 20px;
 }
 
-#plus,.eventName{
+#plus,
+.eventName {
     margin: 30px;
-    transition: all 0.8s ease;
+    transition: all 0.5s ease;
     cursor: pointer;
 }
 
-.details{
+.details {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,29 +107,33 @@ body{
     flex-wrap: wrap;
 }
 
-#plus:hover{
+#plus:hover {
     cursor: pointer;
 }
 
-#upArrow{
+#upArrow {
     cursor: pointer;
 }
 
-.details,.vl,.bText,.content,#upArrow{
-    transition: all 0.8s ease;
+.details,
+.vl,
+.bText,
+.content,
+#upArrow {
+    transition: all 0.5s ease;
     opacity: 0;
     display: none;
 }
 
 /*for plus animation*/
-.transform { 
-    transition: all 0.8s;
+.transform {
+    transition: all 0.5s;
 }
 
-.transform-active{
+.transform-active {
     transform: rotate(180deg);
 }
 
-.transform-active-another{
+.transform-active-another {
     transform: rotate(360deg);
 }

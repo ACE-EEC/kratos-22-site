@@ -17,17 +17,19 @@
   <link rel="stylesheet" type="text/css" href="styles/tech.css">
   <link rel="stylesheet" type="text/css" href="styles/tech2.css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <script rel="script" type="text/javascript" src="script/tech.js" defer></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- TODO: Reduce the height of the navbar -->
+  <!-- TODO?: Make this navbar sticky for desktop -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
     <a class="navbar-brand" href="#">
       <!-- <img class="navLogo m-5" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png" height="100" weight="100"> -->
-      <img class="navLogo" src="public/images/lion-bg.png" height="100" weight="100">
+      <img class="navLogo" src="public/images/lion-bg.png">
       <!--https://i.pinimg.com/736x/2a/03/1c/2a031c6f5d237707672e8c50a33461c5.jpg-->
     </a>
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
@@ -43,10 +45,10 @@
             class="nav-link m-5 mb-0">NON-TECHNICAL</a></li>
         <li class="nav-item lead"><a href="#" id="link4" class="nav-link m-5 mb-0">CONTACT</a></li>
       </ul>
-      <div class="nav-item" id="buttons">
+      <div id="regButton"> <!-- class="nav-item" -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ"
           target="_blank">
-          <div class="m-3 mb-0 btn btn-lg btn-dark">Register</div>
+          <div>Register</div>
         </a>
       </div>
     </div>
@@ -60,10 +62,13 @@
 
   <div class="banner">
     <video class="bannerVideo" muted autoplay loop id="video" height="auto">
-      <source src="public/adidas _ Ready for Sport.mp4" type="video/mp4" />
+      <!-- TODO: Change this placeholder video -->
+      <!-- TODO: Make this video fit full VH at max, shorten the navbar before -->
+      <source src="public/placeholder.mp4" type="video/mp4" />
     </video>
   </div>
 
+  <!-- TODO: chnage the arrows into something relevant. A book for technical tab possibly. -->
   <div class="controlButtons">
     <i class="fas fa-arrow-left" onclick="techClick()"></i>
     <i class="fas fa-hand-peace" onclick="sympoClick()"></i>
@@ -74,13 +79,16 @@
   <div id="mainPage" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
-      <p class="m-1"><strong>Idhaan Home Page</strong></p>
-      <footer class="blockquote-footer">“Enna vena potukonga”<cite title="Source Title">– Deexith</cite></footer>
+      <p class="m-1"><strong>Kratos 2022</strong></p>
+      <!-- <footer class="blockquote-footer">“Enna vena potukonga”<cite title="Source Title">– Deexith</cite></footer> -->
+      <footer>A national level technical symposium</p>
     </blockquote>
+
+    <!-- TODO: Add a countdown here -->
 
     <div class="cardMain">
       <div class="cardImage">
-        <div class="m-5 mainIcon"><img src="public/public/images/undraw_engineering_team.svg" alt="Avatar"></div>
+        <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
       </div>
       <div class="m-5 p-5">
         <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Keep your first steps towards your dream</h1>
@@ -375,6 +383,7 @@
   </div>
 
   <!--This is Technical-->
+  <!-- TODO: Rules card desktop design changes (responsive layout)-->
   <div id="workshopCardHolder" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
@@ -472,6 +481,8 @@
 
   </div>
 
+  <!-- TODO: maybe add a sponsor section -->
+
   <footer id="myFooter" class="mt-5 text-center text-lg-start" style="background-color: black;">
     <div class="container d-flex justify-content-center py-5">
       <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
@@ -490,7 +501,7 @@
 
     <!-- Copyright -->
     <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright: Deexith Parandaman & ACE-EEC.
+      © 2020 Copyright: Deexith Parandaman.
     </div>
     <!-- Copyright -->
   </footer>
