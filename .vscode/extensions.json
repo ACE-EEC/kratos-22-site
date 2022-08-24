@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "Gruntfuggly.todo-tree"
+        "gruntfuggly.todo-tree",
+        "ecmel.vscode-html-css",
+        "esbenp.prettier-vscode",
+        "pranaygp.vscode-css-peek"
     ]
 }
