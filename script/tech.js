@@ -115,6 +115,11 @@ var sympo = document.getElementsByClassName('sympo')[0];
 var tech = document.getElementsByClassName('tech')[0];
 var ntech = document.getElementsByClassName('ntech')[0];
 
+$("#link0").on('click',function(e){
+    e.preventDefault();
+    $('html, body').animate({scrollTop:$('#mainPage').position().top},'slow');
+});
+
 $("#link1").on('click',function(e){
     e.preventDefault();
     $('html, body').animate({scrollTop:$('#techCardHolder').position().top},'slow');

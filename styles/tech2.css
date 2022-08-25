@@ -140,6 +140,7 @@
     font-size: 3.5rem;
 }
 
+#link0,
 #link1,
 #link2,
 #link3,
@@ -148,6 +149,7 @@
     color: rgba(255, 255, 255, .75);
 }
 
+#link0:hover,
 #link1:hover,
 #link2:hover,
 #link3:hover,
@@ -254,6 +256,7 @@
         /* background-color: tomato; */
     }
 
+    #link0,
     #link1,
     #link2,
     #link3,
