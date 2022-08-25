@@ -4,9 +4,21 @@
     font-family: monospace;
 }
 
+body {
+    width: 100%;
+    height: auto;
+    /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
+    background: linear-gradient(#FF9A8B, #FF6A88, #FF99AC);
+}
+
 .bText {
     text-align: center;
     margin: 25px;
+}
+
+.vl {
+    width: 100%;
+    border-top: solid black 3px;
 }
 
 .card {
@@ -27,11 +39,11 @@
     border: 5px solid black;
 }
 
-.cardImage {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+@media only screen and (max-width: 700px) {
+    .card {
+        max-width: auto;
+        /* background-color: tomato; */
+    }
 }
 
 .content {
@@ -46,20 +58,11 @@
     padding: 10px;
 }
 
-.details {
+.cardImage {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    flex-wrap: wrap;
-}
-
-.eventName {
-    margin: 30px;
-    transition: all 0.5s ease;
-    cursor: pointer;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
 .icon {
@@ -72,17 +75,6 @@
     max-width: 50%;
     max-height: 50%;
     object-fit: contain;
-}
-
-body {
-    width: 100%;
-    height: auto;
-    /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
-    background: linear-gradient(#FF9A8B, #FF6A88, #FF99AC);
-}
-
-#plus:hover {
-    cursor: pointer;
 }
 
 .tag {
@@ -98,6 +90,42 @@ body {
     border-radius: 20px;
 }
 
+#plus,
+.eventName {
+    margin: 30px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+}
+
+#plus:hover {
+    cursor: pointer;
+}
+
+#upArrow {
+    cursor: pointer;
+}
+
+.cardRules,
+.details,
+.vl,
+.bText,
+.content,
+#upArrow {
+    transition: all 0.5s ease;
+    opacity: 0;
+    display: none;
+}
+
 /*for plus animation*/
 .transform {
     transition: all 0.5s;
@@ -109,26 +137,4 @@ body {
 
 .transform-active-another {
     transform: rotate(360deg);
-}
-
-#upArrow {
-    cursor: pointer;
-}
-
-#upArrow {
-    transition: all 0.5s ease;
-    opacity: 0;
-    display: none;
-}
-
-.vl {
-    width: 100%;
-    border-top: solid black 3px;
-}
-
-@media only screen and (max-width: 700px) {
-    .card {
-        max-width: auto;
-        /* background-color: tomato; */
-    }
 }
