@@ -211,11 +211,6 @@
     justify-content: space-between;
 }
 
-.cardContent {
-    display: flex;
-    flex-direction: column;
-}
-
 .vl {
     visibility: visible;
     display: block;
@@ -287,13 +282,6 @@
     #regButton {
         margin: 0 3em 0 0;
         font-size: 1.2em;
-    }
-
-    .cardContent {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
     }
 
     .upArrow {

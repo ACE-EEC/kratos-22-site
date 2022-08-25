@@ -31,12 +31,12 @@ function displayMany(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-    var rules = document.getElementsByClassName('cardRules');
+    var rules = document.getElementsByClassName('cardRules')[myIndex];
 
 
     details.style.display = 'flex';
     vl.style.display = 'flex';
-    bText.style.display = 'block';
+    bText.style.display = 'flex';
     content.style.display = 'flex';
     upArrow.style.display = 'flex';
     rules.style.display = 'inline-block';
@@ -55,7 +55,7 @@ function setOpacity(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-    var rules = document.getElementsByClassName('cardRules');
+    var rules = document.getElementsByClassName('cardRules')[myIndex];
 
 
     details.style.opacity = "1.0";
@@ -76,7 +76,7 @@ function setDisplayTime(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-    var rules = document.getElementsByClassName('cardRules');
+    var rules = document.getElementsByClassName('cardRules')[myIndex];
 
 
     details.style.display = 'none';
@@ -96,7 +96,7 @@ function resetMany(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-    var rules = document.getElementsByClassName('cardRules');
+    var rules = document.getElementsByClassName('cardRules')[myIndex];
 
     details.style.opacity = "0";
     vl.style.opacity = "0"; 
