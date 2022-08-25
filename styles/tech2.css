@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
-
 .banner {
     box-sizing: border-box;
     width: 100%;
@@ -25,14 +23,13 @@
     border-radius: 10px;
 }
 
-/* .cardHolder */
+.blockquote>p {
+    font-size: 3.5rem;
+}
 
-.eventType {
+.cardContent {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    width: 100%;
+    flex-direction: column;
 }
 
 .cardHolder {
@@ -41,6 +38,24 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+}
+
+.cardMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    margin: 30px;
+
+    box-shadow: 5px 10px black;
+
+    /*only takes 25% of the page size*/
+    max-width: auto;
+
+    border-radius: 25px;
+    border: 5px solid black;
 }
 
 /*controls Buttons*/
@@ -65,127 +80,24 @@
     cursor: pointer;
 }
 
-/*Overlapping title block*/
-.titleBlock {
-    background: none;
+/* .cardHolder */
+.eventType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
     width: 100%;
 }
 
-.titleBlock>h1 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: monospace;
-    color: white;
-    z-index: 1;
-}
-
-.sympo,
-.tech,
-.ntech {
-    text-align: center;
-    font-size: 5rem;
-    font-family: monospace;
-    font-weight: 700;
-}
-
-/*mobile Large*/
-@media screen and (max-width: 500px) {
-    .titleBlock>h1 {
-        top: 50%;
-    }
-
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.7rem;
-    }
-
-    .banner {
-        padding: 10px;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .titleBlock>h1 {
-        top: 45%;
-    }
-
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.5rem;
-    }
-
-    .banner {
-        padding: 10px;
-    }
-}
-
-#ntechCardHolder {
-    display: none;
-}
-
-#techCardHolder {
-    display: none;
-}
-
-#workshopCardHolder {
-    display: none;
-}
-
-/*Block Quote*/
-.blockquote>p {
-    font-size: 3.5rem;
-}
-
-#link1,
-#link2,
-#link3,
 #link4 {
     font-size: larger;
     color: rgba(255, 255, 255, .75);
 }
 
-#link1:hover,
-#link2:hover,
-#link3:hover,
 #link4:hover {
     font-size: larger;
     color: rgba(255, 255, 255, .9);
 }
-
-
-@media screen and (max-width: 500px) {
-    .navLogo {
-        height: 70px;
-        width: 70px;
-    }
-
-    a {
-        margin: 20px;
-    }
-}
-
-.cardMain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px;
-
-    margin: 30px;
-
-    box-shadow: 5px 10px black;
-
-    /*only takes 25% of the page size*/
-    max-width: auto;
-
-    border-radius: 25px;
-    border: 5px solid black;
-}
-
 
 .mainIcon {
     height: 100%;
@@ -209,14 +121,19 @@
     justify-content: space-between;
 }
 
-.cardContent {
-    display: flex;
-    flex-direction: column;
+.navbar-brand>H1 {
+    display: none;
 }
 
-.vl {
-    visibility: visible;
-    display: block;
+.ntech {
+    text-align: center;
+    font-size: 5rem;
+    font-family: monospace;
+    font-weight: 700;
+}
+
+#ntechCardHolder {
+    display: none;
 }
 
 #regButton {
@@ -238,11 +155,77 @@
     color: white;
 }
 
-.navbar-brand>H1 {
+#techCardHolder {
     display: none;
 }
 
-/* DESKTOP */
+/*Overlapping title block*/
+.titleBlock {
+    background: none;
+    width: 100%;
+}
+
+.titleBlock>h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
+    color: white;
+    z-index: 1;
+}
+
+.vl {
+    visibility: visible;
+    display: block;
+}
+
+#workshopCardHolder {
+    display: none;
+}
+
+@media screen and (max-width: 375px) {
+    .titleBlock>h1 {
+        top: 45%;
+    }
+
+    .sympo,
+    .tech,
+    .ntech {
+        font-size: 1.5rem;
+    }
+
+    .banner {
+        padding: 10px;
+    }
+}
+
+/*mobile Large*/
+@media screen and (max-width: 500px) {
+    .titleBlock>h1 {
+        top: 50%;
+    }
+
+    .sympo,
+    .tech,
+    .ntech {
+        font-size: 1.7rem;
+    }
+
+    .banner {
+        padding: 10px;
+    }
+
+    .navLogo {
+        height: 70px;
+        width: 70px;
+    }
+
+    a {
+        margin: 20px;
+    }
+}
+
 @media only screen and (min-width: 768px) {
 
     a {
