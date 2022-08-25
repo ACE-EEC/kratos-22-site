@@ -321,9 +321,17 @@
         height: 10%;
     }
 
-    .card .cardImage {
-        width: 33%;
+    .cardImage,
+    .card  {
         order: 1;
+    }
+
+    .card {
+        width: 25%;
+    }
+
+    .cardImage {
+        width: 100%;
     }
 
     .cardRules section {
