@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 .banner {
     box-sizing: border-box;
     width: 100%;
@@ -203,10 +205,6 @@
     margin: 0 1em;
 }
 
-.navbar>a {
-    /* margin: 0; */
-}
-
 .navbar {
     justify-content: space-between;
 }
@@ -240,6 +238,10 @@
     color: white;
 }
 
+.navbar-brand>H1 {
+    display: none;
+}
+
 /* DESKTOP */
 @media only screen and (min-width: 768px) {
 
@@ -265,7 +267,8 @@
 
     .bannerVideo {
         height: 100%;
-        width: fit-content;
+        max-width: 97%;
+        width: initial;
         border-radius: 2em;
     }
 
@@ -353,7 +356,7 @@
         align-items: center;
         padding: 0;
         background: linear-gradient(#ff9a8b, #ff968b);
-        box-shadow:rgba(255, 255, 255, .75);
+        box-shadow: rgba(255, 255, 255, .75);
         z-index: 3;
     }
 
@@ -372,5 +375,18 @@
 
     #regLogo {
         justify-self: end;
+    }
+
+    .navbar-brand {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+    }
+
+    .navbar-brand>H1 {
+        display: inline;
+        font-weight: 700;
+        line-height: 200%;
+        font-family: "Audiowide", "Consolas", 'Courier New', Courier, monospace;
     }
 }
