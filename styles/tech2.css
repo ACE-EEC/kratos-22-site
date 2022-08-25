@@ -1,346 +1,1015 @@
 .banner {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 50px;
 }
 
-.bannerHeadText>h1 {
-    text-align: center;
-    font-size: 3em;
+.bannerHeadText > h1 {
+  text-align: center;
+  font-size: 3em;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    color: aquamarine;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: aquamarine;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .bannerVideo {
-    /* position: relative; */
-    width: 100%;
-    border-radius: 10px;
+  /* position: relative; */
+  width: 100%;
+  border-radius: 10px;
 }
 
 /* .cardHolder */
 
 .eventType {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width: 100%;
 }
 
 .cardHolder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 /*controls Buttons*/
 .controlButtons {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    color: black;
+  color: black;
 
-    display: inline-flex;
-    justify-content: space-evenly;
+  display: inline-flex;
+  justify-content: space-evenly;
 
-    width: 100%;
-    height: 20%;
+  width: 100%;
+  height: 20%;
 
-    padding: 20px;
+  padding: 20px;
 }
 
-.controlButtons>i {
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
+.controlButtons > i {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 /*Overlapping title block*/
 .titleBlock {
-    background: none;
-    width: 100%;
+  background: none;
+  width: 100%;
 }
 
-.titleBlock>h1 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: monospace;
-    color: white;
-    z-index: 1;
+.titleBlock > h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  color: white;
+  z-index: 1;
 }
 
 .sympo,
 .tech,
 .ntech {
-    text-align: center;
-    font-size: 5rem;
-    font-family: monospace;
-    font-weight: 700;
+  text-align: center;
+  font-size: 5rem;
+  font-family: monospace;
+  font-weight: 700;
 }
 
 /*mobile Large*/
 @media screen and (max-width: 500px) {
+  .titleBlock > h1 {
+    top: 50%;
+  }
 
-    .titleBlock>h1 {
-        top: 50%;
-    }
+  .sympo,
+  .tech,
+  .ntech {
+    font-size: 1.7rem;
+  }
 
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.7rem;
-    }
-
-    .banner {
-        padding: 10px;
-    }
+  .banner {
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 375px) {
+  .titleBlock > h1 {
+    top: 45%;
+  }
 
-    .titleBlock>h1 {
-        top: 45%;
-    }
+  .sympo,
+  .tech,
+  .ntech {
+    font-size: 1.5rem;
+  }
 
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.5rem;
-    }
-
-    .banner {
-        padding: 10px;
-    }
-
+  .banner {
+    padding: 10px;
+  }
 }
 
 #ntechCardHolder {
-    display: none;
+  display: none;
 }
 
 #techCardHolder {
-    display: none;
+  display: none;
 }
 
 #workshopCardHolder {
-    display: none;
+  display: none;
 }
 
 /*Block Quote*/
-.blockquote>p {
-    font-size: 3.5rem;
+.blockquote > p {
+  font-size: 3.5rem;
 }
 
 #link1,
 #link2,
 #link3,
 #link4 {
-    font-size: larger;
+  font-size: larger;
 }
 
-
 @media screen and (max-width: 500px) {
+  .navLogo {
+    height: 70px;
+    width: 70px;
+  }
 
-    .navLogo {
-        height: 70px;
-        width: 70px;
-    }
-
-    a {
-        margin: 20px;
-    }
-
+  a {
+    margin: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-
-    a {
-        margin: 50px;
-    }
-
+  a {
+    margin: 50px;
+  }
 }
 
 .cardMain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 10px;
+  padding: 10px;
 
-    margin: 30px;
+  margin: 30px;
 
-    box-shadow: 5px 10px black;
+  box-shadow: 5px 10px black;
 
-    /*only takes 25% of the page size*/
-    max-width: auto;
+  /*only takes 25% of the page size*/
+  max-width: auto;
 
-    border-radius: 25px;
-    border: 5px solid black;
+  border-radius: 25px;
+  border: 5px solid black;
 }
 
-@media only screen and (max-width: 768px) {
-    .cardMain {
-        flex-wrap: wrap;
-        /* background-color: tomato; */
-    }
+@media only screen and (max-width: 767px) {
+  .cardMain {
+    flex-wrap: wrap;
+    /* background-color: tomato; */
+  }
 }
 
 .mainIcon {
-    height: 100%;
-    display: flex;
-    justify-content: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.mainIcon>img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.mainIcon > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .navLogo {
-    height: 80px;
-    width: 80px;
-    margin: 0 1em;
+  height: 80px;
+  width: 80px;
+  margin: 0 1em;
 }
 
-.navbar>a {
-    /* margin: 0; */
+.navbar > a {
+  /* margin: 0; */
 }
 
 .navbar {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .cardContent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .vl {
-    visibility: visible;
-    display: block;
+  visibility: visible;
+  display: block;
 }
 
 #regButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 3rem;
-    background-color: black;
-    opacity: .9;
-    font-family: 'Consolas', 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
-    border-radius: .25em;
-    height: 2.9em;
-    width: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 3rem;
+  background-color: black;
+  opacity: 0.9;
+  font-family: "Consolas", "Courier New", Courier, monospace;
+  font-size: 1.5rem;
+  border-radius: 0.25em;
+  height: 2.9em;
+  width: 6em;
 }
 
 #regButton a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 /* DESKTOP */
 @media only screen and (min-width: 768px) {
-    #regButton {
-        margin: 0 1em;
-        font-size: 1.1em;
-    }
+  #regButton {
+    margin: 0 1em;
+    font-size: 1.1em;
+  }
 
-    .cardContent {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
-    }
+  .cardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
 
-    .upArrow {
-        order: 10;
-    }
+  .upArrow {
+    order: 10;
+  }
 
+  .vl {
+    visibility: hidden;
+    display: none;
+    width: 0;
+  }
 
-    .vl {
-        visibility: hidden;
-        display: none;
-        width: 0;
-    }
+  .bText {
+    width: 33%;
+    order: 0;
+  }
 
-    .bText {
-        width: 33%;
-        order: 0;
-    }
+  .cardRules {
+    align-self: flex-start;
+    /* height: 100%; */
+    width: 33%;
+    order: 2;
+    font-size: 16px;
+  }
 
-    .cardRules {
-        align-self: flex-start;
-        /* height: 100%; */
-        width: 33%;
-        order: 2;
-        font-size: 16px;
-    }
+  .cardRules scroller {
+    display: inline-block;
+    height: 400px;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: thin;
+  }
 
-    .cardRules scroller {
-        display: inline-block;
-        height: 400px;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: thin;
-    }
+  .cardRules h3 {
+    text-align: center;
+    margin-top: 2em;
+    height: 10%;
+  }
 
-    .cardRules h3 {
-        text-align: center;
-        margin-top: 2em;
-        height: 10%;
-    }
+  .card .cardImage {
+    width: 33%;
+    order: 1;
+  }
 
-    .card .cardImage {
-        width: 33%;
-        order: 1;
-    }
+  .cardRules section {
+    scroll-snap-align: start;
+    height: 100%;
+    overflow-y: hidden;
+  }
 
-    .cardRules section {
-        scroll-snap-align: start;
-        height: 100%;
-        overflow-y: hidden;
-    }
+  .controlButtons {
+    display: none;
+  }
 
-    .controlButtons {
-        display: none;
-    }
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    padding: 0;
+  }
 
-    .navbar {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
-        padding: 0;
+  /* this rule doesn't apply to a due to override */
+  .navbar * {
+    margin: 0;
+  }
 
-    }
+  .navLogo {
+    align-self: flex-start;
+    padding: 0;
+    height: 70px;
+    width: 70px;
+    margin: 0 1em;
+  }
 
-    /* this rule doesn't apply to a due to override */
-    .navbar * {
-        margin: 0;
-    }
+  #regLogo {
+    justify-self: end;
+  }
+}
 
-    .navLogo {
-        align-self: flex-start;
-        padding: 0;
-        height: 70px;
-        width: 70px;
-        margin: 0 1em;
-    }
+/* countdown css */
+/* Get the bourbon mixin from http://bourbon.io */
+/* Reset */
+.flip-clock-wrapper * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
-    #regLogo {
-        justify-self: end;
-    }
+.flip-clock-wrapper a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+
+.flip-clock-wrapper a:hover {
+  color: #fff;
+}
+
+.flip-clock-wrapper ul {
+  list-style: none;
+}
+
+.flip-clock-wrapper.clearfix:before,
+.flip-clock-wrapper.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.flip-clock-wrapper.clearfix:after {
+  clear: both;
+}
+
+.flip-clock-wrapper.clearfix {
+  *zoom: 1;
+}
+
+/* Main */
+.flip-clock-wrapper {
+  font: normal 0.75em "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-user-select: none;
+}
+
+.flip-clock-meridium {
+  background: none !important;
+  box-shadow: 0 0 0 !important;
+  font-size: 1em !important;
+}
+
+.flip-clock-meridium a {
+  color: #313333;
+}
+
+.flip-clock-wrapper {
+  text-align: center;
+  position: relative;
+  /* align-items: center; */
+  width: 100%;
+  margin: 1em;
+}
+
+.flip-clock-wrapper:before,
+.flip-clock-wrapper:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+.flip-clock-wrapper:after {
+  clear: both;
+}
+
+/* Skeleton */
+@media only screen and (min-width: 768px) {
+  .flip-clock-wrapper ul {
+    position: relative;
+    float: left;
+
+    margin: 0.1em;
+    width: 0.8em;
+    height: 1em;
+    font-size: 8em;
+    font-weight: bold;
+    line-height: 1em;
+    border-radius: 6px;
+    background: #000;
+  }
+  .flip-clock-wrapper ul li a div div.inn {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 200%;
+    color: #ccc;
+    text-shadow: 0 1px 2px #000;
+    text-align: center;
+    background-color: #333;
+    border-radius: 6px;
+    font-size: 70px;
+  }
+  .flip-clock-divider {
+    float: left;
+    display: inline-block;
+    position: relative;
+    width: 2em;
+    height: 10em;
+  }
+  .flip-clock-dot {
+    display: block;
+    background: #323434;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    left: 0.4em;
+  }
+  .flip-clock-divider .flip-clock-label {
+    position: absolute;
+    top: -1.5em;
+    color: black;
+    text-shadow: none;
+  }
+  .flip-clock-divider.days .flip-clock-label {
+    right: -6.5em;
+    font-size: 1.5em;
+  }
+
+  .flip-clock-divider.hours .flip-clock-label {
+    right: -6.7em;
+    font-size: 1.5em;
+  }
+  .flip-clock-divider.minutes .flip-clock-label {
+    right: -7.5em;
+    font-size: 1.5em;
+  }
+
+  .flip-clock-divider.seconds .flip-clock-label {
+    right: -7.2em;
+    font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .flip-clock-wrapper ul {
+    position: relative;
+    float: left;
+    margin: 0.1em;
+    width: 0.8em;
+    height: 1em;
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 1em;
+    border-radius: 6px;
+    background: #000;
+  }
+  .flip-clock-wrapper ul li a div div.inn {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 200%;
+    color: #ccc;
+    text-shadow: 0 1px 2px #000;
+    text-align: center;
+    background-color: #333;
+    border-radius: 6px;
+    font-size: 0.3em;
+  }
+  .flip-clock-divider {
+    float: left;
+    /* display: inline-block; */
+    /* position: relative; */
+    position: relative;
+    width: 1em;
+    height: 5em;
+    left: -0.2em;
+  }
+  .flip-clock-dot {
+    display: block;
+    background: #323434;
+    width: 0.6em;
+    height: 0.6em;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    left: 0.4em;
+  }
+  .flip-clock-divider .flip-clock-label {
+    position: absolute;
+    top: -1.5em;
+    color: black;
+    text-shadow: none;
+  }
+  .flip-clock-divider.days .flip-clock-label {
+    right: -5.5em;
+  }
+
+  .flip-clock-divider.hours .flip-clock-label {
+    right: -5.5em;
+  }
+  .flip-clock-divider.minutes .flip-clock-label {
+    right: -6.5em;
+  }
+
+  .flip-clock-divider.seconds .flip-clock-label {
+    right: -6.4em;
+  }
+}
+/* .flip-clock-wrapper ul {
+  position: relative;
+  float: left;
+  margin: 5px;
+  width: 60px;
+  height: 90px;
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 87px;
+  border-radius: 6px;
+  background: #000;
+} */
+
+.flip-clock-wrapper ul li {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 1em;
+  text-decoration: none !important;
+}
+
+.flip-clock-wrapper ul li:first-child {
+  z-index: 2;
+}
+
+.flip-clock-wrapper ul li a {
+  display: block;
+  height: 100%;
+  -webkit-perspective: 10em;
+  -moz-perspective: 10em;
+  perspective: 10em;
+  margin: 0 !important;
+  overflow: visible !important;
+  cursor: default !important;
+}
+
+.flip-clock-wrapper ul li a div {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  font-size: 2.4em;
+  overflow: hidden;
+  outline: 1px solid transparent;
+}
+
+.flip-clock-wrapper ul li a div .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.flip-clock-wrapper ul li a div.up {
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  top: 0;
+}
+
+.flip-clock-wrapper ul li a div.up:after {
+  content: "";
+  position: relative;
+  top: 1em;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.flip-clock-wrapper ul li a div.down {
+  -webkit-transform-origin: 50% 0;
+  -moz-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  -o-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  bottom: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* .flip-clock-wrapper ul li a div div.inn {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  color: #ccc;
+  text-shadow: 0 1px 2px #000;
+  text-align: center;
+  background-color: #333;
+  border-radius: 6px;
+  font-size: 70px;
+} */
+
+.flip-clock-wrapper ul li a div.up div.inn {
+  top: 0;
+}
+
+.flip-clock-wrapper ul li a div.down div.inn {
+  bottom: 0;
+}
+
+/* PLAY */
+.flip-clock-wrapper ul.play li.flip-clock-before {
+  z-index: 3;
+}
+
+.flip-clock-wrapper .flip {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.flip-clock-wrapper ul.play li.flip-clock-active {
+  -webkit-animation: asd 0.01s 0.49s linear both;
+  -moz-animation: asd 0.01s 0.49s linear both;
+  animation: asd 0.01s 0.49s linear both;
+  z-index: 5;
+}
+
+/* .flip-clock-divider {
+  float: left;
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 100px;
+} */
+
+.flip-clock-divider:first-child {
+  width: 0;
+}
+
+/* .flip-clock-dot {
+  display: block;
+  background: #323434;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  left: 0.4em;
+} */
+
+/* .flip-clock-divider .flip-clock-label {
+  position: absolute;
+  top: -1.5em;
+  right: -9.5em;
+  color: black;
+  text-shadow: none;
+}
+
+.flip-clock-divider.minutes .flip-clock-label {
+  right: -88px;
+}
+
+.flip-clock-divider.seconds .flip-clock-label {
+  right: -91px;
+} */
+
+.flip-clock-dot.top {
+  top: 3em;
+}
+
+.flip-clock-dot.bottom {
+  bottom: 3em;
+}
+
+@-webkit-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+
+  100% {
+    z-index: 4;
+  }
+}
+
+@-moz-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+
+  100% {
+    z-index: 4;
+  }
+}
+
+@-o-keyframes asd {
+  0% {
+    z-index: 2;
+  }
+
+  100% {
+    z-index: 4;
+  }
+}
+
+@keyframes asd {
+  0% {
+    z-index: 2;
+  }
+
+  100% {
+    z-index: 4;
+  }
+}
+
+.flip-clock-wrapper ul.play li.flip-clock-active .down {
+  z-index: 2;
+  -webkit-animation: turn 0.5s 0.5s linear both;
+  -moz-animation: turn 0.5s 0.5s linear both;
+  animation: turn 0.5s 0.5s linear both;
+}
+
+@-webkit-keyframes turn {
+  0% {
+    -webkit-transform: rotateX(90deg);
+  }
+
+  100% {
+    -webkit-transform: rotateX(0deg);
+  }
+}
+
+@-moz-keyframes turn {
+  0% {
+    -moz-transform: rotateX(90deg);
+  }
+
+  100% {
+    -moz-transform: rotateX(0deg);
+  }
+}
+
+@-o-keyframes turn {
+  0% {
+    -o-transform: rotateX(90deg);
+  }
+
+  100% {
+    -o-transform: rotateX(0deg);
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.flip-clock-wrapper ul.play li.flip-clock-before .up {
+  z-index: 2;
+  -webkit-animation: turn2 0.5s linear both;
+  -moz-animation: turn2 0.5s linear both;
+  animation: turn2 0.5s linear both;
+}
+
+@-webkit-keyframes turn2 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotateX(-90deg);
+  }
+}
+
+@-moz-keyframes turn2 {
+  0% {
+    -moz-transform: rotateX(0deg);
+  }
+
+  100% {
+    -moz-transform: rotateX(-90deg);
+  }
+}
+
+@-o-keyframes turn2 {
+  0% {
+    -o-transform: rotateX(0deg);
+  }
+
+  100% {
+    -o-transform: rotateX(-90deg);
+  }
+}
+
+@keyframes turn2 {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+.flip-clock-wrapper ul li.flip-clock-active {
+  z-index: 3;
+}
+
+/* SHADOW */
+.flip-clock-wrapper ul.play li.flip-clock-before .up .shadow {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0.1)),
+    color-stop(100%, black)
+  );
+  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  -webkit-animation: show 0.5s linear both;
+  -moz-animation: show 0.5s linear both;
+  animation: show 0.5s linear both;
+}
+
+.flip-clock-wrapper ul.play li.flip-clock-active .up .shadow {
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0.1)),
+    color-stop(100%, black)
+  );
+  background: linear, top, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, black 100%);
+  background: linear, to bottom, rgba(0, 0, 0, 0.1) 0%, black 100%;
+  -webkit-animation: hide 0.5s 0.3s linear both;
+  -moz-animation: hide 0.5s 0.3s linear both;
+  animation: hide 0.5s 0.3s linear both;
+}
+
+/*DOWN*/
+.flip-clock-wrapper ul.play li.flip-clock-before .down .shadow {
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, black),
+    color-stop(100%, rgba(0, 0, 0, 0.1))
+  );
+  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  -webkit-animation: show 0.5s linear both;
+  -moz-animation: show 0.5s linear both;
+  animation: show 0.5s linear both;
+}
+
+.flip-clock-wrapper ul.play li.flip-clock-active .down .shadow {
+  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, black),
+    color-stop(100%, rgba(0, 0, 0, 0.1))
+  );
+  background: linear, top, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  background: -o-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: -ms-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear, to bottom, black 0%, rgba(0, 0, 0, 0.1) 100%;
+  -webkit-animation: hide 0.5s 0.3s linear both;
+  -moz-animation: hide 0.5s 0.3s linear both;
+  animation: hide 0.5s 0.2s linear both;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
