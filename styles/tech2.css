@@ -221,6 +221,15 @@
     justify-content: space-between;
 }
 
+.cardContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.vl {
+    visibility: visible;
+    display: block;
+}
 
 #regButton {
     display: flex;
@@ -241,10 +250,71 @@
     color: white;
 }
 
+/* DESKTOP */
 @media only screen and (min-width: 768px) {
     #regButton {
         margin: 0 1em;
         font-size: 1.1em;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .upArrow {
+        order: 10;
+    }
+
+
+    .vl {
+        visibility: hidden;
+        display: none;
+        width: 0;
+    }
+
+    .bText {
+        width: 33%;
+        order: 0;
+    }
+
+    .cardRules {
+        align-self: flex-start;
+        /* height: 100%; */
+        width: 33%;
+        order: 2;
+        font-size: 16px;
+    }
+
+    .cardRules scroller {
+        display: inline-block;
+        height: 400px;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: thin;
+    }
+
+    .cardRules h3 {
+        text-align: center;
+        margin-top: 2em;
+        height: 10%;
+    }
+
+    .card .cardImage {
+        width: 33%;
+        order: 1;
+    }
+
+    .cardRules section {
+        scroll-snap-align: start;
+        height: 100%;
+        overflow-y: hidden;
+    }
+
+    .controlButtons {
+        display: none;
     }
 
     .navbar {
@@ -257,7 +327,7 @@
 
     }
 
-    /* this rule is overriden for {a} due to an scss file in a library */
+    /* this rule doesn't apply to a due to override */
     .navbar * {
         margin: 0;
     }

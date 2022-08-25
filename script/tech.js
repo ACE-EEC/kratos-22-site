@@ -25,12 +25,13 @@ function triggerDisplay(index){
 
 function displayMany(myIndex){
 
-    var newDoc = document.getElementsByClassName('plus')[myIndex];
+    var plus = document.getElementsByClassName('plus')[myIndex];
     var details = document.getElementsByClassName('details')[myIndex];
     var vl = document.getElementsByClassName('vl')[myIndex];
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+    var rules = document.getElementsByClassName('cardRules');
 
 
     details.style.display = 'flex';
@@ -38,11 +39,12 @@ function displayMany(myIndex){
     bText.style.display = 'block';
     content.style.display = 'flex';
     upArrow.style.display = 'flex';
-    newDoc.style.display = 'none';
+    rules.style.display = 'inline-block';
+    plus.style.display = 'none';
     
     setTimeout(function(){
         setOpacity(myIndex);
-    }, 800)
+    }, 500)
 }    
 
 function setOpacity(myIndex){
@@ -53,6 +55,7 @@ function setOpacity(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+    var rules = document.getElementsByClassName('cardRules');
 
 
     details.style.opacity = "1.0";
@@ -61,6 +64,8 @@ function setOpacity(myIndex){
     bText.style.opacity = "1.0";
     upArrow.style.opacity = "1.0";
     newDoc.style.opacity = "1.0";
+    rules.style.opacity = "1.0";
+
 }
 
 function setDisplayTime(myIndex){
@@ -71,6 +76,7 @@ function setDisplayTime(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+    var rules = document.getElementsByClassName('cardRules');
 
 
     details.style.display = 'none';
@@ -79,6 +85,7 @@ function setDisplayTime(myIndex){
     bText.style.display = 'none';
     upArrow.style.display = 'none';
     newDoc.style.display = 'flex';
+    rules.style.display = 'none';
 }
 
 function resetMany(myIndex){
@@ -89,16 +96,18 @@ function resetMany(myIndex){
     var bText = document.getElementsByClassName('bText')[myIndex];
     var content = document.getElementsByClassName('content')[myIndex];
     var upArrow = document.getElementsByClassName('upArrow')[myIndex];
+    var rules = document.getElementsByClassName('cardRules');
 
     details.style.opacity = "0";
     vl.style.opacity = "0"; 
     bText.style.opacity = "0";
     content.style.opacity = "0";
     upArrow.style.opacity = "0";
+    rules.style.opacity = "0";
 
     setTimeout(function(){
         setDisplayTime(myIndex);
-    }, 800)
+    }, 500)
 }
 
 
@@ -191,5 +200,3 @@ function homeClick(){
     ntechCardHolder.style.display = 'none';
     techCardHolder.style.display = 'none';
 }
-
-
