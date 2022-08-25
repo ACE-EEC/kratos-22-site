@@ -14,7 +14,7 @@
     transform: translate(-50%, -50%);
 
     color: aquamarine;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .bannerVideo {
@@ -90,7 +90,6 @@
 
 /*mobile Large*/
 @media screen and (max-width: 500px) {
-
     .titleBlock>h1 {
         top: 50%;
     }
@@ -107,7 +106,6 @@
 }
 
 @media screen and (max-width: 375px) {
-
     .titleBlock>h1 {
         top: 45%;
     }
@@ -121,7 +119,6 @@
     .banner {
         padding: 10px;
     }
-
 }
 
 #ntechCardHolder {
@@ -146,11 +143,19 @@
 #link3,
 #link4 {
     font-size: larger;
+    color: rgba(255, 255, 255, .75);
+}
+
+#link1:hover,
+#link2:hover,
+#link3:hover,
+#link4:hover {
+    font-size: larger;
+    color: rgba(255, 255, 255, .9);
 }
 
 
 @media screen and (max-width: 500px) {
-
     .navLogo {
         height: 70px;
         width: 70px;
@@ -159,15 +164,6 @@
     a {
         margin: 20px;
     }
-
-}
-
-@media screen and (min-width: 768px) {
-
-    a {
-        margin: 50px;
-    }
-
 }
 
 .cardMain {
@@ -188,12 +184,6 @@
     border: 5px solid black;
 }
 
-@media only screen and (max-width: 768px) {
-    .cardMain {
-        flex-wrap: wrap;
-        /* background-color: tomato; */
-    }
-}
 
 .mainIcon {
     height: 100%;
@@ -237,10 +227,10 @@
     align-items: center;
     margin: 2rem 3rem;
     background-color: black;
-    opacity: .9;
-    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    opacity: 0.9;
+    font-family: "Consolas", "Courier New", Courier, monospace;
     font-size: 1.5rem;
-    border-radius: .25em;
+    border-radius: 0.25em;
     height: 2.9em;
     width: 6em;
 }
@@ -252,9 +242,45 @@
 
 /* DESKTOP */
 @media only screen and (min-width: 768px) {
+
+    a {
+        margin: 50px;
+    }
+
+    .cardMain {
+        flex-wrap: wrap;
+        /* background-color: tomato; */
+    }
+
+    #link1,
+    #link2,
+    #link3,
+    #link4 {
+        margin: 0 !important;
+    }
+
+    ul.navbar-nav {
+        gap: 2em;
+    }
+
+    .bannerVideo {
+        height: 100%;
+        width: fit-content;
+        border-radius: 2em;
+    }
+
+    .banner {
+        display: flex;
+        justify-content: center;
+        padding: 6em 3em 3em;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100vh;
+    }
+
     #regButton {
-        margin: 0 1em;
-        font-size: 1.1em;
+        margin: 0 3em 0 0;
+        font-size: 1.2em;
     }
 
     .cardContent {
@@ -267,7 +293,6 @@
     .upArrow {
         order: 10;
     }
-
 
     .vl {
         visibility: hidden;
@@ -317,14 +342,19 @@
         display: none;
     }
 
-    .navbar {
+    /* using id for higher spcificity, to override default BS CSS */
+    #nav {
+        position: fixed;
+        width: 100%;
+        height: 6em;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        height: 80px;
         padding: 0;
-
+        background: linear-gradient(#ff9a8b, #ff968b);
+        box-shadow:rgba(255, 255, 255, .75);
+        z-index: 3;
     }
 
     /* this rule doesn't apply to a due to override */
@@ -333,8 +363,8 @@
     }
 
     .navLogo {
-        align-self: flex-start;
-        padding: 0;
+        /* align-self: flex-start; */
+        padding: .2em;
         height: 70px;
         width: 70px;
         margin: 0 1em;
