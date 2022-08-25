@@ -1013,3 +1013,10 @@
     opacity: 0;
   }
 }
+
+.sponsors {
+  text-align: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 2em;
+}
