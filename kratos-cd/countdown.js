@@ -1,204 +1,3 @@
-$(".plus").click(function () {
-  $(".transform").toggleClass("transform-active-another");
-});
-
-var myIndex = 0;
-
-function reset(index) {
-  myIndex = index;
-
-  resetMany(myIndex);
-}
-
-function triggerDisplay(index) {
-  myIndex = index;
-
-  displayMany(myIndex);
-}
-
-// var newDoc = document.getElementsByClassName('plus')[0];
-// var details = document.getElementsByClassName('details')[0];
-// var vl = document.getElementsByClassName('vl')[0];
-// var bText = document.getElementsByClassName('bText')[0];
-// var content = document.getElementsByClassName('content')[0];
-// var upArrow = document.getElementsByClassName('upArrow')[0];
-
-function displayMany(myIndex) {
-  var plus = document.getElementsByClassName("plus")[myIndex];
-  var details = document.getElementsByClassName("details")[myIndex];
-  var vl = document.getElementsByClassName("vl")[myIndex];
-  var bText = document.getElementsByClassName("bText")[myIndex];
-  var content = document.getElementsByClassName("content")[myIndex];
-  var upArrow = document.getElementsByClassName("upArrow")[myIndex];
-  var rules = document.getElementsByClassName("cardRules");
-
-  details.style.display = "flex";
-  vl.style.display = "flex";
-  bText.style.display = "block";
-  content.style.display = "flex";
-  upArrow.style.display = "flex";
-  rules.style.display = "inline-block";
-  plus.style.display = "none";
-
-  setTimeout(function () {
-    setOpacity(myIndex);
-  }, 500);
-}
-
-function setOpacity(myIndex) {
-  var newDoc = document.getElementsByClassName("plus")[myIndex];
-  var details = document.getElementsByClassName("details")[myIndex];
-  var vl = document.getElementsByClassName("vl")[myIndex];
-  var bText = document.getElementsByClassName("bText")[myIndex];
-  var content = document.getElementsByClassName("content")[myIndex];
-  var upArrow = document.getElementsByClassName("upArrow")[myIndex];
-  var rules = document.getElementsByClassName("cardRules");
-
-  details.style.opacity = "1.0";
-  vl.style.opacity = "1.0";
-  content.style.opacity = "1.0";
-  bText.style.opacity = "1.0";
-  upArrow.style.opacity = "1.0";
-  newDoc.style.opacity = "1.0";
-  rules.style.opacity = "1.0";
-}
-
-function setDisplayTime(myIndex) {
-  var newDoc = document.getElementsByClassName("plus")[myIndex];
-  var details = document.getElementsByClassName("details")[myIndex];
-  var vl = document.getElementsByClassName("vl")[myIndex];
-  var bText = document.getElementsByClassName("bText")[myIndex];
-  var content = document.getElementsByClassName("content")[myIndex];
-  var upArrow = document.getElementsByClassName("upArrow")[myIndex];
-  var rules = document.getElementsByClassName("cardRules");
-
-  details.style.display = "none";
-  vl.style.display = "none";
-  content.style.display = "none";
-  bText.style.display = "none";
-  upArrow.style.display = "none";
-  newDoc.style.display = "flex";
-  rules.style.display = "none";
-}
-
-function resetMany(myIndex) {
-  var newDoc = document.getElementsByClassName("plus")[myIndex];
-  var details = document.getElementsByClassName("details")[myIndex];
-  var vl = document.getElementsByClassName("vl")[myIndex];
-  var bText = document.getElementsByClassName("bText")[myIndex];
-  var content = document.getElementsByClassName("content")[myIndex];
-  var upArrow = document.getElementsByClassName("upArrow")[myIndex];
-  var rules = document.getElementsByClassName("cardRules");
-
-  details.style.opacity = "0";
-  vl.style.opacity = "0";
-  bText.style.opacity = "0";
-  content.style.opacity = "0";
-  upArrow.style.opacity = "0";
-  rules.style.opacity = "0";
-
-  setTimeout(function () {
-    setDisplayTime(myIndex);
-  }, 500);
-}
-
-var sympo = document.getElementsByClassName("sympo")[0];
-var tech = document.getElementsByClassName("tech")[0];
-var ntech = document.getElementsByClassName("ntech")[0];
-
-$("#link1").on("click", function (e) {
-  e.preventDefault();
-  $("html, body").animate(
-    { scrollTop: $("#techCardHolder").position().top },
-    "slow"
-  );
-});
-
-$("#link2").on("click", function (e) {
-  e.preventDefault();
-  $("html, body").animate(
-    { scrollTop: $("#workshopCardHolder").position().top },
-    "slow"
-  );
-});
-
-$("#link3").on("click", function (e) {
-  e.preventDefault();
-  $("html, body").animate(
-    { scrollTop: $("#ntechCardHolder").position().top },
-    "slow"
-  );
-});
-
-$("#link4").on("click", function (e) {
-  e.preventDefault();
-  $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
-});
-
-//This is for the banner text
-function sympoClick() {
-  // sympo.style.display = 'flex';
-  // tech.style.display = 'none';
-  // ntech.style.display = 'none';
-
-  //cardholder display
-  displayWorkshop();
-}
-
-function techClick() {
-  // sympo.style.display = 'none';
-  // tech.style.display = 'flex';
-  // ntech.style.display = 'none';
-
-  //important Scroll Top
-  // document.documentElement.scrollTop = document.getElementById('techCardHolder').offsetTop;
-
-  //cardholder display
-  displaytech();
-}
-
-function ntechClick() {
-  // sympo.style.display = 'none';
-  // tech.style.display = 'none';
-  // ntech.style.display = 'flex';
-
-  //cardholder display
-  displayntech();
-}
-
-//displaying card holder
-var techCardHolder = document.getElementById("techCardHolder");
-var ntechCardHolder = document.getElementById("ntechCardHolder");
-var workshopCardHolder = document.getElementById("workshopCardHolder");
-var homePage = document.getElementById("mainPage");
-
-function displayWorkshop() {
-  workshopCardHolder.style.display = "flex";
-  ntechCardHolder.style.display = "none";
-  techCardHolder.style.display = "none";
-  homePage.style.display = "none";
-}
-
-function displaytech() {
-  workshopCardHolder.style.display = "none";
-  ntechCardHolder.style.display = "none";
-  techCardHolder.style.display = "flex";
-  homePage.style.display = "none";
-}
-
-function displayntech() {
-  workshopCardHolder.style.display = "none";
-  ntechCardHolder.style.display = "flex";
-  techCardHolder.style.display = "none";
-  homePage.style.display = "none";
-}
-
-function homeClick() {
-  homePage.style.display = "flex";
-  workshopCardHolder.style.display = "none";
-  ntechCardHolder.style.display = "none";
-  techCardHolder.style.display = "none";
-}
 //countdown
 // var deadline = new Date("Oct 15, 2022 0:0:0").getTime();
 // var time = setInterval(function () {
@@ -217,9 +16,9 @@ function homeClick() {
 // }, 1000);
 
 /*
-	Base.js, version 1.1a
-	Copyright 2006-2010, Dean Edwards
-	License: http://www.opensource.org/licenses/mit-license.php
+    Base.js, version 1.1a
+    Copyright 2006-2010, Dean Edwards
+    License: http://www.opensource.org/licenses/mit-license.php
 */
 
 var Base = function () {
@@ -631,15 +430,15 @@ var FlipClock;
 
       var html = [
         '<span class="' +
-          this.factory.classes.divider +
-          " " +
-          (css ? css : "").toLowerCase() +
-          '">',
+        this.factory.classes.divider +
+        " " +
+        (css ? css : "").toLowerCase() +
+        '">',
         '<span class="' +
-          this.factory.classes.label +
-          '">' +
-          (label ? label : "") +
-          "</span>",
+        this.factory.classes.label +
+        '">' +
+        (label ? label : "") +
+        "</span>",
         dots,
         "</span>",
       ];
@@ -715,13 +514,13 @@ var FlipClock;
      * Triggers when the clock is started
      */
 
-    start: function () {},
+    start: function () { },
 
     /**
      * Triggers when the time on the clock stops
      */
 
-    stop: function () {},
+    stop: function () { },
 
     /**
      * Auto increments/decrements the value of the clock face
@@ -793,15 +592,15 @@ var FlipClock;
   "use strict";
 
   /**
-	 * The FlipClock Factory class is used to build the clock and manage
-	 * all the public methods.
-	 *
-	 * @param 	object  A jQuery object or CSS selector used to fetch
-	 				    the wrapping DOM nodes
-	 * @param 	mixed   This is the digit used to set the clock. If an 
-	 				    object is passed, 0 will be used.	
-	 * @param 	object  An object of properties to override the default	
-	 */
+     * The FlipClock Factory class is used to build the clock and manage
+     * all the public methods.
+     *
+     * @param 	object  A jQuery object or CSS selector used to fetch
+                         the wrapping DOM nodes
+     * @param 	mixed   This is the digit used to set the clock. If an 
+                         object is passed, 0 will be used.	
+     * @param 	object  An object of properties to override the default	
+     */
 
   FlipClock.Factory = FlipClock.Base.extend({
     /**
@@ -1339,10 +1138,10 @@ var FlipClock;
       var html = $(
         [
           '<ul class="' +
-            this.classes.flip +
-            " " +
-            (this.factory.running ? this.factory.classes.play : "") +
-            '">',
+          this.classes.flip +
+          " " +
+          (this.factory.running ? this.factory.classes.play : "") +
+          '">',
           this.createListItem(this.classes.before, lastDigit),
           this.createListItem(this.classes.active, this.digit),
           "</ul>",
@@ -1862,13 +1661,13 @@ var FlipClock;
     },
 
     /*
-		getYears: function() {
-			return Math.floor(this.time / 60 / 60 / 24 / 7 / 52);
-		},
-		
-		getDecades: function() {
-			return Math.floor(this.getWeeks() / 10);
-		}*/
+        getYears: function() {
+            return Math.floor(this.time / 60 / 60 / 24 / 7 / 52);
+        },
+        
+        getDecades: function() {
+            return Math.floor(this.getWeeks() / 10);
+        }*/
   });
 })(jQuery);
 
@@ -2577,3 +2376,4 @@ var FlipClock;
   FlipClock.Lang["en-us"] = FlipClock.Lang.English;
   FlipClock.Lang["english"] = FlipClock.Lang.English;
 })(jQuery);
+
