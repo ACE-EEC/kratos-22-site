@@ -11,6 +11,9 @@ body {
   height: auto;
   /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
   background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac);
+  /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
+  /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
+
   overflow-x: hidden;
 }
 
