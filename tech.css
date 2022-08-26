@@ -9,7 +9,6 @@
 html {
     overflow-x: hidden;
 }
-
 body {
     width: 100%;
     height: auto;
@@ -17,7 +16,6 @@ body {
     background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac);
     /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
     /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
-
     overflow-x: hidden;
 }
 
@@ -399,6 +397,7 @@ body {
     display: none;
 }
 
+
 @media only screen and (min-width: 1050px) {
     ul.navbar-nav {
         gap: 1em;
@@ -521,8 +520,8 @@ body {
         align-items: center;
         padding: 0;
         background: linear-gradient(#ff9a8b, #ff968b);
-        box-shadow: rgba(255, 255, 255, .75);
         z-index: 10;
+
     }
 
     /* this rule doesn't apply to a due to override */
