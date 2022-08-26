@@ -5,10 +5,13 @@
   <title>Kratos 2022 | EEC CSE</title>
 
   <link rel="stylesheet" type="text/css" href="tech.css">
+  <link rel="stylesheet" type="text/css" href="countdown.css">
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <script rel="script" type="text/javascript" src="tech.js" defer></script>
+  <script rel="script" type="text/javascript" src="countdown.js" defer></script>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
 </head>
@@ -74,6 +77,38 @@
     </blockquote>
 
     <!-- TODO: Add a countdown here -->
+    <div id="countdown">
+      <div class="clock" style="margin:1em;"></div>
+      <div class="message"></div>
+
+      <script type="text/javascript">
+        var clock;
+
+        $(document).ready(function () {
+          var clock;
+
+          clock = $('.clock').FlipClock({
+            clockFace: 'DailyCounter',
+            autoStart: false,
+            callbacks: {
+              stop: function () {
+                $('.message').html('Begin')
+              }
+            }
+          });
+
+          //   clock.setTime(220880); 
+          var deadline = new Date("Oct 15, 2022 0:0:0").getTime();
+          var current_time = new Date().getTime();
+          var t = deadline - current_time;
+
+          clock.setTime((deadline - current_time) / 1000);
+          clock.setCountdown(true);
+          clock.start();
+
+        });
+      </script>
+    </div>
 
     <div class="cardMain">
       <div class="cardMainImage">
@@ -883,7 +918,24 @@
   </div>
 
   <!-- TODO: maybe add a sponsor section -->
-
+  <!-- <div>
+  <div class="sponsors">Sponsors</div>
+    <div class="cardImage" >
+      <div class="sponsors_align">
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+    </div>
+    </div>
+    </div> -->
+  <!-- <div class="card">
+    <div class="cardImage">
+      <picture class="sponsors_align">
+      <div class=""><img class="sponsor_properties" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class=""><img class="img fluid" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      </picture>
+  
+    </div> -->
 
   <!-- TODO CON: Change the social links  -->
   <footer id="myFooter" class="mt-5 text-center text-lg-start" style="background-color: black;">
