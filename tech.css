@@ -375,6 +375,26 @@ body {
     display: block;
 }
 
+.cardRules {
+    align-self: flex-start;
+    order: 2;
+    font-size: 1em;
+}
+
+.cardRules scroller {
+    display: inline-block;
+    height: 40vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: thin;
+}
+
+.cardRules section {
+    scroll-snap-align: start;
+    height: 100%;
+    overflow-y: hidden;
+}
+
 #regButton {
     display: flex;
     justify-content: center;
@@ -466,19 +486,12 @@ body {
     }
 
     .cardRules {
-        align-self: flex-start;
-        /* height: 100%; */
         width: 33%;
-        order: 2;
-        font-size: 16px;
+        font-size: 1.1em;
     }
 
     .cardRules scroller {
-        display: inline-block;
         height: 400px;
-        overflow-y: scroll;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: thin;
     }
 
     .cardRules h3 {
@@ -498,12 +511,6 @@ body {
 
     .cardImage {
         width: 100%;
-    }
-
-    .cardRules section {
-        scroll-snap-align: start;
-        height: 100%;
-        overflow-y: hidden;
     }
 
     .controlButtons {
