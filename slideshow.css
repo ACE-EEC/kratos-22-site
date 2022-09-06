@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+.slideshow-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  min-height: 16em;
+  width: inherit;
+  /* max-width: 100%; */
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide {
+  z-index: 0;
+  height: inherit;
+  width: inherit;
+}
+
+.slideshow-button {
+  font-size: 3em;
+  font-family: "Poppins", "Monospace", "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(220, 220, 220, 0.8);
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 15%;
+}
+
+.slideshow-button-right {
+  right: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  transition: all 3s ease;
+}
+
+.slideshow-button-right:hover,
+.slideshow-button-right:active {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+}
+
+.slideshow-button-left {
+  left: 0;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+}
+
+@media only screen and (min-size: 768px) {
+  .slideshow-container {
+  }
+}

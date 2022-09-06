@@ -1,136 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
 * {
-    padding: 0px;
-    margin: 0px;
-    font-family: monospace;
+  padding: 0px;
+  margin: 0px;
+  font-family: monospace;
 }
 
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 body {
-    width: 100%;
-    height: auto;
-    /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
-    /* TODO: Change the background color maybe */
-    background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac);
-    /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
-    /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
-    overflow-x: hidden;
+  width: 100%;
+  height: auto;
+  /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
+  /* TODO: Change the background color maybe */
+  background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac);
+  /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
+  /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
+  overflow-x: hidden;
 }
 
 .bText {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 25px;
 }
 
 .vl {
-    width: 100%;
-    border-top: solid black 3px;
+  width: 100%;
+  border-top: solid black 3px;
 }
 
 .card {
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 20px;
-    box-shadow: 5px 10px black;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 5px 10px black;
 }
 
 .cardContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 768px) {
-    .cardContent {
-        flex-direction: row;
-    }
+  .cardContent {
+    flex-direction: row;
+  }
 
-    .cardImage {
-        order: 1;
-        width: 33%;
-    }
+  .cardImage {
+    order: 1;
+    width: 33%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
-    .card {
-        max-width: auto;
-    }
+  .card {
+    max-width: auto;
+  }
 }
 
 .content {
-    text-align: center;
-    word-wrap: break-word;
+  text-align: center;
+  word-wrap: break-word;
 
-    font-size: large;
+  font-size: large;
 
-    margin-top: 25px;
+  margin-top: 25px;
 
-    border-radius: 20px;
-    padding: 10px;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .cardImage {
-    display: flex;
-    order: 0;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+  display: flex;
+  order: 0;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .icon {
-    height: 30%;
-    display: flex;
-    justify-content: center;
+  height: 30%;
+  display: flex;
+  justify-content: center;
 }
 
-.icon>img {
-    max-width: 50%;
-    max-height: 100%;
-    object-fit: contain;
+.icon > img {
+  max-width: 50%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .tag {
-    text-align: center;
-    font-weight: 900;
-    font-size: larger;
-    color: white;
+  text-align: center;
+  font-weight: 900;
+  font-size: larger;
+  color: white;
 
-    background-color: black;
+  background-color: black;
 
-    padding: 10px;
-    margin: 10px;
-    border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
 }
 
 #plus,
 .eventName {
-    margin: 30px;
-    transition: all 0.5s ease;
-    cursor: pointer;
+  margin: 30px;
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 .details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 #plus:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #upArrow {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .cardRules,
@@ -139,164 +139,162 @@ body {
 .bText,
 .content,
 #upArrow {
-    transition: all 0.5s ease;
-    opacity: 0;
-    display: none;
+  transition: all 0.5s ease;
+  opacity: 0;
+  display: none;
 }
 
 /*for plus animation*/
 .transform {
-    transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .transform-active {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .transform-active-another {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
 }
-
-
 
 .banner {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 50px;
 }
 
-.bannerHeadText>h1 {
-    text-align: center;
-    font-size: 3em;
+.bannerHeadText > h1 {
+  text-align: center;
+  font-size: 3em;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    color: aquamarine;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: aquamarine;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .bannerVideo {
-    /* position: relative; */
-    width: 100%;
-    border-radius: 10px;
+  /* position: relative; */
+  width: 100%;
+  border-radius: 10px;
 }
 
 /* .cardHolder */
 
 .eventType {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-wrap: wrap; */
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  width: 100%;
 }
 
 .cardHolder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 /*controls Buttons*/
 .controlButtons {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    color: black;
+  color: black;
 
-    display: inline-flex;
-    justify-content: space-evenly;
+  display: inline-flex;
+  justify-content: space-evenly;
 
-    width: 100%;
-    height: 20%;
+  width: 100%;
+  height: 20%;
 
-    padding: 20px;
+  padding: 20px;
 }
 
-.controlButtons>i {
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
+.controlButtons > i {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 /*Overlapping title block*/
 .titleBlock {
-    background: none;
-    width: 100%;
+  background: none;
+  width: 100%;
 }
 
-.titleBlock>h1 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: monospace;
-    color: white;
-    z-index: 1;
+.titleBlock > h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  color: white;
+  z-index: 1;
 }
 
 .sympo,
 .tech,
 .ntech {
-    text-align: center;
-    font-size: 5rem;
-    font-family: monospace;
-    font-weight: 700;
+  text-align: center;
+  font-size: 5rem;
+  font-family: monospace;
+  font-weight: 700;
 }
 
 /*mobile Large*/
 @media screen and (max-width: 500px) {
-    .titleBlock>h1 {
-        top: 50%;
-    }
+  .titleBlock > h1 {
+    top: 50%;
+  }
 
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.7rem;
-    }
+  .sympo,
+  .tech,
+  .ntech {
+    font-size: 1.7rem;
+  }
 
-    .banner {
-        padding: 10px;
-    }
+  .banner {
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 375px) {
-    .titleBlock>h1 {
-        top: 45%;
-    }
+  .titleBlock > h1 {
+    top: 45%;
+  }
 
-    .sympo,
-    .tech,
-    .ntech {
-        font-size: 1.5rem;
-    }
+  .sympo,
+  .tech,
+  .ntech {
+    font-size: 1.5rem;
+  }
 
-    .banner {
-        padding: 10px;
-    }
+  .banner {
+    padding: 10px;
+  }
 }
 
 #ntechCardHolder {
-    display: none;
+  display: none;
 }
 
 #techCardHolder {
-    display: none;
+  display: none;
 }
 
 #workshopCardHolder {
-    display: none;
+  display: none;
 }
 
 /*Block Quote*/
-.blockquote>p {
-    font-size: 3.5rem;
+.blockquote > p {
+  font-size: 3.5rem;
 }
 
 #link0,
@@ -304,8 +302,8 @@ body {
 #link2,
 #link3,
 #link4 {
-    font-size: larger;
-    color: rgba(255, 255, 255, .75);
+  font-size: larger;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 #link0:hover,
@@ -313,252 +311,247 @@ body {
 #link2:hover,
 #link3:hover,
 #link4:hover {
-    font-size: larger;
-    color: rgba(255, 255, 255, .9);
+  font-size: larger;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-
 @media screen and (max-width: 500px) {
-    .navLogo {
-        height: 70px;
-        width: 70px;
-    }
+  .navLogo {
+    height: 70px;
+    width: 70px;
+  }
 
-    a {
-        margin: 20px;
-    }
+  a {
+    margin: 20px;
+  }
 }
 
 .cardMain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 10px;
+  padding: 10px;
 
-    margin: 30px;
+  margin: 30px;
 
-    box-shadow: 5px 10px black;
+  box-shadow: 5px 10px black;
 
-    /*only takes 25% of the page size*/
-    max-width: auto;
+  /*only takes 25% of the page size*/
+  max-width: auto;
 
-    border-radius: 25px;
-    border: 5px solid black;
+  border-radius: 25px;
+  border: 5px solid black;
 }
-
 
 .mainIcon {
-    height: 100%;
-    display: flex;
-    justify-content: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.mainIcon>img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.mainIcon > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .navLogo {
-    height: 80px;
-    width: 80px;
-    margin: 0 1em;
+  height: 80px;
+  width: 80px;
+  margin: 0 1em;
 }
 
 .navbar {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .vl {
-    visibility: visible;
-    display: block;
+  visibility: visible;
+  display: block;
 }
 
 .cardRules {
-    align-self: flex-start;
-    order: 2;
-    font-size: 1em;
+  align-self: flex-start;
+  order: 2;
+  font-size: 1em;
 }
 
 .cardRules scroller {
-    display: inline-block;
-    height: 40vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scrollbar-width: thin;
+  display: inline-block;
+  height: 40vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin;
 }
 
 .cardRules section {
-    scroll-snap-align: start;
-    height: 100%;
-    overflow-y: hidden;
+  scroll-snap-align: start;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 #regButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 3rem;
-    background-color: black;
-    opacity: 0.9;
-    font-family: "Consolas", "Courier New", Courier, monospace;
-    font-size: 1.5rem;
-    border-radius: 0.25em;
-    height: 2.9em;
-    width: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 3rem;
+  background-color: black;
+  opacity: 0.9;
+  font-family: "Consolas", "Courier New", Courier, monospace;
+  font-size: 1.5rem;
+  border-radius: 0.25em;
+  height: 2.9em;
+  width: 6em;
 }
 
 #regButton a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
-.navbar-brand>H1 {
-    display: none;
+.navbar-brand > H1 {
+  display: none;
 }
-
 
 @media only screen and (min-width: 1050px) {
-    ul.navbar-nav {
-        gap: 1em;
-    }
+  ul.navbar-nav {
+    gap: 1em;
+  }
 }
 
 /* DESKTOP */
 @media only screen and (min-width: 768px) {
+  a {
+    margin: 50px;
+  }
 
-    a {
-        margin: 50px;
-    }
+  .cardMain {
+    flex-wrap: wrap;
+    /* background-color: tomato; */
+  }
 
-    .cardMain {
-        flex-wrap: wrap;
-        /* background-color: tomato; */
-    }
+  #link0,
+  #link1,
+  #link2,
+  #link3,
+  #link4 {
+    margin: 0 !important;
+  }
 
-    #link0,
-    #link1,
-    #link2,
-    #link3,
-    #link4 {
-        margin: 0 !important;
-    }
+  ul.navbar-nav {
+    gap: 2em;
+  }
 
-    ul.navbar-nav {
-        gap: 2em;
-    }
+  .bannerVideo {
+    height: 100%;
+    max-width: 97%;
+    width: initial;
+    border-radius: 2em;
+  }
 
-    .bannerVideo {
-        height: 100%;
-        max-width: 97%;
-        width: initial;
-        border-radius: 2em;
-    }
+  .banner {
+    display: flex;
+    justify-content: center;
+    padding: 6em 3em 3em;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+  }
 
-    .banner {
-        display: flex;
-        justify-content: center;
-        padding: 6em 3em 3em;
-        box-sizing: border-box;
-        width: 100%;
-        height: 100vh;
-    }
+  #regButton {
+    margin: 0 3em 0 0;
+    font-size: 1.2em;
+  }
 
-    #regButton {
-        margin: 0 3em 0 0;
-        font-size: 1.2em;
-    }
+  .upArrow {
+    order: 10;
+  }
 
-    .upArrow {
-        order: 10;
-    }
+  .vl {
+    visibility: hidden;
+    display: none;
+    width: 0;
+  }
 
-    .vl {
-        visibility: hidden;
-        display: none;
-        width: 0;
-    }
+  .bText {
+    width: 33%;
+    order: 0;
+  }
 
-    .bText {
-        width: 33%;
-        order: 0;
-    }
+  .cardRules {
+    width: 33%;
+    font-size: 1.1em;
+  }
 
-    .cardRules {
-        width: 33%;
-        font-size: 1.1em;
-    }
+  .cardRules scroller {
+    height: 400px;
+  }
 
-    .cardRules scroller {
-        height: 400px;
-    }
+  .cardRules h3 {
+    text-align: center;
+    margin-top: 2em;
+    height: 10%;
+  }
 
-    .cardRules h3 {
-        text-align: center;
-        margin-top: 2em;
-        height: 10%;
-    }
+  .cardImage,
+  .card {
+    order: 1;
+  }
 
-    .cardImage,
-    .card {
-        order: 1;
-    }
+  .card {
+    width: 25%;
+  }
 
-    .card {
-        width: 25%;
-    }
+  .cardImage {
+    width: 100%;
+  }
 
-    .cardImage {
-        width: 100%;
-    }
+  .controlButtons {
+    display: none;
+  }
 
-    .controlButtons {
-        display: none;
-    }
+  /* using id for higher spcificity, to override default BS CSS */
+  #nav {
+    position: fixed;
+    width: 100%;
+    height: 6em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    background: linear-gradient(#ff9a8b, #ff968b);
+    z-index: 10;
+  }
 
-    /* using id for higher spcificity, to override default BS CSS */
-    #nav {
-        position: fixed;
-        width: 100%;
-        height: 6em;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        background: linear-gradient(#ff9a8b, #ff968b);
-        z-index: 10;
+  /* this rule doesn't apply to a due to override */
+  .navbar * {
+    margin: 0;
+  }
 
-    }
+  .navLogo {
+    /* align-self: flex-start; */
+    padding: 0.2em;
+    height: 70px;
+    width: 70px;
+    margin: 0 1em;
+  }
 
-    /* this rule doesn't apply to a due to override */
-    .navbar * {
-        margin: 0;
-    }
+  #regLogo {
+    justify-self: end;
+  }
 
-    .navLogo {
-        /* align-self: flex-start; */
-        padding: .2em;
-        height: 70px;
-        width: 70px;
-        margin: 0 1em;
-    }
+  .navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
 
-    #regLogo {
-        justify-self: end;
-    }
-
-    .navbar-brand {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-    }
-
-    .navbar-brand>H1 {
-        display: inline;
-        font-weight: 700;
-        line-height: 200%;
-        font-family: "Audiowide", "Consolas", 'Courier New', Courier, monospace;
-    }
+  .navbar-brand > H1 {
+    display: inline;
+    font-weight: 700;
+    line-height: 200%;
+    font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
+  }
 }
