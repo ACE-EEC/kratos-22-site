@@ -12,6 +12,7 @@
 
   <script rel="script" type="text/javascript" src="tech.js" defer></script>
   <script rel="script" type="text/javascript" src="countdown.js" defer></script>
+  <script rel="script" type="text/javascript" src="slideshow.js" defer></script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
@@ -59,9 +60,9 @@
       <source src="public/placeholder.mp4" type="video/mp4" />
     </video> -->
     <div class="slideshow-container">
-      <img src="/public/images/placeholder-slide.jpg" class="slide">
-      <div class="slideshow-button slideshow-button-left">&lt;</div>
-      <div class="slideshow-button slideshow-button-right">&gt;</div>
+      <img src="/public/images/slide-0.jpg" class="slide" id="activeSlide">
+      <div class="slideshow-button slideshow-button-left" onclick="previousSlide()">&lt;</div>
+      <div class="slideshow-button slideshow-button-right" onclick="nextSlide()">&gt;</div>
     </div>
   </div>
 

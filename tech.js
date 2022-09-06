@@ -16,13 +16,6 @@ function triggerDisplay(index) {
     displayMany(myIndex);
 }
 
-// var newDoc = document.getElementsByClassName('plus')[0];
-// var details = document.getElementsByClassName('details')[0];
-// var vl = document.getElementsByClassName('vl')[0];
-// var bText = document.getElementsByClassName('bText')[0];
-// var content = document.getElementsByClassName('content')[0];
-// var upArrow = document.getElementsByClassName('upArrow')[0];
-
 function displayMany(myIndex) {
 
     var plus = document.getElementsByClassName('plus')[myIndex];
