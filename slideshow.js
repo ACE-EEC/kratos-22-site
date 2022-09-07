@@ -1,18 +1,29 @@
 const slideCount = 4;
 let index = 0;
-let leftSlide = document.getElementById('previousSlide');
-let activeSlide = document.getElementById('activeSlide');
-let rightSlide = document.getElementById('nextSlide');
 
-const animRightToLeft = [
-  { transform: 'translate(0%)' },
-  { transform: 'translate(-100%)' }
-];
+let slideshowContainer = document.getElementById('slideshowContainer');
+let slideshowMarkers = document.getElementById('slideshowMarkers');
 
-const animLeftToRight = [
-  { transform: 'translate(0%)' },
-  { transform: 'translate(100%)' }
-];
+$('#slideshowContainer').ready(() => {
+  for (var i = 0; i < slideCount; i++) {
+    var newSlide = slideshowContainer.appendChild(document.createElement('img'));
+    newSlide.classList.add(['slide']);
+    newSlide.src = `public/images/slide-${i}.jpg`;
+    newSlide.id = `slide${i}`;
+
+    var newMarker = slideshowMarkers.appendChild(document.createElement('div'));
+    newMarker.classList.add(['marker']);
+    newMarker.id = `marker${i}`
+    newMarker.onclick = function(ev) {
+      
+    };
+
+    // performance optimizations
+    if (i > 0) {
+      newSlide.loading = 'lazy'
+    }
+  }
+});
 
 const animOptions = {
   duration: 600,
@@ -21,29 +32,21 @@ const animOptions = {
   easing: 'ease'
 }
 
-function nextSlide() {
-  activeSlide.animate(animRightToLeft, animOptions);
-  rightSlide.animate(animRightToLeft, animOptions);
+$('#slideRight').click((e) => {
+  e.preventDefault();
+  index = nextCyclicIndex(index);
+  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
+  let scrollTarget = width * index;
+  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+});
 
-  setTimeout(() => {
-    index = nextCyclicIndex(index);
-    activeSlide.src = `public/images/slide-${index}.jpg`;
-    leftSlide.src = `public/images/slide-${prevCyclicIndex(index)}.jpg`;
-    rightSlide.src = `public/images/slide-${nextCyclicIndex(index)}.jpg`;
-  }, animOptions.duration);
-}
-
-function previousSlide() {
-  leftSlide.animate(animLeftToRight, animOptions);
-  activeSlide.animate(animLeftToRight, animOptions);
-
-  setTimeout(() => {
-    index = prevCyclicIndex(index);
-    activeSlide.src = `public/images/slide-${index}.jpg`;
-    leftSlide.src = `public/images/slide-${prevCyclicIndex(index)}.jpg`;
-    rightSlide.src = `public/images/slide-${nextCyclicIndex(index)}.jpg`;
-  }, animOptions.duration);
-}
+$('#slideLeft').click((e) => {
+  e.preventDefault();
+  index = prevCyclicIndex(index);
+  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
+  let scrollTarget = width * index;
+  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+});
 
 function prevCyclicIndex(n) {
   if (n === 0) {
