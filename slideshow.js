@@ -14,8 +14,8 @@ $('#slideshowContainer').ready(() => {
     var newMarker = slideshowMarkers.appendChild(document.createElement('div'));
     newMarker.classList.add(['marker']);
     newMarker.id = `marker${i}`
-    newMarker.onclick = function(ev) {
-      
+    newMarker.onclick = function (ev) {
+
     };
 
     // performance optimizations
@@ -23,6 +23,11 @@ $('#slideshowContainer').ready(() => {
       newSlide.loading = 'lazy'
     }
   }
+
+  setInterval(() => {
+    index = nextCyclicIndex(index);
+    scrollToIndex(index);
+  }, 5000);
 });
 
 const animOptions = {
@@ -35,18 +40,20 @@ const animOptions = {
 $('#slideRight').click((e) => {
   e.preventDefault();
   index = nextCyclicIndex(index);
-  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
-  let scrollTarget = width * index;
-  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+  scrollToIndex(index)
 });
 
 $('#slideLeft').click((e) => {
   e.preventDefault();
   index = prevCyclicIndex(index);
-  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
-  let scrollTarget = width * index;
-  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+  scrollToIndex(index);
 });
+
+function scrollToIndex(i) {
+  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
+  let scrollTarget = width * i;
+  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+}
 
 function prevCyclicIndex(n) {
   if (n === 0) {
