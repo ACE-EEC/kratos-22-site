@@ -1,5 +1,10 @@
 const slideCount = 4;
+const slideDuration = 5000; // ms
+const animDuration = 600; // ms
+
 let index = 0;
+
+let timer = null;
 
 let slideshowContainer = document.getElementById('slideshowContainer');
 let slideshowMarkers = document.getElementById('slideshowMarkers');
@@ -24,14 +29,14 @@ $('#slideshowContainer').ready(() => {
     }
   }
 
-  setInterval(() => {
+  timer = setInterval(() => {
     index = nextCyclicIndex(index);
     scrollToIndex(index);
-  }, 5000);
+  }, slideDuration);
 });
 
 const animOptions = {
-  duration: 600,
+  duration: animDuration,
   delay: 0,
   iterations: 1,
   easing: 'ease'
@@ -39,15 +44,33 @@ const animOptions = {
 
 $('#slideRight').click((e) => {
   e.preventDefault();
+  clearInterval(timer);
+  timer = null;
+
   index = nextCyclicIndex(index);
   scrollToIndex(index)
+  startTimer();
 });
 
 $('#slideLeft').click((e) => {
   e.preventDefault();
+  clearInterval(timer);
+  timer = null;
+
   index = prevCyclicIndex(index);
   scrollToIndex(index);
+  startTimer();
 });
+
+function startTimer() {
+  if (timer === null) {
+    timer = setInterval(() => {
+      index = nextCyclicIndex(index);
+      scrollToIndex(index);
+    }, slideDuration);
+  }
+}
+
 
 function scrollToIndex(i) {
   let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
