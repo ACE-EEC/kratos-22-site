@@ -7,7 +7,6 @@ $("#link4").on("click", function (e) {
   $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
 });
 var myIndex = 0;
-
 function reset(index) {
   myIndex = index;
 
