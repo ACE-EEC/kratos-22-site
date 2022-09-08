@@ -2,6 +2,7 @@
 
 .slideshow-container {
   display: flex;
+  /* display: none; */
   position: relative;
   flex-direction: row;
   align-items: center;
@@ -14,14 +15,19 @@
   scrollbar-width: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .slideshow-markers {
+  display: flex;
+  /* display: none; */
   width: 100%;
   height: auto;
-  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: .4em;
+  gap: 0.4em;
 }
 
 .marker {
@@ -29,12 +35,12 @@
   height: 9px;
   width: 15px;
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, .5);
-  transition: background-color .2s linear;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s linear;
 }
 
 .marker:hover {
-  background-color: rgba(0, 0, 0, .75);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .marker:active {
@@ -55,7 +61,7 @@
 }
 
 .slideshow-button {
-  background-color: rgba(51, 51, 51, .9);
+  background-color: rgba(51, 51, 51, 0.9);
   border-radius: 2px;
   color: rgba(255, 255, 255, 0.65);
   font-size: 9px;
@@ -65,7 +71,7 @@
   position: absolute;
   scale: 1.25;
   text-align: center;
-  transition: background-color .2s linear;
+  transition: background-color 0.2s linear;
   width: 15px;
   user-select: none;
 }
