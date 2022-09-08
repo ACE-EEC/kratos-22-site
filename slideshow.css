@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 .slideshow-container {
-  display: flex;
-  /* display: none; */
+  display: none;
   position: relative;
   flex-direction: row;
   align-items: center;
@@ -20,8 +19,7 @@
 }
 
 .slideshow-markers {
-  display: flex;
-  /* display: none; */
+  display: none;
   width: 100%;
   height: auto;
   flex-direction: row;

@@ -1,46 +1,68 @@
-const slideCount = 4;
-const slideDuration = 5000; // ms
-const animDuration = 600; // ms
+const slideCount = {
+  technical: 4,
+  nonTechnical: 3,
+  workshop: 1,
+  none: 0,
+};
+
+const slideDuration = 5000;
+const animDuration = 600;
 
 let index = 0;
-
+let activePage = 'none';
 let timer = null;
 
-let slideshowContainer = document.getElementById('slideshowContainer');
-let slideshowMarkers = document.getElementById('slideshowMarkers');
+let ssContainer = document.getElementById('slideshowContainer');
+let ssMarkers = document.getElementById('slideshowMarkers');
 
-$('#slideshowContainer').ready(() => {
-  for (var i = 0; i < slideCount; i++) {
-    var newSlide = slideshowContainer.appendChild(document.createElement('img'));
+function updateSlides(targetPage) {
+  index = 0;
+  let prevPage = activePage;
+  activePage = targetPage;
+  let slides = document.getElementsByClassName('slide');
+  let markers = document.getElementsByClassName('marker');
+  
+  for (var i = 0; i < slideCount[prevPage] - slideCount[activePage]; i++) {
+    ssContainer.removeChild(slides[slideCount[prevPage] - 1 - i]);
+    ssMarkers.removeChild(markers[slideCount[prevPage] - 1 - i])
+  }
+
+  for (var i = slideCount[prevPage]; i < slideCount[activePage]; i++) {
+    var newSlide = ssContainer.appendChild(document.createElement('img'));
     newSlide.classList.add(['slide']);
-    newSlide.src = `public/images/slide-${i}.jpg`;
     newSlide.id = `slide${i}`;
 
     var newMarker = slideshowMarkers.appendChild(document.createElement('div'));
     newMarker.classList.add(['marker']);
-    newMarker.id = `marker${i}`
+    newMarker.id = `marker${i}`;
     newMarker.onclick = function (ev) {
-
+      // TODO add click handling
     };
+  }
+
+  slides = document.getElementsByClassName('slide');
+  for (var i = 0; i < slideCount[activePage]; i++) {
+    slides[i].src = `public/images/slides/${activePage}/slide-${i}.jpg`;
 
     // performance optimizations
     if (i > 0) {
-      newSlide.loading = 'lazy'
+    slides[i].loading = 'lazy';
     }
   }
+  ssContainer.scrollTo({ left: 0, behavior: 'auto' });
 
   timer = setInterval(() => {
     index = nextCyclicIndex(index);
     scrollToIndex(index);
   }, slideDuration);
-});
+}
 
 const animOptions = {
   duration: animDuration,
   delay: 0,
   iterations: 1,
-  easing: 'ease'
-}
+  easing: 'ease',
+};
 
 $('#slideRight').click((e) => {
   e.preventDefault();
@@ -48,7 +70,7 @@ $('#slideRight').click((e) => {
   timer = null;
 
   index = nextCyclicIndex(index);
-  scrollToIndex(index)
+  scrollToIndex(index);
   startTimer();
 });
 
@@ -71,22 +93,23 @@ function startTimer() {
   }
 }
 
-
 function scrollToIndex(i) {
-  let width = Number(window.getComputedStyle(slideshowContainer).width.replace('px', ''));
+  let width = Number(
+    window.getComputedStyle(ssContainer).width.replace('px', '')
+  );
   let scrollTarget = width * i;
-  slideshowContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' })
+  ssContainer.scrollTo({ left: scrollTarget, behavior: 'smooth' });
 }
 
 function prevCyclicIndex(n) {
   if (n === 0) {
-    return slideCount - 1;
+    return slideCount[activePage] - 1;
   }
   return n - 1;
 }
 
 function nextCyclicIndex(n) {
-  if (n === slideCount - 1) {
+  if (n === slideCount[activePage] - 1) {
     return 0;
   }
   return n + 1;
