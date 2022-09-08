@@ -14,9 +14,11 @@ body {
   height: auto;
   /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
   /* TODO: Change the background color maybe */
-  background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac);
+  /* background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac); */
   /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
   /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
+  background: linear-gradient(rgb(44, 44, 44), rgb(44, 44, 44));
+
   overflow-x: hidden;
 }
 
@@ -527,7 +529,9 @@ body {
     justify-content: space-around;
     align-items: center;
     padding: 0;
-    background: linear-gradient(#ff9a8b, #ff968b);
+    /* background: linear-gradient(#ff9a8b, #ff968b); */
+    background: linear-gradient(black, black);
+
     z-index: 10;
   }
 
@@ -560,4 +564,84 @@ body {
     line-height: 200%;
     font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
   }
+}
+
+.navbartext {
+  font-weight: 700;
+  font-size: 1.2em;
+  /* margin-left: 1em; */
+  margin:0 15em;
+  font-family: "Poppins", sans-serif;
+  /* color: rgb(27, 83, 133); */
+}
+/* .navbartextanimation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(230, 24, 24);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navbartextanimation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+} */
+/* .navbar .navbar-nav .nav-link {
+  color: #000000;
+  font-size: 1.1em;
+}
+.navbar .navbar-nav .nav-link:hover {
+  color: #000000;
+} */
+.animationunderline {
+  position: relative;
+}
+.animationunderline::after {
+  /* middle to left and right animation  */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(230, 24, 24);
+  width: 100%;
+  content: "";
+  height: 2px;
+  transition: all 0.25s;
+  transform: scaleX(0);
+
+}
+
+.animationunderline:hover::after {
+  width: 100%;
+  transform: scaleX(1);
+  /*transform-origin: bottom left; */
+}
+/* .navbar .navbar-nav .nav-item */
+
+.contactstyle {
+  position: relative;
+}
+.contactstyle::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #ccc;
+  width: 100%;
+  content: "";
+  height: 2px;
+  transition: all 0.25s;
+  transform: scaleX(0);
+}
+
+.contactstyle:hover::after {
+  width: 100%;
+  transform: scaleX(1);
 }
