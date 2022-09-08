@@ -224,9 +224,10 @@ body {
 }
 
 .controlButtons > i {
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 2px solid #ccc;
+  color:#ccc;
   cursor: pointer;
 }
 
