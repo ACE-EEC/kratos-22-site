@@ -50,11 +50,7 @@ function updateSlides(targetPage) {
     }
   }
   ssContainer.scrollTo({ left: 0, behavior: 'auto' });
-
-  timer = setInterval(() => {
-    index = nextCyclicIndex(index);
-    scrollToIndex(index);
-  }, slideDuration);
+  startTimer();
 }
 
 const animOptions = {
