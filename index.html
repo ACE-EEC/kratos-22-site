@@ -8,26 +8,19 @@
   <link rel="stylesheet" type="text/css" href="countdown.css">
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="public/images/kratos logo.png">
 
   <script rel="script" type="text/javascript" src="tech.js" defer></script>
   <script rel="script" type="text/javascript" src="countdown.js" defer></script>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /> -->
-
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent" id="nav">
     <a class="navbar-brand" href="#">
       <!-- <img class="navLogo m-5" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png" height="100" weight="100"> -->
-      <img class="navLogo" src="public/images/kratos logo.png" />
+      <img class="navLogo" src="public/images/lion-bg.png" />
       <h1>KRATOS</h1>
     </a>
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
@@ -54,56 +47,26 @@
     </div>
   </nav>
 
-<div id="carouseltech">
-        <div class="carousel-content carousel-display-container ">
-          <img class="mySlidestech image-slideshow" src="public/images/bg1.jpg"  style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg2.jpg" style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg3.jpg" style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg4.jpg" style="width: 100%" />
+  <!-- <div class="titleBlock">
+            <h1 class="sympo">K<br>R<br>A<br>T<br>O<br>S</h1>
+            <h1 class="tech" style="display:none;">TECHNICAL<br>EVENTS</h1>
+            <h1 class="ntech" style="display:none;">NON-TECHNICAL<br>EVENTS</h1>
+        </div> -->
 
-
-    
-          <button class="carousel-button  carousel-display-left button-slideshow"  onclick="plusDivstech(-1)">
-            &#10094;
-          </button>
-          <button class="carousel-button  carousel-display-right button-slideshow" onclick="plusDivstech(1)">
-            &#10095;
-          </button> 
-         
-        </div>
-</div>
-<div id="carouselntech">
-        <div class="carousel-content carousel-display-container ">
-          <img class="mySlidesntech image-slideshow" src="public/images/bg1.jpg"  style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg2.jpg" style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg3.jpg" style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg4.jpg" style="width: 100%" />
-
-
-    
-          <button class="carousel-button  carousel-display-left button-slideshow"  onclick="plusDivsntech(-1)">
-            &#10094;
-          </button>
-          <button class="carousel-button  carousel-display-right button-slideshow" onclick="plusDivsntech(1)">
-            &#10095;
-          </button> 
-         
-        </div>
-</div>
-
-</div>
-<div id="mainvideo">
-  <div class="banner" >
-     <video class="bannerVideo" muted autoplay loop id="video" height="auto">
-      TODO CON: Change this placeholder video
+  <div class="banner">
+    <video class="bannerVideo" muted autoplay loop id="video" height="auto">
+      <!-- TODO CON: Change this placeholder video -->
       <source src="public/placeholder.mp4" type="video/mp4" />
-     
-    </video> 
+    </video>
   </div>
 
-  </div> 
   <!-- TODO CON: change the arrows into something relevant. A book for technical tab possibly. -->
- 
+  <div class="controlButtons">
+    <i class="fas fa-arrow-left" onclick="techClick()"></i>
+    <i class="fas fa-hand-peace" onclick="sympoClick()"></i>
+    <i class="fas fa-house-user" onclick="homeClick()"></i>
+    <i class="fas fa-arrow-right" onclick="ntechClick()"></i>
+  </div>
 
   <div id="mainPage" class="cardHolder">
 
@@ -952,12 +915,26 @@
 
 
   </div>
-  <div class="controlButtons">
-    <i class="fas fa-arrow-left" onclick="techClick()"></i>
-    <i class="fas fa-hand-peace" onclick="sympoClick()"></i>
-    <i class="fas fa-house-user" onclick="homeClick()"></i>
-    <i class="fas fa-arrow-right" onclick="ntechClick()"></i>
-  </div>
+
+  <!-- <div>
+  <div class="sponsors">Sponsors</div>
+    <div class="cardImage" >
+      <div class="sponsors_align">
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+    </div>
+    </div>
+    </div> -->
+  <!-- <div class="card">
+    <div class="cardImage">
+      <picture class="sponsors_align">
+      <div class=""><img class="sponsor_properties" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class=""><img class="img fluid" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      </picture>
+  
+    </div> -->
+
   <!-- TODO CON: Change the social links  -->
   <footer id="myFooter" class="mt-5 text-center text-lg-start" style="background-color: black;">
     <div class="container d-flex justify-content-center py-5">
