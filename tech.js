@@ -143,6 +143,8 @@ var homePage = document.getElementById('mainPage');
 var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
+var navbarMobileAnimation=document.getElementsByClassName('navbar-collapse');
+
 
 function displayWorkshop() {
   workshopCardHolder.style.display = 'flex';
