@@ -2,6 +2,10 @@ $('.plus').click(function () {
   $('.transform').toggleClass('transform-active-another');
 });
 
+$("#link4").on("click", function (e) {
+  e.preventDefault();
+  $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
+});
 var myIndex = 0;
 
 function reset(index) {
