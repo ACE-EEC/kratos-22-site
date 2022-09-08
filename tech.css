@@ -566,14 +566,65 @@ body {
   }
 }
 
-.navbartext {
-  font-weight: 700;
-  font-size: 1.2em;
-  /* margin-left: 1em; */
-  margin:0 15em;
-  font-family: "Poppins", sans-serif;
-  /* color: rgb(27, 83, 133); */
+@media only screen and (min-width:768px){
+  .navbartext {
+    font-weight: 700;
+    font-size: 1.2em;
+    /* margin-left: 1em; */
+    margin:0 15em;
+    font-family: "Poppins", sans-serif;
+    /* color: rgb(27, 83, 133); */
+  }
+  .animationunderline {
+    position: relative;
+  }
+  .animationunderline::after {
+    /* middle to left and right animation  */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgb(230, 24, 24);
+    width: 100%;
+    content: "";
+    height: 2px;
+    transition: all 0.25s;
+    transform: scaleX(0);
+  
+  }
+  
+  .animationunderline:hover::after {
+    width: 100%;
+    transform: scaleX(1);
+    /*transform-origin: bottom left; */
+  }
+  /* .navbar .navbar-nav .nav-item */
+  
+  .contactstyle {
+    position: relative;
+  }
+  .contactstyle::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #ccc;
+    width: 100%;
+    content: "";
+    height: 2px;
+    transition: all 0.25s;
+    transform: scaleX(0);
+  }
+  
+  .contactstyle:hover::after {
+    width: 100%;
+    transform: scaleX(1);
+  }
+  
 }
+
 /* .navbartextanimation:after {
   content: "";
   position: absolute;
@@ -598,50 +649,3 @@ body {
 .navbar .navbar-nav .nav-link:hover {
   color: #000000;
 } */
-.animationunderline {
-  position: relative;
-}
-.animationunderline::after {
-  /* middle to left and right animation  */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: rgb(230, 24, 24);
-  width: 100%;
-  content: "";
-  height: 2px;
-  transition: all 0.25s;
-  transform: scaleX(0);
-
-}
-
-.animationunderline:hover::after {
-  width: 100%;
-  transform: scaleX(1);
-  /*transform-origin: bottom left; */
-}
-/* .navbar .navbar-nav .nav-item */
-
-.contactstyle {
-  position: relative;
-}
-.contactstyle::after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: #ccc;
-  width: 100%;
-  content: "";
-  height: 2px;
-  transition: all 0.25s;
-  transform: scaleX(0);
-}
-
-.contactstyle:hover::after {
-  width: 100%;
-  transform: scaleX(1);
-}
