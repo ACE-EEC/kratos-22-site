@@ -1,5 +1,5 @@
-$('.plus').click(function () {
-  $('.transform').toggleClass('transform-active-another');
+$(".plus").click(function () {
+  $(".transform").toggleClass("transform-active-another");
 });
 
 var myIndex = 0;
@@ -41,7 +41,7 @@ function displayMany(myIndex) {
   rules.style.display = 'inline-block';
   plus.style.display = 'none';
 
-  setTimeout(function () {
+setTimeout(function () {
     setOpacity(myIndex);
   }, 500);
 }
@@ -132,10 +132,16 @@ function ntechClick() {
 }
 
 //displaying card holder
-var techCardHolder = document.getElementById('techCardHolder');
-var ntechCardHolder = document.getElementById('ntechCardHolder');
-var workshopCardHolder = document.getElementById('workshopCardHolder');
-var homePage = document.getElementById('mainPage');
+var techCardHolder = document.getElementById("techCardHolder");
+var ntechCardHolder = document.getElementById("ntechCardHolder");
+var workshopCardHolder = document.getElementById("workshopCardHolder");
+var homePage = document.getElementById("mainPage");
+var video = document.getElementById("mainvideo");
+var carouseltech = document.getElementById("carouseltech");
+var carouselntech = document.getElementById("carouselntech");
+
+carouseltech.style.display = "none";
+carouselntech.style.display = "none";
 
 var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
