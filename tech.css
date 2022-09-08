@@ -158,9 +158,15 @@ body {
 }
 
 .banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
   padding: 50px;
+  min-height: 18em;
+  gap: .8em;
 }
 
 .bannerHeadText > h1 {
@@ -179,7 +185,7 @@ body {
 .bannerVideo {
   /* position: relative; */
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* .cardHolder */
@@ -211,8 +217,7 @@ body {
 
   width: 100%;
   height: 20%;
-
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .controlButtons > i {
@@ -554,65 +559,4 @@ body {
     line-height: 200%;
     font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
   }
-}
-.button-slideshow {
-  border-radius: 30%;
-  background-color: transparent;
-}
-
-.image-slideshow {
-  border-radius: 20px;
-}
-
-.carousel-display-container {
-  position: relative;
-}
-.carousel-content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80em;
-}
-
-.carousel-display-left {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translate(0%, -50%);
-  -ms-transform: translate(-0%, -50%);
-}
-.carousel-display-right {
-  position: absolute;
-  top: 50%;
-  right: 0%;
-  transform: translate(0%, -50%);
-  -ms-transform: translate(0%, -50%);
-}
-.carousel-button {
-  border: none;
-  display: inline-block;
-  padding: 8px 16px;
-  vertical-align: middle;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  background-color: inherit;
-  text-align: center;
-  cursor: pointer;
-  white-space: nowrap;
-  color: #e4e4e4;
-}
-.carousel-btn:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.carousel-button {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.carousel-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.3;
 }

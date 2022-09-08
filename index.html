@@ -6,14 +6,16 @@
 
   <link rel="stylesheet" type="text/css" href="tech.css">
   <link rel="stylesheet" type="text/css" href="countdown.css">
+  <link rel="stylesheet" type="text/css" href="slideshow.css">
 
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="public/images/kratos logo.png">
 
   <script rel="script" type="text/javascript" src="tech.js" defer></script>
   <script rel="script" type="text/javascript" src="countdown.js" defer></script>
+  <script rel="script" type="text/javascript" src="slideshow.js" defer></script>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
 
 
@@ -54,59 +56,18 @@
     </div>
   </nav>
 
-<div id="carouseltech">
-        <div class="carousel-content carousel-display-container ">
-          <img class="mySlidestech image-slideshow" src="public/images/bg1.jpg"  style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg2.jpg" style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg3.jpg" style="width: 100%" />
-          <img class="mySlidestech image-slideshow" src="public/images/bg4.jpg" style="width: 100%" />
-
-
-    
-          <button class="carousel-button  carousel-display-left button-slideshow"  onclick="plusDivstech(-1)">
-            &#10094;
-          </button>
-          <button class="carousel-button  carousel-display-right button-slideshow" onclick="plusDivstech(1)">
-            &#10095;
-          </button> 
-         
-        </div>
-</div>
-<div id="carouselntech">
-        <div class="carousel-content carousel-display-container ">
-          <img class="mySlidesntech image-slideshow" src="public/images/bg1.jpg"  style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg2.jpg" style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg3.jpg" style="width: 100%" />
-          <img class="mySlidesntech image-slideshow" src="public/images/bg4.jpg" style="width: 100%" />
-
-
-    
-          <button class="carousel-button  carousel-display-left button-slideshow"  onclick="plusDivsntech(-1)">
-            &#10094;
-          </button>
-          <button class="carousel-button  carousel-display-right button-slideshow" onclick="plusDivsntech(1)">
-            &#10095;
-          </button> 
-         
-        </div>
-</div>
-
-</div>
-<div id="mainvideo">
-  <div class="banner" >
-     <video class="bannerVideo" muted autoplay loop id="video" height="auto">
-      TODO CON: Change this placeholder video
+  <div class="banner">
+    <video class="bannerVideo" muted autoplay loop id="video" height="auto">
       <source src="public/placeholder.mp4" type="video/mp4" />
-     
-    </video> 
+    </video>
+    <div class="slideshow-container" id="slideshowContainer"></div>
+    <div class="slideshow-markers" id="slideshowMarkers">
+      <div class="slideshow-button slideshow-button-left" id="slideLeft">&lt;</div>
+      <div class="slideshow-button slideshow-button-right" id="slideRight">&gt;</div>
+    </div>
   </div>
 
-  </div> 
-  <!-- TODO CON: change the arrows into something relevant. A book for technical tab possibly. -->
- 
-
   <div id="mainPage" class="cardHolder">
-
     <blockquote class="m-5 w-100 blockquote text-center">
       <p class="m-1"><strong>Kratos 2022</strong></p>
       <!-- <footer class="blockquote-footer">“Enna vena potukonga”<cite title="Source Title">– Deexith</cite></footer> -->
@@ -952,12 +913,34 @@
 
 
   </div>
+
+<!-- <div>
+  <div class="sponsors">Sponsors</div>
+    <div class="cardImage" >
+      <div class="sponsors_align">
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+    </div>
+    </div>
+    </div> -->
+  <!-- <div class="card">
+    <div class="cardImage">
+      <picture class="sponsors_align">
+      <div class=""><img class="sponsor_properties" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      <div class=""><img class="img fluid" src="https://cdn-icons-png.flaticon.com/512/5260/5260498.png" alt="Avatar"></div>
+      </picture>
+  
+    </div> -->
+  <!-- TODO CON: change the arrows into something relevant. A book for technical tab possibly. -->
+
   <div class="controlButtons">
     <i class="fas fa-arrow-left" onclick="techClick()"></i>
     <i class="fas fa-hand-peace" onclick="sympoClick()"></i>
     <i class="fas fa-house-user" onclick="homeClick()"></i>
     <i class="fas fa-arrow-right" onclick="ntechClick()"></i>
   </div>
+
   <!-- TODO CON: Change the social links  -->
   <footer id="myFooter" class="mt-5 text-center text-lg-start" style="background-color: black;">
     <div class="container d-flex justify-content-center py-5">
