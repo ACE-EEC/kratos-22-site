@@ -325,8 +325,8 @@ body {
 
 @media screen and (max-width: 500px) {
   .navLogo {
-    height: 70px;
-    width: 70px;
+    height: 65px;
+    width: 65px;
   }
 
   a {
@@ -365,8 +365,8 @@ body {
 }
 
 .navLogo {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   margin: 0 1em;
 }
 

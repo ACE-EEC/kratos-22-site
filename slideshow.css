@@ -33,7 +33,7 @@
   height: 9px;
   width: 15px;
   border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #ccc;
   transition: background-color 0.2s linear;
 }
 
@@ -59,9 +59,9 @@
 }
 
 .slideshow-button {
-  background-color: rgba(51, 51, 51, 0.9);
+  background-color: rgba(165, 165, 165, 0.9);
   border-radius: 2px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(47, 47, 47, 0.65);
   font-size: 9px;
   font-stretch: extra-condensed;
   height: 12px;
