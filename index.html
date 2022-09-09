@@ -3,19 +3,20 @@
 
 <head>
   <title>Kratos 2022 | EEC CSE</title>
-
-  <link rel="stylesheet" type="text/css" href="tech.css">
-  <link rel="stylesheet" type="text/css" href="countdown.css">
-  <link rel="stylesheet" type="text/css" href="slideshow.css">
-  <link rel="icon" href="public/images/kratos logo.png">
+  
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <script rel="script" type="text/javascript" src="tech.js" defer></script>
-  <script rel="script" type="text/javascript" src="countdown.js" defer></script>
-  <script rel="script" type="text/javascript" src="slideshow.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="styles/tech.css">
+  <link rel="stylesheet" type="text/css" href="styles/countdown.css">
+  <link rel="stylesheet" type="text/css" href="styles/slideshow.css">
+
+  <link rel="icon" href="public/images/kratos logo.png">
+  
+  <script rel="script" type="text/javascript" src="scripts/tech.js" defer></script>
+  <script rel="script" type="text/javascript" src="scripts/countdown.js" defer></script>
+  <script rel="script" type="text/javascript" src="scripts/slideshow.js" defer></script>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script> -->
   <script src="https://kit.fontawesome.com/b460e0b985.js" crossorigin="anonymous"></script>
 </head>
 
@@ -116,7 +117,8 @@
         <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
       </div>
       <div class="m-5 p-8">
-        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="text-white">Keep your first steps towards your dream</h1>
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="text-white">Keep your first steps
+          towards your dream</h1>
       </div>
     </div>
 
@@ -937,10 +939,10 @@
     </div> -->
   <!-- TODO CON: change the arrows into something relevant. A book for technical tab possibly. -->
   <div class="controlButtons">
-    <i class="fas fa-arrow-left" onclick="techClick()"></i>
-    <i class="fa-solid fa-gears" onclick="sympoClick()"></i>
-    <i class="fa-solid fa-house" onclick="homeClick()"></i>
-    <i class="fas fa-arrow-right" onclick="ntechClick()"></i>
+    <i class="fas fa-arrow-left" id="techButton"></i>
+    <i class="fa-solid fa-gears" id="workshopButton"></i>
+    <i class="fa-solid fa-house" id="homeButton"></i>
+    <i class="fas fa-arrow-right" id="nonTechbutton"></i>
 
   </div>
 

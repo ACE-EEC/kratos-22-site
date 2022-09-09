@@ -119,6 +119,43 @@ var sympo = document.getElementsByClassName('sympo')[0];
 var tech = document.getElementsByClassName('tech')[0];
 var ntech = document.getElementsByClassName('ntech')[0];
 
+
+$('#techButton').click((e) => {
+  e.preventDefault();
+  techClick();
+  $("html, body").animate(
+    { scrollTop: $("#techCardHolder").position().top },
+    "slow"
+  );
+});
+
+$('#workshopButton').click((e) => {
+  e.preventDefault();
+  sympoClick();
+  $("html, body").animate(
+    { scrollTop: $("#workshopCardHolder").position().top },
+    "slow"
+  );
+});
+
+$('#homeButton').click((e) => {
+  e.preventDefault();
+  homeClick();
+  $("html, body").animate(
+    { scrollTop: $("#mainPage").position().top },
+    "slow"
+  );
+});
+
+$('#nonTechbutton').click((e) => {
+  e.preventDefault();
+  ntechClick();
+  $("html, body").animate(
+    { scrollTop: $("#ntechCardHolder").position().top },
+    "slow"
+  );
+});
+
 function sympoClick() {
   displayWorkshop();
   updateSlides('workshop');
@@ -143,7 +180,7 @@ var homePage = document.getElementById('mainPage');
 var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
-var navbarMobileAnimation=document.getElementsByClassName('navbar-collapse');
+var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
 
 
 function displayWorkshop() {
