@@ -9,18 +9,14 @@
 html {
   overflow-x: hidden;
 }
+
 body {
   width: 100%;
   height: auto;
   /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
-  /* TODO: Change the background color maybe */
-  /* background: linear-gradient(#ff9a8b, #ff6a88, #ff99ac); */
   /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
-  /* background: linear-gradient(#4d0088, #a750ff, #cae2ff); */
   /* background: linear-gradient(rgb(44, 44, 44), rgb(44, 44, 44)); */
-  background: linear-gradient(rgb(28, 28, 28), rgb(28, 28, 28));
-
-
+  background: linear-gradient(black, black 6em, rgb(17, 16, 16) 30%);
   overflow-x: hidden;
 }
 
@@ -94,7 +90,7 @@ body {
   justify-content: center;
 }
 
-.icon > img {
+.icon>img {
   max-width: 50%;
   max-height: 100%;
   object-fit: contain;
@@ -174,7 +170,7 @@ body {
   gap: .8em;
 }
 
-.bannerHeadText > h1 {
+.bannerHeadText>h1 {
   text-align: center;
   font-size: 3em;
 
@@ -204,7 +200,7 @@ body {
 }
 
 .cardHolder {
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,11 +223,11 @@ body {
   padding: 10px 20px;
 }
 
-.controlButtons > i {
+.controlButtons>i {
   padding: 15px;
   border-radius: 10px;
   border: 2px solid #ccc;
-  color:#ccc;
+  color: #ccc;
   cursor: pointer;
 }
 
@@ -241,7 +237,7 @@ body {
   width: 100%;
 }
 
-.titleBlock > h1 {
+.titleBlock>h1 {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -262,7 +258,7 @@ body {
 
 /*mobile Large*/
 @media screen and (max-width: 500px) {
-  .titleBlock > h1 {
+  .titleBlock>h1 {
     top: 50%;
   }
 
@@ -278,7 +274,7 @@ body {
 }
 
 @media screen and (max-width: 375px) {
-  .titleBlock > h1 {
+  .titleBlock>h1 {
     top: 45%;
   }
 
@@ -306,7 +302,7 @@ body {
 }
 
 /*Block Quote*/
-.blockquote > p {
+.blockquote>p {
   font-size: 3.5rem;
 }
 
@@ -363,7 +359,7 @@ body {
   justify-content: center;
 }
 
-.mainIcon > img {
+.mainIcon>img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -423,7 +419,7 @@ body {
   color: white;
 }
 
-.navbar-brand > H1 {
+.navbar-brand>H1 {
   display: none;
 }
 
@@ -567,7 +563,7 @@ body {
     align-content: center;
   }
 
-  .navbar-brand > H1 {
+  .navbar-brand>H1 {
     display: inline;
     font-weight: 700;
     line-height: 200%;
@@ -575,24 +571,23 @@ body {
   }
 }
 
-@media only screen and (min-width:768px){
+@media only screen and (min-width:768px) {
   /* .bg-dark{
     background-color: black;
     color: black;
   } */
-  
+
   .navbartext {
     font-weight: 700;
     font-size: 1.2em;
-    /* justify-content: center; */
-    /* align-items: flex-end; */
-    /* margin:0 15em; */
     color:#ccc;
     font-family: "Poppins", sans-serif;
   }
+
   .animationunderline {
     position: relative;
   }
+
   .animationunderline::after {
     /* middle to left and right animation  */
     position: absolute;
@@ -606,19 +601,21 @@ body {
     height: 2px;
     transition: all 0.25s;
     transform: scaleX(0);
-  
+
   }
-  
+
   .animationunderline:hover::after {
     width: 100%;
     transform: scaleX(1);
     /*transform-origin: bottom left; */
   }
+
   /* .navbar .navbar-nav .nav-item */
-  
+
   .contactstyle {
     position: relative;
   }
+
   .contactstyle::after {
     position: absolute;
     bottom: 0;
@@ -632,53 +629,56 @@ body {
     transition: all 0.25s;
     transform: scaleX(0);
   }
-  
+
   .contactstyle:hover::after {
     width: 100%;
     transform: scaleX(1);
   }
-  
+
 }
 
 @media (max-width: 768px) {
-  #nav{
+  #nav {
     background: linear-gradient(black, black);
 
   }
+
   .navbar-collapse {
-      position: fixed;
-      top: 0;
-      left:0;
-      width: 90%;
-      height: 100%;
-      z-index:10;
-      background-color: rgb(45, 45, 45)
-      
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgb(45, 45, 45)
   }
 
   .navbar-collapse.collapsing {
-      left: -90%;
-      transition: left 300ms ease-out;
+    left: -90%;
+    transition: left 300ms ease-out;
   }
 
   .navbar-collapse.show {
-      left: 0;
-      transition: left 500ms ease-in-out;
+    left: 0;
+    transition: left 500ms ease-in-out;
   }
 
-  .navbar-toggler.collapsed ~ .navbar-collapse {
-      transition: left 300ms ease-in-out;
+  .navbar-toggler.collapsed~.navbar-collapse {
+    transition: left 300ms ease-in-out;
   }
-  .nav-item{
+
+  .nav-item {
     margin: -1em 2em;
   }
-  #homeNavbar{
-    margin-top:5em;
+
+  #homeNavbar {
+    margin-top: 5em;
   }
+
   .navbar-collapse hr {
     margin: 1em 2em 0 2em;
     border-top: 3px solid rgb(255, 6, 6);
 
-}
+  }
 
 }
