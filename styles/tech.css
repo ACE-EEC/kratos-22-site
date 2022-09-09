@@ -366,9 +366,10 @@ body {
 }
 
 .navLogo {
+  padding: 0;
   height: 60px;
   width: 60px;
-  margin: 0 1em;
+  margin: 0;
 }
 
 .navbar {
@@ -419,7 +420,7 @@ body {
   color: white;
 }
 
-.navbar-brand>H1 {
+.brand-name {
   display: none;
 }
 
@@ -540,17 +541,27 @@ body {
   .navbar * {
     margin: 0;
   }
-  .navbar-brand{
+
+  .navbar-brand {
     position: absolute;
-    left:0;
-    /* justify-content: left; */
+    align-items: center;
+    left: 0;
+    margin-left: 1em;
   }
+
+  .brand-name {
+    display: inline;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 200%;
+    font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
+  }
+
   .navLogo {
-    /* align-self: flex-start; */
-    padding: 0.em;
+    padding: 0.3em;
     height: 60px;
     width: 60px;
-    margin: 0 1em;
+    margin: 0;
   }
 
   #regLogo {
@@ -561,13 +572,6 @@ body {
     display: flex;
     flex-direction: row;
     align-content: center;
-  }
-
-  .navbar-brand>H1 {
-    display: inline;
-    font-weight: 700;
-    line-height: 200%;
-    font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
   }
 }
 
@@ -580,7 +584,7 @@ body {
   .navbartext {
     font-weight: 700;
     font-size: 1.2em;
-    color:#ccc;
+    color: #ccc;
     font-family: "Poppins", sans-serif;
   }
 

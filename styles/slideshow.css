@@ -30,6 +30,7 @@
 
 .marker {
   order: 1;
+  cursor: pointer;
   height: 9px;
   width: 15px;
   border-radius: 2px;
@@ -62,6 +63,7 @@
   background-color: rgba(227, 227, 227, 0.9);
   border-radius: 2px;
   color: rgba(47, 47, 47, 0.65);
+  cursor: pointer;
   font-size: 9px;
   font-stretch: extra-condensed;
   height: 12px;
