@@ -15,12 +15,13 @@
   <script rel="script" type="text/javascript" src="slideshow.js" defer></script>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/4917270fc0.js" crossorigin="anonymous"></script> -->
+  <script src="https://kit.fontawesome.com/b460e0b985.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent" id="nav">
-    <a class="navbar-brand" href="#">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark" id="nav">
+    <a class="navbar-brand " href="#">
       <!-- <img class="navLogo m-5" src="https://upload.wikimedia.org/wikipedia/en/b/bf/Easwari_Engineering_College_logo.png" height="100" weight="100"> -->
       <img class="navLogo" src="public/images/kratos logo.png" />
       <h1>KRATOS</h1>
@@ -28,17 +29,22 @@
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="pages">
+    <div class="collapse navbar-collapse   " id="pages">
       <div class="navbartext">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item "><a href="#" id="link0" onclick="homeClick()" class="nav-link m-5 mb-0 animationunderline">HOME</a>
-        <li class="nav-item "><a href="#" id="link1" onclick="techClick()" class="nav-link m-5 mb-0 animationunderline">TECHNICAL</a>
+        <!-- <li class="nav-item">
+          <div class="line-thick">
+
+          </div>
+        </li> -->
+        <li class="nav-item" id="homeNavbar"><a href="#" id="link0" onclick="homeClick()" class="nav-link animationunderline" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">HOME</a>
+        <li class="nav-item "><a href="#" id="link1" onclick="techClick()" class="nav-link animationunderline" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">TECHNICAL</a>
         </li>
-        <li class="nav-item "><a href="#" id="link2" onclick="sympoClick()" class="nav-link m-5 mb-0 animationunderline">WORKSHOPS</a>
+        <li class="nav-item "><a href="#" id="link2" onclick="sympoClick()" class="nav-link animationunderline" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">WORKSHOPS</a>
         </li>
         <li class="nav-item "><a href="#" id="link3" onclick="ntechClick()"
-            class="nav-link animationunderline">NON-TECHNICAL</a></li>
-        <li class="nav-item "><a href="#" id="link4" class="nav-link m-5 mb-0 text-danger contactstyle">CONTACT</a></li>
+            class="nav-link animationunderline " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">NON-TECHNICAL</a></li>
+        <li class="nav-item "><a href="#" id="link4" class="nav-link text-danger contactstyle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">CONTACT</a></li>
       </ul>
     </div>
       <!-- <div id="regButton">
@@ -67,9 +73,9 @@
   <div id="mainPage" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
-      <p class="m-1"><strong>Kratos 2022</strong></p>
+      <p class="m-1 text-danger"><strong>Kratos 2022</strong></p>
       <!-- <footer class="blockquote-footer">“Enna vena potukonga”<cite title="Source Title">– Deexith</cite></footer> -->
-      <footer>A national level technical symposium</p>
+      <footer class="text-light">A national level technical symposium</p>
     </blockquote>
 
     <div id="countdown">
@@ -109,9 +115,8 @@
       <div class="cardMainImage">
         <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
       </div>
-      <div class="m-5 p-5">
-        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Keep your first steps towards your dream</h1>
-        <button type="button" class="p-3 btn btn-dark">Welcome</button>
+      <div class="m-5 p-8">
+        <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="text-white">Keep your first steps towards your dream</h1>
       </div>
     </div>
 
@@ -121,7 +126,7 @@
   <div id="ntechCardHolder" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
-      <p class="m-1"><strong>Non-Technical</strong></p>
+      <p class="m-1 text-white"><strong>Non-Technical</strong></p>
       <footer class="blockquote-footer">“Creativity is intelligence having fun.”<cite title="Source Title">– Albert
           Einstein</cite></footer>
     </blockquote>
@@ -437,7 +442,7 @@
   <div id="techCardHolder" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
-      <p class="m-2"><strong>Technical</strong></p>
+      <p class="m-2 text-white"><strong>Technical</strong></p>
       <footer class="blockquote-footer">“It's not a faith in technology. It's faith in people.”<cite
           title="Source Title">– Steve Jobs</cite></footer>
     </blockquote>
@@ -701,7 +706,7 @@
   <div id="workshopCardHolder" class="cardHolder">
 
     <blockquote class="m-5 w-100 blockquote text-center">
-      <p class="m-2"><strong>Workshops</strong></p>
+      <p class="m-2 text-white"><strong>Workshops</strong></p>
       <footer class="blockquote-footer">“The only true wisdom is in knowing you know nothing.”<cite
           title="Source Title">– Socrates</cite></footer>
     </blockquote>
@@ -933,9 +938,10 @@
   <!-- TODO CON: change the arrows into something relevant. A book for technical tab possibly. -->
   <div class="controlButtons">
     <i class="fas fa-arrow-left" onclick="techClick()"></i>
-    <i class="fas fa-hand-peace" onclick="sympoClick()"></i>
-    <i class="fas fa-house-user" onclick="homeClick()"></i>
+    <i class="fa-solid fa-gears" onclick="sympoClick()"></i>
+    <i class="fa-solid fa-house" onclick="homeClick()"></i>
     <i class="fas fa-arrow-right" onclick="ntechClick()"></i>
+
   </div>
 
   <!-- TODO CON: Change the social links  -->
@@ -952,6 +958,7 @@
       </button>
       <button type="button" class="btn btn-light btn-lg btn-floating mx-2">
         <i class="fab fa-twitter"></i>
+
       </button>
     </div>
 

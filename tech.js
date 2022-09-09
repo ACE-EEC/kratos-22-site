@@ -7,7 +7,6 @@ $("#link4").on("click", function (e) {
   $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
 });
 var myIndex = 0;
-
 function reset(index) {
   myIndex = index;
 
@@ -144,6 +143,8 @@ var homePage = document.getElementById('mainPage');
 var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
+var navbarMobileAnimation=document.getElementsByClassName('navbar-collapse');
+
 
 function displayWorkshop() {
   workshopCardHolder.style.display = 'flex';
