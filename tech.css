@@ -544,12 +544,16 @@ body {
   .navbar * {
     margin: 0;
   }
-
+  .navbar-brand{
+    position: absolute;
+    left:0;
+    /* justify-content: left; */
+  }
   .navLogo {
     /* align-self: flex-start; */
-    padding: 0.2em;
-    height: 70px;
-    width: 70px;
+    padding: 0.em;
+    height: 60px;
+    width: 60px;
     margin: 0 1em;
   }
 
@@ -580,11 +584,11 @@ body {
   .navbartext {
     font-weight: 700;
     font-size: 1.2em;
-    /* margin-left: 1em; */
-    margin:0 15em;
+    /* justify-content: center; */
+    /* align-items: flex-end; */
+    /* margin:0 15em; */
     color:#ccc;
     font-family: "Poppins", sans-serif;
-    /* color: rgb(27, 83, 133); */
   }
   .animationunderline {
     position: relative;
