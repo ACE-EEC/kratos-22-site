@@ -21,7 +21,7 @@ function updateSlides(targetPage) {
   activePage = targetPage;
   let slides = document.getElementsByClassName('slide');
   let markers = document.getElementsByClassName('marker');
-  
+
   for (var i = 0; i < slideCount[prevPage] - slideCount[activePage]; i++) {
     ssContainer.removeChild(slides[slideCount[prevPage] - 1 - i]);
     ssMarkers.removeChild(markers[slideCount[prevPage] - 1 - i])
@@ -36,7 +36,11 @@ function updateSlides(targetPage) {
     newMarker.classList.add(['marker']);
     newMarker.id = `marker${i}`;
     newMarker.onclick = function (ev) {
-      // TODO add click handling
+      clearInterval(timer);
+      timer = null;
+      index = Number(ev.target.id.replace('marker', ''));
+      scrollToIndex(index);
+      startTimer();
     };
   }
 
@@ -46,7 +50,7 @@ function updateSlides(targetPage) {
 
     // performance optimizations
     if (i > 0) {
-    slides[i].loading = 'lazy';
+      slides[i].loading = 'lazy';
     }
   }
   ssContainer.scrollTo({ left: 0, behavior: 'auto' });
