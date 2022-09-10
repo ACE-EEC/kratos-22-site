@@ -30,10 +30,11 @@ function displayMany(myIndex) {
   var card = document.getElementsByClassName('card')[myIndex];
   var cardImg = document.getElementsByClassName('cardImage')[myIndex];
 
-  card.style.width = '100%';
   if (window.innerWidth >= 768) {
+    card.style.width = '100%';
     cardImg.style.width = '33%';
   } else {
+    card.style.width = 'auto';
     cardImg.style.width = '100%';
   }
   details.style.display = 'flex';
@@ -124,7 +125,7 @@ $('#techButton').click((e) => {
   e.preventDefault();
   techClick();
   $("html, body").animate(
-    { scrollTop: $("#techCardHolder").position().top },
+    { scrollTop: $(".banner").position().top },
     "slow"
   );
 });
@@ -133,7 +134,7 @@ $('#workshopButton').click((e) => {
   e.preventDefault();
   sympoClick();
   $("html, body").animate(
-    { scrollTop: $("#workshopCardHolder").position().top },
+    { scrollTop: $(".banner").position().top },
     "slow"
   );
 });
@@ -142,7 +143,7 @@ $('#homeButton').click((e) => {
   e.preventDefault();
   homeClick();
   $("html, body").animate(
-    { scrollTop: $("#mainPage").position().top },
+    { scrollTop: $(".banner").position().top },
     "slow"
   );
 });
@@ -151,7 +152,7 @@ $('#nonTechbutton').click((e) => {
   e.preventDefault();
   ntechClick();
   $("html, body").animate(
-    { scrollTop: $("#ntechCardHolder").position().top },
+    { scrollTop: $(".banner").position().top },
     "slow"
   );
 });

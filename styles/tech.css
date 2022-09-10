@@ -13,11 +13,23 @@ html {
 body {
   width: 100%;
   height: auto;
-  /* cursor: url(../images/omega-removebg-bg-small.png),auto; */
   /* background: linear-gradient(#cae2ff, #a750ff, #4d0088); */
   /* background: linear-gradient(rgb(44, 44, 44), rgb(44, 44, 44)); */
   background: linear-gradient(black, black 6em, rgb(17, 16, 16) 30%);
   overflow-x: hidden;
+}
+
+#copyright {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 0 1rem 1rem;
+}
+
+#homeTitle,
+#techTitle,
+#workshopTitle,
+#ntechTitle {
+  margin: 3em 0em;
 }
 
 .bText {
@@ -116,6 +128,10 @@ body {
   cursor: pointer;
 }
 
+.navbar-brand {
+  /* margin: 0 1em; */
+}
+
 .details {
   display: flex;
   justify-content: center;
@@ -200,8 +216,8 @@ body {
 }
 
 .cardHolder {
-
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -324,33 +340,41 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-@media screen and (max-width: 500px) {
-  .navLogo {
-    height: 65px;
-    width: 65px;
-  }
-
-  a {
-    margin: 20px;
-  }
+#mainPage {
+  padding: 0 .5em;
 }
 
 .cardMain {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-
   padding: 10px;
-
-  margin: 30px;
-
+  margin: 3em 0;
   box-shadow: 5px 10px black;
-
-  /*only takes 25% of the page size*/
-  max-width: auto;
   background-color: rgb(100, 100, 100);
   border-radius: 25px;
   border: 5px solid black;
+}
+
+.highlight {
+  /* color: #df1d31; */
+  font-weight: 600;
+}
+
+.cardMain p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+
+
+  font-family: 'Consolas', 'Roboto Mono', monospace;
+  font-size: 1.2em;
+  padding: 0.75em;
 }
 
 .mainIcon {
@@ -422,6 +446,17 @@ body {
 
 .brand-name {
   display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navLogo {
+    height: 65px;
+    width: 65px;
+  }
+
+  a {
+    margin: 20px;
+  }
 }
 
 @media only screen and (min-width: 1050px) {
@@ -580,6 +615,14 @@ body {
     background-color: black;
     color: black;
   } */
+
+  .cardHolder {
+    flex-direction: row;
+  }
+
+  .cardMain {
+    flex-direction: row;
+  }
 
   .navbartext {
     font-weight: 700;
