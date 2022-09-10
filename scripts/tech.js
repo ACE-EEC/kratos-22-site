@@ -228,3 +228,9 @@ function homeClick() {
   markers.style.display = 'none';
 }
 
+
+$('nav-item').each(function(i) {
+  $(this).css({
+    "animation-delay": i + "s"
+  })
+});
