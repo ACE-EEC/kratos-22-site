@@ -30,7 +30,7 @@
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse   justify-content-center "  id="pages">
+    <div class="collapse navbar-collapse justify-content-center"  id="pages">
       <div class="navbartext">
         <ul class="navbar-nav mx-auto ">
           <!-- <li class="nav-item">
@@ -80,8 +80,12 @@
     <blockquote id="homeTitle" class="w-100 blockquote text-center">
       <p class="m-1 text-danger"><strong>Kratos 2022</strong></p>
       <footer class="text-light">A national level technical symposium</p>
+          <div class="justify-content-center">
+          <Button  class="register-btn-homepage" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ'">Register
+            
+          </Button>
     </blockquote>
-
+    
     <div id="countdown">
       <div class="clock"></div>
       <div class="message"></div>
@@ -130,15 +134,19 @@
 
   <!--This is Non Technical-->
   <div id="ntechCardHolder" class="cardHolder">
-
-    <blockquote id="ntechTitle" class="w-100 blockquote text-center">
-      <p class="m-1 text-danger"><strong>Non-Technical</strong></p>
-      <footer class="blockquote-footer" style="margin-top: 0;">“Creativity is intelligence having fun.”<cite
+    
+    <blockquote  class="w-100 blockquote text-center">
+      <p class="m-1 text-danger" id="ntechTitle"><strong>Non-Technical</strong></p>
+      <footer class="blockquote-footer" id="ntechTitle" style="margin-top: 0;">“Creativity is intelligence having fun.”<cite
           title="Source Title">– Albert
           Einstein</cite></footer>
+         
     </blockquote>
-
+    
+    <div class="in-person-online-events">
+    </div>
     <div class="card">
+     
       <div class="cardContent">
         <div class="cardImage">
           <h1 class="eventName">Coding Fifa</h1>
@@ -442,9 +450,10 @@
       <i id="upArrow" onclick="reset(5)" class="upArrow fa fa-caret-up fa-2x"></i>
     </div>
 
-
+  
+    
   </div>
-
+  
   <!--This is Technical-->
   <div id="techCardHolder" class="cardHolder">
 
