@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
+:root {
+  --kratos-red: rgb(220, 53, 69);
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -254,7 +258,7 @@ body {
 }
 
 .titleBlock>h1 {
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -448,6 +452,17 @@ body {
   display: none;
 }
 
+.eventSubsection {
+
+}
+
+.eventSubsection hr{
+  width: 100%;
+  color: var(--kratos-red);
+  /* height: 5px; */
+}
+
+
 @media screen and (max-width: 500px) {
   .navLogo {
     height: 65px;
@@ -472,8 +487,20 @@ body {
   }
 
   .cardMain {
-    flex-wrap: wrap;
-    /* background-color: tomato; */
+    /* flex-wrap: wrap; */
+    font-size: 1.2em;
+    flex-direction: row;
+    width: 70vw;
+  }
+
+  .cardMain p {
+    padding: 2em;
+    width: 60%;
+  }
+
+  .cardMainImage {
+    width: 30%;
+    /* padding: 0 3em; */
   }
 
   #link0,
@@ -617,10 +644,6 @@ body {
   } */
 
   .cardHolder {
-    flex-direction: row;
-  }
-
-  .cardMain {
     flex-direction: row;
   }
 
