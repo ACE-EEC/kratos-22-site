@@ -491,12 +491,9 @@ body {
 }
 
 .event-subsection-header .hr{
-  width: 90%;
-   border-bottom: 4px; 
-   border-style: solid; 
-   border-color: var(--kratos-red); 
-   border-width: 1px; 
-  /* height: 2px; */
+  width: 90%; 
+  background-color: var(--kratos-red); 
+  height: 1.7px;
   margin: .5em 0 1em;
 }
 
