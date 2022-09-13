@@ -1,11 +1,8 @@
-$('.plus').click(function () {
-  $('.transform').toggleClass('transform-active-another');
-});
-
 $("#link4").on("click", function (e) {
   e.preventDefault();
   $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
 });
+
 var myIndex = 0;
 function reset(index) {
   myIndex = index;
@@ -33,6 +30,9 @@ if(window.innerWidth>1200){
 }
 
   
+});
+
+
 });
 
 
@@ -103,7 +103,7 @@ function setDisplayTime(myIndex) {
     card.style.width = 'auto';
   }
 
- 
+
 
   details.style.display = 'none';
   vl.style.display = 'none';
@@ -192,9 +192,9 @@ function ntechClick() {
 }
 
 //displaying card holder
-var techCardHolder = document.getElementById('techCardHolder');
-var ntechCardHolder = document.getElementById('ntechCardHolder');
-var workshopCardHolder = document.getElementById('workshopCardHolder');
+var technicalPage = document.getElementById('technicalPage');
+var nontechnicalPage = document.getElementById('nontechnicalPage');
+var workshopPage = document.getElementById('workshopPage');
 var homePage = document.getElementById('mainPage');
 
 var slideshowContainer = document.getElementById('slideshowContainer');
@@ -204,9 +204,9 @@ var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
 
 
 function displayWorkshop() {
-  workshopCardHolder.style.display = 'flex';
-  ntechCardHolder.style.display = 'none';
-  techCardHolder.style.display = 'none';
+  workshopPage.style.display = 'flex';
+  nontechnicalPage.style.display = 'none';
+  technicalPage.style.display = 'none';
   homePage.style.display = 'none';
 
   bannerVideo.style.display = 'none';
@@ -215,9 +215,9 @@ function displayWorkshop() {
 }
 
 function displaytech() {
-  workshopCardHolder.style.display = 'none';
-  ntechCardHolder.style.display = 'none';
-  techCardHolder.style.display = 'flex';
+  workshopPage.style.display = 'none';
+  nontechnicalPage.style.display = 'none';
+  technicalPage.style.display = 'flex';
   homePage.style.display = 'none';
 
   bannerVideo.style.display = 'none';
@@ -226,9 +226,9 @@ function displaytech() {
 }
 
 function displayntech() {
-  workshopCardHolder.style.display = 'none';
-  ntechCardHolder.style.display = 'flex';
-  techCardHolder.style.display = 'none';
+  workshopPage.style.display = 'none';
+  nontechnicalPage.style.display = 'flex';
+  technicalPage.style.display = 'none';
   homePage.style.display = 'none';
 
   bannerVideo.style.display = 'none';
@@ -238,12 +238,11 @@ function displayntech() {
 
 function homeClick() {
   homePage.style.display = 'flex';
-  workshopCardHolder.style.display = 'none';
-  ntechCardHolder.style.display = 'none';
-  techCardHolder.style.display = 'none';
+  workshopPage.style.display = 'none';
+  nontechnicalPage.style.display = 'none';
+  technicalPage.style.display = 'none';
 
   bannerVideo.style.display = 'flex';
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
 }
-

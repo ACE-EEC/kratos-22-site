@@ -327,15 +327,15 @@ body {
   }
 }
 
-#ntechCardHolder {
+#nontechnicalPage {
   display: none;
 }
 
-#techCardHolder {
+#technicalPage {
   display: none;
 }
 
-#workshopCardHolder {
+#workshopPage {
   display: none;
 }
 
@@ -366,7 +366,7 @@ body {
   padding: 0 .5em;
 }
 
-.cardMain {
+.home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -384,7 +384,7 @@ body {
   font-weight: 600;
 }
 
-.cardMain p {
+.home-page p {
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: normal;
@@ -470,7 +470,14 @@ body {
   display: none;
 }
 
-.eventSubsection {
+.event-subsection  {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.event-subsection-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -479,11 +486,11 @@ body {
   margin-top: 3em;
 }
 
-.eventSubsection:nth-of-type(1) {
+.event-subsection-header:nth-of-type(1) {
   margin-top: -1em;
 }
 
-.eventSubsection .hr{
+.event-subsection-header .hr{
   width: 90%;
    border-bottom: 4px; 
    border-style: solid; 
@@ -493,7 +500,7 @@ body {
   margin: .5em 0 1em;
 }
 
-.subsectionTitle {
+.event-subsection-header-title {
   padding-left: 1em;
   width: 97%;
   font-size: 2em;
@@ -523,19 +530,19 @@ body {
     margin: 50px;
   }
 
-  .cardMain {
+  .home-page {
     /* flex-wrap: wrap; */
     font-size: 1.2em;
     flex-direction: row;
     width: 70vw;
   }
 
-  .cardMain p {
+  .home-page p {
     padding: 2em;
     width: 60%;
   }
 
-  .cardMainImage {
+  .home-card-image {
     width: 30%;
     /* padding: 0 3em; */
   }
@@ -690,7 +697,7 @@ body {
     padding: 0 3%;
   }
 
-  .subsectionTitle {
+  .event-subsection-header-title {
     width: 90%;
   }
 
