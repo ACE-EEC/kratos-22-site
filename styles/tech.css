@@ -821,19 +821,19 @@ body {
     margin-bottom: 16px;
   }
   .nav-item:nth-child(1){
-    animation-delay: 0.8s;
+    animation-delay: .5s;
   }
   .nav-item:nth-child(2) {
-    animation-delay: 1.2s;
+    animation-delay: .6s;
   }
   .nav-item:nth-child(3) {
-    animation-delay: 1.6s;
+    animation-delay: .7s;
   }
   .nav-item:nth-child(4) {
-    animation-delay: 2s;
+    animation-delay: .8s;
   }
   .nav-item:nth-child(5) {
-    animation-delay: 2.4s;
+    animation-delay: .9s;
   }
   
   
