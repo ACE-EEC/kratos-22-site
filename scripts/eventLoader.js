@@ -15,7 +15,7 @@ $('document').ready(async function () {
       const event = await res.json();
 
       // innerHTML lol
-      $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML =
+      $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
         `<div class="card">
         <div class="cardContent">
           <div class="cardImage">

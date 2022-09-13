@@ -16,25 +16,20 @@ function triggerDisplay(index) {
   displayMany(myIndex);
 }
 //added alignment to navbar
-var navbaralignment=document.getElementById('pages');
-$(window).resize(function() {
-  if(window.innerWidth <=1200 )
-{
- navbaralignment.classList.remove('justify-content-center');
- navbaralignment.classList.add('justify-content-end');
- navbaralignment.style.marginRight="5em";
-}
-if(window.innerWidth>1200){
-  navbaralignment.classList.add('justify-content-center');
-  navbaralignment.classList.remove('justify-content-end');
-}
-
-  
-});
+var navbaralignment = document.getElementById('pages');
+$(window).resize(function () {
+  if (window.innerWidth <= 1200) {
+    navbaralignment.classList.remove('justify-content-center');
+    navbaralignment.classList.add('justify-content-end');
+    navbaralignment.style.marginRight = "5em";
+  }
+  if (window.innerWidth > 1200) {
+    navbaralignment.classList.add('justify-content-center');
+    navbaralignment.classList.remove('justify-content-end');
+  }
 
 
 });
-
 
 function displayMany(myIndex) {
   var plus = document.getElementsByClassName('plus')[myIndex];
