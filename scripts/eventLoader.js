@@ -35,33 +35,7 @@ $('document').ready(async function () {
           <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>
             <scroller>
-              <section>
-                <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus.
-                  Gravida arcu ac tortor dignissim convallis aenean et.</p>
-                <p>- Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.
-                </p>
-                <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean
-                  et.
-                </p>
-                <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </section>
-              <section>
-                <p>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus.
-                  Gravida arcu ac tortor dignissim convallis aenean et.</p>
-                <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>- sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus.
-                  Gravida arcu ac tortor dignissim convallis aenean et.</p>
-                <p>- Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.
-                </p>
-                <p>- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean
-                  et.
-                </p>
-              </section>
+              ${event.content.rules.map((x) => `<p>- ${x}</p>`).reduce((p, c, a) =>  p + c )}
             </scroller>
           </div>
         </div>
