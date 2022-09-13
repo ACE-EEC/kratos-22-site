@@ -17,7 +17,7 @@ function triggerDisplay(index) {
 }
 //added alignment to navbar
 var navbaralignment = document.getElementById('pages');
-$(window).resize(function () {
+function adjustNavbarAlignment() {
   if (window.innerWidth <= 1200) {
     navbaralignment.classList.remove('justify-content-center');
     navbaralignment.classList.add('justify-content-end');
@@ -27,20 +27,20 @@ $(window).resize(function () {
     navbaralignment.classList.add('justify-content-center');
     navbaralignment.classList.remove('justify-content-end');
   }
+}
+$(window).resize(adjustNavbarAlignment);
+$('body').ready(adjustNavbarAlignment);
 
-
-});
-
-function displayMany(myIndex) {
-  var plus = document.getElementsByClassName('plus')[myIndex];
-  var details = document.getElementsByClassName('details')[myIndex];
-  var vl = document.getElementsByClassName('vl')[myIndex];
-  var bText = document.getElementsByClassName('bText')[myIndex];
-  var content = document.getElementsByClassName('content')[myIndex];
-  var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-  var rules = document.getElementsByClassName('cardRules')[myIndex];
-  var card = document.getElementsByClassName('card')[myIndex];
-  var cardImg = document.getElementsByClassName('cardImage')[myIndex];
+function displayMany(i) {
+  var plus = document.getElementById(`plus${i}`);
+  var details = document.getElementById(`details${i}`);
+  var vl = document.getElementById(`vl${i}`);
+  var bText = document.getElementById(`bText${i}`);
+  var content = document.getElementById(`content${i}`);
+  var upArrow = document.getElementById(`upArrow${i}`);
+  var rules = document.getElementById(`cardRules${i}`);
+  var card = document.getElementById(`card${i}`);
+  var cardImg = document.getElementById(`cardImage${i}`);
 
   if (window.innerWidth >= 768) {
     card.style.width = '100%';
@@ -58,38 +58,40 @@ function displayMany(myIndex) {
   plus.style.display = 'none';
 
   setTimeout(function () {
-    setOpacity(myIndex);
+    setOpacity(i);
   }, 500);
 }
 
-function setOpacity(myIndex) {
-  var newDoc = document.getElementsByClassName('plus')[myIndex];
-  var details = document.getElementsByClassName('details')[myIndex];
-  var vl = document.getElementsByClassName('vl')[myIndex];
-  var bText = document.getElementsByClassName('bText')[myIndex];
-  var content = document.getElementsByClassName('content')[myIndex];
-  var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-  var rules = document.getElementsByClassName('cardRules')[myIndex];
+function setOpacity(i) {
+  var plus = document.getElementById(`plus${i}`);
+  var details = document.getElementById(`details${i}`);
+  var vl = document.getElementById(`vl${i}`);
+  var bText = document.getElementById(`bText${i}`);
+  var content = document.getElementById(`content${i}`);
+  var upArrow = document.getElementById(`upArrow${i}`);
+  var rules = document.getElementById(`cardRules${i}`);
+  var card = document.getElementById(`card${i}`);
+  var cardImg = document.getElementById(`cardImage${i}`);
 
   details.style.opacity = '1.0';
   vl.style.opacity = '1.0';
   content.style.opacity = '1.0';
   bText.style.opacity = '1.0';
   upArrow.style.opacity = '1.0';
-  newDoc.style.opacity = '1.0';
+  plus.style.opacity = '1.0';
   rules.style.opacity = '1.0';
 }
 
-function setDisplayTime(myIndex) {
-  var newDoc = document.getElementsByClassName('plus')[myIndex];
-  var details = document.getElementsByClassName('details')[myIndex];
-  var vl = document.getElementsByClassName('vl')[myIndex];
-  var bText = document.getElementsByClassName('bText')[myIndex];
-  var content = document.getElementsByClassName('content')[myIndex];
-  var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-  var rules = document.getElementsByClassName('cardRules')[myIndex];
-  var card = document.getElementsByClassName('card')[myIndex];
-  var cardImg = document.getElementsByClassName('cardImage')[myIndex];
+function setDisplayTime(i) {
+  var plus = document.getElementById(`plus${i}`);
+  var details = document.getElementById(`details${i}`);
+  var vl = document.getElementById(`vl${i}`);
+  var bText = document.getElementById(`bText${i}`);
+  var content = document.getElementById(`content${i}`);
+  var upArrow = document.getElementById(`upArrow${i}`);
+  var rules = document.getElementById(`cardRules${i}`);
+  var card = document.getElementById(`card${i}`);
+  var cardImg = document.getElementById(`cardImage${i}`);
 
   cardImg.style.width = '100%';
   if (window.innerWidth >= 768) {
@@ -105,18 +107,20 @@ function setDisplayTime(myIndex) {
   content.style.display = 'none';
   bText.style.display = 'none';
   upArrow.style.display = 'none';
-  newDoc.style.display = 'flex';
+  plus.style.display = 'flex';
   rules.style.display = 'none';
 }
 
-function resetMany(myIndex) {
-  var newDoc = document.getElementsByClassName('plus')[myIndex];
-  var details = document.getElementsByClassName('details')[myIndex];
-  var vl = document.getElementsByClassName('vl')[myIndex];
-  var bText = document.getElementsByClassName('bText')[myIndex];
-  var content = document.getElementsByClassName('content')[myIndex];
-  var upArrow = document.getElementsByClassName('upArrow')[myIndex];
-  var rules = document.getElementsByClassName('cardRules')[myIndex];
+function resetMany(i) {
+  var plus = document.getElementById(`plus${i}`);
+  var details = document.getElementById(`details${i}`);
+  var vl = document.getElementById(`vl${i}`);
+  var bText = document.getElementById(`bText${i}`);
+  var content = document.getElementById(`content${i}`);
+  var upArrow = document.getElementById(`upArrow${i}`);
+  var rules = document.getElementById(`cardRules${i}`);
+  var card = document.getElementById(`card${i}`);
+  var cardImg = document.getElementById(`cardImage${i}`);
 
   details.style.opacity = '0';
   vl.style.opacity = '0';

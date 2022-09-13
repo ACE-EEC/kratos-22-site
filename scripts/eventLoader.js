@@ -16,23 +16,23 @@ $('document').ready(async function () {
 
       // innerHTML lol
       $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
-        `<div class="card">
+        `<div class="card" id="card${i}">
         <div class="cardContent">
-          <div class="cardImage">
+          <div class="cardImage" id="cardImage${i}">
             <h1 class="eventName">${event.content.name}</h1>
             <div class="icon"><img src="${event.content.image}"></div>
-            <i id="plus" onclick="setTimeout(function(){triggerDisplay(${i})}, 500); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
-            <div class="details">
+            <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 500); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
+            <div class="details" id="details${i}">
               <div class="tag">₹${event.content.fee}</div>
               <div class="tag">${event.content.teamBased ? "Team" : "Solo"}</div>
               <div class="tag">${event.content.teamSize} v ${event.content.teamSize}</div>
             </div>
-            <div class="vl"></div>
+            <div class="vl" id="vl${i}"></div>
           </div>
-          <div class="bText">
-            <p class="content">${event.content.description}</p>
+          <div class="bText" id="bText${i}">
+            <p class="content" id="content${i}">${event.content.description}</p>
           </div>
-          <div class="cardRules">
+          <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>
             <scroller>
               <section>
@@ -65,7 +65,7 @@ $('document').ready(async function () {
             </scroller>
           </div>
         </div>
-        <i id="upArrow" onclick="reset(${i})" class="upArrow fa fa-caret-up fa-2x"></i>
+        <i id="upArrow${i}" onclick="reset(${i})" class="upArrow fa fa-caret-up fa-2x" style="display: none;"></i>
       </div>`;
     } else {
       console.error(`Error fetching event${i}.json`);
