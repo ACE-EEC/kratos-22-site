@@ -102,20 +102,20 @@ body {
   flex-direction: column;
 }
 
-.register-btn-homepage{
-  
+.register-btn-homepage {
+
   font-family: 'Chakra Petch', sans-serif;
   color: var(--kratos-red);
-  box-shadow: 2.5px 2.5px  var(--kratos-red-darker);
+  box-shadow: 2.5px 2.5px var(--kratos-red-darker);
   background-color: #e6e6e6;
   border: none;
   font-size: 1.2em;
   margin-top: 1em;
-  margin-bottom: 1em;  
+  margin-bottom: 1em;
   border-radius: 0.25em;
   height: 2em;
   width: 6em;
- }
+}
 
 .icon {
   height: 30%;
@@ -239,7 +239,7 @@ body {
 .cardHolder {
   display: flex;
   flex-direction: column;
-   justify-content: center;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -436,6 +436,16 @@ body {
   scrollbar-width: thin;
 }
 
+.cardRules scroller::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa;
+}
+
+.cardRules scroller::-webkit-scrollbar-thumb {
+  background: #000;
+}
+
 .cardRules section {
   scroll-snap-align: start;
   height: 100%;
@@ -465,7 +475,7 @@ body {
   display: none;
 }
 
-.event-subsection  {
+.event-subsection {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -481,9 +491,9 @@ body {
   margin-top: 3em;
 }
 
-.event-subsection-header .hr{
-  width: 90%; 
-  background-color: var(--kratos-red); 
+.event-subsection-header .hr {
+  width: 90%;
+  background-color: var(--kratos-red);
   height: 1.7px;
   margin: .5em 0 1em;
 }
@@ -672,15 +682,17 @@ body {
 }
 
 @media only screen and (min-width:768px) {
+
   /* .bg-dark{
     background-color: black;
     color: black;
   } */
-   .nav-item{
+  .nav-item {
     font-family: 'Chakra Petch', sans-serif;
     font-weight: 700;
 
-   }
+  }
+
   .cardHolder {
     flex-direction: row;
     padding: 0 3%;
@@ -797,6 +809,7 @@ body {
     animation-fill-mode: forwards;
     /* animation: 600ms type ease-in; */
   }
+
   .contactstyle {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 1.1em;
@@ -812,6 +825,7 @@ body {
     border-top: 3px solid rgb(255, 6, 6);
 
   }
+
   .line {
     width: 100%;
     height: 4rem;
@@ -820,42 +834,50 @@ body {
     padding: 0;
     margin-bottom: 16px;
   }
-  .nav-item:nth-child(1){
+
+  .nav-item:nth-child(1) {
     animation-delay: .5s;
   }
+
   .nav-item:nth-child(2) {
     animation-delay: .6s;
   }
+
   .nav-item:nth-child(3) {
     animation-delay: .7s;
   }
+
   .nav-item:nth-child(4) {
     animation-delay: .8s;
   }
+
   .nav-item:nth-child(5) {
     animation-delay: .9s;
   }
-  
-  
+
+
   @keyframes anim-lineUp {
-   
+
     0% {
       opacity: 0;
-      transform: translate(-1em,-1em);
+      transform: translate(-1em, -1em);
     }
+
     20% {
       opacity: 0.4;
     }
+
     50% {
       opacity: 0.8;
-      transform: translate(1em,1em);
+      transform: translate(1em, 1em);
     }
+
     100% {
 
       opacity: 1;
-      transform: translateY(0em,0em);
+      transform: translateY(0em, 0em);
     }
   }
-  
+
 
 }

@@ -14,7 +14,7 @@
   scrollbar-width: none;
 }
 
-::-webkit-scrollbar {
+.slideshow-container::-webkit-scrollbar {
   display: none;
 }
 
