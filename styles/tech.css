@@ -118,7 +118,8 @@ body {
 }
 
 .icon {
-  height: 30%;
+  height: 60%;
+  width: 60%;
   display: flex;
   justify-content: center;
 }
