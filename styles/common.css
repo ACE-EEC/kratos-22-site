@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+
+:root {
+  --kratos-red: rgb(220, 53, 69);
+  --kratos-red-darker: rgb(161, 39, 51);
+  --kratos-grey-dark: rgba(0, 0, 0, 1);
+  --kratos-grey-light: rgba(17, 16, 16, 1);
+
+  --kratos-card-trans-dur: .5s;
+}

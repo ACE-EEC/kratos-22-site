@@ -16,7 +16,7 @@ $('document').ready(async function () {
 
       // innerHTML lol
       $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
-        `<div class="card" id="card${i}">
+      `<div class="card" id="card${i}">
         <div class="cardContent">
           <div class="cardImage" id="cardImage${i}">
             <h1 class="eventName">${event.content.name}</h1>
@@ -27,6 +27,10 @@ $('document').ready(async function () {
               <div class="tag">${event.content.teamBased ? "Team" : "Solo"}</div>
               <div class="tag">${event.content.teamSize} v ${event.content.teamSize}</div>
             </div>
+            <div id="regButton${i}" class="reg-button reg-button-active" onclick="registerClick(${i})">
+              <div class="reg-button-label">Add to Registration</div>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
             <div class="vl" id="vl${i}"></div>
           </div>
           <div class="bText" id="bText${i}">
@@ -35,7 +39,7 @@ $('document').ready(async function () {
           <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>
             <scroller>
-              ${event.content.rules.map((x) => `<p>- ${x}</p>`).reduce((p, c, a) =>  p + c )}
+              ${event.content.rules.map((x) => `<p>- ${x}</p>`).reduce((p, c, a) => p + c)}
             </scroller>
           </div>
         </div>

@@ -1,0 +1,43 @@
+.reg-button {
+    align-items: center;
+    border-radius: 0.25em;
+    display: none;
+    font-family: "Chakra Petch", "Consolas", "Courier New", Courier, monospace;
+    font-size: 1.3rem;
+    height: 2.9em;
+    justify-content: center;
+    margin: 0 0 2em;
+    opacity: 0;
+    padding: .3em 1em;
+    text-decoration: none;
+    transition: all var(--kratos-card-trans-dur) ease;
+}
+
+.reg-button-active {
+    color: white;
+    background-color: var(--kratos-grey-dark);
+    cursor: pointer;
+}
+
+.reg-button-inactive {
+    color: black;
+    background-color: white;
+    border: 3px solid var(--kratos-grey-dark);
+}
+
+.reg-button-label {
+    display: inline;
+    margin-right: 1em;
+}
+
+.reg-button a {
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    .reg-button {
+        font-size: 1.2em;
+        margin: 0;
+    }
+}
