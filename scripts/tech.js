@@ -189,6 +189,10 @@ function ntechClick() {
   displayntech();
   updateSlides('nonTechnical');
 }
+const navbarContents=["technical","nonTechnical","workshop","contact"];
+function naabarUnderline(){
+
+}
 
 //displaying card holder
 var technicalPage = document.getElementById('technicalPage');

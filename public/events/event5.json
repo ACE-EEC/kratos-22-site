@@ -3,7 +3,7 @@
     "type": "online",
     "content": {
         "name": "Gaming-Valorant",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
+        "image": "public/images/nonTechnical/Gaming-Valorant.png",
         "fee": 50,
         "teamBased": "Team",
         "teamSize": "5",
