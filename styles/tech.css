@@ -385,6 +385,7 @@ display: flex;
 
 }
 
+
 .highlight {
   /* color: #df1d31; */
   font-weight: 600;
@@ -930,7 +931,7 @@ display: flex;
 
   .nav-item {
     font-size: 1.1em;
-    margin: 0.5em 4em;
+    margin: -1em 4em;
     opacity: 0;
     /* animation-delay: 3000ms; */
     animation: 0.4s anim-lineUp ease-in-out;
