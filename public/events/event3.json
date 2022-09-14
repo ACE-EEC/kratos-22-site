@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "Code play",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
+        "image": "public/images/technical/Code Play.png",
         "fee": 50,
         "teamBased": "solo/team",
         "teamSize": "1-2",

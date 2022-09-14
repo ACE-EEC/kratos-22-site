@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "CSS",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
+        "image": "public/images/technical/CSS.png",
         "fee": 50,
         "teamBased": "solo",
         "teamSize": "1",
