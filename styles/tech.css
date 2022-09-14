@@ -719,6 +719,7 @@ display: flex;
     font-size: 1.2em;
     color: #ccc;
     font-family: "Poppins", sans-serif;
+    animation-fill-mode: forwards;
   }
 
   .animationunderline {
@@ -744,6 +745,7 @@ display: flex;
   .animationunderline:hover::after {
     width: 100%;
     transform: scaleX(1);
+
     /*transform-origin: bottom left; */
   }
 
@@ -887,7 +889,7 @@ display: flex;
     100% {
 
       opacity: 1;
-      transform: translateY(0em, 0em);
+      transform: translate(0em, 0em);
     }
   }
 
@@ -1003,7 +1005,7 @@ display: flex;
     100% {
 
       opacity: 1;
-      transform: translateY(0em, 0em);
+      transform: translate(0em, 0em);
     }
   }
 

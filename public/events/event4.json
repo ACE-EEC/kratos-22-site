@@ -5,8 +5,8 @@
         "name": "Coding Fifa",
         "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
         "fee": 500,
-        "teamBased": true,
-        "teamSize": 4,
+        "teamBased": "solo/team",
+        "teamSize": "2",
         "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
         "rules": [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
