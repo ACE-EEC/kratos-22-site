@@ -27,11 +27,9 @@
       <img class="navLogo " src="public/images/kratos logo.png" />
       <div class="brand-name">KRATOS</div>
     </a>
-    <div class="navbar-icon-align">
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
-      <div class="navbar-toggler-icon"></div> 
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </div> 
     <div class="collapse navbar-collapse justify-content-center" id="pages">
       <div class="navbartext">
         <ul class="navbar-nav mx-auto ">
@@ -39,16 +37,15 @@
               class="nav-link animationunderline" data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show">HOME</a>
           <li class="nav-item "><a href="#" id="link1" onclick="techClick()" class="nav-link animationunderline"
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" id="techinal">TECHNICAL</a>
+              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" >TECHNICAL</a>
           </li>
-          <!--will be used in future-->
           <!-- <li class="nav-item "><a href="#" id="link2" onclick="sympoClick()" class="nav-link animationunderline"
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" id="workshop">WORKSHOPS</a>
+              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">WORKSHOPS</a>
           </li> -->
           <li class="nav-item "><a href="#" id="link3" onclick="ntechClick()" class="nav-link animationunderline "
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" id="nonTechnical">NON-TECHNICAL</a></li>
+              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">NON-TECHNICAL</a></li>
           <li class="nav-item "><a href="#" id="link4" class="nav-link text-danger contactstyle"
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" id="contact">CONTACT</a></li>
+              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">CONTACT</a></li>
         </ul>
       </div>
     </div>
@@ -71,11 +68,11 @@
     <blockquote id="homeTitle" class="w-100 blockquote text-center">
       <p class="m-1 text-danger"><strong>Kratos 2022</strong></p>
       <footer class="text-light">A national level technical symposium</p>
-        <div class="justify-content-center">
+        <!-- <div class="justify-content-center">
           <button class="register-btn-homepage"
             onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ'">Register
 
-          </Button>
+          </Button> -->
     </blockquote>
 
     <div id="countdown">
@@ -141,7 +138,9 @@
 
     <blockquote class="w-100 blockquote text-center">
       <p class="m-1 text-danger" id="ntechTitle"><strong>Technical</strong></p>
-      
+      <footer class="blockquote-footer" id="ntechTitle" style="margin-top: 0;">“Thinking doesn't guarantee that we won't
+        make mistakes. But not thinking guarantees that we will.” – <cite title="Source Title">Leslie Lamport</cite>
+      </footer>
     </blockquote>
 
     <div class="event-subsection" id="offline">
@@ -165,7 +164,9 @@
 
     <blockquote class="w-100 blockquote text-center">
       <p class="m-1 text-danger" id="ntechTitle"><strong>Non-Technical</strong></p>
-     
+      <footer class="blockquote-footer" id="ntechTitle" style="margin-top: 0;">“Creativity is intelligence having
+        fun.”<cite title="Source Title">– Albert
+          Einstein</cite></footer>
     </blockquote>
 
     <div class="event-subsection" id="offline">
@@ -255,7 +256,8 @@
       <div class="footer-info">
         <p class="footer-content">Rohith</p>
         <p class="footer-content">+91 9826416724</p>
-        <p class="footer-content">rohithc@gmail.com</p>
+        <a href="mailto://rohithc@example.com" class="footer-content">
+          rohithc@example.com</a>
       </div>
     </div>
   </div>

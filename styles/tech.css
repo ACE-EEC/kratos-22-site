@@ -28,7 +28,7 @@ body {
 #copyright {
   color: rgba(255, 255, 255, 0.5);
   text-align: center;
-  padding: 0 1rem 1rem;
+  padding: 0rem 1rem 1rem;
 }
 
 #homeTitle,
@@ -1015,25 +1015,41 @@ display: flex;
     margin-right: -90%;
   }
 }
-
+@media (max-width:768px){
   .footer-elements{
 
     display: inline-flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     
     
   }
-  .insta-logo{
-    width: 50%;
+  .insta-logo-align{
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(min-width:768px){
+  .footer-elements{
+
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
     
   }
   .insta-logo-align{
     margin-top: 3em;
-    margin-left: 1em;
     justify-content: center;
     align-items: center;
   }
+}
+  .insta-logo{
+    width: 50%;
+    
+  }
+  
 .footer-header{
   display: grid;
   justify-content: flex-end;
@@ -1042,9 +1058,8 @@ display: flex;
  font-weight: 600;
   }
 .contact{
-  width: 50%;
+  /* width: 50%; */
   margin-top: 2.2em;
-  margin-right: 1.4em; 
 }
 .footer-info{
   
@@ -1056,4 +1071,9 @@ display: flex;
   justify-content: flex-end;
   margin-right: 0;
   margin-top:-1em;
+  font-size: 1em;
+  text-decoration: none !important;
+  color: #ccc;
+
+
 }
