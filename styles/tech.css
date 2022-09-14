@@ -1014,5 +1014,46 @@ display: flex;
   .navbar-icon-align{
     margin-right: -90%;
   }
+}
 
+  .footer-elements{
+
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
+    
+    
+  }
+  .insta-logo{
+    width: 50%;
+    
+  }
+  .insta-logo-align{
+    margin-top: 3em;
+    margin-left: 1em;
+    justify-content: center;
+    align-items: center;
+  }
+.footer-header{
+  display: grid;
+  justify-content: flex-end;
+ color: var(--kratos-red);
+ font-size: 1.5em;
+ font-weight: 600;
+  }
+.contact{
+  width: 50%;
+  margin-top: 2.2em;
+  margin-right: 1.4em; 
+}
+.footer-info{
+  
+  margin-top: 1em;
+  color: #ccc;
+}
+.footer-content{
+  display: grid;
+  justify-content: flex-end;
+  margin-right: 0;
+  margin-top:-1em;
 }
