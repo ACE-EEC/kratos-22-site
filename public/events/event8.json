@@ -2,25 +2,18 @@
     "category": "nontechnical",
     "type": "offline",
     "content": {
-        "name": "Futsal",
-        "image": "public/images/nonTechnical/Futsal.png",
+        "name": "Gaming-FIFA",
+        "image": "public/images/nonTechnical/Gaming-FIFA.png",
         "fee": 50,
         "teamBased": "team",
-        "teamSize": "5",
-        "description": "The objective of the game is to score more goals than the other team by making the whole of the ball pass over the goal line, between the goal posts, and under the crossbar as long as it has not been thrown, carried, or intentionally propelled by the hand or arm.",
+        "teamSize": "2",
+        "description":"The tournament is conducted on a knockout basis and the main objective of the teams is to beat their opponents and reach the final.",
         "rules": [
-           "4 minutes per half",
-           "1-minute halftime",
-           "9 minutes per match (can extend up to 10 minutes if the extra time is required)",
-           "4 main (1 goalkeeper) & substitute 2",
-           "Either knockout or league depends on the number of teams",
-           "Rolling substitutes ",
-           "Play for referee whistle ",
-           "One-step penalty",
-           "No offensive language",
-           "Yellow card (1-minute ban)",
-           "Red card (should leave the match)"
-            
+            "Only doubles matches are conducted on a knockout basis.",
+            "The teams can bring their own controllers if required.",
+            "The matches will be 4 minutes and a half. No settings can be changed.",
+            "If there is a tiebreaker the match goes into penalty shootouts."
+
         ]
     }
 }

@@ -2,25 +2,24 @@
     "category": "technical",
     "type": "offline",
     "content": {
-        "name": "Coding Fifa",
+        "name": "Debugging",
         "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
+        "fee": 50,
         "teamBased": "solo/team",
-        "teamSize": "2",
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "teamSize": "1-2",
+        "description": "NA",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+           "A team should consist of a maximum of 2 members.",
+           "Participants must have basic knowledge of C/C++.",
+           "Round 1:",
+           "It's a quiz round which consists of 15 basic code snippets and debugging  MCQ’s for 15 minutes.",
+           "The top 5 or 10 teams will qualify to the next round.",
+           "Round 2:",
+           "The qualified team will have to debug the set of programs which will have logical/syntactical errors.",
+           "The programs are written only in C/C++ and all the test cases have to be cleared.",
+           "The team which debugs the maximum number of programs within 30 mins is crowned as the winner.",
+           "In case of a tie, additional round with one debugging question is given to the teams and first team to successfully debug the code is the winner."
+
         ]
     }
 }

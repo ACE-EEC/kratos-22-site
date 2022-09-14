@@ -1,19 +1,19 @@
 {
     "category": "nontechnical",
-    "type": "offline",
+    "type": "online",
     "content": {
-        "name": "All's Fair in Tug of War",
-        "image": "public/images/nonTechnical/All's Fair in Tug of War.png",
+        "name": "Gaming-Valorant",
+        "image": "public/images/nonTechnical/Gaming-Valorant.png",
         "fee": 50,
-        "teamBased": "team",
-        "teamSize": "8",
-        "description": "The objective is to beat the competition and win the match by winning at least two of the three pulls in the match.",
+        "teamBased": "Team",
+        "teamSize": "5",
+        "description": "The tournament is conducted on brackets and knockout basis. The main objective of the teams is to beat their opponents and reach the final. A maximum of 32 teams can be registered.",
         "rules": [
-            "The rope used should be of a circumference of approximately 11 cm and should be marked in the middle with a center line as well as two marks that should be placed 4m from the center line.",
-            "At the start of the pull, the center line of the rope should be immediately above the line marked on the ground.",
-            "Both teams pull the rope, the winner being the team who manages to pull the mark on the rope closest to their opponents over the center line.",
-            "The rope must be pulled underarm and nobody’s elbow must go below the knee,otherwise a foul will be called.",
-            "Matches are often the best of three pulls, the winner winning two out of the three pulls."
+            "Only lower bracket matches are conducted on a knockout basis.",
+            "The teams are required to bring their own laptops/peripherals on the semi-finals/finals day.",
+            "Map and side selection is based on tosses. (Winner of the toss will be selecting the map and the loser can choose the side).",
+            "The matches will be conducted in standard tournament mode.",
+            "If anyone is found to be using any kind of hack, the entire team will be disqualified"
         ]
     }
 }

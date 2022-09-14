@@ -1,19 +1,25 @@
 {
-    "category": "nontechnical",
-    "type": "online",
+    "category": "technical",
+    "type": "offline",
     "content": {
-        "name": "Murder Mystery",
-        "image": "public/images/nonTechnical/Murder Mystery.png",
+        "name": "Pair Programming",
+        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
         "fee": 50,
-        "teamBased": "solo/team",
-        "teamSize": "1-3",
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "teamBased": "team",
+        "teamSize": "2",
+        "description": "NA",
         "rules": [
-            "Event takes place over Whatsapp (Online). Clues and Abstract format will be shared in a common group,the abstract is to be submitted privately.",
-            "Participants can submit up to 2 abstracts, of which one will be considered.",
-            "No sharing of clues or hypotheses between rival teams",
-            "Participants can choose to avail of bonus clues that will be shared privately, however, priority will be given to those teams that submit the abstract without using bonus clues.",
-            "Points are given to the teams based on the time taken to complete and the completion level of the abstract"
+            "A team should consist of only 2 members.",
+            "Time limit : 45 to 60 minutes.",
+            "There is only one Round.",
+            "One member in a team will code for a given time and switches with another team member.",
+            "Consists of two problem statements.",
+            "First problem statement should be solved by a participant on their own.",
+            "For second problem, both members of the team can work together for a certain time (applicable for top 3 teams that finish the first problem).",
+            "Winners will be selected according to their finishing time."
+
+
+
         ]
     }
 }

@@ -2,18 +2,18 @@
     "category": "nontechnical",
     "type": "offline",
     "content": {
-        "name": "Gaming-FIFA",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
+        "name": "All's Fair in Tug of War",
+        "image": "public/images/nonTechnical/All's Fair in Tug of War.png",
+        "fee": 50,
         "teamBased": "team",
-        "teamSize": "2",
-        "description":"The tournament is conducted on a knockout basis and the main objective of the teams is to beat their opponents and reach the final.",
+        "teamSize": "10",
+        "description": "The objective is to beat the competition and win the match by winning at least two of the three pulls in the match.",
         "rules": [
-            "Only doubles matches are conducted on a knockout basis.",
-            "The teams can bring their own controllers if required.",
-            "The matches will be 4 minutes and a half. No settings can be changed.",
-            "If there is a tiebreaker the match goes into penalty shootouts."
-
+            "The rope used should be of a circumference of approximately 11 cm and should be marked in the middle with a center line as well as two marks that should be placed 4m from the center line.",
+            "At the start of the pull, the center line of the rope should be immediately above the line marked on the ground.",
+            "Both teams pull the rope, the winner being the team who manages to pull the mark on the rope closest to their opponents over the center line.",
+            "The rope must be pulled underarm and nobody’s elbow must go below the knee,otherwise a foul will be called.",
+            "Matches are often the best of three pulls, the winner winning two out of the three pulls."
         ]
     }
 }

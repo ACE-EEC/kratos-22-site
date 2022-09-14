@@ -2,18 +2,25 @@
     "category": "nontechnical",
     "type": "offline",
     "content": {
-        "name": "Cine Quiz",
-        "image": "public/images/nonTechnical/Cine quiz.png",
+        "name": "Futsal",
+        "image": "public/images/nonTechnical/Futsal.png",
         "fee": 50,
-        "teamBased": "solo/team",
-        "teamSize": "1-3",
-        "description": "Are you a Kollywood freak? Then this event is for you where we will be shooting questions on movies and songs.",
+        "teamBased": "team",
+        "teamSize": "5",
+        "description": "The objective of the game is to score more goals than the other team by making the whole of the ball pass over the goal line, between the goal posts, and under the crossbar as long as it has not been thrown, carried, or intentionally propelled by the hand or arm.",
         "rules": [
-          "A team may consist of maximum 3 members",
-          "Round 1 - It's a Paper pen quiz round in which the participants scoring the stipulated mark for the given questions will be moving to round 2.",
-          "Round 2-  It’s about uncovering the songs through beats and rhythms. The eligible teams will be moving to round 3",
-          "•Round 3- Finale round where the team should find film through pictures & plots. The team acquiring the max marks will be rewarded."
-
+           "4 minutes per half",
+           "1-minute halftime",
+           "9 minutes per match (can extend up to 10 minutes if the extra time is required)",
+           "4 main (1 goalkeeper) & substitute 2",
+           "Either knockout or league depends on the number of teams",
+           "Rolling substitutes ",
+           "Play for referee whistle ",
+           "One-step penalty",
+           "No offensive language",
+           "Yellow card (1-minute ban)",
+           "Red card (should leave the match)"
+            
         ]
     }
 }

@@ -25,7 +25,7 @@ $('document').ready(async function () {
             <div class="details" id="details${i}">
               <div class="tag">₹${event.content.fee}</div>
               <div class="tag">${event.content.teamBased}</div>
-              <div class="tag">${event.content.teamSize.length === 1 ? event.content.teamSize+"v"+event.content.teamSize :event.content.teamSize}</div>
+              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize+"v"+event.content.teamSize :event.content.teamSize}</div>
             </div>
             <div class="vl" id="vl${i}"></div>
           </div>

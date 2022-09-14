@@ -2,20 +2,17 @@
     "category": "nontechnical",
     "type": "offline",
     "content": {
-        "name": "Channel Surfing",
-        "image": "public/images/nonTechnical/Channel Surfing.png",
+        "name": "Shipwreck",
+        "image": "public/images/nonTechnical/shipwreck.png",
         "fee": 50,
-        "teamBased": "team",
-        "teamSize": "5",
-        "description": "The contestants engage the audience by enacting different TV channels and quickly switching between them.",
+        "teamBased": "solo",
+        "teamSize": "1",
+        "description": "Shipwreck is essentially a scenario-based debate competition. It judges how convincing a contestant is.",
         "rules": [
-         "A team should consist of only 5 members.",
-         "Participants must enact the channel given by the judges and should be able to adapt to a different channel spontaneously.",
-         "The participants will be judged based on their tone modification and style.",
-         "Any form of vulgarity will lead to immediate disqualification.",
-         "No preparation time will be given.",
-         "Decision of the judges will be final and up for no discussion.",
-         "Time allocated for each team would be 6 minutes (5+1)."
+          "The participants are provided with a scenario where they are stuck on a sinking ship.",
+          "The captain of the ship can save only one among them.",
+          "The participants have to debate as to why they deserve to be saved.",
+           "•Participants using any form of vulgar language or action will be disqualified."
         ]
     }
 }

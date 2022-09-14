@@ -2,25 +2,23 @@
     "category": "technical",
     "type": "offline",
     "content": {
-        "name": "Coding Fifa",
+        "name": "CSS",
         "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
-        "teamBased": "solo/team",
-        "teamSize": "2",
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "fee": 50,
+        "teamBased": "solo",
+        "teamSize": "1",
+        "description": "NA",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            "Individual participation event.",
+            "In the 1st round, an on-the-spot task will be given for designing using CSS.",
+            "Teams qualified are moved to next round.",
+            "Round 1 qualification based on jury's decision.",
+            "In round 2 Web page with graphics will be displayed. Participants have to replicate the same web page within a time limit of 20 minutes.Participants should code only using NotePad.",
+            "Using Internet is prohibited.",
+            "Judge’s decision is final.",
+            "Winners will be awarded and participation certificate will be provided."
+            
+
         ]
     }
 }

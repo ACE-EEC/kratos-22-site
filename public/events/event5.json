@@ -2,18 +2,18 @@
     "category": "nontechnical",
     "type": "online",
     "content": {
-        "name": "Gaming-Valorant",
-        "image": "public/images/nonTechnical/Gaming-Valorant.png",
+        "name": "Murder Mystery",
+        "image": "public/images/nonTechnical/Murder Mystery.png",
         "fee": 50,
-        "teamBased": "Team",
-        "teamSize": "5",
-        "description": "The tournament is conducted on brackets and knockout basis. The main objective of the teams is to beat their opponents and reach the final. A maximum of 32 teams can be registered.",
+        "teamBased": "solo/team",
+        "teamSize": "1-3",
+        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
         "rules": [
-            "Only lower bracket matches are conducted on a knockout basis.",
-            "The teams are required to bring their own laptops/peripherals on the semi-finals/finals day.",
-            "Map and side selection is based on tosses. (Winner of the toss will be selecting the map and the loser can choose the side).",
-            "The matches will be conducted in standard tournament mode.",
-            "If anyone is found to be using any kind of hack, the entire team will be disqualified"
+            "Event takes place over Whatsapp (Online). Clues and Abstract format will be shared in a common group,the abstract is to be submitted privately.",
+            "Participants can submit up to 2 abstracts, of which one will be considered.",
+            "No sharing of clues or hypotheses between rival teams",
+            "Participants can choose to avail of bonus clues that will be shared privately, however, priority will be given to those teams that submit the abstract without using bonus clues.",
+            "Points are given to the teams based on the time taken to complete and the completion level of the abstract"
         ]
     }
 }
