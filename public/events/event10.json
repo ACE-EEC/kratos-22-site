@@ -1,0 +1,18 @@
+{
+    "category": "nontechnical",
+    "type": "offline",
+    "content": {
+        "name": "Shipwreck",
+        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
+        "fee": 50,
+        "teamBased": "solo",
+        "teamSize": "1",
+        "description": "Shipwreck is essentially a scenario-based debate competition. It judges how convincing a contestant is.",
+        "rules": [
+          "The participants are provided with a scenario where they are stuck on a sinking ship.",
+          "The captain of the ship can save only one among them.",
+          "The participants have to debate as to why they deserve to be saved.",
+           "•Participants using any form of vulgar language or action will be disqualified."
+        ]
+    }
+}

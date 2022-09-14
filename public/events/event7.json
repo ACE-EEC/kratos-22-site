@@ -1,26 +1,19 @@
 {
     "category": "nontechnical",
-    "type": "online",
+    "type": "offline",
     "content": {
-        "name": "Coding Fifa",
+        "name": "Gaming-FIFA",
         "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
         "fee": 500,
-        "teamBased": "solo/team",
+        "teamBased": "team",
         "teamSize": "2",
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "description":"The tournament is conducted on a knockout basis and the main objective of the teams is to beat their opponents and reach the final.",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            "Only doubles matches are conducted on a knockout basis.",
+            "The teams can bring their own controllers if required.",
+            "The matches will be 4 minutes and a half. No settings can be changed.",
+            "If there is a tiebreaker the match goes into penalty shootouts."
+
         ]
     }
 }
