@@ -7,6 +7,8 @@
   --kratos-red-darker: rgb(161, 39, 51);
   --kratos-grey-dark: rgba(0, 0, 0, 1);
   --kratos-grey-light: rgba(17, 16, 16, 1);
+  --kratos-grey-lighter: rgb(37, 35, 35);
+  --kratos-grey-lighest: rgb(77, 73, 73);
   --kratos-white-dull: rgba(255, 255, 255, .9);
   --kratos-white: white;
   --kratos-card-trans-dur: .5s;

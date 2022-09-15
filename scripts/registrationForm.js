@@ -2,7 +2,16 @@ $('event-list').ready(() => {
   loadSoloEventList();
 });
 
+function truncate(str, size) {
+  if (str.length > size - 3 + 1) {
+    return str.slice(0, size).concat('...');
+  } else {
+    return str;
+  }
+}
+
 function toCodeName(titleName) {
+  // console.log('toCodeName(): ', titleName)
   return titleName.toLowerCase().replace(' ', '_');
 }
 
@@ -91,8 +100,8 @@ async function toTeamEvents() {
   let teamEvents = await getChosenTeamEventList();
   $('#soloSection')[0].style.display = 'none';
   if (teamEvents.length === 0) {
-    console.log('no team events')
-    // TODO: go to final page (review & payment)
+    console.log('no team events, going to final page directly')
+    await toFinalPage();
   } else {
     console.log('going to first team event page')
     teamEvIndex += 1;
@@ -129,7 +138,7 @@ async function toTeamEvents() {
             <label>Leader's Phone Number</label>
             <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
           </div>
-          <div>
+          <div style="margin-bottom: 2em;">
             <label>Leader's Full Name</label>
             <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
           </div>
@@ -156,11 +165,11 @@ async function toTeamEvents() {
 async function nextTeamSection() {
   let teamEvents = await getChosenTeamEventList();
   console.log('Team events list: ', teamEvents);
-  formData[teamEvents[teamEvIndex].content.name] = {}; // create the subobject for this event's data
+  formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
   for (let i = 0; i < $(`#teamForm${teamEvIndex}`)[0].length; i++) {
     // ignore the checkbox value, and any other input fields
     if ($(`#teamForm${teamEvIndex}`)[0][i].type == "text") {
-      formData[teamEvents[teamEvIndex].content.name][$(`#teamForm${teamEvIndex}`)[0][i].name] = $(`#teamForm${teamEvIndex}`)[0][i].value;
+      formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`)[0][i].name] = $(`#teamForm${teamEvIndex}`)[0][i].value;
     }
   }
   console.log('form data after team event ', teamEvIndex, formData);
@@ -169,8 +178,8 @@ async function nextTeamSection() {
 
   // go to next page
   if (teamEvIndex === teamEvents.length - 1) {
-    // TODO: go to final page (review & payment)
     console.log('Going to final page.')
+    await toFinalPage();
   } else {
     teamEvIndex += 1;
     console.log(`going to ${teamEvIndex} team event page`)
@@ -192,8 +201,11 @@ async function nextTeamSection() {
         <form id="teamForm${teamEvIndex}">
           <!-- TODO: make this checkbox work -->
           <div class='checkbox-row'>
-            <input class='checkbox' type='checkbox' name='leader' id='leader'/>
-            <label for='leader'>I'm the leader</label>
+            <input class='checkbox' type='checkbox' name='sameTeam' id='sameTeam'/>
+            <div>
+              <label for='sameTeam'>Same team as previous</label>
+              <div class="checkbox-info">First N members will be taken if previous team is larger than required.</div>
+            </div>
           </div>
           <div>
             <label>College</label>
@@ -207,7 +219,7 @@ async function nextTeamSection() {
             <label>Leader's Phone Number</label>
             <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
           </div>
-          <div>
+          <div style="margin-bottom: 2em;">
             <label>Leader's Full Name</label>
             <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
           </div>
@@ -226,7 +238,73 @@ async function nextTeamSection() {
       { scrollTop: $("#blockQuote").position().top },
       "slow"
     );
+  }
+}
 
+async function toFinalPage() {
+  $('#blockQuote').after(`
+  <div class="section" id="reviewSection">
+    <div class="section-header">
+      <h3>Review & Pay</h3>
+    </div>
+    
+    <div class="form-title">Solo Events</div>
+    <div id="soloEventsTitle" class="form-title-hr"></div>
 
+    <div class="form-title">Team Events</div>
+    <div id="teamEventsTitle" class="form-title-hr"></div>
+
+    <div class='totalAmount'></div>
+    <button id='submitAndPay' type="button" class="submit-button" onclick="alert('TODO replace with function')">Submit & Pay</button>
+  </div>
+  `);
+
+  let allEvents = await fetchEventList();
+  for (let i = 0; i < formData.solo_events.length; i++) {
+    $('#soloEventsTitle').after(`
+      <div class='review-solo-event-top'> 
+        <div class='event-title'>${formData.solo_events[i]}</div>
+        <div class='fee'>₹${allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee}</div>
+        <div class='remove-button'>❌</div>
+      </div>
+    `);
+  }
+
+  let chosenTeamEvents = await getChosenTeamEventList();
+  for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
+
+    let event_code = toCodeName(chosenTeamEvents[i].content.name);
+    $('#teamEventsTitle').after(`
+      <div class="review-team-event">
+        <div class='review-team-event-top'>
+          <div class='event-title'>${chosenTeamEvents[i].content.name}</div>
+          <div class='fee'>₹${chosenTeamEvents[i].content.fee}</div>
+          <div class='remove-button'>❌</div>
+        </div>
+        <div class='review-team-event-details'>
+          <div class="names">
+            <div class="name" id="leaderName" style="margin-left: -2em">
+              👑 ${truncate(formData[event_code]['leader_full_name'], 15)}
+            </div>
+
+          </div>
+          <div class="contacts">
+            <div class="label">Email</div>
+            <div class="contact-detail">${truncate(formData[event_code]['email'], 18)}</div>
+            <div class="label">Mobile</div>
+            <div class="contact-detail">${formData[event_code]['mobile']}</div>
+          </div>
+        </div>
+      </div>
+    `);
+
+    for (let j = 1; j < chosenTeamEvents[i].content.teamSize.split('-')[1]; j++) {
+      console.log('executing member name once')
+      $('#leaderName').after(`
+      <div class="name">
+        ${truncate(formData[event_code][`member${j}_full_name`], 15)}
+      </div>
+      `)
+    }
   }
 }

@@ -75,6 +75,7 @@ input:focus {
   flex-flow: column nowrap;
   align-items: center;
   margin-top: 2em;
+  width: 100%;
 }
 
 .page .section-header {
@@ -98,6 +99,7 @@ input:focus {
 }
 
 .page .section-header h3 {
+  font-family: 'Chakra Petch', monospace;
   color: var(--kratos-red);
   margin: .3em 0;
   font-size: 3em;
@@ -213,6 +215,20 @@ input:focus {
   width: 8em;
 }
 
+.submit-button {
+  align-self: flex-end;
+  background: #e9e9ed;
+  border-radius: .4em;
+  box-shadow: 2.5px 2.5px 2px var(--kratos-red);
+  color: var(--kratos-red);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 3em;
+  margin: 2em .5em;
+  width: 8em;
+}
+
 .page form input[type='checkbox'] {
   accent-color: var(--kratos-red);
   width: 1.2em !important;
@@ -245,6 +261,102 @@ input:focus {
   border-radius: 1em;
 
 }
+
+.checkbox-info {
+  margin: 0 1.2em;
+  color: wheat;
+}
+
+.review-solo-event-top {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid var(--kratos-grey-light);
+  background: var(--kratos-grey-lighter);
+  color: var(--kratos-white-dull);
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: 'Chakra Petch', monospace;
+  border-radius: .5em;
+  width: 90%;
+  height: 3em;
+  padding: .1em .5em;
+}
+
+.review-solo-event-top .event-title,
+.review-team-event-top .event-title {
+  width: 80%;
+}
+
+.review-team-event-top .fee,
+.review-solo-event-top .fee {
+  width: 20%;
+}
+
+.review-team-event-top .remove-button,
+.review-solo-event-top .remove-button {
+  width: 1em;
+}
+
+.review-team-event {
+  font-family: 'Chakra Petch', monospace;
+  margin: .5em 0;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  background-color: var(--kratos-grey-lighest);
+  border-radius: .5em;
+  overflow: hidden;
+}
+
+.review-team-event-top {
+  border-radius: .5em;
+  align-items: center;
+  background: var(--kratos-grey-lighter);
+  color: var(--kratos-white-dull);
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1.1em;
+  font-weight: 600;
+  height: 3em;
+  justify-content: flex-end;
+  padding: .5em;
+  width: 100%;
+}
+
+.review-team-event-details {
+  color: var(--kratos-white-dull);
+  display: flex;
+  flex-direction: row;
+  padding: 1em 1em 1em 10%;
+}
+
+.review-team-event-details .contacts {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 50%;
+}
+
+.review-team-event-details .contacts .label {
+  font-size: .9em;
+}
+
+.review-team-event-details .contacts .contact-detail {
+  font-size: 1.1em;
+  color: var(--kratos-white);
+  margin-bottom: .5em;
+}
+
+
+.review-team-event-details .names {
+  /* overflow: hidden; */
+  display: flex;
+  flex-flow: column nowrap;
+  width: 50%;
+}
+
 
 @media only screen and (min-width: 768px) {
   .page {
