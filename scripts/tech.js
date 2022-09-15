@@ -253,3 +253,7 @@ function homeClick() {
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
 }
+
+AOS.init({
+  duration: 1000,
+})

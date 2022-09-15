@@ -7,6 +7,7 @@
         "fee": 50,
         "teamBased": "Solo / Team",
         "teamSize": "1-4",
+        "onlineRegistration":true,
         "description": "NA",
         "rules": [
             "Any technical topic is welcome.",

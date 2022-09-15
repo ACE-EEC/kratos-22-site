@@ -7,6 +7,7 @@
         "fee": 50,
         "teamBased": "Team",
         "teamSize": "5",
+        "onlineRegistration":true,
         "description": "The tournament is conducted on brackets and knockout basis. The main objective of the teams is to beat their opponents and reach the final. A maximum of 32 teams can be registered.",
         "rules": [
             "Only lower bracket matches are conducted on a knockout basis.",

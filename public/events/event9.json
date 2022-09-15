@@ -7,6 +7,7 @@
         "fee": 50,
         "teamBased": "team",
         "teamSize": "5",
+        "onlineRegistration":true,
         "description": "The objective of the game is to score more goals than the other team by making the whole of the ball pass over the goal line, between the goal posts, and under the crossbar as long as it has not been thrown, carried, or intentionally propelled by the hand or arm.",
         "rules": [
            "4 minutes per half",

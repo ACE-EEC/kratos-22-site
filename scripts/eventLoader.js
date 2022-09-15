@@ -24,14 +24,14 @@ async function fetchEventList() {
 async function loadEventCards() {
   let count = await fetchEventCount();
   let events = await fetchEventList();
-
+  var registerLogo='fa-solid fa-arrow-right-long';
   // Load all the events
   for (let i = 0; i < count; i++) {
     let event = events[i];
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
-      `<div class="card" id="card${i}">
-        <div class="cardContent">
-          <div class="cardImage" id="cardImage${i}">
+      `<div class="card "  id="card${i}" >
+        <div class="cardContent" >
+          <div class="cardImage" id="cardImage${i}" >
             <h1 class="eventName">${event.content.name}</h1>
             <div class="icon">
               <img src="${event.content.image}"/>
@@ -42,9 +42,9 @@ async function loadEventCards() {
               <div class="tag">${event.content.teamBased}</div>
               <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize+"v"+event.content.teamSize :event.content.teamSize}</div>
             </div>
-            <div id="regButton${i}" class="reg-button reg-button-active" onclick="registerClick(${i})">
-              <div class="reg-button-label">Add to Registration</div>
-              <i class="fa-solid fa-arrow-right-long"></i>
+            <div  id="regButton${i}" class="reg-button reg-button-active" onclick="registerClick(${i})" ${registerLogo=event.content.onlineRegistration?'fa-solid fa-arrow-right-long':'fa-solid fa-building-columns'}>
+            <div class="reg-button-label">${event.content.onlineRegistration?"Add to registration":"On spot Registraion"}</div>
+              <i class="${registerLogo}"></i>
             </div>
             <div class="vl" id="vl${i}"></div>
           </div>

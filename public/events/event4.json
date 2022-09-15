@@ -7,6 +7,7 @@
         "fee": 50,
         "teamBased": "team",
         "teamSize": "2",
+        "onlineRegistration":true,
         "description": "NA",
         "rules": [
             "Time limit : 45 to 60 minutes.",

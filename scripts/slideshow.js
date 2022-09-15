@@ -117,15 +117,4 @@ function nextCyclicIndex(n) {
   return n + 1;
 }
 
-document.addEventListener('swipe-left',function(e){
-  e.preventDefault();
-  clearInterval(timer);
-  timer = null;
 
-  index = nextCyclicIndex(index);
-  scrollToIndex(index);
-  startTimer();
-});
-
-
-  
