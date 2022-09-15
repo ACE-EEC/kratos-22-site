@@ -53,11 +53,13 @@ function updateSlides(targetPage) {
       slides[i].loading = 'lazy';
     }
   }
+
   ssContainer.scrollTo({ left: 0, behavior: 'auto' });
   startTimer();
 }
 
 const animOptions = {
+
   duration: animDuration,
   delay: 0,
   iterations: 1,
@@ -116,7 +118,6 @@ function nextCyclicIndex(n) {
 }
 
 document.addEventListener('swipe-left',function(e){
-  console.log("yes");
   e.preventDefault();
   clearInterval(timer);
   timer = null;
@@ -125,3 +126,6 @@ document.addEventListener('swipe-left',function(e){
   scrollToIndex(index);
   startTimer();
 });
+
+
+  
