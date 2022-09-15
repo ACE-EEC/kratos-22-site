@@ -1,6 +1,6 @@
 const slideCount = {
-  technical: 4,
-  nonTechnical: 3,
+  technical: 5,
+  nonTechnical: 5,
   workshop: 1,
   none: 0,
 };
@@ -46,7 +46,7 @@ function updateSlides(targetPage) {
 
   slides = document.getElementsByClassName('slide');
   for (var i = 0; i < slideCount[activePage]; i++) {
-    slides[i].src = `public/images/slides/${activePage}/slide-${i}.jpg`;
+    slides[i].src = `public/images/slides/${activePage}/slide-${i}.png`;
 
     // performance optimizations
     if (i > 0) {
