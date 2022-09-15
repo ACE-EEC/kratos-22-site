@@ -372,7 +372,11 @@ align-items: center;
 justify-content: space-around;
 }
 
-
+.home-card-content{
+  word-wrap: break-all;
+  text-align: justify;
+ width: 55%;
+}
 .highlight {
   /* color: #df1d31; */
   font-weight: 600;
@@ -524,8 +528,8 @@ justify-content: space-around;
   }
 
   .home-card-image {
-    width: 30%;
-    /* padding: 0 3em; */
+    width: 10em;
+    
   }
 
   #link0,
@@ -862,7 +866,11 @@ justify-content: space-around;
     background: linear-gradient(black, black);
 
   }
+  .home-card-image {
+    width: 15em;
 
+    /* padding: 0 3em; */
+  }
   .navbar-collapse {
     position: fixed;
     top: 0;
