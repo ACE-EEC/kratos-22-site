@@ -26,15 +26,15 @@ input:focus {
 }
 
 .reg-button-active {
-  color: white;
-  background-color: var(--kratos-grey-dark);
+  color: var(--kratos-white);
+  background-color: var(--kratos-black);
   cursor: pointer;
 }
 
 .reg-button-inactive {
-  color: black;
-  background-color: white;
-  border: 3px solid var(--kratos-grey-dark);
+  border: 3px solid var(--kratos-black);
+  color: var(--kratos-black);
+  background-color: var(--kratos-white);
 }
 
 .reg-button-label {
@@ -44,7 +44,7 @@ input:focus {
 
 .reg-button a {
   text-decoration: none;
-  color: white;
+  color: var(--kratos-white);
 }
 
 .page {
@@ -119,8 +119,8 @@ input:focus {
   user-select: none;
   text-align: center;
   border-radius: .2em;
-  background-color: rgba(255, 255, 255, .8);
-  color: var(--kratos-grey-dark);
+  background-color: var(--kratos-white-dull);
+  color: var(--kratos-black);
   min-width: 8em;
   font-size: 1.2em;
   font-weight: 600;
@@ -159,14 +159,14 @@ input:focus {
   background: var(--kratos-grey-light);
   font-size: 1.1em;
   padding: 0 1em;
-  color: white;
+  color: var(--kratos-white);
   width: 100%;
   height: 4em;
 }
 
 .page form input:focus,
 .page form input:active {
-  background: var(--kratos-grey-dark);
+  background: var(--kratos-black);
 }
 
 .page form input:disabled {
@@ -264,7 +264,7 @@ input:focus {
 
 .checkbox-info {
   margin: 0 1.2em;
-  color: wheat;
+  color: var(--kratos-warn);
 }
 
 .review-solo-event-top {
