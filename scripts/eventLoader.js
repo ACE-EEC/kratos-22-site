@@ -24,8 +24,8 @@ $('document').ready(async function () {
             <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 500); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
             <div class="details" id="details${i}">
               <div class="tag">₹${event.content.fee}</div>
-              <div class="tag">${event.content.teamBased ? "Team" : "Solo"}</div>
-              <div class="tag">${event.content.teamSize} v ${event.content.teamSize}</div>
+              <div class="tag">${event.content.teamBased}</div>
+              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize+"v"+event.content.teamSize :event.content.teamSize}</div>
             </div>
             <div id="regButton${i}" class="reg-button reg-button-active" onclick="registerClick(${i})">
               <div class="reg-button-label">Add to Registration</div>

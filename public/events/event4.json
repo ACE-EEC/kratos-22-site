@@ -1,26 +1,25 @@
 {
-    "category": "nontechnical",
+    "category": "technical",
     "type": "offline",
     "content": {
-        "name": "Coding Fifa",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
-        "teamBased": true,
-        "teamSize": 4,
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "name": "Pair Programming",
+        "image": "public/images/technical/Pair Programming.png",
+        "fee": 50,
+        "teamBased": "team",
+        "teamSize": "2",
+        "description": "NA",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            "A team should consist of only 2 members.",
+            "Time limit : 45 to 60 minutes.",
+            "There is only one Round.",
+            "One member in a team will code for a given time and switches with another team member.",
+            "Consists of two problem statements.",
+            "First problem statement should be solved by a participant on their own.",
+            "For second problem, both members of the team can work together for a certain time (applicable for top 3 teams that finish the first problem).",
+            "Winners will be selected according to their finishing time."
+
+
+
         ]
     }
 }

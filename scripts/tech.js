@@ -201,7 +201,7 @@ function ntechClick() {
 //displaying card holder
 var technicalPage = document.getElementById('technicalPage');
 var nontechnicalPage = document.getElementById('nontechnicalPage');
-var workshopPage = document.getElementById('workshopPage');
+// var workshopPage = document.getElementById('workshopPage');
 var homePage = document.getElementById('mainPage');
 
 var slideshowContainer = document.getElementById('slideshowContainer');
@@ -211,7 +211,7 @@ var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
 
 
 function displayWorkshop() {
-  workshopPage.style.display = 'flex';
+  // workshopPage.style.display = 'flex';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
   homePage.style.display = 'none';
@@ -222,7 +222,7 @@ function displayWorkshop() {
 }
 
 function displaytech() {
-  workshopPage.style.display = 'none';
+  // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'flex';
   homePage.style.display = 'none';
@@ -233,7 +233,7 @@ function displaytech() {
 }
 
 function displayntech() {
-  workshopPage.style.display = 'none';
+  // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'flex';
   technicalPage.style.display = 'none';
   homePage.style.display = 'none';
@@ -245,7 +245,7 @@ function displayntech() {
 
 function homeClick() {
   homePage.style.display = 'flex';
-  workshopPage.style.display = 'none';
+  // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
 

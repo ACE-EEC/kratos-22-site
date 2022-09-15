@@ -1,26 +1,19 @@
 {
-    "category": "technical",
+    "category": "nontechnical",
     "type": "online",
     "content": {
-        "name": "Coding Fifa",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
-        "teamBased": true,
-        "teamSize": 4,
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "name": "Gaming-Valorant",
+        "image": "public/images/nonTechnical/Gaming-Valorant.png",
+        "fee": 50,
+        "teamBased": "Team",
+        "teamSize": "5",
+        "description": "The tournament is conducted on brackets and knockout basis. The main objective of the teams is to beat their opponents and reach the final. A maximum of 32 teams can be registered.",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            "Only lower bracket matches are conducted on a knockout basis.",
+            "The teams are required to bring their own laptops/peripherals on the semi-finals/finals day.",
+            "Map and side selection is based on tosses. (Winner of the toss will be selecting the map and the loser can choose the side).",
+            "The matches will be conducted in standard tournament mode.",
+            "If anyone is found to be using any kind of hack, the entire team will be disqualified"
         ]
     }
 }

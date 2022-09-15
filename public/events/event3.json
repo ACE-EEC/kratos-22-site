@@ -2,25 +2,23 @@
     "category": "technical",
     "type": "offline",
     "content": {
-        "name": "Coding Fifa",
-        "image": "https://cdn-icons-png.flaticon.com/512/77/77305.png",
-        "fee": 500,
-        "teamBased": true,
-        "teamSize": 4,
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "name": "Code play",
+        "image": "public/images/technical/Code Play.png",
+        "fee": 50,
+        "teamBased": "solo/team",
+        "teamSize": "1-2",
+        "description": "NA",
         "rules": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean et.",
-            "Feugiat in ante metus dictum at tempor commodo ullamcorper a. Nisi est sit amet facilisis magna.",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-            "dolore magna aliqua. Sed libero enim sed faucibus. Gravida arcu ac tortor dignissim convallis aenean",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+           "A team may consist of a maximum of 2 members.",
+           "There is only one round.",
+           "No plagiarism, participants should not refer to the Internet.",
+           "Only one team member can code at a time.",
+           "Participants must choose a question randomly from the 6 given difficulty levels set.",
+           "If his/her code passes all the test cases, he/she will be able to move a number of steps equal to their difficulty level on the code play board.",
+           "If he/she wants to swap a question, then they need to move of steps backward equal to the difficulty level number in the code play board.",
+           "The participant or team who reaches the last step in the board first will be considered as the winner."
+
+
         ]
     }
 }

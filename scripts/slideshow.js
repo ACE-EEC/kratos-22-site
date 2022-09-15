@@ -5,7 +5,7 @@ const slideCount = {
   none: 0,
 };
 
-const slideDuration = 5000;
+const slideDuration = 2000;
 const animDuration = 600;
 
 let index = 0;
@@ -114,3 +114,14 @@ function nextCyclicIndex(n) {
   }
   return n + 1;
 }
+
+document.addEventListener('swipe-left',function(e){
+  console.log("yes");
+  e.preventDefault();
+  clearInterval(timer);
+  timer = null;
+
+  index = nextCyclicIndex(index);
+  scrollToIndex(index);
+  startTimer();
+});
