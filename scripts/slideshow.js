@@ -5,7 +5,7 @@ const slideCount = {
   none: 0,
 };
 
-const slideDuration = 2000;
+const slideDuration = 5000;
 const animDuration = 600;
 
 let index = 0;
