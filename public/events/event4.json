@@ -9,7 +9,6 @@
         "teamSize": "2",
         "description": "NA",
         "rules": [
-            "A team should consist of only 2 members.",
             "Time limit : 45 to 60 minutes.",
             "There is only one Round.",
             "One member in a team will code for a given time and switches with another team member.",

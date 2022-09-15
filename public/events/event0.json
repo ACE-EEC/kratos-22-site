@@ -9,13 +9,12 @@
         "teamSize": "1-4",
         "description": "NA",
         "rules": [
-               "Any technical topic is welcome.",
-               "Both concept and working models will be accepted.",
-               "Maximum number of people in a group : 4",
-               "Abstract of the paper should be in IEEE format.",
-               "PPT and Paper should be mailed prior to the given date.. which will be evaluated", 
-               "Selected teams will be intimated.",
-               "Presentation time limit will be 10 minutes + 5 minutes viva voce"
+            "Any technical topic is welcome.",
+            "Both concept and working models will be accepted.",
+            "Abstract of the paper should be in IEEE format.",
+            "PPT and Paper should be mailed prior to the given date which will be evaluated", 
+            "Selected teams will be intimated.",
+            "Presentation time limit will be 10 minutes + 5 minutes viva voce"
 
         ]
     }
