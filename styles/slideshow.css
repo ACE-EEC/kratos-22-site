@@ -7,7 +7,7 @@
   align-items: center;
   width: 90vw;
   max-width: 97%;
-  background-color: black;
+  background-color: var(--kratos-black);
   border-radius: 10px;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
@@ -35,16 +35,17 @@
   height: 9px;
   width: 15px;
   border-radius: 2px;
-  background-color: #ccc;
+  background-color: var(--kratos-grey-lightest);
   transition: background-color 0.2s linear;
+  opacity: .9;
 }
 
 .marker:hover {
-  background-color: rgba(115, 115, 115, 0.9);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .marker:active {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, .8);
 }
 
 .slide {
@@ -61,16 +62,21 @@
 }
 
 .slideshow-button {
-  background-color: rgba(227, 227, 227, 0.9);
+  /* background-color: var(--kratos-grey-lightest); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 2px;
-  color: rgba(47, 47, 47, 0.65);
+  color: var(--kratos-white);
+  font-weight: 400;
+  font-family: 'Chakra Petch', sans-serif;
+  font-family: sans-serif;
   cursor: pointer;
-  font-size: 9px;
-  font-stretch: extra-condensed;
-  height: 12px;
-  line-height: 12px;
-  position: absolute;
+  font-size: 1em;
+  height: 15px;
   scale: 1.25;
+  line-height: 15px;
+  position: absolute;
   text-align: center;
   transition: background-color 0.2s linear;
   width: 15px;
@@ -78,11 +84,11 @@
 }
 
 .slideshow-button-right {
-  right: 33%;
+  right: 10%;
 }
 
 .slideshow-button-left {
-  left: 33%;
+  left: 10%;
 }
 
 @media only screen and (min-width: 768px) {
