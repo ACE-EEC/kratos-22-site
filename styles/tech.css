@@ -379,9 +379,10 @@ body {
 }
 
 .home-card-content{
-  word-wrap: break-all;
-  text-align: justify;
- width: 55%;
+  word-wrap: auto;
+  hyphens: auto;
+  /* text-align: justify; */
+  width: 55%;
 }
 .highlight {
   font-weight: 600;
@@ -1019,6 +1020,10 @@ body {
     width: 100%;
 
 
+  }
+
+  .home-page-align {
+    justify-content: center;
   }
 
   .insta-logo-align {
