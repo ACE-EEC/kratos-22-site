@@ -226,7 +226,7 @@ async function nextTeamSection() {
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
       </div>`);
-    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize; i++) {
+    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize.split('-')[1]; i++) {
       $(`#teamFormNext${teamEvIndex}`).before(`
           <div>
             <label>Member ${i}'s</label>
