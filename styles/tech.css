@@ -368,8 +368,8 @@ body {
 }
 .home-page-align{
 display: flex;
-/* word-break: keep-all; */
-
+align-items: center;
+justify-content: space-around;
 }
 
 
@@ -389,7 +389,7 @@ display: flex;
 
 
   font-family: 'Consolas', 'Roboto Mono', monospace;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0.75em;
 }
 
