@@ -5,11 +5,10 @@
         "name": "CSS",
         "image": "public/images/technical/CSS.png",
         "fee": 50,
-        "teamBased": "solo",
+        "teamBased": "Solo",
         "teamSize": "1",
         "description": "NA",
         "rules": [
-            "Individual participation event.",
             "In the 1st round, an on-the-spot task will be given for designing using CSS.",
             "Teams qualified are moved to next round.",
             "Round 1 qualification based on jury's decision.",

@@ -1,43 +1,259 @@
+input {
+  width: 100%;
+  border: 2px solid var(--kratos-white-dull);
+  border-radius: .4em;
+  padding: 0.3rem 0.5rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--kratos-red);
+}
+
 .reg-button {
-    align-items: center;
-    border-radius: 0.25em;
-    display: none;
-    font-family: "Chakra Petch", "Consolas", "Courier New", Courier, monospace;
-    font-size: 1.3rem;
-    height: 2.9em;
-    justify-content: center;
-    margin: 0 0 2em;
-    opacity: 0;
-    padding: .3em 1em;
-    text-decoration: none;
-    transition: all var(--kratos-card-trans-dur) ease;
+  align-items: center;
+  border-radius: 0.25em;
+  display: none;
+  font-family: "Chakra Petch", "Consolas", "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+  height: 2.9em;
+  justify-content: center;
+  margin: 0 0 2em;
+  opacity: 0;
+  padding: .3em 1em;
+  text-decoration: none;
+  transition: all var(--kratos-card-trans-dur) ease;
 }
 
 .reg-button-active {
-    color: white;
-    background-color: var(--kratos-grey-dark);
-    cursor: pointer;
+  color: white;
+  background-color: var(--kratos-grey-dark);
+  cursor: pointer;
 }
 
 .reg-button-inactive {
-    color: black;
-    background-color: white;
-    border: 3px solid var(--kratos-grey-dark);
+  color: black;
+  background-color: white;
+  border: 3px solid var(--kratos-grey-dark);
 }
 
 .reg-button-label {
-    display: inline;
-    margin-right: 1em;
+  display: inline;
+  margin-right: 1em;
 }
 
 .reg-button a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
+}
+
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1em;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6em;
+  margin: 2em 0;
+}
+
+.page>blockquote {
+  margin: 1em 0 2em;
+}
+
+.page>blockquote p {
+  font-size: 3em;
+}
+
+.page .section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.page .section-header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.page .section-header h4 {
+  color: var(--kratos-white-dull);
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+.page .section-header h5 {
+  color: var(--kratos-white-dull);
+  opacity: .5;
+  font-size: 1.1em;
+  font-weight: 300;
+  margin: .5em 0;
+}
+
+.page .section-header h3 {
+  color: var(--kratos-red);
+  margin: .3em 0;
+  font-size: 3em;
+}
+
+.event-list {
+  display: flex;
+  gap: 1em;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: var(--kratos-white-dull);
+  margin: 1em 0;
+  width: 90%;
+}
+
+.event-list-item {
+  user-select: none;
+  text-align: center;
+  border-radius: .2em;
+  background-color: rgba(255, 255, 255, .8);
+  color: var(--kratos-grey-dark);
+  min-width: 8em;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: .2em 1em;
+}
+
+.form-title-hr {
+  width: 90%;
+  background-color: var(--kratos-red);
+  height: 1.7px;
+  margin: .5em 0 1em;
+}
+
+.form-title {
+  color: var(--kratos-red);
+  padding-left: 1em;
+  width: 97%;
+  font-size: 2em;
+  margin: 1em 0 0;
+}
+
+.page form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 2em;
+}
+
+.page form label {
+  color: var(--kratos-white);
+  font-size: 1.2em;
+  margin: 1em 0 .5em;
+}
+
+.page form input {
+  background: var(--kratos-grey-light);
+  font-size: 1.1em;
+  padding: 0 1em;
+  color: white;
+  width: 100%;
+  height: 4em;
+}
+
+.page form input:focus,
+.page form input:active {
+  background: var(--kratos-grey-dark);
+}
+
+.page form input:disabled {
+  cursor: not-allowed;
+  border: 2px solid grey;
+}
+
+.prog-bar {
+  overflow-x: scroll;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  border-bottom: 2px double var(--kratos-white-dull);
+  width: 100%;
+}
+
+.prog-tab {
+  color: var(--kratos-grey-light);
+  background: var(--kratos-white-dull);
+  padding: .2em 1em;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  margin: 0 1em;
+}
+
+.prog-tab-active {
+  background-color: var(--kratos-red);
+  color: var(--kratos-white-dull);
+}
+
+.page form .next-button,
+#soloFormNext {
+  align-self: flex-end;
+  background: #e9e9ed;
+  border-radius: .4em;
+  box-shadow: 2.5px 2.5px 2px var(--kratos-red);
+  color: var(--kratos-red);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 3em;
+  margin: 2em .5em;
+  width: 8em;
+}
+
+.page form input[type='checkbox'] {
+  accent-color: var(--kratos-red);
+  width: 1.2em !important;
+  height: 1.2em !important;
+}
+
+.checkbox-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.checkbox-row label {
+  margin: 0 1em !important;
+}
+
+.team-event-title {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.image-container {
+  margin: 2em;
+  padding: 2em;
+  display: flex;
+  background-color: var(--kratos-white-dull);
+  width: 30vw;
+  height: 30vw;
+  border-radius: 1em;
+
 }
 
 @media only screen and (min-width: 768px) {
-    .reg-button {
-        font-size: 1.2em;
-        margin: 0;
-    }
+  .page {
+    padding: 5em 1em;
+  }
+
+  .reg-button {
+    height: 4em;
+    font-size: 1.2em;
+    margin: 0 0 2em;
+  }
 }

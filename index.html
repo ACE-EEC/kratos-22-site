@@ -24,9 +24,9 @@
   <script src="https://kit.fontawesome.com/b460e0b985.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="loadEventCards()">
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark " id="nav">
-    <a class="navbar-brand " href="#">
+    <a class="navbar-brand " href="/">
       <img class="navLogo " src="public/images/kratos logo.png" />
       <div class="brand-name">KRATOS</div>
     </a>
@@ -40,7 +40,7 @@
               class="nav-link animationunderline" data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show">HOME</a>
           <li class="nav-item "><a href="#" id="link1" onclick="techClick()" class="nav-link animationunderline"
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" >TECHNICAL</a>
+              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">TECHNICAL</a>
           </li>
           <!-- <li class="nav-item "><a href="#" id="link2" onclick="sympoClick()" class="nav-link animationunderline"
               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">WORKSHOPS</a>
@@ -73,9 +73,8 @@
       <footer class="text-light">A national level technical symposium</p>
         <!-- <div class="justify-content-center">
           <button class="register-btn-homepage"
-            onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ'">Register
-
-          </Button> -->
+            onclick="location.href='' ">Register
+          </button> -->
     </blockquote>
 
     <div id="countdown">
@@ -112,30 +111,30 @@
     </div>
 
     <div class="home-page">
-     <div class="home-page-align">
+      <div class="home-page-align">
 
-      <div class="home-card-image">
-        <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
+        <div class="home-card-image">
+          <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
+        </div>
+        <p class="text-white">
+          Engineers that aim to design implement and manage information and data in the aspects of cimputing.
+          Engineers in Computer Science and Engineering design and develop
+          software for this and learn to process associated data smartly and efficiently
+          using mathematical analysis, algorithm programming and logical reasoning.
+        </p>
       </div>
-      <p class="text-white">
-        Engineers that aim to design implement and manage information and data in the aspects of cimputing.
-        Engineers in Computer Science and Engineering design and develop
-        software for this and learn to process associated data smartly and efficiently
-        using mathematical analysis, algorithm programming and logical reasoning.
-      </p>
-    </div>
-    <div class="home-page-align">
-      
-      <p class="text-white">
-        An assosication of Engineers that is part of the foundation for various technological advancements.
-      </p>
-      <div class="home-card-image">
-        <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
+      <div class="home-page-align">
+
+        <p class="text-white">
+          An assosication of Engineers that is part of the foundation for various technological advancements.
+        </p>
+        <div class="home-card-image">
+          <div class="m-5 mainIcon"><img src="public/images/undraw_engineering_team.svg" alt="Avatar"></div>
+        </div>
       </div>
+
     </div>
-    
-    </div>
-    
+
 
   </div>
 
@@ -190,7 +189,7 @@
 
     </div>
   </div>
-<!-- will be used after some time
+  <!-- will be used after some time
   <div id="workshopPage" class="cardHolder">
 
     <blockquote id="workshopTitle" class="w-100 blockquote text-center">
@@ -245,16 +244,16 @@
   <!-- TODO CON: Change the social links  -->
 
   <footer id="myFooter" class=" text-center text-lg-start" style="background-color: black;">
-  <div class="footer-elements">
+    <div class="footer-elements">
 
-   <div class="py-2">
-    <div class="insta-logo">
-      <button type="button" class="btn btn-light btn-lg  insta-logo-align">
-        <i class="fab fa-instagram "></i>
-      </button>
-      
-    </div>
-  </div>
+      <div class="py-2">
+        <div class="insta-logo">
+          <button type="button" class="btn btn-light btn-lg  insta-logo-align">
+            <i class="fab fa-instagram "></i>
+          </button>
+
+        </div>
+      </div>
 
     <div class="contact  ">
       <div class="footer-header">Contact</div>
@@ -267,7 +266,7 @@
     </div>
   </div>
   <div id="copyright">
-    © 2022 Copyright ACE
+    © 2022-23 Copyright ACE
 </div>    
 
 </footer>

@@ -425,7 +425,7 @@ display: flex;
 .cardRules scroller {
   display: inline-block;
   height: 40vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-snap-type: y mandatory;
   scrollbar-width: thin;
 }
@@ -505,6 +505,10 @@ display: flex;
 @media only screen and (min-width: 768px) {
   a {
     margin: 50px;
+  }
+
+  .details {
+    margin-bottom: 20px;
   }
 
   .home-page {
@@ -904,6 +908,8 @@ display: flex;
     font-size: 1.1em;
 
   }
+
+  
 
   #homeNavbar {
     margin-top: 5em;

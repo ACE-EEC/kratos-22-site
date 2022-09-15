@@ -5,11 +5,10 @@
         "name": "Code play",
         "image": "public/images/technical/Code Play.png",
         "fee": 50,
-        "teamBased": "solo/team",
+        "teamBased": "Solo / Team",
         "teamSize": "1-2",
         "description": "NA",
         "rules": [
-           "A team may consist of a maximum of 2 members.",
            "There is only one round.",
            "No plagiarism, participants should not refer to the Internet.",
            "Only one team member can code at a time.",

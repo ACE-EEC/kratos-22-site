@@ -42,7 +42,7 @@ function displayMany(i) {
   var rules = document.getElementById(`cardRules${i}`);
   var card = document.getElementById(`card${i}`);
   var cardImg = document.getElementById(`cardImage${i}`);
-  // var regButton = document.getElementById(`regButton${i}`);
+  var regButton = document.getElementById(`regButton${i}`);
 
   if (window.innerWidth >= 768) {
     card.style.width = '100%';
@@ -58,7 +58,7 @@ function displayMany(i) {
   upArrow.style.display = 'flex';
   rules.style.display = 'inline-block';
   plus.style.display = 'none';
-  // regButton.style.display = 'flex'
+  regButton.style.display = 'flex'
 
   setTimeout(function () {
     setOpacity(i);
@@ -75,7 +75,7 @@ function setOpacity(i) {
   var rules = document.getElementById(`cardRules${i}`);
   var card = document.getElementById(`card${i}`);
   var cardImg = document.getElementById(`cardImage${i}`);
-  // var regButton = document.getElementById(`regButton${i}`);
+  var regButton = document.getElementById(`regButton${i}`);
 
   details.style.opacity = '1.0';
   vl.style.opacity = '1.0';
@@ -84,7 +84,7 @@ function setOpacity(i) {
   upArrow.style.opacity = '1.0';
   plus.style.opacity = '1.0';
   rules.style.opacity = '1.0';
-  // regButton.style.opacity = '1.0';
+  regButton.style.opacity = '1.0';
 }
 
 function setDisplayTime(i) {
@@ -97,7 +97,7 @@ function setDisplayTime(i) {
   var rules = document.getElementById(`cardRules${i}`);
   var card = document.getElementById(`card${i}`);
   var cardImg = document.getElementById(`cardImage${i}`);
-  // var regButton = document.getElementById(`regButton${i}`);
+  var regButton = document.getElementById(`regButton${i}`);
 
   cardImg.style.width = '100%';
   if (window.innerWidth >= 768) {
@@ -113,7 +113,7 @@ function setDisplayTime(i) {
   upArrow.style.display = 'none';
   plus.style.display = 'flex';
   rules.style.display = 'none';
-  // regButton.style.display = 'none';
+  regButton.style.display = 'none';
 
 }
 
@@ -127,7 +127,7 @@ function resetMany(i) {
   var rules = document.getElementById(`cardRules${i}`);
   var card = document.getElementById(`card${i}`);
   var cardImg = document.getElementById(`cardImage${i}`);
-  // var regButton = document.getElementById(`regButton${i}`);
+  var regButton = document.getElementById(`regButton${i}`);
 
   details.style.opacity = '0';
   vl.style.opacity = '0';
@@ -135,7 +135,7 @@ function resetMany(i) {
   content.style.opacity = '0';
   upArrow.style.opacity = '0';
   rules.style.opacity = '0';
-  // regButton.style.opacity = '0';
+  regButton.style.opacity = '0';
 
   setTimeout(function () {
     setDisplayTime(myIndex);

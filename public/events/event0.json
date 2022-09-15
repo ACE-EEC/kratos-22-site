@@ -5,7 +5,7 @@
         "name": "Paper Presentation",
         "image": "public/images/technical/Paper Presentation.png",
         "fee": 50,
-        "teamBased": "solo/team",
+        "teamBased": "Solo / Team",
         "teamSize": "1-4",
         "description": "NA",
         "rules": [

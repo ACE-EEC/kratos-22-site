@@ -5,9 +5,9 @@
         "name": "Murder Mystery",
         "image": "public/images/nonTechnical/Murder Mystery.png",
         "fee": 50,
-        "teamBased": "solo/team",
+        "teamBased": "Solo / Team",
         "teamSize": "1-3",
-        "description": "Futsal is an association football-based game played on a hard court smaller than a football pitch, and mainly indoors. It has similarities to five-a-side football and indoor soccer. Futsal is played between two teams of five players each, one of whom is the goalkeeper.",
+        "description": "NA",
         "rules": [
             "Event takes place over Whatsapp (Online). Clues and Abstract format will be shared in a common group,the abstract is to be submitted privately.",
             "Participants can submit up to 2 abstracts, of which one will be considered.",
