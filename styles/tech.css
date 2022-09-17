@@ -63,6 +63,16 @@ body {
   justify-content: center;
 }
 
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ig-section {
+  margin: auto 0;
+}
+
 @media only screen and (min-width: 768px) {
   .cardContent {
     flex-direction: row;
@@ -378,11 +388,13 @@ body {
   justify-content: space-around;
 }
 
-.home-card-content{
-  word-wrap: break-all;
-  text-align: justify;
- width: 55%;
+.home-card-content {
+  word-wrap: auto;
+  hyphens: auto;
+  /* text-align: justify; */
+  width: 55%;
 }
+
 .highlight {
   font-weight: 600;
 }
@@ -534,7 +546,7 @@ body {
 
   .home-card-image {
     width: 15em;
-    
+
   }
 
   #link0,
@@ -871,11 +883,13 @@ body {
   .navbar-brand {
     position: static;
   }
+
   .home-card-image {
     width: 15em;
 
     /* padding: 0 3em; */
   }
+
   .navbar-collapse {
     position: fixed;
     top: 0;
@@ -997,7 +1011,7 @@ body {
 @media (max-width:768px) {
   .footer-elements {
 
-    display: inline-flex;
+    /* display: inline-flex; */
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -1012,17 +1026,23 @@ body {
 }
 
 @media(min-width:768px) {
+
+
   .footer-elements {
 
-    display: inline-flex;
+
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
+  }
 
-
+  .home-page-align {
+    justify-content: center;
   }
 
   .insta-logo-align {
-    margin-top: 4.5em;
+    /* margin-top: 4.5em; */
     justify-content: center;
     align-items: center;
   }
@@ -1063,6 +1083,7 @@ body {
 
 
 }
+
 .footer-content-type {
   display: grid;
   justify-content: flex-end;
