@@ -4,7 +4,7 @@
     "content": {
         "name": "Gaming-Valorant",
         "image": "public/images/nonTechnical/Gaming-Valorant.png",
-        "fee": 50,
+        "fee": 250,
         "teamBased": "Team",
         "teamSize": "5",
         "onlineRegistration":true,

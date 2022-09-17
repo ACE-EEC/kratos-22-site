@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
 
 :root {
+  --kratos-red-lighter: rgb(212, 101, 112);
   --kratos-red: rgb(220, 53, 69);
   --kratos-red-darker: rgb(161, 39, 51);
   --kratos-black: black;

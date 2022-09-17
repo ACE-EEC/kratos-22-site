@@ -30,7 +30,7 @@
     <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="pages">
+    <!-- <div class="collapse navbar-collapse justify-content-center" id="pages" hidden>
       <div class="navbartext">
         <ul class="navbar-nav mx-auto ">
           <li class="nav-item" id="homeNavbar"><a href="#" id="link0" onclick="homeClick()"
@@ -48,7 +48,7 @@
               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">CONTACT</a></li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </nav>
 
   <div class="page">
@@ -82,19 +82,29 @@
         </div>
         <div>
           <label>College</label>
-          <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <div class="college">
+            <div class="college-button-align">
+              <button class="college-input-easwari" type="button" onclick="onclickEaswari()">Easwari Engineering College</button>
+              <button class="college-input-other-college" type="button" onclick="onclickotherCollege()">Other College</button>
+              <!-- <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" /> -->
+              <div class="easwariCollege"><input id="formCollege" type="text" name="college_name"
+                  placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>
+            </div>
+          </div>
         </div>
         <div>
           <label>Email</label>
-          <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
+          <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email"
+            required />
         </div>
         <div>
           <label>Phone Number</label>
-          <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
+          <input id="formMobile" type="number" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
             autocomplete="mobile" />
         </div>
         <!-- TODO: client-side input validation, unless skipping -->
-        <button id='soloFormNext' type="button" class="next-button" onclick="toTeamEvents()">Next</button>
+        <!-- <input type="submit" value="Next" id='soloFormNext' type="submit" class="next-button" /> -->
+        <button id='soloFormNext' type="submit" class="next-button">Next</button>
       </form>
     </div>
 
@@ -124,6 +134,7 @@
       © 2022-23 Copyright ACE
     </div>
   </footer>
+  
 </body>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>

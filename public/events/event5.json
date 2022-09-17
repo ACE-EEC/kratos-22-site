@@ -4,7 +4,7 @@
     "content": {
         "name": "Murder Mystery",
         "image": "public/images/nonTechnical/Murder Mystery.png",
-        "fee": 50,
+        "fee": 60,
         "teamBased": "Solo / Team",
         "teamSize": "1-3",
         "onlineRegistration":true,
