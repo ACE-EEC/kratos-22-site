@@ -2,6 +2,9 @@ $('event-list').ready(() => {
   loadSoloEventList();
 });
 
+// const apiURI = "https://api.kratos23.com"
+const apiURI = "http://127.0.0.1:3555"
+
 function truncate(str, size) {
   if (str.length > size - 3 + 1) {
     return str.slice(0, size).concat('...');
@@ -11,38 +14,30 @@ function truncate(str, size) {
 }
 
 function toCodeName(titleName) {
-  // console.log('toCodeName(): ', titleName)
-  return titleName.toLowerCase().replace(' ', '_');
+  return titleName.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_');
 }
 
 function toTitleNameList(codeNameList) {
   return codeNameList.map((x) => x.toLowerCase().replace('_', ' ').split(' ').map((x) => x.charAt(0).toUpperCase() + x.slice(1)).reduce((a, x) => a + ' ' + x));
 }
 
-async function getChosenSoloEventList() {
+async function getChosenSoloEventTitleList() {
   let allEvents = await fetchEventList();
   let soloEvents = [];
   let chosenEventTitles = toTitleNameList(getRegistrationList());
-  // console.log('chosenEventTitles(): ', chosenEventTitles);
-  // console.log('fetchEventList(): ', allEvents);
 
   for (let i = 0; i < allEvents.length; i++) {
-    // console.log('allEvents[i].content.teamBased.toLowerCase() === "solo" ', allEvents[i].content.teamBased.toLowerCase() === "solo");
-    // console.log('chosenEventTitles.includes(allEvents[i].content.name) ', chosenEventTitles.includes(allEvents[i].content.name))
-    // console.log('toTitleNameList([allEvents[i].content.name])[0]) ', toTitleNameList([allEvents[i].content.name])[0])
     if (allEvents[i].content.teamBased.toLowerCase() === "solo" && chosenEventTitles.includes(toTitleNameList([allEvents[i].content.name])[0])) {
       soloEvents.push(allEvents[i].content.name);
     }
   }
-  // console.log('getChosenSoloEventList(): ', soloEvents)
   return soloEvents;
 }
 
-async function getChosenTeamEventList() {
+async function getChosenTeamEventDetailsList() {
   let allEvents = await fetchEventList();
   let teamEvents = [];
   let chosenEvents = toTitleNameList(getRegistrationList());
-
   for (let i = 0; i < allEvents.length; i++) {
     if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEvents.includes(allEvents[i].content.name)) {
       teamEvents.push(allEvents[i]);
@@ -54,7 +49,7 @@ async function getChosenTeamEventList() {
 
 async function loadSoloEventList() {
   let elist = document.getElementsByClassName('event-list')[0];
-  let soloList = await getChosenSoloEventList();
+  let soloList = await getChosenSoloEventTitleList();
 
   for (let i = 0; i < soloList.length; i++) {
     elist.innerHTML += `<div class="event-list-item">${soloList[i]}</div>`
@@ -86,24 +81,16 @@ async function toTeamEvents() {
 
   // Get all the previous pages values to store in object
   for (let i = 0; i < 4; i++) {
-    // This "if" is to handle the case between skipping page and next page buttons.
-    // In the case of nextPage button, the input need to be validated prior to this fn.
-    if ($('#soloForm')[0][i].value) {
-      formData[$('#soloForm')[0][i].name] = $('#soloForm')[0][i].value;
-    } else {
-      formData[$('#soloForm')[0][i].name] = 'none';
-    }
+    formData[$('#soloForm')[0][i].name] = $('#soloForm')[0][i].value;
   }
-  formData['solo_events'] = await getChosenSoloEventList();
-  console.log('Solo form data', formData);
+  formData['solo_events'] = await getChosenSoloEventTitleList();
 
-  let teamEvents = await getChosenTeamEventList();
+  let teamEvents = await getChosenTeamEventDetailsList();
+  formData['team_events'] = (await getChosenTeamEventDetailsList()).map((x) => toCodeName(x.content.name))
   $('#soloSection')[0].style.display = 'none';
   if (teamEvents.length === 0) {
-    console.log('no team events, going to final page directly')
     await toFinalPage();
   } else {
-    console.log('going to first team event page')
     teamEvIndex += 1;
     $('#blockQuote').after(`
       <div class="section" id="teamSection${teamEvIndex}">
@@ -163,8 +150,7 @@ async function toTeamEvents() {
 }
 
 async function nextTeamSection() {
-  let teamEvents = await getChosenTeamEventList();
-  console.log('Team events list: ', teamEvents);
+  let teamEvents = await getChosenTeamEventDetailsList();
   formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
   for (let i = 0; i < $(`#teamForm${teamEvIndex}`)[0].length; i++) {
     // ignore the checkbox value, and any other input fields
@@ -172,17 +158,14 @@ async function nextTeamSection() {
       formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`)[0][i].name] = $(`#teamForm${teamEvIndex}`)[0][i].value;
     }
   }
-  console.log('form data after team event ', teamEvIndex, formData);
   $(`#teamSection${teamEvIndex}`)[0].style.display = 'none';
 
 
   // go to next page
   if (teamEvIndex === teamEvents.length - 1) {
-    console.log('Going to final page.')
     await toFinalPage();
   } else {
     teamEvIndex += 1;
-    console.log(`going to ${teamEvIndex} team event page`)
     $('#blockQuote').after(`
       <div class="section" id="teamSection${teamEvIndex}">
         <div class="section-header">
@@ -242,6 +225,7 @@ async function nextTeamSection() {
 }
 
 async function toFinalPage() {
+  console.log('Final Form Data: ', JSON.stringify(formData))
   $('#blockQuote').after(`
   <div class="section" id="reviewSection">
     <div class="section-header">
@@ -255,9 +239,11 @@ async function toFinalPage() {
     <div id="teamEventsTitle" class="form-title-hr"></div>
 
     <div class='totalAmount'></div>
-    <button id='submitAndPay' type="button" class="submit-button" onclick="alert('TODO replace with function')">Submit & Pay</button>
+    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit & Pay</button>
   </div>
   `);
+
+
 
   let allEvents = await fetchEventList();
   for (let i = 0; i < formData.solo_events.length; i++) {
@@ -270,7 +256,7 @@ async function toFinalPage() {
     `);
   }
 
-  let chosenTeamEvents = await getChosenTeamEventList();
+  let chosenTeamEvents = await getChosenTeamEventDetailsList();
   for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
 
     let event_code = toCodeName(chosenTeamEvents[i].content.name);
@@ -299,7 +285,6 @@ async function toFinalPage() {
     `);
 
     for (let j = 1; j < chosenTeamEvents[i].content.teamSize.split('-')[1]; j++) {
-      console.log('executing member name once')
       $('#leaderName').after(`
       <div class="name">
         ${truncate(formData[event_code][`member${j}_full_name`], 15)}
@@ -308,3 +293,91 @@ async function toFinalPage() {
     }
   }
 }
+
+function normalizeFormData(form) {
+  // TODO
+  console.error('implement normalizeFormData dumbass!')
+}
+
+async function submitAndPay() {
+  // TODO: remove
+  let formData = {
+    "full_name": "Nithish Kumar",
+    "college_name": "EEC",
+    "email": "nithish24x7@gmail.com",
+    "mobile": "7338954471",
+    "solo_events": [
+      "CSS",
+      "Shipwreck"
+    ],
+    "team_events": [
+      "paper_presentation",
+      "debugging"
+    ],
+    "paper_presentation": {
+      "college_name": "EEC",
+      "email": "nithish24x7@gmail.com",
+      "mobile": "7338954471",
+      "leader_full_name": "Nithish Kumar",
+      "member1_full_name": "Rohith C",
+      "member2_full_name": "Jayanth",
+      "member3_full_name": ""
+    },
+    "debugging": {
+      "college_name": "EEC",
+      "email": "nithish24x7@gmail.com",
+      "mobile": "7338954471",
+      "leader_full_name": "Nithish Kumar",
+      "member1_full_name": "Rohith C"
+    }
+  }
+
+  // Do the submission and get the response
+  normalizeFormData(formData);
+  let subRes = await axios.post(apiURI + '/submit', formData);
+
+  // Razorpay stuff
+  var options = {
+    "key": subRes.data.key,
+    "amount": subRes.data.amount,
+    "currency": "INR",
+    "name": "Kratos 2023",
+    "description": "Test Transaction",
+    "image": "https://kratos23.com/public/images/kratos_logo.png",
+    "order_id": subRes.data.order_id,
+    "handler": function (res) { paymentSuccess(res, subRes) },
+
+    // These prefill values must cover most people, even when there are no team 
+    //  events, it will return undefined, which is fine.
+    "prefill": {
+      "name": formData.full_name,
+      "email": formData.email,
+      "contact": formData.mobile
+    },
+    // "notes": {
+    // },
+    "theme": {
+      "color": "#dc3545" // --kratos-red
+      // "backdrop_color":
+    }
+  };
+
+  var rzp1 = new Razorpay(options);
+  rzp1.on('payment.failed', paymentFailed);
+  rzp1.open();
+}
+
+async function paymentSuccess(successRes, submissionRes) {
+  successRes['form_id'] = submissionRes.data.form_id
+  let verifyRes = await axios.post(apiURI + '/submit/verify', successRes)
+  // console.log('payment success: ', successRes)
+
+  if (verifyRes.status === 200) {
+    window.location.assign('/success')
+  }
+}
+
+async function paymentFailed(res) {
+  console.log('payment failed: ', res)
+}
+
