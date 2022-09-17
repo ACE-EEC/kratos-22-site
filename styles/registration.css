@@ -4,80 +4,49 @@ input {
   border-radius: .4em;
   padding: 0.3rem 0.5rem;
 }
-.college-input-easwari{
-  /* text-overflow: unset; */
-  /* font-size: 0.7em; */
-  font-weight: 600;
-  width: 50%;
-  border: 2px solid var(--kratos-white-dull);
-  color: var(--kratos-red);
-  border-top-left-radius: .35em;
-  border-bottom-left-radius: .35em;
-  background: #e9e9ed;
-  padding: 0.3rem 0.5rem;
-  height: 2.8em;
-}
-@media(max-width:768px){
-  .college-input-easwari{
-    font-size:0.7em;
-    height: 4em;
-  
-  }
-  .college-input-other-college{
-    font-size:1em;
-    height: 4em;
-  }
-}
-.college-input-other-college{
-  opacity: 0.3;
-  font-weight: 600;
-  width: 50%;
-  border: 2px solid var(--kratos-white-dull);
-  color: var(--kratos-red);
-  background-color: black;
-  border-top-right-radius: .35em;
-  border-bottom-right-radius: .35em;
-  padding: 0.3rem 0.5rem;
-  height: 2.8em;
-}
-.college-input-other-college:hover{
-  border: 2px solid var(--kratos-white-dull);
-  background-color: #e9e9ed;
-  color: var(--kratos-red);
-  opacity: 1;
-}
-.college-input-easwari:hover{
-  width: 50%;
-  border: 2px solid var(--kratos-white-dull);
-  background-color: #e9e9ed;
-  color: var(--kratos-red);
-  opacity: 1;
-}
-
-
-.college-input-other-college:focus{
-  width: 50%;
-  border: 2px solid var(--kratos-white-dull);
-  background-color: #e9e9ed;
-  color: var(--kratos-red);
-  opacity: 1;
-  animation-fill-mode: forwards;
-}
-.college{
-  margin-top: 1em;
-  
-}
-
-.college-button-align{
-  width: 100%;
-  display: inline-flex;
-  justify-content: space-evenly;
-
-}
 
 input:focus {
   outline: none;
   border-color: var(--kratos-red);
+}
+
+#formCollege {
+  display: none;
+}
+
+.college-switch {
+  overflow: hidden;
+  border: 2px solid var(--kratos-white-dull);
+  border-radius: .75em;
+  margin: 1em 0 .5em;
+  display: flex;
+  flex-flow: row nowrap;
+  height: auto;
+}
+
+.college-switch .switch-option {
+  transition: background-color .4s ease;
+  opacity: 0.3;
+  font-weight: 600;
+  width: 50%;
+  color: var(--kratos-red);
+  background-color: var(--kratos-black);
+  padding: 0.3rem 0.5rem;
+}
+
+.college-switch .switch-option:hover {
+  opacity: 1;
+  background-color: var(--kratos-white);
+  color: var(--kratos-red);
+}
+
+.college-switch .switch-active {
+  opacity: 1;
+  font-weight: 600;
+  width: 50%;
+  color: var(--kratos-red);
+  background: var(--kratos-white);
+  padding: 0.3rem 0.5rem;
 }
 
 .reg-button {
@@ -429,6 +398,17 @@ input:focus {
 
 
 @media only screen and (min-width: 768px) {
+  .college-input-easwari {
+    font-size: 0.7em;
+    height: 4em;
+
+  }
+
+  .college-input-other-college {
+    font-size: 1em;
+    height: 4em;
+  }
+
   .page {
     padding: 5em 1em;
   }

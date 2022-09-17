@@ -82,15 +82,15 @@
         </div>
         <div>
           <label>College</label>
-          <div class="college">
-            <div class="college-button-align">
-              <button class="college-input-easwari" type="button" onclick="onclickEaswari()">Easwari Engineering College</button>
-              <button class="college-input-other-college" type="button" onclick="onclickotherCollege()">Other College</button>
-              <!-- <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" /> -->
-              <div class="easwariCollege"><input id="formCollege" type="text" name="college_name"
-                  placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>
-            </div>
+          <div class="college-switch">
+            <button id="easwariOption" class="switch-option switch-active" type="button" onclick="onclickEaswari()">
+              Easwari Engineering College
+            </button>
+            <button id="otherOption" class="switch-option" type="button" onclick="onclickotherCollege()">Other
+              College</button>
           </div>
+          <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
+            value="Easwari Engineering College" />
         </div>
         <div>
           <label>Email</label>
@@ -99,7 +99,7 @@
         </div>
         <div>
           <label>Phone Number</label>
-          <input id="formMobile" type="number" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
+          <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
             autocomplete="mobile" />
         </div>
         <!-- TODO: client-side input validation, unless skipping -->
@@ -134,7 +134,7 @@
       © 2022-23 Copyright ACE
     </div>
   </footer>
-  
+
 </body>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>

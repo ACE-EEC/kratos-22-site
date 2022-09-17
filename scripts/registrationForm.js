@@ -293,36 +293,27 @@ async function toFinalPage() {
   }
 }
 
-//adding this variable to check so that even for multiple click input box opens for only 1 time
-var collegeOtherInput = true;
-
 function onclickotherCollege() {
-  $(".college-input-other-college").css("background", "white");
-  $(".college-input-other-college").css("opacity", "1");
-  $(".college-input-easwari").css("background", "black");
+  $("#otherOption").addClass('switch-active')
+  $("#easwariOption").removeClass('switch-active')
+  $("#formCollege").css('display', 'block')
+  $(".college-switch").css({
+    'height': '3em',
+    'font-size': '.8em'
+  })
+  $("#formCollege").attr('value', '')
 
-  if (collegeOtherInput) {
-    $(".college").append(
-      `<div class="otherCollege mt-3"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" default="hello"  required/></div>`
-    );
-    collegeOtherInput = false;
-  }
-  $(".college").removeClass(".easwariCollege");
 }
 
 function onclickEaswari() {
-  $(".college-input-easwari").css("background", "white");
-  $(".college-input-other-college").css("opacity", "0.3");
-
-  $(".college").append(
-    `<div class="easwariCollege"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>`
-  );
-  $(".college-input-other-college").css("background", "black");
-  $(".otherCollege").empty();
-  if (!collegeOtherInput) {
-    $(".college").removeClass(".otherCollege");
-  }
-  collegeOtherInput = true;
+  $("#otherOption").removeClass('switch-active')
+  $("#easwariOption").addClass('switch-active')
+  $("#formCollege").css('display', 'none')
+  $(".college-switch").css({
+    'height': 'auto',
+    'font-size': '1em'
+  })
+  $("#formCollege").attr('value', 'Easwari Engineering College')
 }
 
 function normalizeFormData(form) {
@@ -412,3 +403,73 @@ async function paymentFailed(res) {
   console.log('payment failed: ', res)
 }
 
+function checkFormName(input) {
+  let checkName = input;
+  for (let i = 0; i < checkName.length; i++) {
+    if (!isNaN(checkName.charAt(i))) return false;
+  }
+  // console.log("true");
+  return true;
+}
+//if all conditions satisfy go to next page
+
+//may add this feature in the future
+// $('#formName').focusout(function(){
+// checkFormName();
+// });
+
+let soloEventNext = true;
+var FormName = document.getElementById("formName");
+
+$("#soloFormNext").click(function () {
+  checkFormName();
+  //checking name for validity
+});
+
+function checkFormName() {
+  var pattern = /^[a-zA-Z]*$/;
+  var name = $("#formName").val();
+
+  // console.log(name);
+
+  if (pattern.test(name) && name !== "") {
+    // console.log("yes");
+    soloEventNext = true;
+  }
+
+  else {
+    soloEventNext = false;
+    console.log(!pattern.test(name));
+    if (!pattern.test(name)) {
+      FormName.oninvalid = function () {
+        this.setCustomValidity("Please enter a valid name");
+      };
+      $('#formName').trigger('oninvalid');
+    }
+    else {
+      FormName.oninvalid = function () {
+        this.setCustomValidity("Please enter name");
+      };
+    }
+    // oninvalid=true;
+
+    //   if(!checkFormName(name)){
+    //   FormName.oninvalid=function(){
+    //     this.setCustomValidity('Please enter the name');
+    //   };
+    // }
+    // soloEventNext=false;
+    // if($("#formName").val().toString().length==0)
+    // {
+    //   FormName.oninvalid=function(){
+    //     this.setCustomValidity('Please enter the name');
+    //   };
+    // }
+    // else if(!checkFormName($("#formName").val().toString())){
+    //   // console.log("number");
+    //   FormName.oninvalid=function(){
+    //   this.setCustomValidity('Please enter a valid name(without numbers)');
+    //   };
+    // }
+  }
+}
