@@ -78,26 +78,38 @@
       <form id="soloForm">
         <div>
           <label>Full Name</label>
-          <input id="formName" type="text" name="full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30"/>
+          <input id="formName" type="text" name="full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" 
+            required />
         </div>
         <div>
           <label>College</label>
-          <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <div class="college">
+            <div class="college-button-align">
+              <button class="college-input-easwari" type="button" onclick="onclickEaswari()">Easwari Engineering College</button>
+              <button class="college-input-other-college" type="button" onclick="onclickotherCollege()">Other College</button>
+              <!-- <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" /> -->
+              <div class="easwariCollege"><input id="formCollege" type="text" name="college_name"
+                  placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>
+            </div>
+          </div>
         </div>
         <div>
           <label>Email</label>
-          <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
+          <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email"
+            required />
         </div>
         <div>
           <label>Phone Number</label>
-          <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
+          <input id="formMobile" type="number" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
+            autocomplete="mobile" />
         </div>
         <!-- TODO: client-side input validation, unless skipping -->
-        <button id='soloFormNext' type="button" class="next-button" onclick="toTeamEvents()">Next</button>
+        <!-- <input type="submit" value="Next" id='soloFormNext' type="submit" class="next-button" /> -->
+        <button id='soloFormNext' type="submit" class="next-button">Next</button>
       </form>
     </div>
 
-    
+
 
 
   </div>

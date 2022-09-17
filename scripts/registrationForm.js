@@ -272,7 +272,6 @@ async function toFinalPage() {
 
   let chosenTeamEvents = await getChosenTeamEventList();
   for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
-
     let event_code = toCodeName(chosenTeamEvents[i].content.name);
     $('#teamEventsTitle').after(`
       <div class="review-team-event">
@@ -304,7 +303,40 @@ async function toFinalPage() {
       <div class="name">
         ${truncate(formData[event_code][`member${j}_full_name`], 15)}
       </div>
-      `)
+      `);
     }
   }
 }
+
+//adding this variable to check so that even for multiple click input box opens for only 1 time
+var collegeOtherInput = true;
+
+function onclickotherCollege() {
+  $(".college-input-other-college").css("background", "white");
+  $(".college-input-other-college").css("opacity", "1");
+  $(".college-input-easwari").css("background", "black");
+
+  if (collegeOtherInput) {
+    $(".college").append(
+      `<div class="otherCollege mt-3"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" default="hello"  required/></div>`
+    );
+    collegeOtherInput = false;
+  }
+  $(".college").removeClass(".easwariCollege");
+}
+
+function onclickEaswari() {
+  $(".college-input-easwari").css("background", "white");
+  $(".college-input-other-college").css("opacity", "0.3");
+
+  $(".college").append(
+    `<div class="easwariCollege"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>`
+  );
+  $(".college-input-other-college").css("background", "black");
+  $(".otherCollege").empty();
+  if (!collegeOtherInput) {
+    $(".college").removeClass(".otherCollege");
+  }
+  collegeOtherInput = true;
+}
+
