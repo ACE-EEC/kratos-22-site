@@ -24,11 +24,14 @@ async function fetchEventList() {
 async function loadEventCards() {
   let count = await fetchEventCount();
   let events = await fetchEventList();
-  var registerLogo='fa-solid fa-arrow-right-long';
   // Load all the events
   for (let i = 0; i < count; i++) {
     let event = events[i];
-  var registerOnClick='registerClick'+'('+i+')';
+    let registerLogo = event.content.onlineRegistration ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-building-columns'
+    let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
+    let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
+
+
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
       `<div class="card "  id="card${i}" >
         <div class="cardContent" >
@@ -38,15 +41,15 @@ async function loadEventCards() {
               <img src="${event.content.image}"/>
             </div>
             <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 500); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
-            <div class="details" id="details${i}" ${registerOnClick=event.content.onlineRegistration?'registerClick'+'('+i+')':""}>
+            <div class="details" id="details${i}">
               <div class="tag">₹${event.content.fee}</div>
               <div class="tag">${event.content.teamBased}</div>
-              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize+"v"+event.content.teamSize :event.content.teamSize}</div>
+              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize + "v" + event.content.teamSize : event.content.teamSize}</div>
             </div>
-            <div ${registerLogo=event.content.onlineRegistration?'fa-solid fa-arrow-right-long':'fa-solid fa-building-columns'}   id="regButton${i}" class="reg-button reg-button-active" onclick="${registerOnClick}+'('+${i}+')'" >
-            <div class="reg-button-label">${event.content.onlineRegistration?"Add to registration":"On spot Registraion"}</div>
-              <i class="${registerLogo}"></i>
-            </div>
+            <div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
+              <div class="reg-button-label">${regButtonLabel}</div>
+                <i class="${registerLogo}"></i>
+              </div>
             <div class="vl" id="vl${i}"></div>
           </div>
           <div class="bText" id="bText${i}">
@@ -55,11 +58,23 @@ async function loadEventCards() {
           <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>
             <scroller>
-              ${event.content.rules.map((x) => `<p>- ${x}</p>`).reduce((p, c, a) =>  p + c )}
+              ${event.content.rules.map((x) => `<p>- ${x}</p>`).reduce((p, c, a) => p + c)}
             </scroller>
           </div>
         </div>
         <i id="upArrow${i}" onclick="reset(${i})" class="upArrow fa fa-caret-up fa-2x" style="display: none;"></i>
       </div>`;
+
+    if (isEventCodeAdded(event.content.name.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_'))) {
+      let card = document.getElementById(`card${i}`);
+      let regButton = document.getElementById(`regButton${i}`);
+      regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
+      regButton.classList.remove('reg-button-active')
+      regButton.classList.add('reg-button-inactive')
+
+      let icon = card.getElementsByClassName('fa-arrow-right-long')[0];
+      icon.classList.remove('fa-arrow-right-long')
+      icon.classList.add('fa-check');
+    }
   }
 }

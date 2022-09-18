@@ -19,7 +19,11 @@ function getRegistrationList() {
     return getCookie('registration_list').split(' ');
 }
 
-function appendRegistrationList(eventTitle) {
+function isEventCodeAdded(eventCode) {
+    return getRegistrationList().includes(eventCode)
+}
+
+function idempotentAppendRegistrationList(eventTitle) {
     let ckey = 'registration_list';
     let c = getCookie(ckey);
     if (c == "") {
@@ -41,8 +45,8 @@ function removeRegistrationListItem(eventCode) {
 function registerClick(i) {
     let card = document.getElementById(`card${i}`);
     let cardName = card.getElementsByClassName('eventName')[0].textContent;
-    let eventID = cardName.toLowerCase().replace(' ', '_');
-    appendRegistrationList(eventID);
+    let eventID = toCodeName(cardName);
+    idempotentAppendRegistrationList(eventID);
 
     let regButton = document.getElementById(`regButton${i}`);
     regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
