@@ -260,16 +260,10 @@ input:focus {
   font-size: 1.3em;
   font-weight: 600;
   height: 3em;
-  margin: 2em .5em;
+  margin: 1em .5em 2em;
   width: 8em;
 }
 
-@media (min-width:768px){
-  .submit-button{
-    margin:2em 5%;
-    
-  }
-}
 .page form input[type='checkbox'] {
   accent-color: var(--kratos-red);
   width: 1.2em !important;
@@ -322,7 +316,7 @@ input:focus {
   border-radius: .5em;
   width: 90%;
   height: 3em;
-  padding: .1em .5em;
+  padding: .1em 1em;
 }
 
 .review-solo-event-top .event-title,
@@ -337,7 +331,10 @@ input:focus {
 
 .review-team-event-top .remove-button,
 .review-solo-event-top .remove-button {
-  width: 1em;
+  cursor: pointer;
+  display: flex;
+  width: .7em;
+  height: .7em;
 }
 
 .review-team-event {
@@ -346,13 +343,14 @@ input:focus {
   display: flex;
   flex-flow: column nowrap;
   width: 90%;
-  background-color: var(--kratos-grey-lighest);
-  border-radius: .5em;
+  background-color: var(--kratos-white-dull);
+  border-radius: 1em;
+  border-style: none;
   overflow: hidden;
 }
 
 .review-team-event-top {
-  border-radius: .5em;
+  /* border-radius: 1em; */
   align-items: center;
   background: var(--kratos-grey-lighter);
   color: var(--kratos-white-dull);
@@ -362,12 +360,12 @@ input:focus {
   font-weight: 600;
   height: 3em;
   justify-content: flex-end;
-  padding: .5em;
+  padding: .5em 1em;
   width: 100%;
 }
 
 .review-team-event-details {
-  color: var(--kratos-white-dull);
+  color: var(--kratos-grey-dark);
   display: flex;
   flex-direction: row;
   padding: 1em 1em 1em 10%;
@@ -380,13 +378,14 @@ input:focus {
   width: 50%;
 }
 
-.review-team-event-details .contacts .label {
+.review-team-event-details .label {
+  color: var(--kratos-red);
   font-size: .9em;
 }
 
 .review-team-event-details .contacts .contact-detail {
   font-size: 1.1em;
-  color: var(--kratos-white);
+  /* color: var(--kratos-white); */
   margin-bottom: .5em;
 }
 
@@ -398,12 +397,40 @@ input:focus {
   width: 50%;
 }
 
+.total-amount {
+  color: var(--kratos-white);
+  font-size: 1.2em;
+  width: 100%;
+  padding: 0 1em;
+  text-align: right;
+}
 
 @media only screen and (min-width: 768px) {
+
+  form {
+    max-width: 40vw;
+  }
+
+  .form-title {
+    width: 40vw;
+  }
+
+  .form-title-hr {
+    width: 40vw;
+  }
+
+  .image-container {
+    width: 10vw;
+    height: 10vw;
+  }
+
+  .submit-button {
+    margin: 2em 5%;
+  }
+
   .college-input-easwari {
     font-size: 0.7em;
     height: 4em;
-
   }
 
   .college-input-other-college {
@@ -412,7 +439,7 @@ input:focus {
   }
 
   .page {
-    padding: 5em 1em;
+    padding: 5em 10%;
   }
 
   .reg-button {

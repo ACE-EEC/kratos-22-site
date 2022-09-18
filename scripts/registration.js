@@ -31,6 +31,13 @@ function appendRegistrationList(eventTitle) {
     }
 }
 
+function removeRegistrationListItem(eventCode) {
+    let reg = getCookie('registration_list');
+    reg = reg.replace(eventCode, '').replace('  ', ' ').trim()
+    console.log('reg = ', reg)
+    setCookie('registration_list', reg)
+}
+
 function registerClick(i) {
     let card = document.getElementById(`card${i}`);
     let cardName = card.getElementsByClassName('eventName')[0].textContent;

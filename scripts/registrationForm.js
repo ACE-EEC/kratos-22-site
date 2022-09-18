@@ -129,7 +129,7 @@ async function toTeamEvents() {
   for (let i = 0; i < 4; i++) {
     formData[$('#soloForm').find('input')[i].name] = $('#soloForm').find('input')[i].value;
   }
-  formData['solo_events'] = await getChosenSoloEventTitleList();
+  formData['solo_events'] = (await getChosenSoloEventTitleList()).map((x) => toCodeName(x));
 
   let teamEvents = await getChosenTeamEventDetailsList();
   formData['team_events'] = (await getChosenTeamEventDetailsList()).map((x) => toCodeName(x.content.name))
@@ -216,7 +216,7 @@ async function toTeamEvents() {
 }
 
 async function nextTeamSection() {
-  
+
   let inputs = $(`#teamForm${teamEvIndex}`).find('input');
   let isValid = true;
   for (let inp of inputs) {
@@ -329,6 +329,36 @@ async function nextTeamSection() {
   }
 }
 
+let totalAmount = 0;
+
+async function removeEvent(ev) {
+  let allEvents = await fetchEventList();
+  // Not sure how reliable this expression is going to be
+  // in the case where the event src is not img, but the containing div instead by accident
+  let cardTopElement = ev.target.parentElement.parentElement;
+  let titleElement = cardTopElement.getElementsByClassName('event-title')[0]
+  let eventCode = toCodeName(titleElement.textContent);
+
+  // remove from cookies
+  removeRegistrationListItem(eventCode);
+
+  // modify displayed fee (non essential anyways)
+  let eventFee = Number(allEvents.find((v) => toCodeName(v.content.name) == eventCode).content.fee)
+  totalAmount -= eventFee;
+  $('#totalAmount')[0].innerHTML = `Total: <span style="font-size: 1.5em;">₹${totalAmount}</span>`
+
+  // modify form data
+  let isSoloEvent = (await getChosenSoloEventTitleList()).includes(eventCode);
+  if (isSoloEvent) {
+    formData.solo_events = formData.solo_events.filter((x) => x !== eventCode)
+  } else {
+    formData.team_events = formData.team_events.filter((x) => x !== eventCode)
+    delete formData[eventCode]
+  }
+  console.log('modified form', formData)
+  $(`#${eventCode}`).remove()
+}
+
 async function toFinalPage() {
   $(`teamFormNext${teamEvIndex}`).attr('disabled', '')
   console.log('Final Form Data: ', formData)
@@ -345,7 +375,7 @@ async function toFinalPage() {
     <div class="form-title">Team Events</div>
     <div id="teamEventsTitle" class="form-title-hr"></div>
 
-    <div class='totalAmount'></div>
+    <div id="totalAmount" class='total-amount'></div>
     <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit & Pay</button>
   </div>
   `);
@@ -353,35 +383,50 @@ async function toFinalPage() {
 
 
   let allEvents = await fetchEventList();
-  for (let i = 0; i < formData.solo_events.length; i++) {
-    $('#soloEventsTitle').after(`
-      <div class='review-solo-event-top'> 
-        <div class='event-title'>${formData.solo_events[i]}</div>
-        <div class='fee'>₹${allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee}</div>
-        <div class='remove-button'>❌</div>
-      </div>
-  `);
+  if (formData.solo_events.length === 0) {
+    $('#soloEventsTitle').after(`<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`)
+  } else {
+    for (let i = 0; i < formData.solo_events.length; i++) {
+      let fee = allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee;
+      totalAmount += fee
+      $('#soloEventsTitle').after(`
+        <div id='${toCodeName(formData.solo_events[i])}' class='review-solo-event-top'> 
+          <div class='event-title'>
+            ${toTitleNameList([formData.solo_events[i]])[0] == 'Css' ? 'CSS' : toTitleNameList([formData.solo_events[i]])[0]}
+          </div>
+          <div class='fee'>₹${fee}</div>
+          <div class='remove-button' onclick="removeEvent(event)">
+            <img src="/public/images/close.png" />
+          </div>
+        </div>
+    `);
+    }
   }
 
   let teamEvents = await getChosenTeamEventDetailsList();
   for (let i = teamEvents.length - 1; i >= 0; i--) {
+    let fee = teamEvents[i].content.fee
+    totalAmount += fee
     let event_code = toCodeName(teamEvents[i].content.name);
     $('#teamEventsTitle').after(`
-  <div class="review-team-event">
+      <div class="review-team-event" id='${event_code}'>
         <div class='review-team-event-top'>
           <div class='event-title'>${teamEvents[i].content.name}</div>
-          <div class='fee'>₹${teamEvents[i].content.fee}</div>
-          <div class='remove-button'>❌</div>
+          <div class='fee'>₹${fee}</div>
+          <div class='remove-button' onclick="removeEvent(event)">
+            <img src="/public/images/close.png" />
+          </div>
         </div>
         <div class='review-team-event-details'>
           <div class="names">
+            <div class="label">Team</div>  
             <div class="name" id="leaderName${i}" style="margin-left: -2em">
               👑 ${truncateString(formData[event_code]['full_name'], 15)}
             </div>
 
           </div>
           <div class="contacts">
-            <div class="label">Email</div>
+            <div class="label">Email</div>  
             <div class="contact-detail">${truncateString(formData[event_code]['email'], 18)}</div>
             <div class="label">Mobile</div>
             <div class="contact-detail">${formData[event_code]['mobile']}</div>
@@ -403,7 +448,6 @@ async function toFinalPage() {
     }
 
     for (let j = 1; j < upperBound; j++) {
-      console.log('formData[event_code]', formData[event_code])
       $(`#leaderName${i}`).after(`
       <div class="name">
         ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
@@ -411,6 +455,8 @@ async function toFinalPage() {
       `);
     }
   }
+
+  $('#totalAmount')[0].innerHTML = `Total: <span style="font-size: 1.5em;">₹${totalAmount}</span>`
 }
 
 function onclickotherCollege() {
