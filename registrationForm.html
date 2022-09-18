@@ -78,7 +78,7 @@
         <div>
           <label>Full Name</label>
           <input id="formName" type="text" name="full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
-            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+            minlength="3" pattern="^[A-Za-z]+((\s)?(('|-|\.)?([A-Za-z])+))*\s*?$" required />
         </div>
         <div>
           <label>College</label>
@@ -90,18 +90,17 @@
               Other College</button>
           </div>
           <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
-            value="Easwari Engineering College" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
+            value="Easwari Engineering College" minlength="3" pattern="^[A-Za-z]+((\s)?(('|-|\.)?([A-Za-z])+))*\s*?$" required />
         </div>
         <div>
           <label>Email</label>
-          <input id="formEmail" type="email" name="email" placeholder="e.g. user@example.com" autocomplete="email"
-            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
-            required />
+          <input id="formEmail" type="email" name="email" placeholder="e.g. user@example.com" autocomplete="email" required
+          pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" />
         </div>
         <div>
           <label>Phone Number</label>
           <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
-            autocomplete="mobile" pattern="^[0-9]{10}$" required />
+            autocomplete="mobile" required pattern="^[0-9]{10}$"/>
         </div>
         <button id='soloFormNext' type="button" class="next-button" onclick="toTeamEvents()">Next</button>
       </form>

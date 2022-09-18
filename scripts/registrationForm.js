@@ -1,5 +1,8 @@
 // const apiURI = "https://api.kratos23.com"
 const apiURI = "http://127.0.0.1:3555"
+const namePattern = "^[A-Za-z]+((\\s)?(('|-|\\.)?([A-Za-z])+))*\\s*?$"
+const emailPattern = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$"
+const mobilePattern = "^[0-9]{10}$"
 
 function truncateString(str, size) {
   if (str.length > size - 3 + 1) {
@@ -81,31 +84,28 @@ async function loadSoloEventList() {
   }
 }
 
-const namePattern = /^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$/
+
 
 $('input').focusout(function () {
   console.log('fired focus out') // TODO remove debug logging
+  this.setCustomValidity('')
   this.reportValidity();
 });
 
 // TODO Remove the logs
 $('#formName').on('invalid', function (ev) {
-  console.log('validityState: ', ev.currentTarget.validity);
-  this.setCustomValidity('Please enter a valid name! (Only Alphabets, spaces, hyphens, dots, and apostrophes')
+  this.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
 })
 
 $('#formCollege').on('invalid', function (ev) {
-  console.log('validityState: ', ev.currentTarget.validity);
-  this.setCustomValidity('Please enter a valid name! (Only Aplhabets, spaces, hyphens, dots, and apostrophes')
+  this.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
 })
 
 $('#formEmail').on('invalid', function (ev) {
-  console.log('validityState: ', ev.currentTarget.validity);
   this.setCustomValidity('Please enter a valid Email address!')
 })
 
 $('#formMobile').on('invalid', function (ev) {
-  console.log('validityState: ', ev.currentTarget.validity);
   this.setCustomValidity('Please enter a valid, 10 digit, Indian phone number')
 })
 
@@ -154,21 +154,21 @@ async function toTeamEvents() {
           <div>
           <label>College</label>
           <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
-            value="${formData.college_name}" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
+            value="${formData.college_name}" pattern="${namePattern}" minlength="3" required />
           </div>
           <div>
             <label>Leader's Email</label>
             <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
-            pattern="^[a-z0-9!#$%&'*+/=?^_\`{|} ~-]+(?: \.[a - z0 - 9!#$ %& '*+/=?^_\`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+            pattern="${emailPattern}" />
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="^[0-9]{10}$"/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}"/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
           <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
-            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+            required pattern="${namePattern}" />
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
@@ -191,7 +191,7 @@ async function toTeamEvents() {
         <div>
           <label>Member ${i}'s Full Name</label>
           <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
-            pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+            pattern="${namePattern}" />
         </div >
       `);
     }
@@ -262,21 +262,21 @@ async function nextTeamSection() {
           <div>
           <label>College</label>
           <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
-            value="${formData.college_name}" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
+            value="${formData.college_name}" pattern="${namePattern}" minlength="3" required />
           </div>
           <div>
             <label>Leader's Email</label>
             <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
-            pattern="^[a-z0-9!#$%&'*+/=?^_\`{|} ~-]+(?: \.[a - z0 - 9!#$ %& '*+/=?^_\`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+            pattern="${emailPattern}" />
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="^[0-9]{10}$"/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}"/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
           <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
-            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+            required pattern="${namePattern}" />
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
@@ -299,7 +299,7 @@ async function nextTeamSection() {
         <div>
           <label>Member ${i}'s Full Name</label>
           <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
-            pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+            pattern="${namePattern}" />
         </div >
       `);
     }
