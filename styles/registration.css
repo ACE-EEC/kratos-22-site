@@ -447,4 +447,12 @@ input:focus {
     font-size: 1.2em;
     margin: 0 0 2em;
   }
+  
+  .page .section {
+    width: 40vw;
+  }
+
+  /* .review-solo-event-top {
+    width: 100%;
+  } */
 }
