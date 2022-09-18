@@ -46,6 +46,8 @@ input:focus {
 }
 
 .reg-button {
+  user-select: none;
+  cursor: auto;
   align-items: center;
   border-radius: 0.25em;
   display: none;
