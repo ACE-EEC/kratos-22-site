@@ -25,7 +25,7 @@ input:focus {
 }
 
 .college-switch .switch-option {
-  transition: background-color .4s ease;
+  transition: background-color .1s linear;
   opacity: 0.3;
   font-weight: 600;
   width: 50%;
@@ -36,7 +36,7 @@ input:focus {
 
 .college-switch .switch-option:hover {
   opacity: 1;
-  background-color: var(--kratos-white);
+  background-color: var(--kratos-white-dull);
   color: var(--kratos-red);
 }
 

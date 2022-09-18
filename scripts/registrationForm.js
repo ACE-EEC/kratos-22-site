@@ -63,21 +63,21 @@ async function loadSoloEventList() {
   // Skip solo details flow. Removed to streamline the flow even more
   if (soloList.length === 0) {
     elist.innerHTML += `<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`
-  //   $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
-  //   $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
-  //   $('.section-header').find('h5').after($('#soloFormNext'));
-  //   $('#soloFormNext')[0].style.alignSelf = 'center';
-  //   $('.event-list')[0].style.display = 'none';
+    //   $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
+    //   $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
+    //   $('.section-header').find('h5').after($('#soloFormNext'));
+    //   $('#soloFormNext')[0].style.alignSelf = 'center';
+    //   $('.event-list')[0].style.display = 'none';
 
-  //   // $('.section-header').find('.event-list')[0].style.display = 'none';
-  //   // $('.form-title')[0].style.display = 'none';
-  //   // $('.form-title-hr')[0].style.display = 'none';
-  //   // $('form')[0].style.display = 'none';
+    //   // $('.section-header').find('.event-list')[0].style.display = 'none';
+    //   // $('.form-title')[0].style.display = 'none';
+    //   // $('.form-title-hr')[0].style.display = 'none';
+    //   // $('form')[0].style.display = 'none';
 
-  //   $('form').find('input').attr('disabled', true);
-  //   $('form').find('input').attr('placeholder', 'Currently Disabled');
-  //   $('#soloFormNext')[0].innerHTML = "Skip";
-  //   // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
+    //   $('form').find('input').attr('disabled', true);
+    //   $('form').find('input').attr('placeholder', 'Currently Disabled');
+    //   $('#soloFormNext')[0].innerHTML = "Skip";
+    //   // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
   }
 }
 
@@ -151,38 +151,56 @@ async function toTeamEvents() {
         <div class="form-title-hr"></div>
 
         <form id="teamForm${teamEvIndex}">
-          <!-- TODO: make this checkbox work -->
-          <div class='checkbox-row'>
-            <input class='checkbox' type='checkbox' name='leader' id='leader'/>
-            <label for='leader'>I'm the leader</label>
-          </div>
           <div>
-            <label>College</label>
-            <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <label>College</label>
+          <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
+            value="${formData.college_name}" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
-          </div>
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
+            pattern="^[a-z0-9!#$%&'*+/=?^_\`{|} ~-]+(?: \.[a - z0 - 9!#$ %& '*+/=?^_\`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+          </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="^[0-9]{10}$"/>
           </div>
           <div style="margin-bottom: 2em;">
-            <label>Leader's Full Name</label>
-            <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
+          <label>Leader's Full Name</label>
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
+            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
-      </div>`);
-    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize.split("-")[1]; i++) {
-      $(`#teamFormNext${teamEvIndex}`).before(`
-          <div>
-            <label>Member ${i}'s</label>
-            <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"/>
-          </div>
-        `);
+      </div> `);
+
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
     }
+
+    for (let i = 1; i < upperBound; i++) {
+      $(`#teamFormNext${teamEvIndex}`).before(`
+        <div>
+          <label>Member ${i}'s Full Name</label>
+          <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
+            pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+        </div >
+      `);
+    }
+
+    // Set the minimum team size based mandatory fields
+    for (let i = 1; i < lowerBound; i++) {
+      $(`formMemberName${i}`).attr('reqired', 'required')
+    }
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
       "slow"
@@ -203,6 +221,22 @@ async function nextTeamSection() {
   }
   $(`#teamSection${teamEvIndex}`)[0].style.display = 'none';
 
+  let lowerBound;
+  let upperBound;
+  if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+    // variable team size
+    lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+    upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+  } else {
+    // fixed team size
+    lowerBound = teamEvents[teamEvIndex].content.teamSize;
+    upperBound = teamEvents[teamEvIndex].content.teamSize;
+  }
+
+  // normalize the member name fields (add empty ones, as form is required to have all 3)
+  for (let i = upperBound; i < 4; i++) {
+    formData[`member${i}_full_name`] = ""
+  }
 
   // go to next page
   if (teamEvIndex === teamEvents.length - 1) {
@@ -225,41 +259,56 @@ async function nextTeamSection() {
         <div class="form-title-hr"></div>
 
         <form id="teamForm${teamEvIndex}">
-          <!-- TODO: make this checkbox work -->
-          <div class='checkbox-row'>
-            <input class='checkbox' type='checkbox' name='sameTeam' id='sameTeam'/>
-            <div>
-              <label for='sameTeam'>Same team as previous</label>
-              <div class="checkbox-info">First N members will be taken if previous team is larger than required.</div>
-            </div>
-          </div>
           <div>
-            <label>College</label>
-            <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <label>College</label>
+          <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
+            value="${formData.college_name}" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
-          </div>
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
+            pattern="^[a-z0-9!#$%&'*+/=?^_\`{|} ~-]+(?: \.[a - z0 - 9!#$ %& '*+/=?^_\`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" />
+          </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="^[0-9]{10}$"/>
           </div>
           <div style="margin-bottom: 2em;">
-            <label>Leader's Full Name</label>
-            <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
+          <label>Leader's Full Name</label>
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
+            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
-      </div>`);
-    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize.split('-')[1]; i++) {
-      $(`#teamFormNext${teamEvIndex}`).before(`
-          <div>
-            <label>Member ${i}'s</label>
-            <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"/>
-          </div>
-        `);
+      </div> `);
+
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
     }
+
+    for (let i = 1; i < upperBound; i++) {
+      $(`#teamFormNext${teamEvIndex}`).before(`
+        <div>
+          <label>Member ${i}'s Full Name</label>
+          <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
+            pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
+        </div >
+      `);
+    }
+
+    // Set the minimum team size based mandatory fields
+    for (let i = 1; i < lowerBound; i++) {
+      $(`formMemberName${i}`).attr('reqired', 'required')
+    }
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
       "slow"
@@ -296,14 +345,14 @@ async function toFinalPage() {
         <div class='fee'>₹${allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee}</div>
         <div class='remove-button'>❌</div>
       </div>
-    `);
+  `);
   }
 
   let chosenTeamEvents = await getChosenTeamEventDetailsList();
   for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
     let event_code = toCodeName(chosenTeamEvents[i].content.name);
     $('#teamEventsTitle').after(`
-      <div class="review-team-event">
+  <div class="review-team-event">
         <div class='review-team-event-top'>
           <div class='event-title'>${chosenTeamEvents[i].content.name}</div>
           <div class='fee'>₹${chosenTeamEvents[i].content.fee}</div>
@@ -326,7 +375,19 @@ async function toFinalPage() {
       </div>
     `);
 
-    for (let j = 1; j < chosenTeamEvents[i].content.teamSize.split('-')[1]; j++) {
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
+    }
+
+    for (let j = 1; j < upperBound; j++) {
       $('#leaderName').after(`
       <div class="name">
         ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
