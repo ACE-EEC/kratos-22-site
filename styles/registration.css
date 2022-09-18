@@ -264,6 +264,12 @@ input:focus {
   width: 8em;
 }
 
+@media (min-width:768px){
+  .submit-button{
+    margin:2em 5%;
+    
+  }
+}
 .page form input[type='checkbox'] {
   accent-color: var(--kratos-red);
   width: 1.2em !important;
@@ -291,7 +297,7 @@ input:focus {
   padding: 2em;
   display: flex;
   background-color: var(--kratos-white-dull);
-  width: 30vw;
+  width: 40vw;
   height: 30vw;
   border-radius: 1em;
 
