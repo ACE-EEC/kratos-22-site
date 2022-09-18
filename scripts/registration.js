@@ -38,22 +38,34 @@ function idempotentAppendRegistrationList(eventTitle) {
 function removeRegistrationListItem(eventCode) {
     let reg = getCookie('registration_list');
     reg = reg.replace(eventCode, '').replace('  ', ' ').trim()
-    console.log('reg = ', reg)
     setCookie('registration_list', reg)
 }
 
 function registerClick(i) {
     let card = document.getElementById(`card${i}`);
     let cardName = card.getElementsByClassName('eventName')[0].textContent;
-    let eventID = toCodeName(cardName);
-    idempotentAppendRegistrationList(eventID);
-
+    let codeName = cardName.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_');
     let regButton = document.getElementById(`regButton${i}`);
-    regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
-    regButton.classList.remove('reg-button-active')
-    regButton.classList.add('reg-button-inactive')
 
-    let icon = card.getElementsByClassName('fa-arrow-right-long')[0];
-    icon.classList.remove('fa-arrow-right-long')
-    icon.classList.add('fa-check');
+    if (isEventCodeAdded(codeName)) {
+        removeRegistrationListItem(codeName)
+
+        regButton.getElementsByClassName('reg-button-label')[0].textContent = "Add to Registration";
+        regButton.classList.add('reg-button-active')
+        regButton.classList.remove('reg-button-inactive')
+
+        let icon = card.getElementsByClassName('fa-check')[0];
+        icon.classList.add('fa-arrow-right-long')
+        icon.classList.remove('fa-check');
+    } else {
+        idempotentAppendRegistrationList(codeName);
+
+        regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
+        regButton.classList.remove('reg-button-active')
+        regButton.classList.add('reg-button-inactive')
+
+        let icon = card.getElementsByClassName('fa-arrow-right-long')[0];
+        icon.classList.remove('fa-arrow-right-long')
+        icon.classList.add('fa-check');
+    }
 }
