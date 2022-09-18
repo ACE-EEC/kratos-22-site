@@ -1,13 +1,14 @@
-$('event-list').ready(() => {
-  loadSoloEventList();
-});
-
 // const apiURI = "https://api.kratos23.com"
 const apiURI = "http://127.0.0.1:3555"
 
-function truncate(str, size) {
+function truncateString(str, size) {
   if (str.length > size - 3 + 1) {
-    return str.slice(0, size).concat('...');
+    let slice = str.slice(0, size)
+    if (slice[slice.length - 1] == '.') {
+      return slice.concat('..');
+    } else {
+      return slice.concat('...');
+    }
   } else {
     return str;
   }
@@ -47,6 +48,10 @@ async function getChosenTeamEventDetailsList() {
   return teamEvents;
 }
 
+$('event-list').ready(() => {
+  loadSoloEventList();
+});
+
 async function loadSoloEventList() {
   let elist = document.getElementsByClassName('event-list')[0];
   let soloList = await getChosenSoloEventTitleList();
@@ -55,29 +60,67 @@ async function loadSoloEventList() {
     elist.innerHTML += `<div class="event-list-item">${soloList[i]}</div>`
   }
 
+  // Skip solo details flow. Removed to streamline the flow even more
   if (soloList.length === 0) {
-    $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
-    $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
-    $('.section-header').find('h5').after($('#soloFormNext'));
-    $('#soloFormNext')[0].style.alignSelf = 'center';
-    $('.event-list')[0].style.display = 'none';
+    elist.innerHTML += `<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`
+  //   $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
+  //   $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
+  //   $('.section-header').find('h5').after($('#soloFormNext'));
+  //   $('#soloFormNext')[0].style.alignSelf = 'center';
+  //   $('.event-list')[0].style.display = 'none';
 
-    // $('.section-header').find('.event-list')[0].style.display = 'none';
-    // $('.form-title')[0].style.display = 'none';
-    // $('.form-title-hr')[0].style.display = 'none';
-    // $('form')[0].style.display = 'none';
+  //   // $('.section-header').find('.event-list')[0].style.display = 'none';
+  //   // $('.form-title')[0].style.display = 'none';
+  //   // $('.form-title-hr')[0].style.display = 'none';
+  //   // $('form')[0].style.display = 'none';
 
-    $('form').find('input').attr('disabled', true);
-    $('form').find('input').attr('placeholder', 'Currently Disabled');
-    $('#soloFormNext')[0].innerHTML = "Skip";
-    // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
+  //   $('form').find('input').attr('disabled', true);
+  //   $('form').find('input').attr('placeholder', 'Currently Disabled');
+  //   $('#soloFormNext')[0].innerHTML = "Skip";
+  //   // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
   }
 }
+
+const namePattern = /^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$/
+
+$('input').focusout(function () {
+  console.log('fired focus out') // TODO remove debug logging
+  this.reportValidity();
+});
+
+// TODO Remove the logs
+$('#formName').on('invalid', function (ev) {
+  console.log('validityState: ', ev.currentTarget.validity);
+  this.setCustomValidity('Please enter a valid name! (Only Alphabets, spaces, hyphens, dots, and apostrophes')
+})
+
+$('#formCollege').on('invalid', function (ev) {
+  console.log('validityState: ', ev.currentTarget.validity);
+  this.setCustomValidity('Please enter a valid name! (Only Aplhabets, spaces, hyphens, dots, and apostrophes')
+})
+
+$('#formEmail').on('invalid', function (ev) {
+  console.log('validityState: ', ev.currentTarget.validity);
+  this.setCustomValidity('Please enter a valid Email address!')
+})
+
+$('#formMobile').on('invalid', function (ev) {
+  console.log('validityState: ', ev.currentTarget.validity);
+  this.setCustomValidity('Please enter a valid, 10 digit, Indian phone number')
+})
 
 let formData = {}
 let teamEvIndex = -1;
 
 async function toTeamEvents() {
+  const name = document.getElementById('formName');
+  const email = document.getElementById('formEmail');
+  const clg = document.getElementById('formCollege');
+  const mobile = document.getElementById('formMobile');
+
+  if (!(name.reportValidity() && email.reportValidity() && clg.reportValidity() && mobile.reportValidity())) {
+    return // form in not valid
+  }
 
   // Get all the previous pages values to store in object
   for (let i = 0; i < 4; i++) {
@@ -269,13 +312,13 @@ async function toFinalPage() {
         <div class='review-team-event-details'>
           <div class="names">
             <div class="name" id="leaderName" style="margin-left: -2em">
-              👑 ${truncate(formData[event_code]['leader_full_name'], 15)}
+              👑 ${truncateString(formData[event_code]['leader_full_name'], 15)}
             </div>
 
           </div>
           <div class="contacts">
             <div class="label">Email</div>
-            <div class="contact-detail">${truncate(formData[event_code]['email'], 18)}</div>
+            <div class="contact-detail">${truncateString(formData[event_code]['email'], 18)}</div>
             <div class="label">Mobile</div>
             <div class="contact-detail">${formData[event_code]['mobile']}</div>
           </div>
@@ -286,7 +329,7 @@ async function toFinalPage() {
     for (let j = 1; j < chosenTeamEvents[i].content.teamSize.split('-')[1]; j++) {
       $('#leaderName').after(`
       <div class="name">
-        ${truncate(formData[event_code][`member${j}_full_name`], 15)}
+        ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
       </div>
       `);
     }
@@ -403,73 +446,4 @@ async function paymentFailed(res) {
   console.log('payment failed: ', res)
 }
 
-function checkFormName(input) {
-  let checkName = input;
-  for (let i = 0; i < checkName.length; i++) {
-    if (!isNaN(checkName.charAt(i))) return false;
-  }
-  // console.log("true");
-  return true;
-}
-//if all conditions satisfy go to next page
 
-//may add this feature in the future
-// $('#formName').focusout(function(){
-// checkFormName();
-// });
-
-let soloEventNext = true;
-var FormName = document.getElementById("formName");
-
-$("#soloFormNext").click(function () {
-  checkFormName();
-  //checking name for validity
-});
-
-function checkFormName() {
-  var pattern = /^[a-zA-Z]*$/;
-  var name = $("#formName").val();
-
-  // console.log(name);
-
-  if (pattern.test(name) && name !== "") {
-    // console.log("yes");
-    soloEventNext = true;
-  }
-
-  else {
-    soloEventNext = false;
-    console.log(!pattern.test(name));
-    if (!pattern.test(name)) {
-      FormName.oninvalid = function () {
-        this.setCustomValidity("Please enter a valid name");
-      };
-      $('#formName').trigger('oninvalid');
-    }
-    else {
-      FormName.oninvalid = function () {
-        this.setCustomValidity("Please enter name");
-      };
-    }
-    // oninvalid=true;
-
-    //   if(!checkFormName(name)){
-    //   FormName.oninvalid=function(){
-    //     this.setCustomValidity('Please enter the name');
-    //   };
-    // }
-    // soloEventNext=false;
-    // if($("#formName").val().toString().length==0)
-    // {
-    //   FormName.oninvalid=function(){
-    //     this.setCustomValidity('Please enter the name');
-    //   };
-    // }
-    // else if(!checkFormName($("#formName").val().toString())){
-    //   // console.log("number");
-    //   FormName.oninvalid=function(){
-    //   this.setCustomValidity('Please enter a valid name(without numbers)');
-    //   };
-    // }
-  }
-}

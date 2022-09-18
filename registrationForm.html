@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="styles/tech.css">
   <link rel="stylesheet" type="text/css" href="styles/registration.css">
 
-  <script rel="script" type="text/javascript" src="scripts/tech.js" defer></script>
   <script rel="script" type="text/javascript" src="scripts/eventLoader.js" defer></script>
   <script rel="script" type="text/javascript" src="scripts/registration.js" defer></script>
   <script rel="script" type="text/javascript" src="scripts/registrationForm.js" defer></script>
@@ -78,7 +77,8 @@
       <form id="soloForm">
         <div>
           <label>Full Name</label>
-          <input id="formName" type="text" name="full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
+          <input id="formName" type="text" name="full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
+            required pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" />
         </div>
         <div>
           <label>College</label>
@@ -86,25 +86,24 @@
             <button id="easwariOption" class="switch-option switch-active" type="button" onclick="onclickEaswari()">
               Easwari Engineering College
             </button>
-            <button id="otherOption" class="switch-option" type="button" onclick="onclickotherCollege()">Other
-              College</button>
+            <button id="otherOption" class="switch-option" type="button" onclick="onclickotherCollege()">
+              Other College</button>
           </div>
           <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
-            value="Easwari Engineering College" />
+            value="Easwari Engineering College" pattern="^[A-Za-z]+((\s)?(('|-|.)?([A-Za-z])+))*$" required />
         </div>
         <div>
           <label>Email</label>
-          <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email"
+          <input id="formEmail" type="email" name="email" placeholder="e.g. user@example.com" autocomplete="email"
+            pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
             required />
         </div>
         <div>
           <label>Phone Number</label>
           <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10"
-            autocomplete="mobile" />
+            autocomplete="mobile" pattern="^[0-9]{10}$" required />
         </div>
-        <!-- TODO: client-side input validation, unless skipping -->
-        <!-- <input type="submit" value="Next" id='soloFormNext' type="submit" class="next-button" /> -->
-        <button id='soloFormNext' type="submit" class="next-button">Next</button>
+        <button id='soloFormNext' type="button" class="next-button" onclick="toTeamEvents()">Next</button>
       </form>
     </div>
 
