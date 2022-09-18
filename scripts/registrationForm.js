@@ -63,6 +63,21 @@ async function loadSoloEventList() {
     elist.innerHTML += `<div class="event-list-item">${soloList[i]}</div>`
   }
 
+  let eventCount = (await getChosenSoloEventTitleList()).length + (await getChosenTeamEventDetailsList()).length
+  if (eventCount == 0) {
+    $('.section-header').find('h3')[0].innerHTML = "No Events";
+    $('.section-header').find('h4')[0].innerHTML = "You haven't added any events";
+    $('.section-header').find('h5')[0].innerHTML = "Add events from the home page's cards"
+    $('.section-header').find('h5').after($('#soloFormNext'));
+    $('#soloFormNext').css('align-self', 'center')
+    $('#soloFormNext')[0].innerHTML = "Home";
+    $('#soloFormNext').attr('onclick', "window.location.assign('https://kratos23.com')")
+    $('form').remove()
+    $('.form-title').remove()
+    $('.form-title-hr').remove()
+    return;
+  }
+
   // Skip solo details flow. Removed to streamline the flow even more
   if (soloList.length === 0) {
     elist.innerHTML += `<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`
