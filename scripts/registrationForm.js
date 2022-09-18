@@ -113,24 +113,27 @@ let formData = {}
 let teamEvIndex = -1;
 
 async function toTeamEvents() {
+
   const name = document.getElementById('formName');
   const email = document.getElementById('formEmail');
   const clg = document.getElementById('formCollege');
   const mobile = document.getElementById('formMobile');
 
   if (!(name.reportValidity() && email.reportValidity() && clg.reportValidity() && mobile.reportValidity())) {
-    return // form in not valid
+    return // form is not valid
   }
+
+  $("#soloFormNext").attr('disabled', '')
 
   // Get all the previous pages values to store in object
   for (let i = 0; i < 4; i++) {
-    formData[$('#soloForm')[0][i].name] = $('#soloForm')[0][i].value;
+    formData[$('#soloForm').find('input')[i].name] = $('#soloForm').find('input')[i].value;
   }
   formData['solo_events'] = await getChosenSoloEventTitleList();
 
   let teamEvents = await getChosenTeamEventDetailsList();
   formData['team_events'] = (await getChosenTeamEventDetailsList()).map((x) => toCodeName(x.content.name))
-  $('#soloSection')[0].style.display = 'none';
+  $('#soloSection').remove()
   if (teamEvents.length === 0) {
     await toFinalPage();
   } else {
@@ -158,17 +161,15 @@ async function toTeamEvents() {
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
-            pattern="${emailPattern}" />
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" pattern="${emailPattern}" required/>
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}"/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
-          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
-            required pattern="${namePattern}" />
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30" required pattern="${namePattern}" required/>
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
@@ -189,21 +190,25 @@ async function toTeamEvents() {
     for (let i = 1; i < upperBound; i++) {
       $(`#teamFormNext${teamEvIndex}`).before(`
         <div>
-          <label>Member ${i}'s Full Name</label>
+          <label>Member ${i}'s Full Name
+            <span style="color: var(--kratos-grey-lightest);">
+              ${i + 1 > lowerBound ? " (Optional)" : ""}
+            </span>
+          </label>
           <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
-            pattern="${namePattern}" />
+            pattern="${namePattern}"/>
         </div >
       `);
     }
 
     // Set the minimum team size based mandatory fields
-    for (let i = 1; i < lowerBound; i++) {
-      $(`formMemberName${i}`).attr('reqired', 'required')
+    for (let i = 1; i + 1 <= lowerBound; i++) {
+      $(`#formMemberName${i}`).attr("required", "")
     }
 
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
-      "slow"
+      "fast"
     );
 
 
@@ -211,15 +216,25 @@ async function toTeamEvents() {
 }
 
 async function nextTeamSection() {
-  let teamEvents = await getChosenTeamEventDetailsList();
-  formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
-  for (let i = 0; i < $(`#teamForm${teamEvIndex}`)[0].length; i++) {
-    // ignore the checkbox value, and any other input fields
-    if ($(`#teamForm${teamEvIndex}`)[0][i].type == "text") {
-      formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`)[0][i].name] = $(`#teamForm${teamEvIndex}`)[0][i].value;
+  
+  let inputs = $(`#teamForm${teamEvIndex}`).find('input');
+  let isValid = true;
+  for (let inp of inputs) {
+    if (inp.required) {
+      isValid = isValid && inp.reportValidity();
     }
   }
-  $(`#teamSection${teamEvIndex}`)[0].style.display = 'none';
+  if (!isValid) {
+    return; // form section invalid
+  }
+  $(`#teamFormNext${teamEvIndex}`).attr('disabled', '')
+
+  let teamEvents = await getChosenTeamEventDetailsList();
+  formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
+  for (let i = 0; i < $(`#teamForm${teamEvIndex}`).find('input').length; i++) {
+    formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`).find('input')[i].name] = $(`#teamForm${teamEvIndex}`).find('input')[i].value;
+  }
+  $(`#teamSection${teamEvIndex}`).remove();
 
   let lowerBound;
   let upperBound;
@@ -235,7 +250,7 @@ async function nextTeamSection() {
 
   // normalize the member name fields (add empty ones, as form is required to have all 3)
   for (let i = upperBound; i < 4; i++) {
-    formData[`member${i}_full_name`] = ""
+    formData[toCodeName(teamEvents[teamEvIndex].content.name)][`member${i}_full_name`] = ""
   }
 
   // go to next page
@@ -266,17 +281,15 @@ async function nextTeamSection() {
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" 
-            pattern="${emailPattern}" />
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" pattern="${emailPattern}" required/>
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}"/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
-          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30"
-            required pattern="${namePattern}" />
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30" required pattern="${namePattern}" required/>
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
@@ -297,27 +310,29 @@ async function nextTeamSection() {
     for (let i = 1; i < upperBound; i++) {
       $(`#teamFormNext${teamEvIndex}`).before(`
         <div>
-          <label>Member ${i}'s Full Name</label>
+          <label>Member ${i}'s Full Name${i <= upperBound - 1 ? "" : " (Optional)"}</label>
           <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
-            pattern="${namePattern}" />
+            pattern="${namePattern}" value="${formData[formData.team_events[teamEvIndex - 1]][`member${i}_full_name`]}"/>
         </div >
       `);
     }
 
     // Set the minimum team size based mandatory fields
-    for (let i = 1; i < lowerBound; i++) {
-      $(`formMemberName${i}`).attr('reqired', 'required')
+    for (let i = 1; i + 1 <= lowerBound; i++) {
+      $(`#formMemberName${i}`).attr("required", "")
     }
 
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
-      "slow"
+      "fast"
     );
   }
 }
 
 async function toFinalPage() {
-  console.log('Final Form Data: ', JSON.stringify(formData))
+  $(`teamFormNext${teamEvIndex}`).attr('disabled', '')
+  console.log('Final Form Data: ', formData)
+
   $('#blockQuote').after(`
   <div class="section" id="reviewSection">
     <div class="section-header">
@@ -348,20 +363,20 @@ async function toFinalPage() {
   `);
   }
 
-  let chosenTeamEvents = await getChosenTeamEventDetailsList();
-  for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
-    let event_code = toCodeName(chosenTeamEvents[i].content.name);
+  let teamEvents = await getChosenTeamEventDetailsList();
+  for (let i = teamEvents.length - 1; i >= 0; i--) {
+    let event_code = toCodeName(teamEvents[i].content.name);
     $('#teamEventsTitle').after(`
   <div class="review-team-event">
         <div class='review-team-event-top'>
-          <div class='event-title'>${chosenTeamEvents[i].content.name}</div>
-          <div class='fee'>₹${chosenTeamEvents[i].content.fee}</div>
+          <div class='event-title'>${teamEvents[i].content.name}</div>
+          <div class='fee'>₹${teamEvents[i].content.fee}</div>
           <div class='remove-button'>❌</div>
         </div>
         <div class='review-team-event-details'>
           <div class="names">
-            <div class="name" id="leaderName" style="margin-left: -2em">
-              👑 ${truncateString(formData[event_code]['leader_full_name'], 15)}
+            <div class="name" id="leaderName${i}" style="margin-left: -2em">
+              👑 ${truncateString(formData[event_code]['full_name'], 15)}
             </div>
 
           </div>
@@ -388,7 +403,8 @@ async function toFinalPage() {
     }
 
     for (let j = 1; j < upperBound; j++) {
-      $('#leaderName').after(`
+      console.log('formData[event_code]', formData[event_code])
+      $(`#leaderName${i}`).after(`
       <div class="name">
         ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
       </div>
@@ -420,46 +436,8 @@ function onclickEaswari() {
   $("#formCollege").attr('value', 'Easwari Engineering College')
 }
 
-function normalizeFormData(form) {
-  // TODO
-  console.error('implement normalizeFormData dumbass!')
-}
-
 async function submitAndPay() {
-  // TODO: remove
-  let formData = {
-    "full_name": "Nithish Kumar",
-    "college_name": "EEC",
-    "email": "nithish24x7@gmail.com",
-    "mobile": "7338954471",
-    "solo_events": [
-      "CSS",
-      "Shipwreck"
-    ],
-    "team_events": [
-      "paper_presentation",
-      "debugging"
-    ],
-    "paper_presentation": {
-      "college_name": "EEC",
-      "email": "nithish24x7@gmail.com",
-      "mobile": "7338954471",
-      "leader_full_name": "Nithish Kumar",
-      "member1_full_name": "Rohith C",
-      "member2_full_name": "Jayanth",
-      "member3_full_name": ""
-    },
-    "debugging": {
-      "college_name": "EEC",
-      "email": "nithish24x7@gmail.com",
-      "mobile": "7338954471",
-      "leader_full_name": "Nithish Kumar",
-      "member1_full_name": "Rohith C"
-    }
-  }
-
   // Do the submission and get the response
-  normalizeFormData(formData);
   let subRes = await axios.post(apiURI + '/submit', formData);
 
   // Razorpay stuff

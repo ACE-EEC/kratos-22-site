@@ -10,10 +10,6 @@ input:focus {
   border-color: var(--kratos-red);
 }
 
-#formCollege {
-  display: none;
-}
-
 .college-switch {
   overflow: hidden;
   border: 2px solid var(--kratos-white-dull);
