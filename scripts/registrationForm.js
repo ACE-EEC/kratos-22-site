@@ -1,48 +1,47 @@
-$('event-list').ready(() => {
-  loadSoloEventList();
-});
+// const apiURI = "https://api.kratos23.com"
+const apiURI = "http://127.0.0.1:3555"
+const namePattern = "^[A-Za-z]+((\\s)?(('|-|\\.)?([A-Za-z])+))*\\s*?$"
+const emailPattern = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$"
+const mobilePattern = "^[0-9]{10}$"
 
-function truncate(str, size) {
+function truncateString(str, size) {
   if (str.length > size - 3 + 1) {
-    return str.slice(0, size).concat('...');
+    let slice = str.slice(0, size)
+    if (slice[slice.length - 1] == '.') {
+      return slice.concat('..');
+    } else {
+      return slice.concat('...');
+    }
   } else {
     return str;
   }
 }
 
 function toCodeName(titleName) {
-  // console.log('toCodeName(): ', titleName)
-  return titleName.toLowerCase().replace(' ', '_');
+  return titleName.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_');
 }
 
 function toTitleNameList(codeNameList) {
   return codeNameList.map((x) => x.toLowerCase().replace('_', ' ').split(' ').map((x) => x.charAt(0).toUpperCase() + x.slice(1)).reduce((a, x) => a + ' ' + x));
 }
 
-async function getChosenSoloEventList() {
+async function getChosenSoloEventTitleList() {
   let allEvents = await fetchEventList();
   let soloEvents = [];
   let chosenEventTitles = toTitleNameList(getRegistrationList());
-  // console.log('chosenEventTitles(): ', chosenEventTitles);
-  // console.log('fetchEventList(): ', allEvents);
 
   for (let i = 0; i < allEvents.length; i++) {
-    // console.log('allEvents[i].content.teamBased.toLowerCase() === "solo" ', allEvents[i].content.teamBased.toLowerCase() === "solo");
-    // console.log('chosenEventTitles.includes(allEvents[i].content.name) ', chosenEventTitles.includes(allEvents[i].content.name))
-    // console.log('toTitleNameList([allEvents[i].content.name])[0]) ', toTitleNameList([allEvents[i].content.name])[0])
     if (allEvents[i].content.teamBased.toLowerCase() === "solo" && chosenEventTitles.includes(toTitleNameList([allEvents[i].content.name])[0])) {
       soloEvents.push(allEvents[i].content.name);
     }
   }
-  // console.log('getChosenSoloEventList(): ', soloEvents)
   return soloEvents;
 }
 
-async function getChosenTeamEventList() {
+async function getChosenTeamEventDetailsList() {
   let allEvents = await fetchEventList();
   let teamEvents = [];
   let chosenEvents = toTitleNameList(getRegistrationList());
-
   for (let i = 0; i < allEvents.length; i++) {
     if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEvents.includes(allEvents[i].content.name)) {
       teamEvents.push(allEvents[i]);
@@ -52,58 +51,107 @@ async function getChosenTeamEventList() {
   return teamEvents;
 }
 
+$('event-list').ready(() => {
+  loadSoloEventList();
+});
+
 async function loadSoloEventList() {
   let elist = document.getElementsByClassName('event-list')[0];
-  let soloList = await getChosenSoloEventList();
+  let soloList = await getChosenSoloEventTitleList();
 
   for (let i = 0; i < soloList.length; i++) {
     elist.innerHTML += `<div class="event-list-item">${soloList[i]}</div>`
   }
 
-  if (soloList.length === 0) {
-    $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
-    $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
+  let eventCount = (await getChosenSoloEventTitleList()).length + (await getChosenTeamEventDetailsList()).length
+  if (eventCount == 0) {
+    $('.section-header').find('h3')[0].innerHTML = "No Events";
+    $('.section-header').find('h4')[0].innerHTML = "You haven't added any events";
+    $('.section-header').find('h5')[0].innerHTML = "Add events from the home page's cards"
     $('.section-header').find('h5').after($('#soloFormNext'));
-    $('#soloFormNext')[0].style.alignSelf = 'center';
-    $('.event-list')[0].style.display = 'none';
+    $('#soloFormNext').css('align-self', 'center')
+    $('#soloFormNext')[0].innerHTML = "Home";
+    $('#soloFormNext').attr('onclick', "window.location.assign('https://kratos23.com')")
+    $('form').remove()
+    $('.form-title').remove()
+    $('.form-title-hr').remove()
+    return;
+  }
 
-    // $('.section-header').find('.event-list')[0].style.display = 'none';
-    // $('.form-title')[0].style.display = 'none';
-    // $('.form-title-hr')[0].style.display = 'none';
-    // $('form')[0].style.display = 'none';
+  // Skip solo details flow. Removed to streamline the flow even more
+  if (soloList.length === 0) {
+    elist.innerHTML += `<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`
+    //   $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
+    //   $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
+    //   $('.section-header').find('h5').after($('#soloFormNext'));
+    //   $('#soloFormNext')[0].style.alignSelf = 'center';
+    //   $('.event-list')[0].style.display = 'none';
 
-    $('form').find('input').attr('disabled', true);
-    $('form').find('input').attr('placeholder', 'Currently Disabled');
-    $('#soloFormNext')[0].innerHTML = "Skip";
-    // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
+    //   // $('.section-header').find('.event-list')[0].style.display = 'none';
+    //   // $('.form-title')[0].style.display = 'none';
+    //   // $('.form-title-hr')[0].style.display = 'none';
+    //   // $('form')[0].style.display = 'none';
+
+    //   $('form').find('input').attr('disabled', true);
+    //   $('form').find('input').attr('placeholder', 'Currently Disabled');
+    //   $('#soloFormNext')[0].innerHTML = "Skip";
+    //   // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
   }
 }
+
+
+
+$('input').focusout(function () {
+  console.log('fired focus out') // TODO remove debug logging
+  this.setCustomValidity('')
+  this.reportValidity();
+});
+
+// TODO Remove the logs
+$('#formName').on('invalid', function (ev) {
+  this.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
+})
+
+$('#formCollege').on('invalid', function (ev) {
+  this.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
+})
+
+$('#formEmail').on('invalid', function (ev) {
+  this.setCustomValidity('Please enter a valid Email address!')
+})
+
+$('#formMobile').on('invalid', function (ev) {
+  this.setCustomValidity('Please enter a valid, 10 digit, Indian phone number')
+})
 
 let formData = {}
 let teamEvIndex = -1;
 
 async function toTeamEvents() {
 
+  const name = document.getElementById('formName');
+  const email = document.getElementById('formEmail');
+  const clg = document.getElementById('formCollege');
+  const mobile = document.getElementById('formMobile');
+
+  if (!(name.reportValidity() && email.reportValidity() && clg.reportValidity() && mobile.reportValidity())) {
+    return // form is not valid
+  }
+
+  $("#soloFormNext").attr('disabled', '')
+
   // Get all the previous pages values to store in object
   for (let i = 0; i < 4; i++) {
-    // This "if" is to handle the case between skipping page and next page buttons.
-    // In the case of nextPage button, the input need to be validated prior to this fn.
-    if ($('#soloForm')[0][i].value) {
-      formData[$('#soloForm')[0][i].name] = $('#soloForm')[0][i].value;
-    } else {
-      formData[$('#soloForm')[0][i].name] = 'none';
-    }
+    formData[$('#soloForm').find('input')[i].name] = $('#soloForm').find('input')[i].value;
   }
-  formData['solo_events'] = await getChosenSoloEventList();
-  console.log('Solo form data', formData);
+  formData['solo_events'] = (await getChosenSoloEventTitleList()).map((x) => toCodeName(x));
 
-  let teamEvents = await getChosenTeamEventList();
-  $('#soloSection')[0].style.display = 'none';
+  let teamEvents = await getChosenTeamEventDetailsList();
+  formData['team_events'] = (await getChosenTeamEventDetailsList()).map((x) => toCodeName(x.content.name))
+  $('#soloSection').remove()
   if (teamEvents.length === 0) {
-    console.log('no team events, going to final page directly')
     await toFinalPage();
   } else {
-    console.log('going to first team event page')
     teamEvIndex += 1;
     $('#blockQuote').after(`
       <div class="section" id="teamSection${teamEvIndex}">
@@ -121,41 +169,61 @@ async function toTeamEvents() {
         <div class="form-title-hr"></div>
 
         <form id="teamForm${teamEvIndex}">
-          <!-- TODO: make this checkbox work -->
-          <div class='checkbox-row'>
-            <input class='checkbox' type='checkbox' name='leader' id='leader'/>
-            <label for='leader'>I'm the leader</label>
-          </div>
           <div>
-            <label>College</label>
-            <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <label>College</label>
+          <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
+            value="${formData.college_name}" pattern="${namePattern}" minlength="3" required />
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
-          </div>
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" pattern="${emailPattern}" required/>
+          </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
-            <label>Leader's Full Name</label>
-            <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
+          <label>Leader's Full Name</label>
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30" required pattern="${namePattern}" required/>
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
-      </div>`);
-    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize.split("-")[1]; i++) {
-      $(`#teamFormNext${teamEvIndex}`).before(`
-          <div>
-            <label>Member ${i}'s</label>
-            <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"/>
-          </div>
-        `);
+      </div> `);
+
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
     }
+
+    for (let i = 1; i < upperBound; i++) {
+      $(`#teamFormNext${teamEvIndex}`).before(`
+        <div>
+          <label>Member ${i}'s Full Name
+            <span style="color: var(--kratos-grey-lightest);">
+              ${i + 1 > lowerBound ? " (Optional)" : ""}
+            </span>
+          </label>
+          <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
+            pattern="${namePattern}"/>
+        </div >
+      `);
+    }
+
+    // Set the minimum team size based mandatory fields
+    for (let i = 1; i + 1 <= lowerBound; i++) {
+      $(`#formMemberName${i}`).attr("required", "")
+    }
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
-      "slow"
+      "fast"
     );
 
 
@@ -163,26 +231,48 @@ async function toTeamEvents() {
 }
 
 async function nextTeamSection() {
-  let teamEvents = await getChosenTeamEventList();
-  console.log('Team events list: ', teamEvents);
-  formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
-  for (let i = 0; i < $(`#teamForm${teamEvIndex}`)[0].length; i++) {
-    // ignore the checkbox value, and any other input fields
-    if ($(`#teamForm${teamEvIndex}`)[0][i].type == "text") {
-      formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`)[0][i].name] = $(`#teamForm${teamEvIndex}`)[0][i].value;
+
+  let inputs = $(`#teamForm${teamEvIndex}`).find('input');
+  let isValid = true;
+  for (let inp of inputs) {
+    if (inp.required) {
+      isValid = isValid && inp.reportValidity();
     }
   }
-  console.log('form data after team event ', teamEvIndex, formData);
-  $(`#teamSection${teamEvIndex}`)[0].style.display = 'none';
+  if (!isValid) {
+    return; // form section invalid
+  }
+  $(`#teamFormNext${teamEvIndex}`).attr('disabled', '')
 
+  let teamEvents = await getChosenTeamEventDetailsList();
+  formData[toCodeName(teamEvents[teamEvIndex].content.name)] = {}; // create the subobject for this event's data
+  for (let i = 0; i < $(`#teamForm${teamEvIndex}`).find('input').length; i++) {
+    formData[toCodeName(teamEvents[teamEvIndex].content.name)][$(`#teamForm${teamEvIndex}`).find('input')[i].name] = $(`#teamForm${teamEvIndex}`).find('input')[i].value;
+  }
+  $(`#teamSection${teamEvIndex}`).remove();
+
+  let lowerBound;
+  let upperBound;
+  if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+    // variable team size
+    lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+    upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+  } else {
+    // fixed team size
+    lowerBound = teamEvents[teamEvIndex].content.teamSize;
+    upperBound = teamEvents[teamEvIndex].content.teamSize;
+  }
+
+  // normalize the member name fields (add empty ones, as form is required to have all 3)
+  for (let i = upperBound; i < 4; i++) {
+    formData[toCodeName(teamEvents[teamEvIndex].content.name)][`member${i}_full_name`] = ""
+  }
 
   // go to next page
   if (teamEvIndex === teamEvents.length - 1) {
-    console.log('Going to final page.')
     await toFinalPage();
   } else {
     teamEvIndex += 1;
-    console.log(`going to ${teamEvIndex} team event page`)
     $('#blockQuote').after(`
       <div class="section" id="teamSection${teamEvIndex}">
         <div class="section-header">
@@ -199,49 +289,95 @@ async function nextTeamSection() {
         <div class="form-title-hr"></div>
 
         <form id="teamForm${teamEvIndex}">
-          <!-- TODO: make this checkbox work -->
-          <div class='checkbox-row'>
-            <input class='checkbox' type='checkbox' name='sameTeam' id='sameTeam'/>
-            <div>
-              <label for='sameTeam'>Same team as previous</label>
-              <div class="checkbox-info">First N members will be taken if previous team is larger than required.</div>
-            </div>
-          </div>
           <div>
-            <label>College</label>
-            <input id="formCollege" type="text" name="college_name" placeholder="e.g. Easwari Engineering College" />
+          <label>College</label>
+          <input id="formCollege" type="text" name="college_name" placeholder="e.g. SRM IST Ramapuram"
+            value="${formData.college_name}" pattern="${namePattern}" minlength="3" required />
           </div>
           <div>
             <label>Leader's Email</label>
-            <input id="formEmail" type="text" name="email" placeholder="e.g. user@example.com" autocomplete="email" />
-          </div>
+            <input id="formEmail" type="text" name="email" value="${formData.email}" placeholder="e.g. user@example.com" autocomplete="email" pattern="${emailPattern}" required/>
+          </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" />
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
-            <label>Leader's Full Name</label>
-            <input id="formLeaderName" type="text" name="leader_full_name" placeholder="e.g. Joe Mama" autocomplete="name" size="30" />
+          <label>Leader's Full Name</label>
+          <input id="formName" type="text" name="full_name" value="${formData.full_name}" placeholder="e.g. Joe Mama" autocomplete="name" size="30" required pattern="${namePattern}" required/>
           </div>
           <button id='teamFormNext${teamEvIndex}' type="button" class="next-button" onclick="nextTeamSection()">Next</button>
         </form>
-      </div>`);
-    for (let i = 1; i < teamEvents[teamEvIndex].content.teamSize.split('-')[1]; i++) {
-      $(`#teamFormNext${teamEvIndex}`).before(`
-          <div>
-            <label>Member ${i}'s</label>
-            <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"/>
-          </div>
-        `);
+      </div> `);
+
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
     }
+
+    for (let i = 1; i < upperBound; i++) {
+      $(`#teamFormNext${teamEvIndex}`).before(`
+        <div>
+          <label>Member ${i}'s Full Name${i <= upperBound - 1 ? "" : " (Optional)"}</label>
+          <input id="formMemberName${i}" type="text" name="member${i}_full_name" placeholder="e.g. Joe Mama" size="30"
+            pattern="${namePattern}" value="${formData[formData.team_events[teamEvIndex - 1]][`member${i}_full_name`]}"/>
+        </div >
+      `);
+    }
+
+    // Set the minimum team size based mandatory fields
+    for (let i = 1; i + 1 <= lowerBound; i++) {
+      $(`#formMemberName${i}`).attr("required", "")
+    }
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
-      "slow"
+      "fast"
     );
   }
 }
 
+let totalAmount = 0;
+
+async function removeEvent(ev) {
+  let allEvents = await fetchEventList();
+  // Not sure how reliable this expression is going to be
+  // in the case where the event src is not img, but the containing div instead by accident
+  let cardTopElement = ev.target.parentElement.parentElement;
+  let titleElement = cardTopElement.getElementsByClassName('event-title')[0]
+  let eventCode = toCodeName(titleElement.textContent);
+
+  // remove from cookies
+  removeRegistrationListItem(eventCode);
+
+  // modify displayed fee (non essential anyways)
+  let eventFee = Number(allEvents.find((v) => toCodeName(v.content.name) == eventCode).content.fee)
+  totalAmount -= eventFee;
+  $('#totalAmount')[0].innerHTML = `Total: <span style="font-size: 1.5em;">₹${totalAmount}</span>`
+
+  // modify form data
+  let isSoloEvent = (await getChosenSoloEventTitleList()).includes(eventCode);
+  if (isSoloEvent) {
+    formData.solo_events = formData.solo_events.filter((x) => x !== eventCode)
+  } else {
+    formData.team_events = formData.team_events.filter((x) => x !== eventCode)
+    delete formData[eventCode]
+  }
+  console.log('modified form', formData)
+  $(`#${eventCode}`).remove()
+}
+
 async function toFinalPage() {
+  $(`teamFormNext${teamEvIndex}`).attr('disabled', '')
+  console.log('Final Form Data: ', formData)
+
   $('#blockQuote').after(`
   <div class="section" id="reviewSection">
     <div class="section-header">
@@ -254,42 +390,59 @@ async function toFinalPage() {
     <div class="form-title">Team Events</div>
     <div id="teamEventsTitle" class="form-title-hr"></div>
 
-    <div class='totalAmount'></div>
-    <button id='submitAndPay' type="button" class="submit-button" onclick="alert('TODO replace with function')">Submit & Pay</button>
+    <div id="totalAmount" class='total-amount'></div>
+    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit & Pay</button>
   </div>
   `);
 
+
+
   let allEvents = await fetchEventList();
-  for (let i = 0; i < formData.solo_events.length; i++) {
-    $('#soloEventsTitle').after(`
-      <div class='review-solo-event-top'> 
-        <div class='event-title'>${formData.solo_events[i]}</div>
-        <div class='fee'>₹${allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee}</div>
-        <div class='remove-button'>❌</div>
-      </div>
+  if (formData.solo_events.length === 0) {
+    $('#soloEventsTitle').after(`<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`)
+  } else {
+    for (let i = 0; i < formData.solo_events.length; i++) {
+      let fee = allEvents.find((v) => toCodeName(v.content.name) == toCodeName(formData.solo_events[i])).content.fee;
+      totalAmount += fee
+      $('#soloEventsTitle').after(`
+        <div id='${toCodeName(formData.solo_events[i])}' class='review-solo-event-top'> 
+          <div class='event-title'>
+            ${toTitleNameList([formData.solo_events[i]])[0] == 'Css' ? 'CSS' : toTitleNameList([formData.solo_events[i]])[0]}
+          </div>
+          <div class='fee'>₹${fee}</div>
+          <div class='remove-button' onclick="removeEvent(event)">
+            <img src="/public/images/close.png" />
+          </div>
+        </div>
     `);
+    }
   }
 
-  let chosenTeamEvents = await getChosenTeamEventList();
-  for (let i = chosenTeamEvents.length - 1; i >= 0; i--) {
-    let event_code = toCodeName(chosenTeamEvents[i].content.name);
+  let teamEvents = await getChosenTeamEventDetailsList();
+  for (let i = teamEvents.length - 1; i >= 0; i--) {
+    let fee = teamEvents[i].content.fee
+    totalAmount += fee
+    let event_code = toCodeName(teamEvents[i].content.name);
     $('#teamEventsTitle').after(`
-      <div class="review-team-event">
+      <div class="review-team-event" id='${event_code}'>
         <div class='review-team-event-top'>
-          <div class='event-title'>${chosenTeamEvents[i].content.name}</div>
-          <div class='fee'>₹${chosenTeamEvents[i].content.fee}</div>
-          <div class='remove-button'>❌</div>
+          <div class='event-title'>${teamEvents[i].content.name}</div>
+          <div class='fee'>₹${fee}</div>
+          <div class='remove-button' onclick="removeEvent(event)">
+            <img src="/public/images/close.png" />
+          </div>
         </div>
         <div class='review-team-event-details'>
           <div class="names">
-            <div class="name" id="leaderName" style="margin-left: -2em">
-              👑 ${truncate(formData[event_code]['leader_full_name'], 15)}
+            <div class="label">Team</div>  
+            <div class="name" id="leaderName${i}" style="margin-left: -2em">
+              👑 ${truncateString(formData[event_code]['full_name'], 15)}
             </div>
 
           </div>
           <div class="contacts">
-            <div class="label">Email</div>
-            <div class="contact-detail">${truncate(formData[event_code]['email'], 18)}</div>
+            <div class="label">Email</div>  
+            <div class="contact-detail">${truncateString(formData[event_code]['email'], 18)}</div>
             <div class="label">Mobile</div>
             <div class="contact-detail">${formData[event_code]['mobile']}</div>
           </div>
@@ -297,46 +450,100 @@ async function toFinalPage() {
       </div>
     `);
 
-    for (let j = 1; j < chosenTeamEvents[i].content.teamSize.split('-')[1]; j++) {
-      console.log('executing member name once')
-      $('#leaderName').after(`
+    let lowerBound;
+    let upperBound;
+    if (teamEvents[teamEvIndex].content.teamSize.includes('-')) {
+      // variable team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize.split("-")[0];
+      upperBound = teamEvents[teamEvIndex].content.teamSize.split("-")[1];
+    } else {
+      // fixed team size
+      lowerBound = teamEvents[teamEvIndex].content.teamSize;
+      upperBound = teamEvents[teamEvIndex].content.teamSize;
+    }
+
+    for (let j = 1; j < upperBound; j++) {
+      $(`#leaderName${i}`).after(`
       <div class="name">
-        ${truncate(formData[event_code][`member${j}_full_name`], 15)}
+        ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
       </div>
       `);
     }
   }
+
+  $('#totalAmount')[0].innerHTML = `Total: <span style="font-size: 1.5em;">₹${totalAmount}</span>`
 }
 
-//adding this variable to check so that even for multiple click input box opens for only 1 time
-var collegeOtherInput = true;
-
 function onclickotherCollege() {
-  $(".college-input-other-college").css("background", "white");
-  $(".college-input-other-college").css("opacity", "1");
-  $(".college-input-easwari").css("background", "black");
+  $("#otherOption").addClass('switch-active')
+  $("#easwariOption").removeClass('switch-active')
+  $("#formCollege").css('display', 'block')
+  $(".college-switch").css({
+    'height': '3em',
+    'font-size': '.8em'
+  })
+  $("#formCollege").attr('value', '')
 
-  if (collegeOtherInput) {
-    $(".college").append(
-      `<div class="otherCollege mt-3"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" default="hello"  required/></div>`
-    );
-    collegeOtherInput = false;
-  }
-  $(".college").removeClass(".easwariCollege");
 }
 
 function onclickEaswari() {
-  $(".college-input-easwari").css("background", "white");
-  $(".college-input-other-college").css("opacity", "0.3");
-
-  $(".college").append(
-    `<div class="easwariCollege"><input id="formCollege"  type="text" name="college_name" placeholder="e.g. Easwari Engineering College" value="Easwari Engineering College" hidden /></div>`
-  );
-  $(".college-input-other-college").css("background", "black");
-  $(".otherCollege").empty();
-  if (!collegeOtherInput) {
-    $(".college").removeClass(".otherCollege");
-  }
-  collegeOtherInput = true;
+  $("#otherOption").removeClass('switch-active')
+  $("#easwariOption").addClass('switch-active')
+  $("#formCollege").css('display', 'none')
+  $(".college-switch").css({
+    'height': 'auto',
+    'font-size': '1em'
+  })
+  $("#formCollege").attr('value', 'Easwari Engineering College')
 }
+
+async function submitAndPay() {
+  // Do the submission and get the response
+  let subRes = await axios.post(apiURI + '/submit', formData);
+
+  // Razorpay stuff
+  var options = {
+    "key": subRes.data.key,
+    "amount": subRes.data.amount,
+    "currency": "INR",
+    "name": "Kratos 2023",
+    "description": "Test Transaction",
+    "image": "https://kratos23.com/public/images/kratos_logo.png",
+    "order_id": subRes.data.order_id,
+    "handler": function (res) { paymentSuccess(res, subRes) },
+
+    // These prefill values must cover most people, even when there are no team 
+    //  events, it will return undefined, which is fine.
+    "prefill": {
+      "name": formData.full_name,
+      "email": formData.email,
+      "contact": formData.mobile
+    },
+    // "notes": {
+    // },
+    "theme": {
+      "color": "#dc3545" // --kratos-red
+      // "backdrop_color":
+    }
+  };
+
+  var rzp1 = new Razorpay(options);
+  rzp1.on('payment.failed', paymentFailed);
+  rzp1.open();
+}
+
+async function paymentSuccess(successRes, submissionRes) {
+  successRes['form_id'] = submissionRes.data.form_id
+  let verifyRes = await axios.post(apiURI + '/submit/verify', successRes)
+  // console.log('payment success: ', successRes)
+
+  if (verifyRes.status === 200) {
+    window.location.assign('/success')
+  }
+}
+
+async function paymentFailed(res) {
+  console.log('payment failed: ', res)
+}
+
 

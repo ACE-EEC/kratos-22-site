@@ -377,7 +377,7 @@ body {
   padding: 10px;
   margin: 3em 0;
   box-shadow: 5px 10px black;
-  background-color: var(--kratos-grey-lightest);
+  background-color: rgb(48, 48, 48);
   border-radius: 25px;
   border: 5px solid black;
 }

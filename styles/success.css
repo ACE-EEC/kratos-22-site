@@ -1,0 +1,47 @@
+.page {
+  min-height: 90vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card {
+  border: 5px solid black;
+  border-radius: 2em;
+  box-shadow: 1.5px 1.5px var(--kratos-red);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 50vh;
+  background-color: var(--kratos-grey-lighter);
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 40%;
+}
+
+.main-card h3 {
+  margin: 2em 0em 0em;
+  font-family: 'Chakra Petch', monospace;
+  color: var(--kratos-red);
+  margin: 1em 0;
+  font-size: 2em;
+  text-align: center;
+}
+
+.main-card h4 {
+  color: var(--kratos-white-dull);
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .page {
+    min-height: 100vh;
+  }
+}
