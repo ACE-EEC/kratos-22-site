@@ -211,6 +211,7 @@ var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
 
 
 function displayWorkshop() {
+  $('.register-btn-section').css('display', 'flex')
   // workshopPage.style.display = 'flex';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
@@ -222,6 +223,7 @@ function displayWorkshop() {
 }
 
 function displaytech() {
+  $('.register-btn-section').css('display', 'flex')
   // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'flex';
@@ -233,6 +235,7 @@ function displaytech() {
 }
 
 function displayntech() {
+  $('.register-btn-section').css('display', 'flex')
   // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'flex';
   technicalPage.style.display = 'none';
@@ -244,6 +247,8 @@ function displayntech() {
 }
 
 function homeClick() {
+  $('.register-btn-section').css('display', 'none')
+
   homePage.style.display = 'flex';
   // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'none';
