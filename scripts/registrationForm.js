@@ -543,6 +543,5 @@ async function paymentSuccess(successRes, submissionRes) {
 
 async function paymentFailed(res) {
   console.log('payment failed: ', res)
+  alert('Your payment attempt failed. Please initiate payment again.')
 }
-
-
