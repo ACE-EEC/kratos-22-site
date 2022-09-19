@@ -4,7 +4,7 @@
     "content": {
         "name": "Gaming-FIFA",
         "image": "public/images/nonTechnical/Gaming-FIFA.png",
-        "fee": 50,
+        "fee": 100,
         "teamBased": "team",
         "teamSize": "2",
         "onlineRegistration":true,

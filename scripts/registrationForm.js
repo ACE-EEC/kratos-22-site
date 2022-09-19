@@ -353,22 +353,24 @@ async function removeEvent(ev) {
   let titleElement = cardTopElement.getElementsByClassName('event-title')[0]
   let eventCode = toCodeName(titleElement.textContent);
 
-  // remove from cookies
-  removeRegistrationListItem(eventCode);
-
-  // modify displayed fee (non essential anyways)
+  // modify displayed fee (only indicative anyways)
   let eventFee = Number(allEvents.find((v) => toCodeName(v.content.name) == eventCode).content.fee)
   totalAmount -= eventFee;
   $('#totalAmount')[0].innerHTML = `Total: <span style="font-size: 1.5em;">₹${totalAmount}</span>`
 
   // modify form data
-  let isSoloEvent = (await getChosenSoloEventTitleList()).includes(eventCode);
+  let chosenEvents = (await getChosenSoloEventTitleList())
+  let isSoloEvent = chosenEvents.map((x) => toCodeName(x)).includes(eventCode);
   if (isSoloEvent) {
     formData.solo_events = formData.solo_events.filter((x) => x !== eventCode)
   } else {
     formData.team_events = formData.team_events.filter((x) => x !== eventCode)
     delete formData[eventCode]
   }
+
+  // remove from cookies
+  removeRegistrationListItem(eventCode);
+
   console.log('modified form', formData)
   $(`#${eventCode}`).remove()
 }
@@ -405,9 +407,7 @@ async function toFinalPage() {
       totalAmount += fee
       $('#soloEventsTitle').after(`
         <div id='${toCodeName(formData.solo_events[i])}' class='review-solo-event-top'> 
-          <div class='event-title'>
-            ${toTitleNameList([formData.solo_events[i]])[0] == 'Css' ? 'CSS' : toTitleNameList([formData.solo_events[i]])[0]}
-          </div>
+          <div class='event-title'>${toTitleNameList([formData.solo_events[i]])[0] == 'Css' ? 'CSS' : toTitleNameList([formData.solo_events[i]])[0]}</div>
           <div class='fee'>₹${fee}</div>
           <div class='remove-button' onclick="removeEvent(event)">
             <img src="/public/images/close.png" />
