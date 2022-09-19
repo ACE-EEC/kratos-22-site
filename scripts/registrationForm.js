@@ -1,5 +1,4 @@
-// const apiURI = "https://api.kratos23.com"
-const apiURI = "http://api.kratos23.com"
+const apiURI = "https://api.kratos23.com"
 const namePattern = "^[A-Za-z]+((\\s)?(('|-|\\.)?([A-Za-z])+))*\\s*?$"
 const emailPattern = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$"
 const mobilePattern = "^[0-9]{10}$"
