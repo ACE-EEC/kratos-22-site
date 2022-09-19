@@ -509,7 +509,7 @@ input:focus {
     width: 40vw;
   }
 
-  /* .review-solo-event-top {
-    width: 100%;
-  } */
+  .reg-modal-card { 
+    width: 50%;
+  }
 }
