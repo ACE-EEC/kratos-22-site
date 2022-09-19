@@ -4,7 +4,7 @@
     "content": {
         "name": "Pair Programming",
         "image": "public/images/technical/Pair Programming.png",
-        "fee": 50,
+        "fee": 100,
         "teamBased": "team",
         "teamSize": "2",
         "onlineRegistration":true,

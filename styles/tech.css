@@ -1061,6 +1061,11 @@ body {
     justify-content: center;
   }
 
+  .home-page {
+    width: 50%;
+    max-height: 30em
+  }
+
   .insta-logo-align {
     /* margin-top: 4.5em; */
     justify-content: center;

@@ -2,7 +2,7 @@
     "category": "technical",
     "type": "offline",
     "content": {
-        "name": "Debugging",
+        "name": "Bug Off",
         "image": "public/images/technical/Debugging.png",
         "fee": 50,
         "teamBased": "Solo / Team",

@@ -4,7 +4,7 @@
     "content": {
         "name": "Paper Presentation",
         "image": "public/images/technical/Paper Presentation.png",
-        "fee": 50,
+        "fee": 250,
         "teamBased": "Solo / Team",
         "teamSize": "1-4",
         "onlineRegistration":true,

@@ -4,7 +4,7 @@
     "content": {
         "name": "Code play",
         "image": "public/images/technical/Code Play.png",
-        "fee": 50,
+        "fee": 100,
         "teamBased": "Solo / Team",
         "teamSize": "1-2",
         "onlineRegistration":true,
