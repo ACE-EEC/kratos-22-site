@@ -127,6 +127,7 @@ body {
 }
 
 .register-btn-section {
+  scale: 1.25;
   display: none;
   font-family: 'Chakra Petch', sans-serif;
   color: var(--kratos-red);
@@ -590,6 +591,10 @@ body {
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
+  }
+
+  .register-btn-section {
+    margin: 2em 0 3em;
   }
 
   .upArrow {
