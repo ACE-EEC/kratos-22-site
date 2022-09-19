@@ -59,13 +59,16 @@ function registerClick(i) {
         icon.classList.remove('fa-check');
     } else {
         idempotentAppendRegistrationList(codeName);
-
+        
         regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
         regButton.classList.remove('reg-button-active')
         regButton.classList.add('reg-button-inactive')
-
+        
         let icon = card.getElementsByClassName('fa-arrow-right-long')[0];
         icon.classList.remove('fa-arrow-right-long')
         icon.classList.add('fa-check');
+
+        $('#regModal').css('display', 'flex')
+        $('#regModal').find('.event-name')[0].textContent = cardName;
     }
 }

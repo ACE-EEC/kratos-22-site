@@ -56,6 +56,31 @@
     </div>
   </nav>
 
+  <div id="regModal" class="reg-modal-container">
+    <div class="reg-modal-card" data-aos="fade-up">
+      <div class="close-button" onclick="$('#regModal').css('display', 'none')">
+        <img src="/public/images/close-dark.png" />
+      </div>
+      <div class="header">
+        SUCCESSFULLY ADDED TO REGISTRATION
+      </div>
+      <div class="event-name">
+        <!-- value will be inserted through jquery -->
+      </div>
+      <div class="button-container">
+        <div class="reg-button reg-button-active" style="display: flex; opacity: 1; margin: .5em 2em;;"
+          onclick="location.href='/register.html'">
+          <div class="reg-button-label">Complete Registration</div>
+          <i class="fa-solid fa-arrow-right-long"></i>
+        </div>
+        <div class="reg-button reg-button-inactive"
+          style="display: flex; opacity: 1; margin: .5em 2em; cursor: pointer;" onclick="$('#regModal').css('display', 'none')">
+          <div class="reg-button-label">Continue Browsing Events</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="banner">
     <video class="bannerVideo" muted autoplay loop id="video" height="auto">
       <source src="public/kratos_2023_trailer.mp4" type="video/mp4" />

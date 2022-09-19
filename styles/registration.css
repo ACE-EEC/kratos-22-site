@@ -71,7 +71,7 @@ input:focus {
 .reg-button-inactive {
   border: 3px solid var(--kratos-black);
   color: var(--kratos-black);
-  background-color: var(--kratos-white);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .reg-button-label {
@@ -407,6 +407,61 @@ input:focus {
   text-align: right;
 }
 
+.reg-modal-container {
+  display: none;
+  /* display: flex; */
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.reg-modal-card {
+  display: flex;
+  flex-flow: column nowrap;
+  /* justify-content: space-around; */
+  box-shadow: 0 -8px 8px rgba(0, 0, 0, .5);
+  min-height: 30%;
+  width: 100%;
+  background-color: var(--kratos-white);
+  padding: 1em;
+}
+
+.reg-modal-card .header {
+  margin: 1em 0 .5em;
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Chakra Petch', monospace;
+  color: var(--kratos-grey-dark);
+
+}
+
+.reg-modal-card .button-container {
+  margin: 1em 0;
+}
+
+.reg-modal-card .event-name {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: 'Chakra Petch', monospace;
+  color: var(--kratos-red);
+
+}
+
+.reg-modal-card .close-button {
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+
 @media only screen and (min-width: 768px) {
 
   form {
@@ -449,7 +504,7 @@ input:focus {
     font-size: 1.2em;
     margin: 0 0 2em;
   }
-  
+
   .page .section {
     width: 40vw;
   }
