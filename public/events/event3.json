@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "Code play",
-        "image": "public/images/technical/Code Play.png",
+        "image": "https://storage.googleapis.com/kratos23.com/images/technical/Code Play.png",
         "fee": 100,
         "teamBased": "Solo / Team",
         "teamSize": "1-2",

@@ -3,7 +3,7 @@
     "type": "online",
     "content": {
         "name": "Gaming-Valorant",
-        "image": "public/images/nonTechnical/Gaming-Valorant.png",
+        "image": "https://storage.googleapis.com/kratos23.com/images/nonTechnical/Gaming-Valorant.png",
         "fee": 250,
         "teamBased": "Team",
         "teamSize": "5",

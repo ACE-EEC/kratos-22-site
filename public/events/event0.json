@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "Paper Presentation",
-        "image": "public/images/technical/Paper Presentation.png",
+        "image": "https://storage.googleapis.com/kratos23.com/images/technical/Paper Presentation.png",
         "fee": 250,
         "teamBased": "Solo / Team",
         "teamSize": "1-4",

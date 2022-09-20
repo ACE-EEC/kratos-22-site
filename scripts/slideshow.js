@@ -46,7 +46,7 @@ function updateSlides(targetPage) {
 
   slides = document.getElementsByClassName('slide');
   for (var i = 0; i < slideCount[activePage]; i++) {
-    slides[i].src = `public/images/slides/${activePage}/slide-${i}.png`;
+    slides[i].src = `https://storage.googleapis.com/kratos23.com/images/slides/${activePage}/slide-${i}.png`;
 
     // performance optimizations
     if (i > 0) {

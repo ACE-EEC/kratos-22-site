@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "CSS",
-        "image": "public/images/technical/CSS.png",
+        "image": "https://storage.googleapis.com/kratos23.com/images/technical/CSS.png",
         "fee": 50,
         "teamBased": "Solo",
         "teamSize": "1",

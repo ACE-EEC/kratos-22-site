@@ -3,7 +3,7 @@
     "type": "offline",
     "content": {
         "name": "Channel Surfing",
-        "image": "public/images/nonTechnical/Channel Surfing.png",
+        "image": "https://storage.googleapis.com/kratos23.com/images/nonTechnical/Channel Surfing.png",
         "fee": 50,
         "teamBased": "team",
         "teamSize": "5",
