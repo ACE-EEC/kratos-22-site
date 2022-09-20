@@ -1,25 +1,34 @@
+let _eventCount;
 async function fetchEventCount() {
-  let res = await fetch('public/events/count');
+  if (_eventCount) {
+    return _eventCount
+  }
+
+  let res = await fetch('https://storage.googleapis.com/kratos23.com/events/count');
   if (res.ok) {
-    return Number((await res.text()));
+    _eventCount = Number((await res.text()));
+    return _eventCount;
   } else {
     console.error("Error fetching event count. ", res);
   }
 }
 
+let _eventList = [];
 async function fetchEventList() {
-  let events = [];
+  if (_eventList.length !== 0) 
+    return _eventList;
+
+  let promises = [];
   let count = await fetchEventCount();
   for (let i = 0; i < count; i++) {
-    let res = await fetch(`public/events/event${i}.json`);
-    if (res.ok) {
-      events.push(await res.json());
-    } else {
-      console.error("Error fetching event.", res);
-    }
+    promises.push(axios.get(`https://storage.googleapis.com/kratos23.com/events/event${i}.json`));
   }
-  return events;
+
+  _eventList = (await Promise.all(promises)).map((x) => x.data)
+  return _eventList;
 }
+
+$('body').on('ready', loadEventCards());
 
 async function loadEventCards() {
   let count = await fetchEventCount();

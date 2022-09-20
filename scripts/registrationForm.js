@@ -410,7 +410,7 @@ async function toFinalPage() {
           <div class='event-title'>${toTitleNameList([formData.solo_events[i]])[0] == 'Css' ? 'CSS' : toTitleNameList([formData.solo_events[i]])[0]}</div>
           <div class='fee'>₹${fee}</div>
           <div class='remove-button' onclick="removeEvent(event)">
-            <img src="/public/images/close.png" />
+            <img src="https://storage.googleapis.com/kratos23.com/images/close.png" />
           </div>
         </div>
     `);
@@ -428,7 +428,7 @@ async function toFinalPage() {
           <div class='event-title'>${teamEvents[i].content.name}</div>
           <div class='fee'>₹${fee}</div>
           <div class='remove-button' onclick="removeEvent(event)">
-            <img src="/public/images/close.png" />
+            <img src="https://storage.googleapis.com/kratos23.com/images/close.png" />
           </div>
         </div>
         <div class='review-team-event-details'>
@@ -507,7 +507,7 @@ async function submitAndPay() {
     "currency": "INR",
     "name": "Kratos 2023",
     "description": "Test Transaction",
-    "image": "https://kratos23.com/public/images/kratos_logo.png",
+    "image": "https://storage.googleapis.com/kratos23.com/images/kratos_logo.png",
     "order_id": subRes.data.order_id,
     "handler": function (res) { paymentSuccess(res, subRes) },
 
