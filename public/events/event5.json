@@ -4,7 +4,7 @@
     "content": {
         "name": "Murder Mystery",
         "image": "https://storage.googleapis.com/kratos23.com/images/nonTechnical/Murder Mystery.png",
-        "fee": 60,
+        "fee": 75,
         "teamBased": "Solo / Team",
         "teamSize": "1-3",
         "onlineRegistration":true,

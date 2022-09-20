@@ -4,7 +4,7 @@
     "content": {
         "name": "Channel Surfing",
         "image": "https://storage.googleapis.com/kratos23.com/images/nonTechnical/Channel Surfing.png",
-        "fee": 50,
+        "fee": 250,
         "teamBased": "team",
         "teamSize": "5",
         "onlineRegistration":true,
