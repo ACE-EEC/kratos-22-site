@@ -49,9 +49,9 @@ function updateSlides(targetPage) {
     slides[i].src = `https://storage.googleapis.com/kratos23.com/images/slides/${activePage}/slide-${i}.png`;
 
     // performance optimizations
-    if (i > 0) {
-      slides[i].loading = 'lazy';
-    }
+    // if (i > 0) {
+    //   slides[i].loading = 'lazy';
+    // }
   }
 
   ssContainer.scrollTo({ left: 0, behavior: 'auto' });
