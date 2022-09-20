@@ -296,7 +296,7 @@ input:focus {
   /* justify-content: space-around; */
   background-color: var(--kratos-white-dull);
   width: 30vw;
-  height: 30vh;
+  height: 30vw;
   border-radius: 1em;
 
 }
