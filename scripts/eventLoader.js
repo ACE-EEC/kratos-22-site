@@ -21,6 +21,8 @@ async function fetchEventList() {
   return events;
 }
 
+$('body').on('ready', loadEventCards());
+
 async function loadEventCards() {
   let count = await fetchEventCount();
   let events = await fetchEventList();

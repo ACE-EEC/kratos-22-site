@@ -20,12 +20,11 @@
   <script rel="script" type="text/javascript" src="scripts/eventLoader.js" defer></script>
   <script rel="script" type="text/javascript" src="scripts/registration.js" defer></script>
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/b460e0b985.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="loadEventCards()">
+<body>
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark " id="nav">
     <a class="navbar-brand " href="/">
       <img class="navLogo " src="https://storage.googleapis.com/kratos23.com/images/kratos_logo.png" />
@@ -58,7 +57,7 @@
   <div id="regModal" class="reg-modal-container">
     <div class="reg-modal-card" data-aos="fade-up">
       <div class="close-button" onclick="$('#regModal').css('display', 'none')">
-        <img src="https://storage.googleapis.com/kratos23.com/images/close-dark.png" />
+        <img src="https://storage.googleapis.com/kratos23.com/images/close-dark.png" loading='lazy' />
       </div>
       <div class="header">
         SUCCESSFULLY ADDED TO REGISTRATION
@@ -82,7 +81,8 @@
   </div>
 
   <div class="banner">
-    <video class="bannerVideo" muted autoplay loop id="video" height="auto">
+    <video class="bannerVideo" muted autoplay loop id="video" height="auto"
+      poster="https://storage.googleapis.com/kratos23.com/images/kratos_2023_trailer_poster.jpg">
       <source src="https://storage.googleapis.com/kratos23.com/kratos_2023_trailer.mp4" type="video/mp4" />
     </video>
     <div class="slideshow-container" id="slideshowContainer"></div>
@@ -318,6 +318,9 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
   integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
   integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b460e0b985.js" crossorigin="anonymous"></script>
+
 </html>
