@@ -1,5 +1,5 @@
 async function fetchEventCount() {
-  let res = await fetch('public/events/count');
+  let res = await fetch('https://storage.googleapis.com/kratos23.com/events/count');
   if (res.ok) {
     return Number((await res.text()));
   } else {
@@ -11,7 +11,7 @@ async function fetchEventList() {
   let events = [];
   let count = await fetchEventCount();
   for (let i = 0; i < count; i++) {
-    let res = await fetch(`public/events/event${i}.json`);
+    let res = await fetch(`https://storage.googleapis.com/kratos23.com/events/event${i}.json`);
     if (res.ok) {
       events.push(await res.json());
     } else {
