@@ -425,7 +425,7 @@ body {
   hyphens: auto;
 
 
-  font-family: 'Consolas', 'Roboto Mono', monospace;
+  font-family: monospace;
   font-size: 1em;
   padding: 0.75em;
 }
