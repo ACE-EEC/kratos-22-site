@@ -14,7 +14,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  min-width: 60vw;
+  max-width: 90vw;
   height: 50vh;
   background-color: var(--kratos-grey-lighter);
 }

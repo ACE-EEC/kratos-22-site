@@ -390,6 +390,7 @@ async function toFinalPage() {
     <div id="teamEventsTitle" class="form-title-hr"></div>
 
     <div id="totalAmount" class='total-amount'></div>
+    <div class='total-amount' style="font-size:1em;">Payment for Paper Presentation will be required only later, if shortlisted</div> <!-- TODO: Remove -->
     <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit</button>
     <!-- TODO: Change button text to Submit & Pay -->
   </div>

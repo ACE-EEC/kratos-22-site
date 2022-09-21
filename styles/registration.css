@@ -20,6 +20,10 @@ input:focus {
   height: auto;
 }
 
+button{
+  border: none;
+}
+
 .college-switch .switch-option {
   transition: background-color .1s linear;
   opacity: 0.3;
@@ -122,6 +126,7 @@ input:focus {
 }
 
 .page .section-header h4 {
+  text-align: center;
   color: var(--kratos-white-dull);
   font-size: 1.3em;
   font-weight: 300;
@@ -474,14 +479,6 @@ h5 .info-icon {
   display: flex;
   width: 1.5em;
   height: 1.5em;
-}
-
-@media only screen and (max-width:760px) {
-  .image-container {
-    width: 25vw;
-    height: 50vh;
-
-  }
 }
 
 @media only screen and (min-width: 768px) {
