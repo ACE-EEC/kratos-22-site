@@ -38,6 +38,10 @@ async function loadEventCards() {
     let event = events[i];
     let registerLogo = event.content.onlineRegistration ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-building-columns'
     let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
+
+    // TODO: Remove temp change when opening registrations fully 
+    regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
+
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
 
 

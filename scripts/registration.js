@@ -11,7 +11,6 @@ function getCookie(key) {
 }
 
 function setCookie(key, value) {
-    // TODO: add domain attribute
     document.cookie = `${key}=${btoa(value)}; max-age=172800; path='/'; samesite=lax;`;
 }
 

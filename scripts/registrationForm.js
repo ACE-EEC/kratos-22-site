@@ -101,12 +101,10 @@ async function loadSoloEventList() {
 
 
 $('input').focusout(function () {
-  console.log('fired focus out') // TODO remove debug logging
   this.setCustomValidity('')
   this.reportValidity();
 });
 
-// TODO Remove the logs
 $('#formName').on('invalid', function (ev) {
   this.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
 })
@@ -392,7 +390,8 @@ async function toFinalPage() {
     <div id="teamEventsTitle" class="form-title-hr"></div>
 
     <div id="totalAmount" class='total-amount'></div>
-    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit & Pay</button>
+    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit</button>
+    <!-- TODO: Change button text to Submit & Pay -->
   </div>
   `);
 
@@ -498,37 +497,43 @@ function onclickEaswari() {
 
 async function submitAndPay() {
   // Do the submission and get the response
+  $('#submitAndPay').attr('disabled', 'disabled')
+  setTimeout(() => { $('#submitAndPay').attr('disabled', 'disabled') }, 5000);
+
   let subRes = await axios.post(apiURI + '/submit', formData);
+  // TODO: remove redirect
+  document.location.assign('/success')
 
   // Razorpay stuff
-  var options = {
-    "key": subRes.data.key,
-    "amount": subRes.data.amount,
-    "currency": "INR",
-    "name": "Kratos 2023",
-    "description": "Test Transaction",
-    "image": "https://storage.googleapis.com/kratos23.com/images/kratos_logo.png",
-    "order_id": subRes.data.order_id,
-    "handler": function (res) { paymentSuccess(res, subRes) },
+  // TODO: Reenable when opening registrations fully
+  // var options = {
+  //   "key": subRes.data.key,
+  //   "amount": subRes.data.amount,
+  //   "currency": "INR",
+  //   "name": "Kratos 2023",
+  //   "description": "Test Transaction",
+  //   "image": "https://storage.googleapis.com/kratos23.com/images/kratos_logo.png",
+  //   "order_id": subRes.data.order_id,
+  //   "handler": function (res) { paymentSuccess(res, subRes) },
 
-    // These prefill values must cover most people, even when there are no team 
-    //  events, it will return undefined, which is fine.
-    "prefill": {
-      "name": formData.full_name,
-      "email": formData.email,
-      "contact": formData.mobile
-    },
-    // "notes": {
-    // },
-    "theme": {
-      "color": "#dc3545" // --kratos-red
-      // "backdrop_color":
-    }
-  };
+  //   // These prefill values must cover most people, even when there are no team 
+  //   //  events, it will return undefined, which is fine.
+  //   "prefill": {
+  //     "name": formData.full_name,
+  //     "email": formData.email,
+  //     "contact": formData.mobile
+  //   },
+  //   // "notes": {
+  //   // },
+  //   "theme": {
+  //     "color": "#dc3545" // --kratos-red
+  //     // "backdrop_color":
+  //   }
+  // };
 
-  var rzp1 = new Razorpay(options);
-  rzp1.on('payment.failed', paymentFailed);
-  rzp1.open();
+  // var rzp1 = new Razorpay(options);
+  // rzp1.on('payment.failed', paymentFailed);
+  // rzp1.open();
 }
 
 async function paymentSuccess(successRes, submissionRes) {
@@ -543,5 +548,6 @@ async function paymentSuccess(successRes, submissionRes) {
 
 async function paymentFailed(res) {
   console.log('payment failed: ', res)
+  alert("Payment failed. Please initiate payment again.")
   alert('Your payment attempt failed. Please initiate payment again.')
 }
