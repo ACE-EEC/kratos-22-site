@@ -166,11 +166,18 @@ body {
   border-radius: 20px;
 }
 
-.plus,
+
 .eventName {
   margin: 30px;
   transition: all var(--kratos-card-trans-dur) ease;
   cursor: pointer;
+}
+
+.plus {
+  margin: 30px;
+  transition: all var(--kratos-card-trans-dur) ease;
+  cursor: pointer;
+  scale: 1.5;
 }
 
 .details {
@@ -542,6 +549,10 @@ body {
 @media only screen and (min-width: 768px) {
   a {
     margin: 50px;
+  }
+
+  .plus {
+    scale: 1;
   }
 
   .details {
