@@ -366,8 +366,9 @@ body {
 }
 
 /*Block Quote*/
-.blockquote>p {
+.blockquote p {
   font-size: 3.5rem;
+  font-family: 'Blanka', 'Chakra Petch', monospace !important;
 }
 
 #link0,
@@ -686,11 +687,12 @@ body {
   }
 
   .brand-name {
-    display: inline;
-    font-weight: 700;
+    height: 2em;
+    display: flex;
     font-size: 2em;
-    line-height: 200%;
-    font-family: "Audiowide", "Consolas", "Courier New", Courier, monospace;
+    color: var(--kratos-white);
+    /* font-stretch: 200%;  */
+    font-family: "Blanka", "Consolas", "Courier New", Courier, monospace;
   }
 
   .navLogo {
