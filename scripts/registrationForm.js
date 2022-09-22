@@ -98,9 +98,7 @@ async function loadSoloEventList() {
   }
 }
 
-
-
-$('input').focusout(function () {
+$('input').keydown(function () {
   this.setCustomValidity('')
   this.reportValidity();
 });
@@ -218,6 +216,11 @@ async function toTeamEvents() {
       $(`#formMemberName${i}`).attr("required", "")
     }
 
+    $('input').keydown(function () {
+      this.setCustomValidity('')
+      this.reportValidity();
+    });
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
       "fast"
@@ -232,7 +235,11 @@ async function nextTeamSection() {
   let inputs = $(`#teamForm${teamEvIndex}`).find('input');
   let isValid = true;
   for (let inp of inputs) {
-    if (inp.required) {
+    // For required fields and optional fields that are non-empty
+    if (inp.required || inp.value !== "") {
+      let validity = inp.checkValidity();
+      if (!validity)
+        inp.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
       isValid = isValid && inp.reportValidity();
     }
   }
@@ -334,6 +341,11 @@ async function nextTeamSection() {
       $(`#formMemberName${i}`).attr("required", "")
     }
 
+    $('input').keydown(function () {
+      this.setCustomValidity('')
+      this.reportValidity();
+    });
+
     $("html, body").animate(
       { scrollTop: $("#blockQuote").position().top },
       "fast"
@@ -375,7 +387,7 @@ async function removeEvent(ev) {
 
 async function toFinalPage() {
   $(`teamFormNext${teamEvIndex}`).attr('disabled', '')
-  console.log('Final Form Data: ', formData)
+  console.log('Review form: ', formData)
 
   $('#blockQuote').after(`
   <div class="section" id="reviewSection">

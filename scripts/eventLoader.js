@@ -31,6 +31,11 @@ async function fetchEventList() {
 $('body').on('ready', loadEventCards());
 
 async function loadEventCards() {
+  // Only do card loading in the main page. 
+  // This module is linked in registration page too, for the fetchEventList() and fetchEventCount fns()
+  if (document.location.pathname !== "/")
+    return; 
+
   let count = await fetchEventCount();
   let events = await fetchEventList();
   // Load all the events
