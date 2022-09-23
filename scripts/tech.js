@@ -3,6 +3,9 @@ $("#link4").on("click", function (e) {
   $("html, body").animate({ scrollTop: $("#myFooter").position().top }, "slow");
 });
 
+// view counter lol
+fetch('https://api.kratos23.com/analytics/views');
+
 var myIndex = 0;
 function reset(index) {
   myIndex = index;
