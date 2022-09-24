@@ -210,7 +210,7 @@ body {
 
 /*for plus animation*/
 .transform {
-  transition: all 0.5s;
+  transition: all var(--kratos-card-trans-dur);
 }
 
 .transform-active {
@@ -218,7 +218,7 @@ body {
 }
 
 .transform-active-another {
-  transform: rotate(360deg);
+  transform: rotate(180deg);
 }
 
 .banner {

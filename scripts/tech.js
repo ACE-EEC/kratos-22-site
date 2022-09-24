@@ -62,7 +62,7 @@ function displayMany(i) {
 
   setTimeout(function () {
     setOpacity(i);
-  }, 500);
+  }, 300);
 }
 
 function setOpacity(i) {
@@ -139,7 +139,7 @@ function resetMany(i) {
 
   setTimeout(function () {
     setDisplayTime(myIndex);
-  }, 500);
+  }, 300);
 }
 
 var sympo = document.getElementsByClassName('sympo')[0];

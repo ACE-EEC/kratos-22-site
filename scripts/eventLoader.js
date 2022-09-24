@@ -58,7 +58,7 @@ async function loadEventCards() {
             <div class="icon">
               <img src="${event.content.image}"/>
             </div>
-            <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 500); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
+            <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 300); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
             <div class="details" id="details${i}">
               <div class="tag">₹${event.content.fee}</div>
               <div class="tag">${event.content.teamBased}</div>
