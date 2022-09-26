@@ -77,24 +77,8 @@ async function loadSoloEventList() {
     return;
   }
 
-  // Skip solo details flow. Removed to streamline the flow even more
   if (soloList.length === 0) {
     elist.innerHTML += `<div class="event-list-item" style="background: var(--kratos-grey-lighter); color: var(--kratos-white-dull);">None</div>`
-    //   $('.section-header').find('h4')[0].innerHTML = "You haven't chosen any solo events";
-    //   $('.section-header').find('h5')[0].innerHTML = "Skip ahead to the next page for team events"
-    //   $('.section-header').find('h5').after($('#soloFormNext'));
-    //   $('#soloFormNext')[0].style.alignSelf = 'center';
-    //   $('.event-list')[0].style.display = 'none';
-
-    //   // $('.section-header').find('.event-list')[0].style.display = 'none';
-    //   // $('.form-title')[0].style.display = 'none';
-    //   // $('.form-title-hr')[0].style.display = 'none';
-    //   // $('form')[0].style.display = 'none';
-
-    //   $('form').find('input').attr('disabled', true);
-    //   $('form').find('input').attr('placeholder', 'Currently Disabled');
-    //   $('#soloFormNext')[0].innerHTML = "Skip";
-    //   // $('#soloFormNext').attr('onclick', 'skipSoloRegistration()');
   }
 }
 
@@ -175,7 +159,7 @@ async function toTeamEvents() {
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
@@ -304,7 +288,7 @@ async function nextTeamSection() {
           </div >
           <div>
             <label>Leader's Phone Number</label>
-            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" minlength="10" size="10" autocomplete="mobile" pattern="${mobilePattern}" required/>
+            <input id="formMobile" type="text" name="mobile" value="${formData.mobile}" placeholder="e.g. 1234567890" autocomplete="mobile" pattern="${mobilePattern}" required/>
           </div>
           <div style="margin-bottom: 2em;">
           <label>Leader's Full Name</label>
@@ -490,7 +474,7 @@ function onclickotherCollege() {
   $("#easwariOption").removeClass('switch-active')
   $("#formCollege").css('display', 'block')
   $(".college-switch").css({
-    'height': 'auto',
+    'min-height': 'auto',
     'font-size': '.8em'
   })
   $("#formCollege").attr('value', '')
@@ -502,7 +486,7 @@ function onclickEaswari() {
   $("#easwariOption").addClass('switch-active')
   $("#formCollege").css('display', 'none')
   $(".college-switch").css({
-    'height': '3em',
+    'min-height': '3em',
     'font-size': '1em'
   })
   $("#formCollege").attr('value', 'Easwari Engineering College')
