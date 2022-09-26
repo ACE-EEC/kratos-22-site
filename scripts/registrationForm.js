@@ -98,7 +98,7 @@ async function loadSoloEventList() {
   }
 }
 
-$('input').keydown(function () {
+$('input').on("keydown change", function () {
   this.setCustomValidity('')
   this.reportValidity();
 });
@@ -216,7 +216,7 @@ async function toTeamEvents() {
       $(`#formMemberName${i}`).attr("required", "")
     }
 
-    $('input').keydown(function () {
+    $('input').on("keydown change", function () {
       this.setCustomValidity('')
       this.reportValidity();
     });
@@ -239,7 +239,7 @@ async function nextTeamSection() {
     if (inp.required || inp.value !== "") {
       let validity = inp.checkValidity();
       if (!validity)
-        inp.setCustomValidity('Please enter a valid name! (Only Alphabets and whitespaces)')
+        inp.setCustomValidity('Please enter a valid input')
       isValid = isValid && inp.reportValidity();
     }
   }
@@ -341,7 +341,7 @@ async function nextTeamSection() {
       $(`#formMemberName${i}`).attr("required", "")
     }
 
-    $('input').keydown(function () {
+    $('input').on("keydown change", function () {
       this.setCustomValidity('')
       this.reportValidity();
     });
