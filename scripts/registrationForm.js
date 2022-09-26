@@ -490,7 +490,7 @@ function onclickotherCollege() {
   $("#easwariOption").removeClass('switch-active')
   $("#formCollege").css('display', 'block')
   $(".college-switch").css({
-    'height': '3em',
+    'height': 'auto',
     'font-size': '.8em'
   })
   $("#formCollege").attr('value', '')
@@ -502,7 +502,7 @@ function onclickEaswari() {
   $("#easwariOption").addClass('switch-active')
   $("#formCollege").css('display', 'none')
   $(".college-switch").css({
-    'height': 'auto',
+    'height': '3em',
     'font-size': '1em'
   })
   $("#formCollege").attr('value', 'Easwari Engineering College')
