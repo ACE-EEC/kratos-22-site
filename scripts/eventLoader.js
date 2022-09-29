@@ -51,7 +51,7 @@ async function loadEventCards() {
 
 
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
-      `<div class="card "  id="card${i}" >
+      `<div class="card "  id="card${i}">
         <div class="cardContent" >
           <div class="cardImage" id="cardImage${i}" >
             <h1 class="eventName">${event.content.name}</h1>
@@ -72,6 +72,7 @@ async function loadEventCards() {
           </div>
           <div class="bText" id="bText${i}">
             <p class="content" id="content${i}">${event.content.description}</p>
+            <p class="contact">👤 ${event.content.contact}</p>
           </div>
           <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>
