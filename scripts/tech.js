@@ -185,9 +185,9 @@ $('#nonTechbutton').click((e) => {
     "slow"
   );
 });
-$('#contributorsPage').click((e) => {
+$('#contributorsButton').click((e) => {
   e.preventDefault();
-  ntechClick();
+  contributorsClick();
   $("html, body").animate(
     { scrollTop: $(".banner").position().top },
     "slow"

@@ -1245,6 +1245,7 @@ body {
 }
 
 .grey-bg{
+  /* margin-bottom: 2em; */
   width:100vw;
   background-color: var(--kratos-grey-lighter);
 }
