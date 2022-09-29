@@ -32,7 +32,7 @@
       <img class="navLogo " src="https://storage.googleapis.com/kratos23.com/images/kratos_logo.png" />
       <div class="brand-name">KRATOS</div>
     </a>
-    <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages">
+    <button class="navbar-toggler m-3" data-bs-toggle="collapse" data-bs-target="#pages" id="hambutton">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="pages">
@@ -49,11 +49,12 @@
           </li> -->
           <li class="nav-item "><a href="#" id="link3" onclick="ntechClick()" class="nav-link animationunderline "
               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">NON-TECHNICAL</a></li>
+              <li class="nav-item "><a href="#" id="link4" class="nav-link text-danger contactstyle"
+                data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">CONTACT</a></li>
           <li class="nav-item "><a href="#" id="link3" onclick="contributorsClick()"
               class="nav-link animationunderline " data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show">CONTRIBUTORS</a></li>
-          <li class="nav-item "><a href="#" id="link4" class="nav-link text-danger contactstyle"
-              data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">CONTACT</a></li>
+         
         </ul>
       </div>
     </div>
@@ -103,8 +104,8 @@
     <blockquote id="homeTitle" class="w-100 blockquote text-center">
       <p class="m-1 text-danger">KRATOS 2023</p>
       <footer class="text-light">A national level technical symposium</p>
-        <div class="justify-content-center">
-          <button class="register-btn-homepage" onclick="location.href='/register'">Register
+        <div class="justify-content-center" id="reg-button-container">
+          <button class="register-btn-homepage" onclick="$('#hambutton').click()">Register
           </button>
         </div>
     </blockquote>
@@ -223,24 +224,7 @@
       </div>
     </div>
 
-    <div class="black-bg">
-      <div class="container">
-        <h4 class="heading text-danger">Website Creators</h4>
-        <table class="table-custom table-borderless">
-          <tbody>
-            <tr>
-              <td class="name">Nithish</td>
-              <td class="designation">Technical Head</td>
-            </tr>
-            <tr>
-              <td class="name">Rohith </td>
-              <td class="designation">Associate Technical Head</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+   
 
   </div>
 
@@ -305,48 +289,6 @@
         </div>
       </div>
 
-      <div class="grey-bg">
-        <div class="container">
-          <h4 class="heading text-danger">Teacher-Incharge</h4>
-          <table class="table-custom table-borderless">
-            <tbody>
-              <tr>
-                <td class="name">Dr. Anadha Mala</td>
-                <td class="designation">HOD</td>
-              </tr>
-              <tr>
-                <td class="name">Dr. Abirami</td>
-                <td class="designation">Coordinator</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="black-bg">
-        <div class="container">
-          <h4 class="heading text-danger">Office Bearers</h4>
-          <table class="table-custom table-borderless">
-            <tbody>
-              <tr>
-                <td class="name">Shravan</td>
-                <td class="designation">President</td>
-              </tr>
-              <tr>
-                <td class="name">Rohidh GC</td>
-                <td class="designation">Vice-President</td>
-              </tr>
-              <tr>
-                <td class="name">Priya</td>
-                <td class="designation">Secretary</td>
-              </tr>
-
-
-            </tbody>
-          </table>
-        </div>
-      </div>
 
       <div class="grey-bg">
         <div class="container">
@@ -420,7 +362,7 @@
     <!-- <i class="fa-solid fa-gears" id="workshopButton"></i> -->
     <i class="fa-solid fa-house" id="homeButton"></i>
     <i class="fa-solid fa-clapperboard" id="nonTechbutton"></i>
-    <i class="fa-solid fa-people-group" id="contributorsButton"></i>
+    <!-- <i class="fa-solid fa-people-group" id="contributorsButton"></i> -->
   </div>
 
   <div style="width: 100%; display: flex; justify-content: center;">

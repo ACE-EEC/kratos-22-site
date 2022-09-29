@@ -108,7 +108,7 @@ function setDisplayTime(i) {
   } else {
     card.style.width = 'auto';
   }
-
+   
   details.style.display = 'none';
   vl.style.display = 'none';
   content.style.display = 'none';
@@ -185,14 +185,15 @@ $('#nonTechbutton').click((e) => {
     "slow"
   );
 });
-$('#contributorsButton').click((e) => {
-  e.preventDefault();
-  contributorsClick();
-  $("html, body").animate(
-    { scrollTop: $(".banner").position().top },
-    "slow"
-  );
-});
+//may use in future
+// $('#contributorsButton').click((e) => {
+//   e.preventDefault();
+//   contributorsClick();
+//   $("html, body").animate(
+//     { scrollTop: $(".banner").position().top },
+//     "slow"
+//   );
+// });
 
 function sympoClick() {
   displayWorkshop();

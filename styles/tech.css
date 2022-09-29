@@ -83,6 +83,9 @@ body {
     order: 1;
     width: 33%;
   }
+  #reg-button-container{
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 700px) {
