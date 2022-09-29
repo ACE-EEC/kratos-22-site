@@ -68,14 +68,14 @@ button{
 }
 
 .reg-button-active {
-  color: var(--kratos-white);
-  background-color: var(--kratos-black);
+  color: var(--kratos-black);
+  background-color: var(--kratos-white);
   cursor: pointer;
 }
 
 .reg-button-inactive {
-  border: 3px solid var(--kratos-black);
-  color: var(--kratos-black);
+  border: 3px solid var(--kratos-white);
+  color: var(--kratos-white);
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -450,7 +450,7 @@ h5 .info-icon {
   box-shadow: 0 -8px 8px rgba(0, 0, 0, .5);
   min-height: 30%;
   width: 100%;
-  background-color: var(--kratos-white);
+  background-color: var(--kratos-grey-dark);
   padding: 1em;
 }
 
@@ -459,7 +459,7 @@ h5 .info-icon {
   font-size: 2em;
   text-align: center;
   font-family: 'Chakra Petch', monospace;
-  color: var(--kratos-grey-dark);
+  color: var(--kratos-white);
 
 }
 
