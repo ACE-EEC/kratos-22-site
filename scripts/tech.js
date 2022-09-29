@@ -200,13 +200,16 @@ function ntechClick() {
   displayntech();
   updateSlides('nonTechnical');
 }
+function contributorsClick(){
+  displaycontributors();
+}
 
 //displaying card holder
 var technicalPage = document.getElementById('technicalPage');
 var nontechnicalPage = document.getElementById('nontechnicalPage');
 // var workshopPage = document.getElementById('workshopPage');
 var homePage = document.getElementById('mainPage');
-
+var contributorsPage=document.getElementById('contributorsPage');
 var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
@@ -219,6 +222,7 @@ function displayWorkshop() {
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
   homePage.style.display = 'none';
+  contributorsPage.style.display='none';
 
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
@@ -231,6 +235,7 @@ function displaytech() {
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'flex';
   homePage.style.display = 'none';
+  contributorsPage.style.display='none';
 
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
@@ -243,6 +248,7 @@ function displayntech() {
   nontechnicalPage.style.display = 'flex';
   technicalPage.style.display = 'none';
   homePage.style.display = 'none';
+  contributorsPage.style.display='none';
 
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
@@ -256,12 +262,25 @@ function homeClick() {
   // workshopPage.style.display = 'none';
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
+  contributorsPage.style.display='none';
 
   bannerVideo.style.display = 'flex';
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
 }
 
+
+function displaycontributors(){
+  homePage.style.display = 'none';
+  // workshopPage.style.display = 'none';
+  nontechnicalPage.style.display = 'none';
+  technicalPage.style.display = 'none';
+  contributorsPage.style.display='flex';
+  bannerVideo.style.display = 'none';
+  slideshowContainer.style.display = 'none';
+  markers.style.display = 'none';
+}
+ 
 AOS.init({
   duration: 1000,
 })
