@@ -490,7 +490,6 @@ body {
 
 .cardRules scroller p {
   scroll-snap-align: start;
-  word-break: normal;
 }
 
 .cardRules scroller::-webkit-scrollbar {

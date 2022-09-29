@@ -1,0 +1,35 @@
+.page {
+    min-height: 90vh;
+    /* display: flex; */
+    /* flex-flow: column nowrap; */
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+    padding: 1em;
+    overflow: auto;
+}
+
+body {
+    background: white !important;
+}
+
+.header {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--kratos-black);
+}
+
+th {
+    background: var(--kratos-black);
+    color: var(--kratos-white);
+    /* border: 2px solid white!important; */
+}
+
+td, th {
+    min-width: 8em;
+    padding: .3em;
+    border: 2px solid black!important;
+}
+
+table {
+}
