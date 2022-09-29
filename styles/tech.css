@@ -1183,7 +1183,17 @@ body {
     padding-left: 10%;
 }
 
-
+.contributors-content{
+  display: flex;
+  flex-direction: column;
+}
+.heading-footer-text{
+  font-size: 0.9em;
+  /* margin: -20%; */
+  text-align: center;
+  color: var(--kratos-white);
+ 
+}
 @media only screen and (min-width: 768px) {
     .container {
         padding: 2.5em 15%;
@@ -1219,12 +1229,18 @@ body {
         width: 50%;
         padding-left: 10%;
     }
+    .heading-footer-text{
+      font-size: 1.3em;
+    }
    
 }
 
 @media only screen and (min-width: 1300px) {
     .name {
         padding-left: 20%;
+    }
+    .heading-footer-text{
+      font-weight: 2em;
     }
 }
 
@@ -1235,8 +1251,4 @@ body {
 
 .black-bg{
   width: 100%;
-}
-.contributors-content{
-  display: flex;
-  flex-direction: column;
 }

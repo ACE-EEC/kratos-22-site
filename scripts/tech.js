@@ -185,6 +185,14 @@ $('#nonTechbutton').click((e) => {
     "slow"
   );
 });
+$('#contributorsPage').click((e) => {
+  e.preventDefault();
+  ntechClick();
+  $("html, body").animate(
+    { scrollTop: $(".banner").position().top },
+    "slow"
+  );
+});
 
 function sympoClick() {
   displayWorkshop();
@@ -276,7 +284,7 @@ function displaycontributors(){
   nontechnicalPage.style.display = 'none';
   technicalPage.style.display = 'none';
   contributorsPage.style.display='flex';
-  bannerVideo.style.display = 'none';
+  bannerVideo.style.display = 'flex';
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
 }
