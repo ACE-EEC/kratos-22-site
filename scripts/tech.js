@@ -223,6 +223,8 @@ var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
 var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
 
+//hacky way of fixing the bug xd
+contributorsPage.style.display='none';
 
 function displayWorkshop() {
   $('.register-btn-section').css('display', 'flex')
