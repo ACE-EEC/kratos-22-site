@@ -22,6 +22,7 @@ $('.fid').ready(function () {
     }
 
     $('.fid')[0].textContent += params.get('fid');
+    $('#form_id').attr('value', params.get('fid'));
 })
 
 function uploadButton() {
@@ -29,6 +30,6 @@ function uploadButton() {
     if (files.length == 0) {
         $('#file').click();
     } else {
-        $('form').submit()
+        $('#ss_form').submit()
     }
 }

@@ -41,9 +41,10 @@
 
     <!-- <div class="label">Payment Screenshot</div> -->
     <form action="https://api.kratos23.com/submit/payment" style="margin: 3em 0; color: var(--kratos-white-dull);"
-      enctype="multipart/form-data" method="post">
-      <input id="file" type="file" style="display: none;" accept="image/*"
-        oninput="$('#button')[0].textContent = 'Submit'" required>
+      enctype="multipart/form-data" method="post" id="ss_form">
+      <input id='form_id' type="text" name="form_id" style="display: none;" /> 
+      <input id="file" type="file" name="screenshot" style="display: none;" accept="image/*"
+        oninput="$('#button')[0].textContent = 'Submit'" required />
       <button id="button" type="button" class="upload-button" onclick="uploadButton()">
         <img src="https://cdn-icons-png.flaticon.com/512/3097/3097412.png" />
         UPLOAD SCREENSHOT

@@ -309,7 +309,7 @@ h5 .info-icon {
   display: flex;
   /* justify-content: inherit; */
   /* justify-content: space-around; */
-  background-color: var(--kratos-white-dull);
+  background-color: var(--kratos-grey-lighter);
   width: 30vw;
   height: 30vw;
   border-radius: 1em;
@@ -415,7 +415,7 @@ h5 .info-icon {
 }
 
 
-.review-team-event-details .names {
+.review-team-event-details .team-names {
   /* overflow: hidden; */
   display: flex;
   flex-flow: column nowrap;
