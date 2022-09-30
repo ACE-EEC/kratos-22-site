@@ -47,17 +47,20 @@ async function loadEventCards() {
     // TODO: Remove temp change when opening registrations fully 
     // regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
 
+    let fee = event.content.teamBased.toLowerCase() !== 'solo'
+      ? '' + (event.content.fee / event.content.teamSize.split('-')[1]) + ' Per Head'
+      : event.content.fee
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
     let regButton = event.type == "offline" ?
-            `<div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
-              <div class="reg-button-label">${regButtonLabel}</div>
-              <i class="${registerLogo}"></i>
-            </div>`
-          : 
-            `<div id="regButton${i}" class="reg-button reg-button-active" onclick="location.href='${event.gform}'" >
-              <div class="reg-button-label">Fill out Google Form</div>
-              <i class="${registerLogo}"></i>
-            </div>`
+      `<div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
+        <div class="reg-button-label">${regButtonLabel}</div>
+        <i class="${registerLogo}"></i>
+      </div>`
+      :
+      `<div id="regButton${i}" class="reg-button reg-button-active" onclick="location.href='${event.gform}'" >
+        <div class="reg-button-label">Fill out Google Form</div>
+        <i class="${registerLogo}"></i>
+      </div>`
 
 
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
@@ -70,9 +73,9 @@ async function loadEventCards() {
             </div>
             <i id="plus${i}" onclick="setTimeout(function(){triggerDisplay(${i})}, 300); $('.transform').toggleClass('transform-active-another');" class="plus transform fa fa-plus"></i>
             <div class="details" id="details${i}">
-              <div class="tag">₹${event.content.fee}</div>
+              <div class="tag">₹${fee}</div>
               <div class="tag">${event.content.teamBased}</div>
-              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize + "v" + event.content.teamSize : event.content.teamSize}</div>
+              <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize + "v" + event.content.teamSize : event.content.teamSize + " Members"}</div>
             </div>
             ${regButton}
             <div class="vl" id="vl${i}"></div>
