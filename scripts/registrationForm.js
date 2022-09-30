@@ -389,8 +389,7 @@ async function toFinalPage() {
 
     <div id="totalAmount" class='total-amount'></div>
     <div class='total-amount' style="font-size:1em;">Payment for Paper Presentation will be required later, <strong>only from the shortlisted teams</strong></div> <!-- TODO: Remove -->
-    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit</button>
-    <!-- TODO: Change button text to Submit & Pay -->
+    <button id='submitAndPay' type="button" class="submit-button" onclick="submitAndPay()">Submit And Pay</button>
   </div>
   `);
 

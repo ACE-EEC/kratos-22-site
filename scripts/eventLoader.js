@@ -44,12 +44,9 @@ async function loadEventCards() {
     let registerLogo = event.content.onlineRegistration ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-building-columns'
     let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
 
-    // TODO: Remove temp change when opening registrations fully 
-    // regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
-
-    let fee = event.content.teamBased.toLowerCase() !== 'solo'
+    let fee = event.content.teamBased.toLowerCase() !== 'solo' && (event.content.name !== "Paper Presentation" && event.content.name !== "Murder Mystery")
       ? '' + (event.content.fee / (event.content.teamSize.split('-')[1] ? event.content.teamSize.split('-')[1] : event.content.teamSize)).toPrecision(2) + ' Per Head'
-      : event.content.fee
+      : event.content.fee + ' Per Team'
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
     let regButton = event.type == "offline" ?
       `<div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
