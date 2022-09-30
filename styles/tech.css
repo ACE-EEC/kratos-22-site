@@ -1171,6 +1171,14 @@ body {
     margin: 3%;
     width: 100%;
 }
+.table-names-solo{
+  text-align: center;
+    font-size: 1.3em;
+    color: var(--kratos-white);
+    /* justify-content: center; */
+    margin: 3%;
+    width: 100%;
+}
 
 .name {
     color: var(--kratos-white);
@@ -1179,6 +1187,14 @@ body {
     height: 2em;
     width: 50%;
     text-align: left;
+}
+.name-center {
+  color: var(--kratos-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  padding-right: 7%;
+
 }
 
 .designation {
@@ -1217,6 +1233,13 @@ body {
         margin: 3%;
         width: 100%;
     }
+    .table-names-solo{
+        text-align: center;
+        font-size: 3em;
+        color: var(--kratos-white);
+        width: 100%;
+    
+    }
     .name {
         color: var(--kratos-white);
         font-size:1.5rem;
@@ -1226,6 +1249,12 @@ body {
         width: 50%;
         text-align: left;
     }
+    .name-center {
+      color: var(--kratos-white);
+      font-size:1.5rem;
+      text-align: center;
+      padding-right: 7%;
+     }
     .designation {
       color: var(--kratos-white);
       font-size:1.5rem;
@@ -1243,9 +1272,16 @@ body {
     .name {
         padding-left: 20%;
     }
+    .name-center{
+        text-align: center;
+      padding-right: 7%;
+
+      /* padding-left:-30%; */
+    }
     .heading-footer-text{
       font-weight: 2em;
     }
+    
 }
 
 .grey-bg{
@@ -1255,5 +1291,5 @@ body {
 }
 
 .black-bg{
-  width: 100%;
+  width: 100vw;
 }
