@@ -223,7 +223,7 @@ var slideshowContainer = document.getElementById('slideshowContainer');
 var markers = document.getElementById('slideshowMarkers');
 var bannerVideo = document.getElementById('video');
 var navbarMobileAnimation = document.getElementsByClassName('navbar-collapse');
-
+var footerContact=document.getElementById('myFooter');
 //hacky way of fixing the bug xd
 contributorsPage.style.display='none';
 
@@ -238,6 +238,7 @@ function displayWorkshop() {
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
   markers.style.display = 'flex';
+  footerContact.style.display='flex';
 }
 
 function displaytech() {
@@ -251,6 +252,8 @@ function displaytech() {
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
   markers.style.display = 'flex';
+  footerContact.style.display='flex';
+
 }
 
 function displayntech() {
@@ -264,6 +267,8 @@ function displayntech() {
   bannerVideo.style.display = 'none';
   slideshowContainer.style.display = 'flex';
   markers.style.display = 'flex';
+  footerContact.style.display='flex';
+
 }
 
 function homeClick() {
@@ -278,6 +283,8 @@ function homeClick() {
   bannerVideo.style.display = 'flex';
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
+  footerContact.style.display='flex';
+
 }
 
 
@@ -290,6 +297,8 @@ function displaycontributors(){
   bannerVideo.style.display = 'flex';
   slideshowContainer.style.display = 'none';
   markers.style.display = 'none';
+  footerContact.style.display='none';
+
 }
  
 AOS.init({
