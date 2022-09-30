@@ -53,6 +53,7 @@ button{
 .reg-button {
   user-select: none;
   cursor: auto;
+  font-weight: 600;
   align-items: center;
   border-radius: 0.25em;
   display: none;
