@@ -48,7 +48,7 @@ async function loadEventCards() {
     // regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
 
     let fee = event.content.teamBased.toLowerCase() !== 'solo'
-      ? '' + (event.content.fee / event.content.teamSize.split('-')[1]) + ' Per Head'
+      ? '' + (event.content.fee / (event.content.teamSize.split('-')[1] ? event.content.teamSize.split('-')[1] : event.content.teamSize)).toPrecision(2) + ' Per Head'
       : event.content.fee
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
     let regButton = event.type == "offline" ?
