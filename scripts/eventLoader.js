@@ -15,7 +15,7 @@ async function fetchEventCount() {
 
 let _eventList = [];
 async function fetchEventList() {
-  if (_eventList.length !== 0) 
+  if (_eventList.length !== 0)
     return _eventList;
 
   let promises = [];
@@ -34,7 +34,7 @@ async function loadEventCards() {
   // Only do card loading in the main page. 
   // This module is linked in registration page too, for the fetchEventList() and fetchEventCount fns()
   if (document.location.pathname !== "/")
-    return; 
+    return;
 
   let count = await fetchEventCount();
   let events = await fetchEventList();
@@ -45,13 +45,23 @@ async function loadEventCards() {
     let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
 
     // TODO: Remove temp change when opening registrations fully 
-    regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
+    // regHandler = event.content.name == "Paper Presentation" ? regHandler : "alert('Registrations are only open for Paper Presentation currently. Check back later!')"
 
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
+    let regButton = event.type == "offline" ?
+            `<div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
+              <div class="reg-button-label">${regButtonLabel}</div>
+              <i class="${registerLogo}"></i>
+            </div>`
+          : 
+            `<div id="regButton${i}" class="reg-button reg-button-active" onclick="location.href='${event.gform}'" >
+              <div class="reg-button-label">Fill out Google Form</div>
+              <i class="${registerLogo}"></i>
+            </div>`
 
 
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
-      `<div class="card "  id="card${i}" >
+      `<div class="card "  id="card${i}">
         <div class="cardContent" >
           <div class="cardImage" id="cardImage${i}" >
             <h1 class="eventName">${event.content.name}</h1>
@@ -64,14 +74,12 @@ async function loadEventCards() {
               <div class="tag">${event.content.teamBased}</div>
               <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize + "v" + event.content.teamSize : event.content.teamSize}</div>
             </div>
-            <div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
-              <div class="reg-button-label">${regButtonLabel}</div>
-                <i class="${registerLogo}"></i>
-              </div>
+            ${regButton}
             <div class="vl" id="vl${i}"></div>
           </div>
           <div class="bText" id="bText${i}">
             <p class="content" id="content${i}">${event.content.description}</p>
+            <p class="contact">👤 ${event.content.contact}</p>
           </div>
           <div class="cardRules" id="cardRules${i}">
             <h3>Rules</h3>

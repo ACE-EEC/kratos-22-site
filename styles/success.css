@@ -41,6 +41,11 @@
   text-align: center;
 }
 
+.main-card h5 {
+  color: var(--kratos-white-dull);
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   .page {
     min-height: 100vh;

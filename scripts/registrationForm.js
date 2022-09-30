@@ -1,5 +1,5 @@
-// const apiURI = "https://api.kratos23.com"
-const apiURI = "http://localhost:3555"
+const apiURI = "https://api.kratos23.com"
+// const apiURI = "http://localhost:3555"
 
 const namePattern = "^[A-Za-z]+((\\s)?(('|-|\\.)?([A-Za-z])+))*\\s*?$"
 const emailPattern = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$"
@@ -430,9 +430,9 @@ async function toFinalPage() {
           </div>
         </div>
         <div class='review-team-event-details'>
-          <div class="names">
+          <div class="team-names">
             <div class="label">Team</div>  
-            <div class="name" id="leaderName${i}" style="margin-left: -2em">
+            <div id="leaderName${i}" style="margin-left: -2em">
               👑 ${truncateString(formData[event_code]['full_name'], 15)}
             </div>
 
@@ -461,7 +461,7 @@ async function toFinalPage() {
 
     for (let j = 1; j < upperBound; j++) {
       $(`#leaderName${i}`).after(`
-      <div class="name">
+      <div>
         ${truncateString(formData[event_code][`member${j}_full_name`], 15)}
       </div>
       `);
@@ -500,10 +500,9 @@ async function submitAndPay() {
   let subRes = await axios.post(apiURI + '/submit', formData);
 
   if (isMobileDevice()) {
-    // go to the number display + screenshot upload page
-    document.location.assign(`https://kratos23.com/pay?&a=${subRes.amount}&fid=${subRes.form_id}`)
+    document.location.assign(`${location.origin}/pay?&a=${subRes.data.amount}&fid=${subRes.data.form_id}`)
   } else {
-    // document.location.assign('https://kratos23.com/desktopPay');
+    document.location.assign(`${location.origin}/pay?&a=${subRes.data.amount}&fid=${subRes.data.form_id}`)
   }
 }
 

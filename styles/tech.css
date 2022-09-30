@@ -31,9 +31,17 @@ body {
 
 .bText {
   display: flex;
-  align-items: center;
+  flex-flow: column nowrap;
+  /* align-items: center; */
+  justify-content: space-around;
   text-align: center;
+  gap: 1em;
   margin: 25px;
+}
+
+.bText .contact {
+  font-size: 1.2em;
+  margin: 0;
 }
 
 .vl {
@@ -482,7 +490,6 @@ body {
 
 .cardRules scroller p {
   scroll-snap-align: start;
-  word-break: break-all;
 }
 
 .cardRules scroller::-webkit-scrollbar {
