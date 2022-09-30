@@ -18,13 +18,15 @@
   max-width: 90vw;
   height: 50vh;
   background-color: var(--kratos-grey-lighter);
+  padding: 3em;
 }
 
 .img-container {
   display: flex;
   justify-content: center;
-  width: auto;
-  height: 40%;
+  padding: 1em;
+  width: 100%;
+  height: 30%;
 }
 
 .main-card h3 {
@@ -44,6 +46,19 @@
 .main-card h5 {
   color: var(--kratos-white-dull);
   text-align: center;
+}
+
+.next-button {
+  background: #e9e9ed;
+  border-radius: .4em;
+  box-shadow: 2.5px 2.5px 2px var(--kratos-red);
+  color: var(--kratos-red);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 2.5em;
+  padding: 0 1em;
+  margin: 2em 0;
 }
 
 @media only screen and (min-width: 768px) {
