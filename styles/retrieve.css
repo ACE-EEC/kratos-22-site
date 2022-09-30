@@ -1,10 +1,10 @@
 .page {
     min-height: 90vh;
-    /* display: flex; */
-    /* flex-flow: column nowrap; */
+    display: flex;
+    flex-flow: column nowrap;
     /* justify-content: flex-end; */
     /* align-items: center; */
-    padding: 1em;
+    padding: 6em 1em;
     overflow: auto;
 }
 
