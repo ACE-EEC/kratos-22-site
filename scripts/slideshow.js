@@ -1,6 +1,6 @@
 const slideCount = {
   technical: 5,
-  nonTechnical: 5,
+  nonTechnical: 8,
   workshop: 1,
   none: 0,
 };
