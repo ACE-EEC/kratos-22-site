@@ -492,6 +492,10 @@ body {
   scroll-snap-align: start;
 }
 
+.cardRules scroller a {
+  margin: 0;
+}
+
 .cardRules scroller::-webkit-scrollbar {
   width: 5px;
   height: 8px;
