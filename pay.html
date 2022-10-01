@@ -31,18 +31,21 @@
       <div class="instruction">Send <span id="amount" class="amount"></span> to</div>
       <div class="mobile">94898 44003</div>
       <div class="instruction">OR</div>
-      <!-- <div class="instruction">or scan the QR Code</div> -->
+      <!-- <div class="instruction">OR scan the QR Code</div> -->
     </div>
     <div class="qr-container">
-      <img src="https://storage.googleapis.com/kratos23.com/images/upi-qr.jpeg" />
+    <img src="https://storage.googleapis.com/kratos23.com/images/upi-qr.jpeg" />
       <div>Priya Dharshini S</div>
       <div>priya.srinivas2101@okicici</div>
     </div>
+    <div class="instruction"
+      style="font-size: 1.1em; line-height: 1.3em; text-align: center; max-width: 32em; margin: 1em 0;">
+      ℹ️ Please add your name to the transaction note to facilitate verification</div>
 
     <!-- <div class="label">Payment Screenshot</div> -->
     <form action="https://api.kratos23.com/submit/payment" style="margin: 3em 0; color: var(--kratos-white-dull);"
       enctype="multipart/form-data" method="post" id="ss_form">
-      <input id='form_id' type="text" name="form_id" style="display: none;" /> 
+      <input id='form_id' type="text" name="form_id" style="display: none;" />
       <input id="file" type="file" name="screenshot" style="display: none;" accept="image/*"
         oninput="$('#button')[0].textContent = 'Submit'" required />
       <button id="button" type="button" class="upload-button" onclick="uploadButton()">
