@@ -18,18 +18,22 @@ $('body').ready(async function () {
           </tr>`}
     `)
 
+    if (!tl) {
+      teamEvents = `<td></td><td></td>`
+    }
+
     $('#tbody').append(`
-      <tr colspan="${tl}">
-        <td rowspan="${tl}">${forms[i].full_name}</td>
-        <td rowspan="${tl}">${forms[i].college_name}</td>
-        <td rowspan="${tl}">${forms[i].email}</td>
-        <td rowspan="${tl}">${forms[i].mobile}</td>
-        <td rowspan="${tl}">${forms[i].screenshot
+      <tr rowspan="${tl || 1}">
+        <td rowspan="${tl || 1}">${forms[i].full_name}</td>
+        <td rowspan="${tl || 1}">${forms[i].college_name}</td>
+        <td rowspan="${tl || 1}">${forms[i].email}</td>
+        <td rowspan="${tl || 1}">${forms[i].mobile}</td>
+        <td rowspan="${tl || 1}">${forms[i].screenshot
         ? `<a href="${forms[i].screenshot}"target="_blank" rel="noopener noreferrer">Link</a></td>`
         : 'none'
       }
-        <td rowspan="${tl}">${forms[i].solo_events.length == 0
-        ? 'none'
+        <td rowspan="${tl || 1}">${forms[i].solo_events.length == 0
+        ? ''
         : forms[i].solo_events
       }</td>
         
