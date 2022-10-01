@@ -367,14 +367,11 @@ async function removeEvent(ev) {
   // remove from cookies
   removeRegistrationListItem(eventCode);
 
-  console.log('modified form', formData)
   $(`#${eventCode}`).remove()
 }
 
 async function toFinalPage() {
   $(`teamFormNext${teamEvIndex}`).attr('disabled', '')
-  console.log('Review form: ', formData)
-
   $('#blockQuote').after(`
   <div class="section" id="reviewSection">
     <div class="section-header">

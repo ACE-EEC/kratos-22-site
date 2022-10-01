@@ -3,7 +3,6 @@ let apiOrigin = 'https://api.kratos23.com'
 
 $('body').ready(async function () {
   let res = await axios.get(apiOrigin + '/retrieve');
-  console.log(res.data);
   let forms = res.data;
 
   for (let i = 0; i < forms.length; i++) {
