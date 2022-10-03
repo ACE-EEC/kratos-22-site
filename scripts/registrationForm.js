@@ -29,10 +29,10 @@ function toTitleNameList(codeNameList) {
 async function getChosenSoloEventTitleList() {
   let allEvents = await fetchEventList();
   let soloEvents = [];
-  let chosenEventTitles = toTitleNameList(getRegistrationList());
+  let chosenEventCodes = getRegistrationList();
 
   for (let i = 0; i < allEvents.length; i++) {
-    if (allEvents[i].content.teamBased.toLowerCase() === "solo" && chosenEventTitles.includes(toTitleNameList([allEvents[i].content.name])[0])) {
+    if (allEvents[i].content.teamBased.toLowerCase() === "solo" && chosenEventCodes.includes(toCodeName(allEvents[i].content.name))) {
       soloEvents.push(allEvents[i].content.name);
     }
   }
@@ -42,9 +42,9 @@ async function getChosenSoloEventTitleList() {
 async function getChosenTeamEventDetailsList() {
   let allEvents = await fetchEventList();
   let teamEvents = [];
-  let chosenEventTitles = toTitleNameList(getRegistrationList());
+  let chosenEventCodes = getRegistrationList();
   for (let i = 0; i < allEvents.length; i++) {
-    if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEventTitles.includes(toTitleNameList([allEvents[i].content.name])[0])) {
+    if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEventCodes.includes(toCodeName(allEvents[i].content.name))) {
       teamEvents.push(allEvents[i]);
     }
   }
