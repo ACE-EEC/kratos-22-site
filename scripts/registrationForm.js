@@ -42,9 +42,9 @@ async function getChosenSoloEventTitleList() {
 async function getChosenTeamEventDetailsList() {
   let allEvents = await fetchEventList();
   let teamEvents = [];
-  let chosenEvents = toTitleNameList(getRegistrationList());
+  let chosenEventTitles = toTitleNameList(getRegistrationList());
   for (let i = 0; i < allEvents.length; i++) {
-    if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEvents.includes(allEvents[i].content.name)) {
+    if (allEvents[i].content.teamBased.toLowerCase() !== "solo" && chosenEventTitles.includes(toTitleNameList([allEvents[i].content.name])[0])) {
       teamEvents.push(allEvents[i]);
     }
   }
