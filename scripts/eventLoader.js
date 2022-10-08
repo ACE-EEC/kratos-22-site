@@ -44,7 +44,8 @@ async function loadEventCards() {
     let registerLogo = event.content.onlineRegistration ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-building-columns'
     let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
 
-    let fee = event.content.teamBased.toLowerCase() !== 'solo' && (event.content.name !== "Paper Presentation" && event.content.name !== "Murder Mystery" && event.content.name !== "Code Play")
+    let perTeam = ["Paper Presentation", "Murder Mystery", "Code Play", "Futsal"]
+    let fee = event.content.teamBased.toLowerCase() !== 'solo' && !perTeam.includes(event.content.name)
       ? '' + (event.content.fee / (event.content.teamSize.split('-')[1] ? event.content.teamSize.split('-')[1] : event.content.teamSize)).toPrecision(2) + ' Per Head'
       : event.content.fee + ' Per Team'
     let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
