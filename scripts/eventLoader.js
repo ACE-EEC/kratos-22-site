@@ -38,28 +38,49 @@ async function loadEventCards() {
 
   let count = await fetchEventCount();
   let events = await fetchEventList();
-  // Load all the events
+
+  // Iterate over all events
   for (let i = 0; i < count; i++) {
     let event = events[i];
-    let registerLogo = event.content.onlineRegistration ? 'fa-solid fa-arrow-right-long' : 'fa-solid fa-building-columns'
-    let regHandler = event.content.onlineRegistration ? `registerClick(${i})` : ''
+    
+    // Per team price display exceptions
+    const perTeam = ["Paper Presentation", "Murder Mystery", "Code Play", "Futsal"]
+    let fee;
+    if (event.content.teamBased.toLowerCase() !== 'solo' && !perTeam.includes(event.content.name)) {
+      fee = '' + (event.content.fee / (event.content.teamSize.split('-')[1] ? event.content.teamSize.split('-')[1] : event.content.teamSize)).toPrecision(2) + ' Per Head'
+    } else {
+      fee = event.content.fee + ' Per Team'
+    }
+    
+    // Online / Offline reg based button content changes
+    let registerLogo, regHandler, regButtonLabel;
+    let buttonClasses = "reg-button reg-button-active"
+    if (event.content.onlineRegistration) {
+      registerLogo = 'fa-solid fa-arrow-right-long'
+      regHandler = `registerClick(${i})`
+      regButtonLabel = "Add to registration"
+    } else {
+      registerLogo = 'fa-solid fa-building-columns'
+      regHandler = ''
+      regButtonLabel = "On spot Registraion"
+    }
 
-    let perTeam = ["Paper Presentation", "Murder Mystery", "Code Play", "Futsal"]
-    let fee = event.content.teamBased.toLowerCase() !== 'solo' && !perTeam.includes(event.content.name)
-      ? '' + (event.content.fee / (event.content.teamSize.split('-')[1] ? event.content.teamSize.split('-')[1] : event.content.teamSize)).toPrecision(2) + ' Per Head'
-      : event.content.fee + ' Per Team'
-    let regButtonLabel = event.content.onlineRegistration ? "Add to registration" : "On spot Registraion"
-    let regButton = event.type == "offline" ?
-      `<div id="regButton${i}" class="reg-button reg-button-active" onclick="${regHandler}" >
-        <div class="reg-button-label">${regButtonLabel}</div>
-        <i class="${registerLogo}"></i>
-      </div>`
-      :
-      `<div id="regButton${i}" class="reg-button reg-button-active" onclick="location.href='${event.gform}'" >
-        <div class="reg-button-label">Fill out Google Form</div>
-        <i class="${registerLogo}"></i>
-      </div>`
+    // GForm(online) event exceptions
+    if (event.type == "online") {
+      regHandler = `location.href='${event.gform}'`
+      regButtonLabel = "Fill Out Google Form"
+    }
 
+    // Registration closing exceptions
+    let eventCode = event.content.name.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_')
+    const closedEvents = ['futsal']
+    if (closedEvents.includes(eventCode)) {
+      removeRegistrationListItem(eventCode)
+      registerLogo = 'fa-solid fa-ban'
+      regHandler = ""
+      regButtonLabel = "Registration Closed for Event"
+      buttonClasses = buttonClasses.replace("reg-button-active", "reg-button-inactive")
+    }
 
     $(`#${event.category}Page`).find(`#${event.type}`)[0].innerHTML +=
       `<div class="card "  id="card${i}">
@@ -75,7 +96,10 @@ async function loadEventCards() {
               <div class="tag">${event.content.teamBased}</div>
               <div class="tag">${event.content.teamSize.length <= 2 ? event.content.teamSize + "v" + event.content.teamSize : event.content.teamSize + " Members"}</div>
             </div>
-            ${regButton}
+            <div id="regButton${i}" class="${buttonClasses}" onclick="${regHandler}" >
+              <div class="reg-button-label">${regButtonLabel}</div>
+              <i id="buttonIcon" class="${registerLogo}"></i>
+            </div>
             <div class="vl" id="vl${i}"></div>
           </div>
           <div class="bText" id="bText${i}">
@@ -92,7 +116,8 @@ async function loadEventCards() {
         <i id="upArrow${i}" onclick="reset(${i})" class="upArrow fa fa-caret-up fa-2x" style="display: none;"></i>
       </div>`;
 
-    if (isEventCodeAdded(event.content.name.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_'))) {
+    // Change added event cards' buttons to reflect that
+    if (isEventCodeAdded(eventCode)) {
       let card = document.getElementById(`card${i}`);
       let regButton = document.getElementById(`regButton${i}`);
       regButton.getElementsByClassName('reg-button-label')[0].textContent = "Added to Registration";
