@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="styles/common.css">
   <link rel="stylesheet" type="text/css" href="styles/tech.css">
   <link rel="stylesheet" type="text/css" href="styles/retrieve.css">
-  
+
   <script rel="script" type="text/javascript" src="scripts/retrieve.js" defer></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -23,9 +23,31 @@
   </nav>
   <div class="page">
     <div class="header">Submitted Forms (<span id="count"></span>)</div>
-    <div class="filter-option">
-      <input id="paidOnly" type="checkbox" onchange="updateFilter()">
-      <label for="paidOnly">Show only paid forms</label>
+    <div class="filter-box">
+      <div class="filter-option">
+        <input id="paidOnly" type="checkbox" onchange="updateFilter()">
+        <label for="paidOnly">Show only paid forms</label>
+      </div>
+      <div class="filter-option">
+        <label for="event">Event:</label>
+        <select id="event" onchange="updateFilter()">
+          <option value="">All Events</option>
+          <optgroup label="Technical">
+            <option value="paper_presentation">Paper Presentation</option>
+            <option value="css_wars">CSS Wars</option>
+            <option value="bug_off">Bug Off</option>
+            <option value="code_play">Code Play</option>
+            <option value="pair_programming">Pair Programming</option>
+          </optgroup>
+          <optgroup label="Non-Technical">
+            <option value="gaming_fifa">Gaming - Fifa</option>
+            <option value="futsal">Futsal</option>
+            <option value="cine_quiz">Cine Quiz</option>
+            <option value="squid_game">Squid Game</option>
+            <option value="channel_surfing">Channel Surfing</option>
+          </optgroup>
+        </select>
+      </div>
     </div>
     <table>
       <thead>

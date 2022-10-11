@@ -54,12 +54,17 @@ function renderForms(forms) {
 function updateFilter() {
   $('#tbody').empty()
   let paid = $('#paidOnly')[0]
+  let event = $('#event')[0]
+  let forms = _forms
+  
   if (paid.checked) {
-    let forms = _forms.filter((x) => x.hasOwnProperty('screenshot'))
-    renderForms(forms)
-    $('#count')[0].textContent = forms.length
-  } else {
-    renderForms(_forms)
-    $('#count')[0].textContent = _forms.length
+    forms = forms.filter((x) => x.hasOwnProperty('screenshot'))
   }
+
+  if (event.value !== '') {
+    forms = forms.filter((x) => x.solo_events.includes(event.value) || x.team_events.includes(event.value))
+  }
+
+  renderForms(forms)
+  $('#count')[0].textContent = forms.length
 }

@@ -31,8 +31,11 @@ td, th {
 }
 
 .filter-option {
-    padding: 1em;
     margin: .25em 0;
+}
+
+.filter-box {
+    padding: 1em;
 }
 
 .col-darker {
