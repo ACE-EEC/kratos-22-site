@@ -24,10 +24,7 @@
   <div class="page">
     <div class="header">Submitted Forms (<span id="count"></span>)</div>
     <div class="filter-box">
-      <div class="filter-option">
-        <input id="paidOnly" type="checkbox" onchange="updateFilter()">
-        <label for="paidOnly">Show only paid forms</label>
-      </div>
+      <h4>Filter</h4>
       <div class="filter-option">
         <label for="event">Event:</label>
         <select id="event" onchange="updateFilter()">
@@ -47,6 +44,10 @@
             <option value="channel_surfing">Channel Surfing</option>
           </optgroup>
         </select>
+      </div>
+      <div class="filter-option">
+        <input id="paidOnly" type="checkbox" onchange="updateFilter()">
+        <label for="paidOnly">Show only paid forms</label>
       </div>
     </div>
     <table>
