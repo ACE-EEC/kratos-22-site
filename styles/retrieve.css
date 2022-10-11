@@ -2,8 +2,6 @@
     min-height: 90vh;
     display: flex;
     flex-flow: column nowrap;
-    /* justify-content: flex-end; */
-    /* align-items: center; */
     padding: 6em 1em;
     overflow: auto;
 }
@@ -43,9 +41,9 @@ th {
 }
 
 select {
-    background-color: #e9e9ed;
+    background-color: white;
     border: 1px solid #8f8f9d;
-    border-radius: .25em;
+    border-radius: .5em;
     height: 2em;
     margin: .5em 0 0;
 }
