@@ -7,6 +7,7 @@ let _forms = null;
 $('body').ready(async function () {
   let res = await axios.get(apiOrigin + '/retrieve');
   _forms = res.data;
+  $('paidOnly').attr('checked', false)
   $('#count')[0].textContent = _forms.length
   renderForms(_forms)
 });
