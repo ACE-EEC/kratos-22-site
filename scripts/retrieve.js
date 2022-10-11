@@ -1,10 +1,18 @@
 let apiOrigin = 'https://api.kratos23.com'
 // let apiOrigin = 'http://localhost:3555'
 
+// Not using window.sessionStorage, since it survives reloads
+let _forms = null;
+
 $('body').ready(async function () {
   let res = await axios.get(apiOrigin + '/retrieve');
-  let forms = res.data;
+  _forms = res.data;
+  $('#count')[0].textContent = _forms.length
+  renderForms(_forms)
+});
 
+// Note: doesn't clear the parent before rendering
+function renderForms(forms) {
   for (let i = 0; i < forms.length; i++) {
     let tl = forms[i].team_events.length
     let teamEvents = forms[i].team_events.map((x, j, a) => `
@@ -40,4 +48,17 @@ $('body').ready(async function () {
       </tr>
     `)
   }
-});
+}
+
+function updateFilter() {
+  $('#tbody').empty()
+  let paid = $('#paidOnly')[0]
+  if (paid.checked) {
+    let forms = _forms.filter((x) => x.hasOwnProperty('screenshot'))
+    renderForms(forms)
+    $('#count')[0].textContent = forms.length
+  } else {
+    renderForms(_forms)
+    $('#count')[0].textContent = _forms.length
+  }
+}

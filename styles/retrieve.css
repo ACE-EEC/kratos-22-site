@@ -22,7 +22,6 @@ body {
 th {
     background: var(--kratos-black);
     color: var(--kratos-white);
-    /* border: 2px solid white!important; */
 }
 
 td, th {
@@ -31,5 +30,7 @@ td, th {
     border: 2px solid black!important;
 }
 
-table {
+.filter-option {
+    padding: 1em;
+    margin: .25em 0;
 }
