@@ -34,3 +34,7 @@ td, th {
     padding: 1em;
     margin: .25em 0;
 }
+
+.col-darker {
+    background-color: rgb(245, 245, 245);
+}
