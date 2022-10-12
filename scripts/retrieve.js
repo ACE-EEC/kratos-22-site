@@ -9,7 +9,9 @@ $('body').ready(async function () {
   _forms = res.data;
   $('paidOnly').attr('checked', false)
   $('#count')[0].textContent = _forms.length
-  renderForms(_forms)
+  updateFilter() // calling this instead of renderforms() directly
+  // Since the input element state is preserved between reloads
+  // and we can't have the display and filter be desynced 
 });
 
 // Note: doesn't clear the parent before rendering
