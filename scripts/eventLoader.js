@@ -73,8 +73,8 @@ async function loadEventCards() {
 
     // Registration closing exceptions
     let eventCode = event.content.name.toLowerCase().replaceAll("'", "").replaceAll('-', ' ').replaceAll(' ', '_')
-    const closedEvents = ['futsal', 'paper_presentation', 'bug_off', 'code_play',
-      'gaming_fifa', 'futsal', 'cine_quiz', 'gaming_valorant']
+    const closedEvents = ['futsal', 'paper_presentation', 'bug_off',
+       'futsal', 'cine_quiz', 'gaming_valorant','pair_programming','murder_mystery']
     if (closedEvents.includes(eventCode)) {
       removeRegistrationListItem(eventCode)
       registerLogo = 'fa-solid fa-ban'
