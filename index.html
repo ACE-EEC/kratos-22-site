@@ -135,8 +135,9 @@
           var deadline = new Date("Oct 15, 2022 8:15:0").getTime();
           var current_time = new Date().getTime();
           var t = deadline - current_time;
-
-          clock.setTime((deadline - current_time) / 1000);
+          if(t<0)
+          t=0;
+          clock.setTime((t)/1000);
           clock.setCountdown(true);
           clock.start();
 

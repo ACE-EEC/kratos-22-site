@@ -1,3 +1,5 @@
+
+
 * {
   padding: 0px;
   margin: 0px;
@@ -381,7 +383,7 @@ body {
 /*Block Quote*/
 .blockquote p {
   font-size: 3.5rem;
-  font-family: 'Blanka', 'Chakra Petch', monospace !important;
+  font-family: 'custom-font-blanka', 'Chakra Petch', monospace !important;
 }
 
 #link0,
@@ -709,7 +711,7 @@ body {
     font-size: 2em;
     color: var(--kratos-white);
     /* font-stretch: 200%;  */
-    font-family: "Blanka", "Consolas", "Courier New", Courier, monospace;
+    font-family: "custom-font-blanka", "Consolas", "Courier New", Courier, monospace;
   }
 
   .navLogo {
