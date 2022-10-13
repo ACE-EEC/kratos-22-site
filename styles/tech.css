@@ -1306,3 +1306,14 @@ body {
 .black-bg{
   width: 100vw;
 }
+
+.copyright-ref {
+  margin: 0;
+  text-decoration: none;
+  color: var(--kratos-red-darker)
+}
+
+.copyright-ref:hover {
+  text-decoration: underline;
+  color: var(--kratos-red);
+}
